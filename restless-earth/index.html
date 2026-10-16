@@ -1,0 +1,872 @@
+<title>Restless Earth</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed globe; instrument panels float at the edges like a seismic observatory console. */
+:root{
+  --basalt:#0a0c0f;
+  --panel:rgba(16,19,23,.84);
+  --panel-solid:#14181d;
+  --line:#2b3138;
+  --ash:#e4ded3;
+  --muted:#8f949b;
+  --magma:#ff6a2b;
+  --ember:#ffb347;
+  --tide:#3fd0ff;
+  --fault:#f3e3a2;
+  --converge:#ff4d2e;
+  --f-display:"Chakra Petch","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:10px;
+  color-scheme:dark;
+}
+html,body{height:100%;}
+body{background:var(--basalt);color:var(--ash);font-family:var(--f-body);font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased;}
+#app{position:fixed;inset:0;}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab;}
+#gl.dragging{cursor:grabbing;}
+#gl.pick{cursor:crosshair;}
+button,input{font:inherit;color:inherit;}
+button{cursor:pointer;}
+:focus-visible{outline:2px solid var(--ember);outline-offset:2px;}
+
+.hud{z-index:2;position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+
+/* header */
+#top{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);left:max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px;pointer-events:none;}
+#top > *{pointer-events:auto;}
+.brand{display:flex;align-items:baseline;gap:10px;}
+.brand h1{margin:0;font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase;line-height:1;}
+.brand h1 span{color:var(--magma);}
+.brand small{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em;}
+.tabs{display:inline-flex;padding:3px;gap:3px;background:var(--panel);border:1px solid var(--line);border-radius:999px;width:max-content;}
+.tabs button{background:none;border:0;padding:7px 14px;border-radius:999px;font-family:var(--f-display);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.tabs button[aria-pressed="true"]{background:var(--ash);color:var(--basalt);}
+
+/* right info panel */
+#panel{top:calc(env(safe-area-inset-top,0px) + 14px);right:max(16px,env(safe-area-inset-right,0px));width:330px;max-height:calc(100% - 210px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));overflow:auto;padding:16px 18px;display:flex;flex-direction:column;gap:12px;}
+#panel .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+#panel h2{margin:0;font-family:var(--f-display);font-size:22px;font-weight:600;letter-spacing:.02em;line-height:1.15;text-wrap:balance;}
+#panel p{margin:0;line-height:1.55;color:#cfc9be;}
+#panel .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;}
+#panel .stat{display:flex;flex-direction:column;gap:2px;min-width:0;}
+#panel .stat b{font-family:var(--f-mono);font-weight:500;font-size:16px;color:var(--ash);font-variant-numeric:tabular-nums;}
+#panel .stat span{font-size:11px;color:var(--muted);letter-spacing:.04em;}
+#panel .row{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ash);}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.btn{border:1px solid var(--line);background:#1b2026;padding:8px 12px;border-radius:8px;font-weight:500;}
+.btn:hover{border-color:#4a525c;}
+.btn.hot{background:var(--magma);border-color:var(--magma);color:#1a0b04;font-weight:600;}
+.btn.cool{background:var(--tide);border-color:var(--tide);color:#03141c;font-weight:600;}
+.list{display:flex;flex-direction:column;gap:2px;margin:0;padding:0;list-style:none;}
+.list button{width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:6px 8px;display:flex;justify-content:space-between;gap:10px;color:var(--ash);}
+.list button:hover{background:#1e242b;}
+.list button em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap;}
+.legend{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#cfc9be;}
+.legend div{display:flex;align-items:center;gap:8px;}
+.legend i{width:18px;height:4px;border-radius:2px;display:inline-block;flex:none;}
+.note{font-size:12px;color:var(--muted);line-height:1.5;}
+#panelToggle{display:none;}
+
+/* bottom dock */
+#dock{left:max(332px,calc(50% - 320px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);padding:10px 12px;display:flex;flex-direction:column;gap:10px;width:min(640px,calc(100% - 348px - max(16px,env(safe-area-inset-right,0px))));}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.tools button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;border-radius:8px;border:1px solid transparent;background:#181c21;font-family:var(--f-display);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.tools button svg{width:20px;height:20px;}
+.tools button[aria-pressed="true"]{color:var(--ash);border-color:var(--ember);background:#231a12;}
+.tools button[data-tool="tsunami"][aria-pressed="true"]{border-color:var(--tide);background:#0f1f26;}
+.ctrl{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);}
+.ctrl label{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;min-width:84px;}
+.ctrl output{font-family:var(--f-mono);font-size:12px;color:var(--ash);min-width:92px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+input[type=range]{flex:1;min-width:0;accent-color:var(--magma);height:22px;}
+.toggles{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#cfc9be;}
+.toggles label{display:flex;align-items:center;gap:6px;cursor:pointer;}
+.toggles input{accent-color:var(--ember);}
+.iconbtn{background:#181c21;border:1px solid var(--line);border-radius:8px;width:34px;height:30px;display:grid;place-items:center;flex:none;}
+.iconbtn svg{width:14px;height:14px;}
+
+/* seismograph */
+#seismo{left:max(16px,env(safe-area-inset-left,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:300px;padding:8px 10px 8px;display:flex;flex-direction:column;gap:4px;}
+#seismo header{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+#seismo header b{color:var(--ember);font-weight:500;}
+#seismoCv{width:100%;height:84px;display:block;}
+#seismoFoot{font-family:var(--f-mono);font-size:10.5px;color:#cfc9be;min-height:14px;font-variant-numeric:tabular-nums;}
+
+/* clocks & banners */
+#banner{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);padding:8px 14px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;background:var(--panel-solid);border:1px solid var(--line);white-space:nowrap;}
+#banner.warn{border-color:var(--tide);color:var(--tide);}
+#banner.quake{border-color:var(--ember);color:var(--ember);}
+#tip{position:absolute;pointer-events:none;padding:5px 9px;border-radius:6px;background:var(--panel-solid);border:1px solid var(--line);font-size:12px;white-space:nowrap;transform:translate(12px,-50%);}
+#tip em{font-style:normal;color:var(--muted);font-family:var(--f-mono);font-size:11px;margin-left:6px;}
+.lbl{position:absolute;pointer-events:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ash);white-space:nowrap;display:flex;align-items:center;gap:6px;text-shadow:0 1px 3px #000,0 0 8px #000;transform:translate(-4px,-50%);}
+.lbl::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ash);box-shadow:0 0 0 2px rgba(0,0,0,.5);flex:none;}
+.lbl.rim{color:var(--tide);}
+.lbl.rim::before{background:var(--tide);}
+.lbl.rim.s{color:var(--ember);}
+.lbl.rim.s::before{background:var(--ember);}
+#loading{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+
+@media (max-width:760px){
+  .brand h1{font-size:20px;}
+  .brand small{display:none;}
+  #panel{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 182px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));width:auto;max-height:28%;padding:12px 14px;}
+  #panel.collapsed{max-height:44px;overflow:hidden;}
+  #panelToggle{display:block;position:absolute;top:8px;right:8px;background:#1b2026;border:1px solid var(--line);border-radius:6px;font-family:var(--f-mono);font-size:10px;padding:4px 8px;letter-spacing:.08em;text-transform:uppercase;}
+  #panel h2{font-size:18px;padding-right:64px;}
+  #seismo{left:auto;right:max(16px,env(safe-area-inset-right,0px));bottom:auto;top:calc(env(safe-area-inset-top,0px) + 96px);width:200px;padding:6px 8px;}
+  #seismoCv{height:56px;}
+  #seismoFoot{font-size:9.5px;}
+  #dock{left:max(16px,env(safe-area-inset-left,0px));width:auto;right:max(16px,env(safe-area-inset-right,0px));padding:8px 10px;gap:8px;}
+  .ctrl label{min-width:64px;}
+  .ctrl output{min-width:70px;}
+  #banner{top:calc(env(safe-area-inset-top,0px) + 172px);font-size:11px;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+
+<div id="app">
+  <canvas id="gl" aria-label="Interactive 3D globe of Earth's tectonic plates"></canvas>
+  <div id="loading">Building the planet…</div>
+
+  <div id="top">
+    <div class="brand"><h1>Restless <span>Earth</span></h1><small>plates · interior · hazards</small></div>
+    <div class="tabs" role="group" aria-label="View">
+      <button id="tabSurface" aria-pressed="true">Surface</button>
+      <button id="tabInside" aria-pressed="false">Inside Earth</button>
+    </div>
+  </div>
+
+  <aside id="panel" class="hud" aria-live="polite">
+    <button id="panelToggle" aria-expanded="true">Hide</button>
+    <div id="panelBody"></div>
+  </aside>
+
+  <section id="seismo" class="hud" aria-label="Seismograph">
+    <header><span>Seismograph · <b id="stationName">ANMO</b></span><span id="seismoClock">listening</span></header>
+    <canvas id="seismoCv"></canvas>
+    <div id="seismoFoot">Trigger an earthquake to record it here.</div>
+  </section>
+
+  <section id="dock" class="hud" aria-label="Controls">
+    <div id="surfaceCtrls" style="display:flex;flex-direction:column;gap:10px;">
+      <div class="tools" role="group" aria-label="Tool">
+        <button data-tool="explore" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>Explore</button>
+        <button data-tool="erupt" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 20l6-9h6l6 9z"/><path d="M10 8c-1-2 0-4 2-5M14 8c1-2 0-3-1-4M12 11V7"/></svg>Erupt</button>
+        <button data-tool="quake" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h4l2-6 3 12 3-9 2 5 2-2h4"/></svg>Quake</button>
+        <button data-tool="tsunami" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 17c2 0 3-2 5-2s3 2 5 2 3-2 5-2 3 2 5 2"/><path d="M4 12c0-4 4-7 8-7 3 0 4 2 3 4-1 1-3 1-3 3"/></svg>Tsunami</button>
+      </div>
+      <div class="ctrl"><label for="strength" id="strengthLbl">Magnitude</label><input type="range" id="strength" min="4" max="9.5" step="0.1" value="8.0"><output id="strengthOut">Mw 8.0</output></div>
+      <div class="ctrl"><label for="clock">Plate clock</label><button class="iconbtn" id="playBtn" aria-label="Play plate motion"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2l10 6-10 6z"/></svg></button><input type="range" id="clock" min="-80" max="80" step="0.5" value="0"><output id="clockOut">Today</output></div>
+      <div class="toggles">
+        <label><input type="checkbox" id="tgPlates" checked> Plate colours</label>
+        <label><input type="checkbox" id="tgBounds" checked> Boundaries</label>
+        <label><input type="checkbox" id="tgFlow" checked> Motion</label>
+        <label><input type="checkbox" id="tgMarks" checked> Landmarks</label>
+        <label><input type="checkbox" id="tgSound"> Sound</label>
+      </div>
+    </div>
+    <div id="insideCtrls" style="display:none;flex-direction:column;gap:10px;">
+      <div class="row" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn hot" id="waveBtn">Send seismic waves</button>
+        <button class="btn" id="convBtn" aria-pressed="true">Convection: on</button>
+        <button class="btn" id="backBtn">Back to surface</button>
+      </div>
+      <div class="note">Drag to orbit. Hover or tap a layer to read it. Crust thickness is exaggerated so you can see it; every other boundary is drawn to true scale.</div>
+    </div>
+  </section>
+
+  <div id="banner" hidden></div>
+  <div id="tip" hidden></div>
+  <div id="labels"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+const D2R=Math.PI/180, RE=6371;
+const $=s=>document.querySelector(s);
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Land mask: 0.5° grid, run-length encoded (GLOBE 1 km elevation data, resampled) ---------- */
+const MASK_W=720,MASK_H=360;
+const MASK=(function(b64){const bin=atob(b64);const m=new Uint8Array(MASK_W*MASK_H);let i=0,pos=0,val=0;
+  while(i<bin.length){let r=0,s=0,b;do{b=bin.charCodeAt(i++);r+=(b&127)*Math.pow(2,s);s+=7;}while(b&128);if(val)m.fill(1,pos,pos+r);pos+=r;val^=1;}return m;})("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");
+function isLand(lat,lon){let r=Math.floor((90-lat)*2);r=r<0?0:r>359?359:r;let c=Math.floor((lon+180)*2)%720;if(c<0)c+=720;return MASK[r*MASK_W+c]===1;}
+
+/* ---------- Geometry helpers (y up; lon 0 on +x, east toward -z) ---------- */
+function ll2v(lat,lon,out){const a=lat*D2R,b=lon*D2R;out=out||new THREE.Vector3();return out.set(Math.cos(a)*Math.cos(b),Math.sin(a),-Math.cos(a)*Math.sin(b));}
+function v2ll(v){const n=v.clone().normalize();return {lat:Math.asin(n.y)/D2R,lon:Math.atan2(-n.z,n.x)/D2R};}
+function angDist(a,b){return Math.acos(Math.max(-1,Math.min(1,a.dot(b)/(a.length()*b.length()))));}
+function rotAxis(v,k,ang,out){out=out||new THREE.Vector3();const c=Math.cos(ang),s=Math.sin(ang),d=k.dot(v);
+  const cx=k.y*v.z-k.z*v.y,cy=k.z*v.x-k.x*v.z,cz=k.x*v.y-k.y*v.x;
+  return out.set(v.x*c+cx*s+k.x*d*(1-c),v.y*c+cy*s+k.y*d*(1-c),v.z*c+cz*s+k.z*d*(1-c));}
+function fmtLat(l){return Math.abs(l).toFixed(1)+'°'+(l>=0?'N':'S');}
+function fmtLon(l){return Math.abs(l).toFixed(1)+'°'+(l>=0?'E':'W');}
+function fmtNum(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});}
+
+/* ---------- Plates: simplified outlines from seed points; motion from NNR-MORVEL56 Euler poles (lat, lon, °/Myr) ---------- */
+const PLATES=[
+ {name:'Pacific',col:'#3a6f93',pole:[-63.58,114.70,0.651],seeds:[[0,-150],[20,-170],[-20,-130],[40,-160],[-40,-150],[10,170],[-10,-170],[30,-140],[45,175],[-50,-120],[-30,-170],[0,-122],[52,-150],[-55,-150],[20,-130],[-20,-112],[30,160],[-35,-120]],
+  fact:'The largest plate on Earth and almost all ocean. Its edges are the Ring of Fire, home to about 75% of active volcanoes. The Pacific Plate dives under its neighbours at deep trenches like the Mariana Trench.'},
+ {name:'North American',col:'#7f8f4e',pole:[-4.85,-80.64,0.209],seeds:[[40,-100],[55,-110],[65,-140],[35,-80],[60,-80],[75,-90],[72,-40],[40,-50],[30,-55],[66,-160],[50,-125],[80,-20],[62,-30],[20,-50]],
+  fact:'Carries North America, Greenland and the western half of Iceland. It moves away from Eurasia at the Mid-Atlantic Ridge, which widens the Atlantic by about 2.5 cm a year.'},
+ {name:'Eurasian',col:'#8d6f9b',pole:[48.85,-106.50,0.223],seeds:[[50,10],[55,40],[60,90],[45,110],[65,130],[40,60],[35,100],[25,112],[5,105],[40,-15],[65,-5],[72,60],[55,150],[45,135],[36,70],[30,85],[80,100]],
+  fact:'Europe and most of Asia. Where India pushes into it, the crust buckles upward into the Himalaya and the Tibetan Plateau, the highest ground on the planet.'},
+ {name:'African',col:'#b07a3c',pole:[47.68,-68.44,0.292],seeds:[[0,20],[15,0],[-20,25],[25,15],[-5,38],[-30,25],[0,-10],[-20,0],[28,30],[-15,-10],[-40,30],[-35,10],[10,30],[30,-5],[-15,50],[-30,45],[5,50]],
+  fact:'A slow plate that is starting to split in two along the East African Rift. In a few million years, a new ocean could open there, the way the Red Sea did.'},
+ {name:'South American',col:'#4f8f78',pole:[-22.62,-112.83,0.109],seeds:[[-10,-55],[-30,-60],[-15,-35],[5,-65],[-40,-65],[-30,-35],[-45,-45],[0,-35],[10,-45],[-50,-62],[-20,-68]],
+  fact:'South America rides over the sinking Nazca Plate. That collision builds the Andes, the longest mountain chain above sea level, and drives Chile\'s giant earthquakes.'},
+ {name:'Antarctic',col:'#8aa3b5',pole:[65.42,-118.11,0.250],seeds:[[-80,0],[-75,90],[-75,-90],[-70,180],[-60,-20],[-60,60],[-58,120],[-65,-120],[-60,150],[-85,-150],[-60,10],[-62,-90],[-58,90],[-62,-160]],
+  fact:'Almost completely ringed by spreading ridges, so it is growing at its edges while staying nearly still over the South Pole.'},
+ {name:'Indian',col:'#b45b5b',pole:[50.37,-3.29,0.544],seeds:[[20,78],[10,75],[0,80],[-10,72],[-5,88],[15,65],[-20,65]],
+  fact:'India broke from Africa and Antarctica about 120 million years ago and raced north. It is still moving at about 4 to 5 cm a year, which keeps the Himalaya rising.'},
+ {name:'Australian',col:'#b39b4a',pole:[33.86,37.94,0.632],seeds:[[-25,135],[-35,145],[-20,118],[-10,140],[-40,110],[-45,150],[-30,162],[-15,100],[-25,100],[-5,135],[-40,128],[-30,90]],
+  fact:'One of the fastest-moving plates. Australia drifts north-northeast about 7 cm a year, so GPS coordinates for the country have to be updated every few decades.'},
+ {name:'Nazca',col:'#5b6fb3',pole:[46.23,-101.06,0.696],seeds:[[-15,-90],[-30,-90],[-5,-95],[-35,-100],[-20,-80],[-25,-100],[-40,-82]],
+  fact:'An ocean plate sinking under South America at the Peru–Chile Trench. The 1960 Valdivia earthquake, the strongest ever measured, ruptured this boundary.'},
+ {name:'Cocos',col:'#6a5bb3',pole:[26.93,-124.31,1.198],seeds:[[10,-95],[7,-88],[13,-102]],
+  fact:'The fastest plate in this model at up to 8 cm a year. It dives under Mexico and Central America and feeds the volcanoes of Guatemala and El Salvador.'},
+ {name:'Caribbean',col:'#a8668f',pole:[35.20,-92.62,0.286],seeds:[[15,-75],[15,-66],[14,-80],[13,-70]],
+  fact:'A small plate edged by sliding faults. One of them, the Enriquillo fault, caused the 2010 Haiti earthquake.'},
+ {name:'Philippine Sea',col:'#57a3a3',pole:[-46.02,-31.36,0.910],seeds:[[20,130],[15,136],[28,135],[10,132]],
+  fact:'Squeezed between the Pacific and Eurasia. The Pacific Plate sinks beneath it at the Mariana Trench, the deepest point in the ocean at about 11 km.'},
+ {name:'Arabian',col:'#c48e5a',pole:[48.88,-8.49,0.559],seeds:[[25,45],[20,50],[28,40],[17,44]],
+  fact:'Pulling away from Africa, which opens the Red Sea and the Gulf of Aden, and pushing north into Iran to raise the Zagros Mountains.'},
+ {name:'Juan de Fuca',col:'#7aa36a',pole:[-38.31,60.04,0.951],seeds:[[46,-128],[43,-128],[48,-129]],
+  fact:'A small leftover plate sliding under the Pacific Northwest at the Cascadia Subduction Zone. It feeds Mount St. Helens and Mount Rainier.'},
+ {name:'Scotia',col:'#9c8fc4',pole:[22.52,-106.15,0.146],seeds:[[-57,-45],[-58,-35],[-56,-55]],
+  fact:'A small plate between South America and Antarctica, edged by the South Sandwich arc of volcanic islands.'}
+];
+const SEEDS=[];
+PLATES.forEach((p,i)=>{p.id=i;p.axis=ll2v(p.pole[0],p.pole[1]);p.omega=p.pole[2]*D2R;p.wvec=p.axis.clone().multiplyScalar(p.omega);p.color=new THREE.Color(p.col);p.seeds.forEach(s=>SEEDS.push({v:ll2v(s[0],s[1]),id:i}));});
+const _sv=new THREE.Vector3();
+function plateOf(v){let best=-2,id=0;for(let i=0;i<SEEDS.length;i++){const s=SEEDS[i].v,d=s.x*v.x+s.y*v.y+s.z*v.z;if(d>best){best=d;id=SEEDS[i].id;}}return id;}
+function velocity(id,p){return new THREE.Vector3().crossVectors(PLATES[id].wvec,p).multiplyScalar(RE);} // mm/yr
+function frame(p){const n=p.clone().normalize();let e=new THREE.Vector3(0,1,0).cross(n);if(e.lengthSq()<1e-8)e.set(1,0,0);e.normalize();const nn=new THREE.Vector3().crossVectors(n,e);return {e,n:nn};}
+function bearing(v,p){const f=frame(p);const a=Math.atan2(v.dot(f.e),v.dot(f.n))/D2R;return (a+360)%360;}
+function compass(b){return ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(b/22.5)%16];}
+
+/* ---------- Landmarks ---------- */
+const VOLCANOES=[
+ {name:'Kīlauea',lat:19.41,lon:-155.29,vei:2,kind:'Shield volcano over the Hawaiian hotspot',fact:'Erupts runny basalt lava almost continuously. It sits in the middle of the Pacific Plate, fed by a plume of hot mantle rising from deep below.'},
+ {name:'Mount St. Helens',lat:46.20,lon:-122.18,vei:5,kind:'Stratovolcano · Cascadia subduction',fact:'On 18 May 1980 its north flank collapsed and a sideways blast flattened 600 km² of forest. Ash fell across 11 US states.'},
+ {name:'Mount Fuji',lat:35.36,lon:138.73,vei:5,kind:'Stratovolcano · triple junction',fact:'Japan\'s highest peak sits where three plates meet. Its last eruption, in 1707, dropped ash on Edo, today\'s Tokyo.'},
+ {name:'Krakatoa',lat:-6.10,lon:105.42,vei:6,kind:'Caldera · Sunda subduction',fact:'The 1883 eruption was heard 4,800 km away and its tsunamis killed over 36,000 people. Its child, Anak Krakatau, is still active.'},
+ {name:'Vesuvius',lat:40.82,lon:14.43,vei:5,kind:'Stratovolcano · Africa–Eurasia collision',fact:'Buried Pompeii and Herculaneum in AD 79. About 3 million people now live within reach of its next eruption.'},
+ {name:'Eyjafjallajökull',lat:63.63,lon:-19.62,vei:4,kind:'Stratovolcano · Mid-Atlantic Ridge',fact:'Iceland sits right on a spreading ridge. Its 2010 ash cloud grounded about 100,000 flights across Europe.'},
+ {name:'Etna',lat:37.75,lon:14.99,vei:3,kind:'Stratovolcano · Africa–Eurasia collision',fact:'Europe\'s most active volcano, erupting in some form most years for at least 2,700 years of written records.'},
+ {name:'Pinatubo',lat:15.14,lon:120.35,vei:6,kind:'Stratovolcano · Manila Trench subduction',fact:'The 1991 eruption pushed 15 million tonnes of sulfur dioxide into the stratosphere and cooled the whole planet by about 0.5 °C for a year.'},
+ {name:'Tambora',lat:-8.25,lon:118.0,vei:7,kind:'Stratovolcano · Sunda subduction',fact:'The largest eruption in recorded history, in 1815. The next year, 1816, became the "Year Without a Summer" across Europe and North America.'},
+ {name:'Popocatépetl',lat:19.02,lon:-98.62,vei:3,kind:'Stratovolcano · Cocos subduction',fact:'One of Mexico\'s most active volcanoes, 70 km from Mexico City. Its name means "smoking mountain" in Nahuatl.'},
+ {name:'Cotopaxi',lat:-0.68,lon:-78.44,vei:4,kind:'Stratovolcano · Nazca subduction',fact:'A near-perfect glaciated cone. When it erupts, melting ice makes mudflows (lahars) that race down the valleys.'},
+ {name:'Mount Erebus',lat:-77.53,lon:167.15,vei:2,kind:'Stratovolcano · West Antarctic Rift',fact:'The southernmost active volcano on Earth, with a lake of molten lava in its crater.'},
+ {name:'Kilimanjaro',lat:-3.07,lon:37.35,vei:3,kind:'Stratovolcano · East African Rift',fact:'Africa\'s highest mountain formed as the continent began to stretch and split. It is dormant, not extinct.'},
+ {name:'Hunga Tonga',lat:-20.55,lon:-175.39,vei:6,kind:'Submarine volcano · Tonga Trench',fact:'Its January 2022 blast sent a pressure wave around the world several times and threw water vapour 57 km high.'},
+ {name:'Nyiragongo',lat:-1.52,lon:29.25,vei:2,kind:'Stratovolcano · East African Rift',fact:'Its lava is so low in silica that flows have raced downhill at up to 60 km/h, among the fastest ever recorded.'}
+];
+const QUAKES=[
+ {name:'Valdivia, Chile',year:1960,lat:-38.24,lon:-73.05,mw:9.5,fact:'The most powerful earthquake ever recorded. The fault slipped along about 1,000 km, and the tsunami crossed the Pacific to kill people in Hawaii and Japan.'},
+ {name:'Prince William Sound, Alaska',year:1964,lat:61.02,lon:-147.65,mw:9.2,fact:'Shook for about 4.5 minutes. Some coastline rose by 11 m, and the ground dropped by 2 m in other places.'},
+ {name:'Sumatra–Andaman',year:2004,lat:3.30,lon:95.98,mw:9.1,fact:'Ruptured about 1,300 km of the Sunda megathrust. The Indian Ocean tsunami that followed killed about 230,000 people in 14 countries.'},
+ {name:'Tōhoku, Japan',year:2011,lat:38.30,lon:142.37,mw:9.1,fact:'Moved part of Japan 2.4 m east and shortened Earth\'s day by a little over a microsecond. Tsunami waves reached 40 m.'},
+ {name:'Maule, Chile',year:2010,lat:-35.85,lon:-72.72,mw:8.8,fact:'Shifted the city of Concepción about 3 m west. It struck the same subduction zone as the 1960 quake, further north.'},
+ {name:'San Francisco',year:1906,lat:37.75,lon:-122.55,mw:7.9,fact:'The San Andreas Fault, a transform boundary, slipped by up to 6 m over 477 km. Fires after the quake destroyed most of the city.'},
+ {name:'Gorkha, Nepal',year:2015,lat:28.23,lon:84.73,mw:7.8,fact:'Caused by India pushing under Eurasia. It lifted the area around Kathmandu by about 1 m and triggered deadly avalanches on Everest.'},
+ {name:'Kahramanmaraş, Türkiye',year:2023,lat:37.23,lon:37.02,mw:7.8,fact:'Ruptured about 350 km of the East Anatolian Fault, where the Arabian Plate grinds past the Anatolian block.'},
+ {name:'Haiti',year:2010,lat:18.46,lon:-72.53,mw:7.0,fact:'A shallow quake right next to Port-au-Prince. A moderate magnitude became a catastrophe because of where it struck.'},
+ {name:'Lisbon, Portugal',year:1755,lat:36.5,lon:-10.0,mw:8.5,fact:'Struck on All Saints\' Day and was followed by a tsunami and fires. It changed how European thinkers wrote about nature and disaster.'}
+];
+const STATIONS=[
+ {code:'ANMO',name:'Albuquerque, USA',lat:34.95,lon:-106.46},{code:'KONO',name:'Kongsberg, Norway',lat:59.65,lon:9.60},
+ {code:'CTAO',name:'Charters Towers, Australia',lat:-20.09,lon:146.25},{code:'MAJO',name:'Matsushiro, Japan',lat:36.54,lon:138.21},
+ {code:'LPAZ',name:'La Paz, Bolivia',lat:-16.29,lon:-68.13},{code:'SNZO',name:'Wellington, New Zealand',lat:-41.31,lon:174.70},
+ {code:'TSUM',name:'Tsumeb, Namibia',lat:-19.20,lon:17.58},{code:'PAB',name:'San Pablo, Spain',lat:39.55,lon:-4.35},
+ {code:'KMBO',name:'Kilima Mbogo, Kenya',lat:-1.13,lon:37.25},{code:'COLA',name:'College, Alaska',lat:64.87,lon:-147.86}
+];
+[...VOLCANOES,...QUAKES,...STATIONS].forEach(m=>{m.v=ll2v(m.lat,m.lon);m.plate=plateOf(m.v);m.cur=m.v.clone();});
+
+/* ---------- Renderer & scene ---------- */
+const canvas=$('#gl');
+let renderer;
+try{renderer=new THREE.WebGLRenderer({canvas,antialias:true});}catch(e){$('#loading').textContent='This page needs WebGL, which this browser has turned off.';return;}
+renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+renderer.localClippingEnabled=true;
+renderer.setClearColor(0x0a0c0f,1);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(40,1,0.01,100);
+const globe=new THREE.Group();scene.add(globe);
+
+// stars
+(function(){const n=1800,pos=new Float32Array(n*3);for(let i=0;i<n;i++){const u=Math.random()*2-1,t=Math.random()*Math.PI*2,r=Math.sqrt(1-u*u),d=30+Math.random()*20;pos[i*3]=r*Math.cos(t)*d;pos[i*3+1]=u*d;pos[i*3+2]=r*Math.sin(t)*d;}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x8a8f99,size:1.2,sizeAttenuation:false,transparent:true,opacity:.6})));})();
+
+// inner occluding sphere (ocean floor colour) + clipping plane for cutaway
+const clipPlane=new THREE.Plane(new THREE.Vector3(0,0,-1),5);
+const core=new THREE.Mesh(new THREE.SphereGeometry(0.993,96,64),new THREE.MeshBasicMaterial({color:0x0d1620,clippingPlanes:[clipPlane],side:THREE.DoubleSide}));
+globe.add(core);
+
+// atmosphere rim
+const atmo=new THREE.Mesh(new THREE.SphereGeometry(1.13,64,48),new THREE.ShaderMaterial({side:THREE.BackSide,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ vertexShader:'varying vec3 vN;void main(){vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+ fragmentShader:'varying vec3 vN;void main(){float i=pow(max(0.,0.72-dot(vN,vec3(0.,0.,1.))),3.2);gl_FragColor=vec4(vec3(0.35,0.55,0.85)*i*1.6,i);}'}));
+scene.add(atmo);
+
+/* ---------- The dot-matrix crust ---------- */
+const N=72000, SPACING=Math.sqrt(4*Math.PI/N);
+const pos=new Float32Array(N*3),aPlate=new Float32Array(N),aLand=new Float32Array(N),aCoast=new Float32Array(N),aB=new Float32Array(N),aRand=new Float32Array(N);
+const BOUND=[]; // boundary samples for lookups
+(function build(){
+ const GA=Math.PI*(3-Math.sqrt(5)),p=new THREE.Vector3(),q=new THREE.Vector3();const h=SPACING*0.95;
+ for(let i=0;i<N;i++){
+  const y=1-2*(i+0.5)/N,r=Math.sqrt(1-y*y),th=i*GA;p.set(Math.cos(th)*r,y,Math.sin(th)*r);
+  pos[i*3]=p.x;pos[i*3+1]=p.y;pos[i*3+2]=p.z;aRand[i]=Math.random();
+  const ll=v2ll(p),land=isLand(ll.lat,ll.lon);aLand[i]=land?1:0;
+  const id=plateOf(p);aPlate[i]=id;
+  const f=frame(p);let coast=false,other=-1,dir=null;
+  for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+    q.copy(p).addScaledVector(f.e,dx*h).addScaledVector(f.n,dy*h).normalize();
+    const l2=v2ll(q);if(isLand(l2.lat,l2.lon)!==land)coast=true;
+    if(other<0){const id2=plateOf(q);if(id2!==id){other=id2;dir=q.clone().sub(p).normalize();}}
+  }
+  aCoast[i]=coast?1:0;
+  if(other>=0){
+    const vrel=velocity(other,p).sub(velocity(id,p));const m=vrel.length();const ratio=m>0?vrel.dot(dir)/m:0;
+    const t=ratio<-0.3?1:ratio>0.3?2:3;aB[i]=t;BOUND.push({v:p.clone(),type:t,a:id,b:other,rate:m});
+  }
+ }
+})();
+const shellGeo=new THREE.BufferGeometry();
+shellGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+shellGeo.setAttribute('aPlate',new THREE.BufferAttribute(aPlate,1));
+shellGeo.setAttribute('aLand',new THREE.BufferAttribute(aLand,1));
+shellGeo.setAttribute('aCoast',new THREE.BufferAttribute(aCoast,1));
+shellGeo.setAttribute('aB',new THREE.BufferAttribute(aB,1));
+shellGeo.setAttribute('aRand',new THREE.BufferAttribute(aRand,1));
+const plU=[],plC=[];for(let i=0;i<16;i++){const p=PLATES[i];plU.push(p?new THREE.Vector4(p.axis.x,p.axis.y,p.axis.z,p.omega):new THREE.Vector4(0,1,0,0));plC.push(p?p.color.clone():new THREE.Color(0x777777));}
+const U={
+ uPl:{value:plU},uPlC:{value:plC},uTime:{value:0},uScale:{value:600},uSpacing:{value:SPACING},
+ uCutN:{value:new THREE.Vector3(0,0,1)},uCut:{value:5},uTint:{value:1},uBounds:{value:1},uClockT:{value:0},
+ uQ:{value:new THREE.Vector3(1,0,0)},uQT:{value:-1},uQA:{value:0},
+ uTs:{value:new THREE.Vector3(1,0,0)},uTsT:{value:-1},uTsA:{value:0},
+ uLight:{value:new THREE.Vector3(-0.5,0.6,0.65).normalize()},uHLPlate:{value:-1}
+};
+const shellMat=new THREE.ShaderMaterial({uniforms:U,
+vertexShader:`
+uniform vec4 uPl[16];uniform vec3 uPlC[16];uniform float uTime,uScale,uSpacing,uCut,uTint,uBounds,uClockT;uniform vec3 uCutN;
+uniform vec3 uQ;uniform float uQT,uQA;uniform vec3 uTs;uniform float uTsT,uTsA;uniform vec3 uLight;uniform float uHLPlate;
+attribute float aPlate,aLand,aCoast,aB,aRand;varying vec3 vCol;varying float vA;
+vec3 rot(vec3 v,vec3 k,float a){return v*cos(a)+cross(k,v)*sin(a)+k*dot(k,v)*(1.-cos(a));}
+void main(){
+ int id=int(aPlate+.5);vec4 pl=uPl[id];vec3 pc=uPlC[id];
+ vec3 p=rot(position,pl.xyz,pl.w*uTime);
+ float r=1.0;vA=1.;
+ vec3 land=mix(vec3(.80,.74,.62),vec3(.62,.66,.50),step(.5,fract(aRand*7.)) *.35);
+ vec3 ocean=vec3(.11,.18,.25);
+ vec3 col=aLand>.5?land:ocean;
+ col=mix(col,col*.55+pc*(aLand>.5?.55:.75),uTint*(aLand>.5?.45:.8));
+ if(aLand>.5) r+=.004;
+ if(uHLPlate>-.5&&abs(aPlate-uHLPlate)<.5){col=mix(col,vec3(1.),.18);}
+ if(aB>.5&&uBounds>.5){
+   vec3 bc=aB<1.5?vec3(1.,.30,.18):aB<2.5?vec3(.25,.82,1.):vec3(.95,.89,.63);
+   float pulse=.75+.25*sin(uClockT*2.+aRand*6.28);col=bc*pulse;r+=.003;
+ }
+ // earthquake waves: P, S and surface waves race outward from the epicentre
+ if(uQT>=0.){
+   float ang=acos(clamp(dot(p,uQ),-1.,1.));
+   float fP=uQT*8./6371.,fS=uQT*4.5/6371.,fR=uQT*3.5/6371.;
+   float fade=exp(-uQT/3500.)*uQA/(1.+ang*1.2);
+   float wP=exp(-pow((ang-fP)/.012,2.))*.45,wS=exp(-pow((ang-fS)/.016,2.))*.7,wR=exp(-pow((ang-fR)/.03,2.));
+   float osc=sin((ang-fR)*180.);
+   r+=wR*fade*.022*osc+wS*fade*.006;
+   col=mix(col,vec3(1.,.83,.45),clamp(wP*fade*1.5,0.,1.));
+   col=mix(col,vec3(1.,.55,.2),clamp(wS*fade*1.4,0.,1.));
+   col=mix(col,vec3(1.,.42,.18),clamp(wR*fade*1.6,0.,1.));
+   float epi=exp(-ang*ang/.0012)*exp(-uQT/1500.)*uQA;col=mix(col,vec3(1.,.95,.8),clamp(epi,0.,1.));
+ }
+ // tsunami: travels on the ocean, slows and builds at coasts
+ if(uTsT>=0.){
+   float ang=acos(clamp(dot(p,uTs),-1.,1.));
+   float front=uTsT*198./6371000.;
+   float band=exp(-pow((ang-front)/.022,2.));
+   float trail=smoothstep(front,front-.25,ang)*step(.001,front)*.25;
+   float fade=uTsA*exp(-uTsT/120000.)/(1.+ang*.4);
+   if(aLand<.5){ r+=band*fade*.045; col=mix(col,vec3(.75,.95,1.),clamp(band*fade*1.4,0.,1.)); col=mix(col,vec3(.2,.6,.9),clamp(trail*fade,0.,1.)); }
+   else if(aCoast>.5){ float hit=exp(-pow((ang-front)/.05,2.))*fade; col=mix(col,vec3(.3,.85,1.),clamp(hit*2.,0.,1.)); r+=hit*.02; }
+ }
+ vec3 wp=p*r;
+ if(dot(p,uCutN)>uCut) vA=0.;
+ vec4 mv=modelViewMatrix*vec4(wp,1.);
+ vec3 n=normalize(normalMatrix*p);
+ float lam=.55+.55*max(dot(n,uLight),0.);
+ vCol=col*lam;
+ gl_Position=projectionMatrix*mv;
+ gl_PointSize=max(1.5,uSpacing*uScale/(-mv.z)*1.12);
+ if(vA<.5) gl_PointSize=0.;
+}`,
+fragmentShader:`varying vec3 vCol;varying float vA;void main(){if(vA<.5)discard;vec2 c=gl_PointCoord-.5;if(dot(c,c)>.23)discard;gl_FragColor=vec4(vCol,1.);}`
+});
+const shell=new THREE.Points(shellGeo,shellMat);globe.add(shell);
+
+/* ---------- Plate-motion flow particles ---------- */
+const FN=1600,FLOW=[],flowPos=new Float32Array(FN*3),flowA=new Float32Array(FN),flowC=new Float32Array(FN*3);
+function spawnFlow(f,randomAge){const u=Math.random()*2-1,t=Math.random()*Math.PI*2,r=Math.sqrt(1-u*u);f.p=new THREE.Vector3(r*Math.cos(t),u,r*Math.sin(t));f.id=plateOf(f.p);f.life=0;f.max=2.5+Math.random()*2.5;if(randomAge)f.life=Math.random()*f.max;}
+for(let i=0;i<FN;i++){const f={};spawnFlow(f,true);FLOW.push(f);}
+const flowGeo=new THREE.BufferGeometry();
+flowGeo.setAttribute('position',new THREE.BufferAttribute(flowPos,3));flowGeo.setAttribute('aAlpha',new THREE.BufferAttribute(flowA,1));flowGeo.setAttribute('aColor',new THREE.BufferAttribute(flowC,3));
+const flowMat=new THREE.ShaderMaterial({uniforms:{uScale:U.uScale,uCutN:U.uCutN,uCut:U.uCut},transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
+ vertexShader:'attribute float aAlpha;attribute vec3 aColor;uniform float uScale,uCut;uniform vec3 uCutN;varying float vA;varying vec3 vC;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;gl_PointSize=max(2.,.011*uScale/(-mv.z));vA=aAlpha*(dot(normalize(position),uCutN)>uCut?0.:1.);vC=aColor;}',
+ fragmentShader:'varying float vA;varying vec3 vC;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;gl_FragColor=vec4(vC,vA*smoothstep(.5,.1,d));}'});
+const flowPts=new THREE.Points(flowGeo,flowMat);globe.add(flowPts);
+const FLOW_K=5; // visual: 1 real second = 5 Myr of motion
+function updateFlow(dt){
+ const tmp=new THREE.Vector3();
+ for(let i=0;i<FN;i++){const f=FLOW[i],pl=PLATES[f.id];
+  rotAxis(f.p,pl.axis,pl.omega*FLOW_K*dt,tmp);f.p.copy(tmp);f.life+=dt;
+  if(f.life>f.max||plateOf(f.p)!==f.id)spawnFlow(f,false);
+  // draw at the plate's current clock position
+  rotAxis(f.p,pl.axis,pl.omega*U.uTime.value,tmp).multiplyScalar(1.012);
+  flowPos[i*3]=tmp.x;flowPos[i*3+1]=tmp.y;flowPos[i*3+2]=tmp.z;
+  const k=f.life/f.max;flowA[i]=Math.sin(Math.PI*k)*.9;
+  const c=pl.color;flowC[i*3]=.55+c.r*.45;flowC[i*3+1]=.55+c.g*.45;flowC[i*3+2]=.55+c.b*.45;
+ }
+ flowGeo.attributes.position.needsUpdate=true;flowGeo.attributes.aAlpha.needsUpdate=true;flowGeo.attributes.aColor.needsUpdate=true;
+}
+
+/* ---------- Landmark markers ---------- */
+const markGroup=new THREE.Group();globe.add(markGroup);
+const volMat=new THREE.MeshBasicMaterial({color:0xff6a2b}),quakeMat=new THREE.MeshBasicMaterial({color:0xffb347,side:THREE.DoubleSide}),staMat=new THREE.MeshBasicMaterial({color:0xe4ded3});
+const coneGeo=new THREE.ConeGeometry(.012,.034,4);coneGeo.translate(0,.017,0);
+const ringGeo=new THREE.RingGeometry(.010,.016,24);
+const staGeo=new THREE.OctahedronGeometry(.009);
+const UP=new THREE.Vector3(0,1,0),ZAX=new THREE.Vector3(0,0,1);
+VOLCANOES.forEach(v=>{v.mesh=new THREE.Mesh(coneGeo,volMat);v.kind2='volcano';markGroup.add(v.mesh);});
+QUAKES.forEach(q=>{q.mesh=new THREE.Mesh(ringGeo,quakeMat);q.kind2='quake';markGroup.add(q.mesh);});
+STATIONS.forEach(s=>{s.mesh=new THREE.Mesh(staGeo,staMat);s.kind2='station';s.mesh.visible=false;globe.add(s.mesh);});
+function placeMarkers(){
+ const t=U.uTime.value;
+ [...VOLCANOES,...QUAKES,...STATIONS].forEach(m=>{const pl=PLATES[m.plate];rotAxis(m.v,pl.axis,pl.omega*t,m.cur);
+  m.mesh.position.copy(m.cur).multiplyScalar(1.004);
+  if(m.kind2==='quake')m.mesh.quaternion.setFromUnitVectors(ZAX,m.cur);else m.mesh.quaternion.setFromUnitVectors(UP,m.cur);
+  const hidden=U.uCut.value<2&&m.cur.dot(U.uCutN.value)>U.uCut.value;m.mesh.material.visible=true;if(m.kind2!=='station')m.mesh.visible=!hidden&&markGroup.visible;});
+}
+
+/* ---------- Particles for eruptions ---------- */
+function makeParticles(cap,additive){
+ const g=new THREE.BufferGeometry(),p=new Float32Array(cap*3),c=new Float32Array(cap*3),a=new Float32Array(cap),s=new Float32Array(cap);
+ g.setAttribute('position',new THREE.BufferAttribute(p,3));g.setAttribute('aColor',new THREE.BufferAttribute(c,3));g.setAttribute('aAlpha',new THREE.BufferAttribute(a,1));g.setAttribute('aSize',new THREE.BufferAttribute(s,1));
+ const m=new THREE.ShaderMaterial({uniforms:{uScale:U.uScale},transparent:true,depthWrite:false,blending:additive?THREE.AdditiveBlending:THREE.NormalBlending,
+  vertexShader:'attribute vec3 aColor;attribute float aAlpha,aSize;uniform float uScale;varying vec3 vC;varying float vA;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;gl_PointSize=aSize*uScale/(-mv.z);vC=aColor;vA=aAlpha;}',
+  fragmentShader:'varying vec3 vC;varying float vA;void main(){vec2 c=gl_PointCoord-.5;float d=length(c);if(d>.5)discard;gl_FragColor=vec4(vC,vA*smoothstep(.5,0.,d));}'});
+ const pts=new THREE.Points(g,m);pts.frustumCulled=false;globe.add(pts);
+ const list=[];for(let i=0;i<cap;i++)list.push({alive:false});
+ return {g,p,c,a,s,list,cap,next:0,spawn(){const o=this.list[this.next];this.next=(this.next+1)%this.cap;o.alive=true;return o;}};
+}
+const lava=makeParticles(1400,true),ash=makeParticles(1800,false);
+const glowTex=(function(){const c=document.createElement('canvas');c.width=c.height=64;const x=c.getContext('2d');const g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,220,150,1)');g.addColorStop(.3,'rgba(255,120,40,.6)');g.addColorStop(1,'rgba(255,60,0,0)');x.fillStyle=g;x.fillRect(0,0,64,64);return new THREE.CanvasTexture(c);})();
+const VENTS=[];
+function startEruption(v,vei,name){
+ const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,blending:THREE.AdditiveBlending,depthWrite:false,transparent:true}));
+ glow.position.copy(v).multiplyScalar(1.01);globe.add(glow);
+ VENTS.push({v:v.clone().normalize(),vei,name,t:0,dur:6+vei*2.2,glow,f:frame(v)});
+ boom(.35+vei*.08);shake=Math.max(shake,.004*vei);
+}
+function updateEruptions(dt){
+ const g=new THREE.Vector3();
+ for(let k=VENTS.length-1;k>=0;k--){const V=VENTS[k];V.t+=dt;const on=V.t<V.dur;const s=(0.5+V.vei/7);
+  const gl=Math.max(0,on?1-.3*Math.random():1-(V.t-V.dur)/2);V.glow.scale.setScalar((.05+.025*V.vei)*gl);V.glow.material.opacity=gl;
+  if(on){
+   const nL=Math.floor((40+V.vei*28)*dt*60/60*2),nA=Math.floor((12+V.vei*14)*dt*60/60*2);
+   for(let i=0;i<nL;i++){const o=lava.spawn();const a=Math.random()*Math.PI*2,sp=Math.random()*.35*s;
+     o.p=V.v.clone().multiplyScalar(1.004);o.vel=V.v.clone().multiplyScalar((.25+Math.random()*.35)*s).addScaledVector(V.f.e,Math.cos(a)*sp*.4).addScaledVector(V.f.n,Math.sin(a)*sp*.4);o.age=0;o.max=1.2+Math.random()*1.5;o.size=.006+Math.random()*.007;}
+   const H=.03+.035*V.vei;
+   for(let i=0;i<nA;i++){const o=ash.spawn();o.base=V.v;o.h=0;o.H=H*(.8+Math.random()*.4);o.off=new THREE.Vector3();o.age=0;o.max=6+Math.random()*6;o.rise=(.10+.03*V.vei)*(.7+Math.random()*.6);
+     const a=Math.random()*Math.PI*2;o.dir=V.f.e.clone().multiplyScalar(Math.cos(a)).addScaledVector(V.f.n,Math.sin(a));o.spread=(.04+.012*V.vei)*Math.random();o.wind=V.f.e.clone().multiplyScalar(.012);o.size=.02+Math.random()*.02;o.shade=.25+Math.random()*.25;}
+  }
+  if(V.t>V.dur+2.5){globe.remove(V.glow);V.glow.material.dispose();VENTS.splice(k,1);}
+ }
+ // lava
+ for(let i=0;i<lava.cap;i++){const o=lava.list[i];if(!o.alive){lava.a[i]=0;continue;}
+  o.age+=dt;g.copy(o.p).normalize().multiplyScalar(-1.1*dt);o.vel.add(g);o.p.addScaledVector(o.vel,dt);
+  if(o.p.length()<1.0||o.age>o.max){o.alive=false;lava.a[i]=0;continue;}
+  const k=o.age/o.max;lava.p.set([o.p.x,o.p.y,o.p.z],i*3);lava.c.set([1,.85-.55*k,.45-.4*k],i*3);lava.a[i]=(1-k)*.95;lava.s[i]=o.size;}
+ // ash: rises, then spreads into an umbrella cloud and drifts downwind
+ for(let i=0;i<ash.cap;i++){const o=ash.list[i];if(!o.alive){ash.a[i]=0;continue;}
+  o.age+=dt;o.h+=o.rise*dt*Math.max(.02,1-o.h/o.H);const um=Math.min(1,o.h/o.H);
+  o.off.addScaledVector(o.dir,o.spread*dt*(.2+um*um*1.6)).addScaledVector(o.wind,dt*um);
+  if(o.age>o.max){o.alive=false;ash.a[i]=0;continue;}
+  g.copy(o.base).add(o.off).normalize().multiplyScalar(1.005+o.h);
+  const k=o.age/o.max;ash.p.set([g.x,g.y,g.z],i*3);const sh=o.shade+(1-um)*.2;ash.c.set([sh*1.05,sh,sh*.95],i*3);
+  ash.a[i]=Math.min(1,o.age*3)*(1-k)*.55;ash.s[i]=o.size*(1+um*1.8);}
+ [lava,ash].forEach(P=>{P.g.attributes.position.needsUpdate=true;P.g.attributes.aColor.needsUpdate=true;P.g.attributes.aAlpha.needsUpdate=true;P.g.attributes.aSize.needsUpdate=true;});
+}
+
+/* ---------- Cross-section (Inside Earth) ---------- */
+const R_IC=1220/RE,R_OC=3480/RE,R_LM=(RE-660)/RE,R_CR=1-0.015; // crust exaggerated ~3x for visibility
+const LAYERS=[
+ {key:'crust',name:'Crust',depth:'0–70 km (5–10 km under oceans)',temp:'Up to ~1,000 °C at its base',state:'Solid rock',dens:'2.7–3.0 g/cm³',comp:'Granite in continents, basalt under oceans',
+  fact:'The thin outer skin we live on. Together with the rigid top of the mantle it forms the lithosphere, which is broken into the tectonic plates.',lblR:(R_CR+1)/2,lblA:62},
+ {key:'upper',name:'Upper mantle',depth:'~35–660 km',temp:'~1,000–1,900 °C',state:'Solid, but flows slowly',dens:'3.4–4.0 g/cm³',comp:'Peridotite: olivine and pyroxene',
+  fact:'Hot enough to creep like very stiff putty over millions of years. The soft asthenosphere layer, about 100–350 km down, lets the plates above it slide.',lblR:(R_LM+R_CR)/2,lblA:40},
+ {key:'lower',name:'Lower mantle',depth:'660–2,890 km',temp:'~1,900–4,000 °C',state:'Solid, slowly convecting',dens:'4.4–5.6 g/cm³',comp:'Bridgmanite and ferropericlase',
+  fact:'The biggest layer, about 55% of Earth\'s volume. Heat from the core drives huge, slow convection loops here that drag the plates along.',lblR:(R_OC+R_LM)/2,lblA:18},
+ {key:'outer',name:'Outer core',depth:'2,890–5,150 km',temp:'~4,000–5,400 °C',state:'Liquid metal',dens:'9.9–12.2 g/cm³',comp:'Iron and nickel, with some lighter elements',
+  fact:'Swirling liquid iron makes Earth\'s magnetic field. We know it is liquid because S-waves, which cannot travel through liquids, never pass through it.',lblR:(R_IC+R_OC)/2,lblA:30},
+ {key:'inner',name:'Inner core',depth:'5,150–6,371 km',temp:'~5,400 °C, about as hot as the Sun\'s surface',state:'Solid, crushed by pressure',dens:'12.8–13.1 g/cm³',comp:'Iron–nickel alloy',
+  fact:'Pressure here is about 3.6 million times that at the surface, so the iron stays solid despite the heat. Inge Lehmann discovered it from seismic waves in 1936.',lblR:R_IC*.35,lblA:-90}
+];
+const DU={uS:{value:1},uU:{value:new THREE.Vector3(1,0,0)},uW:{value:new THREE.Vector3(0,1,0)},uT:{value:0},uConv:{value:1},uHL:{value:-1},uWaveT:{value:-1},
+ uR:{value:new THREE.Vector4(R_IC,R_OC,R_LM,R_CR)}};
+const disc=new THREE.Mesh(new THREE.CircleGeometry(1.075,160),new THREE.ShaderMaterial({uniforms:DU,side:THREE.DoubleSide,transparent:true,
+vertexShader:'varying vec3 vW;void main(){vW=(modelMatrix*vec4(position,1.)).xyz;gl_Position=projectionMatrix*viewMatrix*vec4(vW,1.);}',
+fragmentShader:`
+uniform float uS,uT,uConv,uHL,uWaveT;uniform vec3 uU,uW;uniform vec4 uR;varying vec3 vW;
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
+float loops(float ang,float r,float r0,float r1,float cells,float speed){
+  float u=fract(ang/6.28318*cells)*2.-1.;float v=(r-r0)/(r1-r0)*2.-1.;
+  float cid=floor(ang/6.28318*cells);float dir=mod(cid,2.)<.5?1.:-1.;
+  float rho=length(vec2(u*1.1,v));float phi=atan(v,u*1.1);
+  float ring=0.;for(int k=1;k<4;k++){float rr=float(k)*.26;ring+=exp(-pow((rho-rr)/.03,2.));}
+  float dash=smoothstep(.35,.6,fract(phi/6.28318*3.*float(1)+uT*speed*dir+rho*.8));
+  return ring*(.35+.65*dash)*smoothstep(1.05,.85,rho);
+}
+void main(){
+  float r=length(vW);vec2 q=vec2(dot(vW,uU),dot(vW,uW));float ang=atan(q.y,q.x)+3.14159;
+  vec3 col;float a=1.;int L;
+  if(r>1.){
+    // rim: seismic shadow zones (measured from the source at the top)
+    if(uWaveT<0.||uS>.02) discard;
+    vec2 src=vec2(0.,1.);float th=acos(clamp(dot(normalize(q),src),-1.,1.))*57.2958;
+    float show=smoothstep(1500.,2400.,uWaveT);
+    if(r>1.012&&r<1.034&&th>103.&&th<142.){col=vec3(.25,.82,1.);a=.9*show;}
+    else if(r>1.042&&r<1.064&&th>103.){col=vec3(1.,.70,.28);a=.9*show;}
+    else discard;
+    gl_FragColor=vec4(col,a);return;
+  }
+  if(r<uR.x){L=4;col=mix(vec3(1.,.97,.82),vec3(1.,.85,.52),r/uR.x);col*=.92+.08*noise(q*60.);}
+  else if(r<uR.y){L=3;col=mix(vec3(1.,.72,.32),vec3(.98,.52,.16),(r-uR.x)/(uR.y-uR.x));
+    float ca=cos(uT*.08*uConv),sa=sin(uT*.08*uConv);vec2 qr=mat2(ca,-sa,sa,ca)*q;float sw=noise(qr*9.+vec2(0.,uT*.25*uConv));col*=.86+.22*sw;
+    col+=vec3(.16,.08,.01)*loops(ang,r,uR.x,uR.y,8.,.8*uConv);}
+  else if(r<uR.z){L=2;col=mix(vec3(.88,.30,.10),vec3(.62,.16,.07),(r-uR.y)/(uR.z-uR.y));
+    col+=vec3(.20,.07,.02)*loops(ang,r,uR.y,uR.z,10.,.35*uConv);}
+  else if(r<uR.w){L=1;col=mix(vec3(.58,.17,.08),vec3(.42,.16,.09),(r-uR.z)/(uR.w-uR.z));
+    col+=vec3(.12,.05,.02)*loops(ang,r,uR.z,uR.w,40.,.5*uConv);}
+  else {L=0;col=vec3(.36,.30,.25)*(.85+.3*noise(q*90.));}
+  // thin dark lines between layers
+  float edge=min(min(abs(r-uR.x),abs(r-uR.y)),min(abs(r-uR.z),abs(r-uR.w)));col*=.55+.45*smoothstep(.0,.004,edge);
+  if(uHL>-.5&&abs(float(L)-uHL)<.5)col=mix(col,vec3(1.),.16);
+  // seismic waves from a quake at the top of the slice
+  if(uWaveT>=0.){
+    vec2 src=vec2(0.,1.);vec2 d=q-src;float dist=length(d);
+    float fP=uWaveT*10.5/6371.,fS=uWaveT*5.8/6371.;
+    float tt=clamp(dot(-src,d)/max(dot(d,d),1e-5),0.,1.);float closest=length(src+d*tt);
+    float sBlocked=(r<uR.y||closest<uR.y)?1.:0.;
+    float pThroughCore=closest<uR.y?1.:0.;
+    float fade=exp(-uWaveT/5000.);
+    float wP=exp(-pow((dist-fP)/.012,2.))*fade*(1.-.45*pThroughCore);
+    float wS=exp(-pow((dist-fS)/.014,2.))*fade*(1.-sBlocked);
+    col=mix(col,vec3(.55,.92,1.),clamp(wP*1.3,0.,1.));
+    col=mix(col,vec3(1.,.86,.45),clamp(wS*1.3,0.,1.));
+    float focus=exp(-dot(d,d)/.0006)*exp(-uWaveT/600.);col+=vec3(1.)*focus;
+  }
+  gl_FragColor=vec4(col,a);
+}`}));
+disc.visible=false;globe.add(disc);
+
+/* ---------- Camera orbit (drag, wheel, pinch, inertia) ---------- */
+const orbit={th:0,ph:1.35,dist:3.4,tth:0,tph:1.35,tdist:3.4,vth:0,vph:0,auto:true,flying:false};
+(function(){const v=ll2v(12,-115);orbit.th=orbit.tth=Math.atan2(v.x,v.z);orbit.ph=orbit.tph=Math.acos(v.y);})();
+function flyTo(v,dist){const n=v.clone().normalize();let th=Math.atan2(n.x,n.z);while(th-orbit.th>Math.PI)th-=2*Math.PI;while(th-orbit.th<-Math.PI)th+=2*Math.PI;
+ orbit.tth=th;orbit.tph=Math.min(Math.PI-.2,Math.max(.2,Math.acos(n.y)));if(dist)orbit.tdist=dist;orbit.flying=true;orbit.vth=orbit.vph=0;orbit.auto=false;}
+const pointers=new Map();let dragMoved=0,lastPinch=0,downAt=null;
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});dragMoved=0;downAt={x:e.clientX,y:e.clientY};orbit.auto=false;orbit.flying=false;canvas.classList.add('dragging');ensureAudio();});
+canvas.addEventListener('pointermove',e=>{
+ if(!pointers.has(e.pointerId)){hover(e);return;}
+ const p=pointers.get(e.pointerId),dx=e.clientX-p.x,dy=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;dragMoved+=Math.abs(dx)+Math.abs(dy);
+ if(pointers.size===2){const [a,b]=[...pointers.values()];const d=Math.hypot(a.x-b.x,a.y-b.y);if(lastPinch){orbit.tdist=Math.min(9,Math.max(1.35,orbit.tdist*lastPinch/d));}lastPinch=d;return;}
+ const k=.0055*(orbit.dist-.9)/2.4;orbit.vth=-dx*k;orbit.vph=-dy*k;orbit.tth+=orbit.vth;orbit.tph=Math.min(Math.PI-.12,Math.max(.12,orbit.tph+orbit.vph));});
+function endPtr(e){if(!pointers.has(e.pointerId))return;pointers.delete(e.pointerId);if(pointers.size<2)lastPinch=0;canvas.classList.remove('dragging');
+ if(pointers.size===0&&dragMoved<6&&downAt)click(e);}
+canvas.addEventListener('pointerup',endPtr);canvas.addEventListener('pointercancel',e=>{pointers.delete(e.pointerId);lastPinch=0;canvas.classList.remove('dragging');});
+canvas.addEventListener('wheel',e=>{e.preventDefault();orbit.tdist=Math.min(9,Math.max(1.35,orbit.tdist*Math.exp(e.deltaY*.0012)));orbit.auto=false;},{passive:false});
+canvas.addEventListener('pointerleave',()=>{$('#tip').hidden=true;});
+
+/* ---------- Picking ---------- */
+const ray=new THREE.Raycaster();const ndc=new THREE.Vector2();
+function setRay(e){const r=canvas.getBoundingClientRect();ndc.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(ndc,camera);}
+function camDir(){return camera.position.clone().normalize();}
+function screenOf(v){const p=v.clone().applyMatrix4(globe.matrixWorld).project(camera);const r=canvas.getBoundingClientRect();return {x:(p.x+1)/2*r.width,y:(1-p.y)/2*r.height,z:p.z};}
+function pickMarker(e){if(!markGroup.visible||mode!=='surface')return null;const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;let best=null,bd=18;const cd=camDir();
+ [...VOLCANOES,...QUAKES].forEach(m=>{if(m.cur.dot(cd)<.2)return;const s=screenOf(m.cur);const d=Math.hypot(s.x-x,s.y-y);if(d<bd){bd=d;best=m;}});return best;}
+function pickSurface(e){setRay(e);const hit=ray.intersectObject(core,false)[0];return hit?hit.point.clone().normalize():null;}
+function pickDisc(e){if(!disc.visible)return null;setRay(e);const hit=ray.intersectObject(disc,false)[0];return hit?hit.point.length():null;}
+function plateAt(p){const t=U.uTime.value;for(let i=0;i<PLATES.length;i++){const pl=PLATES[i];const q=rotAxis(p,pl.axis,-pl.omega*t);if(plateOf(q)===i)return {id:i,orig:q};}return null;}
+function nearestBoundary(p,maxDeg){let best=null,bd=maxDeg*D2R;const t=U.uTime.value;for(const b of BOUND){const d=angDist(b.v,p);if(d<bd){bd=d;best=b;}}return best?{...best,dist:bd}:null;}
+function layerAt(r){if(r==null||r>1)return -1;return r<R_IC?4:r<R_OC?3:r<R_LM?2:r<R_CR?1:0;}
+
+function hover(e){
+ const tip=$('#tip');
+ if(mode==='inside'){const L=layerAt(pickDisc(e));DU.uHL.value=L;if(L>=0&&L!==shownLayer){showLayer(L);}tip.hidden=true;return;}
+ const m=pickMarker(e);canvas.style.cursor=m?'pointer':'';
+ if(m){tip.innerHTML=(m.kind2==='volcano'?m.name+'<em>VEI '+m.vei+'</em>':m.name+' '+m.year+'<em>Mw '+m.mw+'</em>');const r=canvas.getBoundingClientRect();tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.hidden=false;}
+ else tip.hidden=true;
+}
+
+/* ---------- State, tools, panel ---------- */
+let mode='surface',tool='explore',shake=0,simClock=0;
+const strength=$('#strength'),strengthOut=$('#strengthOut'),strengthLbl=$('#strengthLbl');
+const panelBody=$('#panelBody');
+const BCOL={1:'var(--converge)',2:'var(--tide)',3:'var(--fault)'};
+const BNAME={1:'Convergent',2:'Divergent',3:'Transform'};
+const BTEXT={1:'The plates push together. Ocean crust sinks under the other plate in a subduction zone, making deep trenches, the strongest earthquakes and explosive volcanoes.',
+ 2:'The plates pull apart. Hot mantle rises, melts and cools into brand-new crust, building mid-ocean ridges and rift valleys like Iceland\'s.',
+ 3:'The plates slide past each other sideways. There are few volcanoes, but the faults lock and then slip in sudden, shallow earthquakes, like on the San Andreas Fault.'};
+function legendHTML(){return '<div class="legend"><div><i style="background:var(--converge)"></i>Convergent: plates collide</div><div><i style="background:var(--tide)"></i>Divergent: plates pull apart</div><div><i style="background:var(--fault)"></i>Transform: plates slide past</div></div>';}
+function vlist(){return '<ul class="list">'+VOLCANOES.slice().sort((a,b)=>b.vei-a.vei).slice(0,6).map((v,i)=>'<li><button data-vol="'+VOLCANOES.indexOf(v)+'">'+v.name+'<em>VEI '+v.vei+'</em></button></li>').join('')+'</ul>';}
+function qlist(){return '<ul class="list">'+QUAKES.slice(0,6).map((q,i)=>'<li><button data-qk="'+i+'">'+q.name+' '+q.year+'<em>Mw '+q.mw+'</em></button></li>').join('')+'</ul>';}
+function setPanel(html){panelBody.innerHTML=html;$('#panel').scrollTop=0;
+ panelBody.querySelectorAll('[data-vol]').forEach(b=>b.onclick=()=>{const v=VOLCANOES[+b.dataset.vol];selectVolcano(v,true);});
+ panelBody.querySelectorAll('[data-qk]').forEach(b=>b.onclick=()=>{const q=QUAKES[+b.dataset.qk];selectQuake(q,true);});
+ const act=panelBody.querySelector('[data-act]');if(act)act.onclick=()=>{const f=pendingAction;if(f)f();};
+}
+let pendingAction=null;
+
+function introPanel(){
+ const html={
+  explore:'<div class="eyebrow">Surface · 15 plates</div><h2>Earth\'s crust is cracked into moving plates</h2><p>Each glowing dot stream shows which way a plate is heading. Tap any plate or boundary to measure it, or press play on the plate clock to watch continents drift.</p>'+legendHTML()+'<p class="note">Plate outlines are simplified. Speeds come from the NNR-MORVEL56 plate model, so they are real present-day rates.</p>',
+  erupt:'<div class="eyebrow">Tool · Erupt</div><h2>Tap a volcano to make it erupt</h2><p>Orange cones are real volcanoes. Tap anywhere else to open a new vent there. The slider sets the Volcanic Explosivity Index (VEI); each step up is about 10 times more ash and rock.</p>'+vlist(),
+  quake:'<div class="eyebrow">Tool · Quake</div><h2>Tap anywhere to trigger an earthquake</h2><p>Watch three kinds of wave race out: fast P-waves, slower S-waves, then the surface waves that do most damage. The seismograph records them at a real monitoring station.</p>'+qlist()+'<p class="note">Quakes under the ocean at Mw 7.5 or more will also raise a tsunami.</p>',
+  tsunami:'<div class="eyebrow">Tool · Tsunami</div><h2>Tap the ocean to launch a tsunami</h2><p>Over deep water a tsunami moves at about 700 km/h, as fast as a jet, yet is often less than a metre high. Near the coast it slows and piles up into a wall of water. Watch the coastlines light up as it arrives.</p>'
+ }[tool];setPanel(html);
+}
+function setTool(t){const prev=tool;tool=t;document.querySelectorAll('.tools button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tool===t?'true':'false'));
+ canvas.classList.toggle('pick',t!=='explore');
+ if(t==='erupt'){strength.min=1;strength.max=7;strength.step=1;strength.value=5;strengthLbl.textContent='Explosivity';}
+ else{strength.min=4;strength.max=9.5;strength.step=.1;if(prev==='erupt'||t!==prev)strength.value=t==='tsunami'?9.0:8.0;strengthLbl.textContent='Magnitude';}
+ updStrength();introPanel();}
+function updStrength(){strengthOut.textContent=tool==='erupt'?'VEI '+strength.value:'Mw '+(+strength.value).toFixed(1);}
+strength.addEventListener('input',updStrength);
+document.querySelectorAll('.tools button').forEach(b=>b.addEventListener('click',()=>setTool(b.dataset.tool)));
+
+function click(e){
+ if(mode==='inside'){const L=layerAt(pickDisc(e));if(L>=0){showLayer(L);DU.uHL.value=L;}return;}
+ const m=pickMarker(e);
+ if(m){if(m.kind2==='volcano'){selectVolcano(m,tool==='erupt');}else{selectQuake(m,tool==='quake'||tool==='tsunami');}return;}
+ const p=pickSurface(e);if(!p)return;
+ if(tool==='explore')inspect(p);
+ else if(tool==='erupt'){const pa=plateAt(p);const nb=nearestBoundary(pa?pa.orig:p,4);eruptAt(p,+strength.value,'New vent',nb?(BNAME[nb.type]+' boundary nearby'):'Inside a plate: a hotspot would feed it',null);}
+ else if(tool==='quake'){quakeAt(p,+strength.value,null);}
+ else if(tool==='tsunami'){const ll=v2ll(p);if(isLandAtCurrent(p)){flashBanner('Tsunamis start in the ocean. Tap open water.','warn',2600);return;}tsunamiAt(p,+strength.value,true);}
+}
+function isLandAtCurrent(p){const pa=plateAt(p);const q=pa?pa.orig:p;const ll=v2ll(q);return isLand(ll.lat,ll.lon);}
+
+function inspect(p){
+ const pa=plateAt(p);const ll=v2ll(p);
+ if(!pa){U.uHLPlate.value=-1;setPanel('<div class="eyebrow">'+fmtLat(ll.lat)+' · '+fmtLon(ll.lon)+'</div><h2>New ocean floor</h2><p>This gap opened while the plates moved. In reality, magma fills gaps like this at spreading ridges, making fresh crust as fast as the plates separate.</p>');return;}
+ const pl=PLATES[pa.id];U.uHLPlate.value=pa.id;
+ const v=velocity(pa.id,pa.orig);const sp=v.length()/10;const b=bearing(v,pa.orig);
+ const nb=nearestBoundary(pa.orig,2.2);
+ let bhtml='';
+ if(nb){const other=PLATES[nb.a===pa.id?nb.b:nb.a];bhtml='<div class="row"><span class="chip"><i style="background:'+BCOL[nb.type]+'"></i>'+BNAME[nb.type]+' boundary with '+other.name+'</span></div><p>'+BTEXT[nb.type]+' Here the plates meet at about <b>'+(nb.rate/10).toFixed(1)+' cm/yr</b>.</p>';}
+ setPanel('<div class="eyebrow">'+fmtLat(ll.lat)+' · '+fmtLon(ll.lon)+'</div><h2>'+pl.name+' Plate</h2>'+
+  '<div class="stats"><div class="stat"><b>'+sp.toFixed(1)+' cm/yr</b><span>Speed here</span></div><div class="stat"><b>'+compass(b)+' · '+Math.round(b)+'°</b><span>Heading</span></div>'+
+  '<div class="stat"><b>'+(sp*10).toFixed(0)+' km</b><span>Distance in 1 million years</span></div><div class="stat"><b>'+(sp/3.5).toFixed(1)+'×</b><span>Fingernail growth rate</span></div></div>'+
+  '<p>'+pl.fact+'</p>'+bhtml);
+}
+function selectVolcano(v,erupt){flyTo(v.cur,2.1);
+ const html='<div class="eyebrow">Volcano · '+fmtLat(v.lat)+' '+fmtLon(v.lon)+'</div><h2>'+v.name+'</h2><div class="row"><span class="chip"><i style="background:var(--magma)"></i>'+v.kind+'</span></div>'+
+  '<div class="stats"><div class="stat"><b>VEI '+v.vei+'</b><span>Largest known eruption</span></div><div class="stat"><b>'+veiVolume(v.vei)+'</b><span>Ejected material</span></div></div><p>'+v.fact+'</p><div class="row"><button class="btn hot" data-act>Erupt at VEI '+v.vei+'</button></div>';
+ pendingAction=()=>eruptAt(v.cur,v.vei,v.name,v.kind,v);setPanel(html);if(erupt)setTimeout(()=>eruptAt(v.cur,tool==='erupt'?+strength.value:v.vei,v.name,v.kind,v),500);}
+function selectQuake(q,go){flyTo(q.cur,2.5);
+ const html='<div class="eyebrow">Earthquake · '+q.year+'</div><h2>'+q.name+'</h2><div class="stats"><div class="stat"><b>Mw '+q.mw+'</b><span>Moment magnitude</span></div><div class="stat"><b>'+tnt(q.mw)+'</b><span>Energy, TNT equivalent</span></div></div><p>'+q.fact+'</p><div class="row"><button class="btn hot" data-act>Replay at Mw '+q.mw+'</button></div>';
+ pendingAction=()=>quakeAt(q.cur,q.mw,q);setPanel(html);if(go)setTimeout(()=>quakeAt(q.cur,q.mw,q),500);}
+function veiVolume(v){return ['<10,000 m³','10,000 m³','1 million m³','10 million m³','0.1 km³','1 km³','10 km³','100 km³','1,000 km³'][v];}
+function tnt(M){const E=Math.pow(10,1.5*M+4.8);const t=E/4.184e9;if(t>=1e9)return (t/1e9).toFixed(t<1e10?1:0)+' gigatons';if(t>=1e6)return (t/1e6).toFixed(t<1e7?1:0)+' megatons';if(t>=1e3)return (t/1e3).toFixed(0)+' kilotons';return t.toFixed(0)+' tons';}
+
+function eruptAt(p,vei,name,kind,v){
+ startEruption(p,vei,name);flyTo(p,Math.min(orbit.tdist,2.2));
+ const H=['<0.1 km','0.1–1 km','1–5 km','3–15 km','10–25 km','>25 km','>25 km','>25 km'][vei];
+ const ex={1:'Stromboli\'s nightly bursts',2:'Kīlauea\'s lava fountains',3:'Etna\'s typical eruptions',4:'Eyjafjallajökull, 2010',5:'Mount St. Helens, 1980',6:'Pinatubo, 1991',7:'Tambora, 1815'}[vei];
+ flashBanner(name+' erupting · VEI '+vei,'quake',3000);
+ pendingAction=()=>eruptAt(p,vei,name,kind,v);
+ setPanel('<div class="eyebrow">Eruption · VEI '+vei+'</div><h2>'+name+' is erupting</h2><div class="row"><span class="chip"><i style="background:var(--magma)"></i>'+kind+'</span></div>'+
+  '<div class="stats"><div class="stat"><b>'+H+'</b><span>Eruption column height</span></div><div class="stat"><b>'+veiVolume(vei)+'</b><span>Material thrown out</span></div></div>'+
+  '<p>Lava fountains near the vent while ash rises until it is no lighter than the air around it. Then it spreads sideways into an umbrella cloud and drifts with the wind.</p><p class="note">A similar size: '+ex+'. Each VEI step is roughly 10× more material.</p><div class="row"><button class="btn hot" data-act>Erupt again</button></div>');
+ if(v&&v.mesh){}
+}
+
+let quake=null,station=null;
+function quakeAt(p,M,q){
+ const pa=plateAt(p);const orig=pa?pa.orig:p;
+ U.uQ.value.copy(p);U.uQT.value=0;U.uQA.value=Math.max(.25,Math.min(1,(M-3.5)/5.5));
+ // pick a station 30–90° away (the classic teleseismic range)
+ let best=null,bs=1e9;STATIONS.forEach(s=>{s.mesh.visible=false;const d=angDist(s.cur,p)/D2R;const sc=d<20?1000+(20-d):Math.abs(d-60);if(sc<bs){bs=sc;best=s;}});
+ station=best;station.mesh.visible=true;
+ const dKm=angDist(station.cur,p)*RE;
+ quake={p:p.clone(),M,t0:simReal,dKm,deg:dKm/RE/D2R,tP:dKm/8,tS:dKm/4.5,tR:dKm/3.5,name:q?q.name+' '+q.year:'Your earthquake'};
+ $('#stationName').textContent=station.code;
+ shake=Math.max(shake,.012*Math.pow(1.6,M-6));rumble(2.5+M*.5,Math.min(1,.15+(M-4)*.15));
+ if(!q)flyTo(p,Math.max(2.6,orbit.tdist));
+ const nb=nearestBoundary(orig,4);const ocean=!isLandAtCurrent(p);
+ const ll=v2ll(p);
+ const E=tnt(M);
+ setPanel('<div class="eyebrow">'+(q?'Replay · ':'')+fmtLat(ll.lat)+' '+fmtLon(ll.lon)+'</div><h2>'+(q?q.name+', '+q.year:'Mw '+M.toFixed(1)+' earthquake')+'</h2>'+
+  '<div class="stats"><div class="stat"><b>Mw '+M.toFixed(1)+'</b><span>Moment magnitude</span></div><div class="stat"><b>'+E+'</b><span>Energy, TNT equivalent</span></div>'+
+  '<div class="stat"><b>'+(Math.pow(10,1.5*(M-7))<1?(Math.pow(10,1.5*(M-7))).toFixed(2):fmtNum(Math.pow(10,1.5*(M-7))))+'×</b><span>Energy of a Mw 7.0</span></div><div class="stat"><b>'+station.code+' · '+fmtNum(dKm)+' km</b><span>Recording station</span></div></div>'+
+  (nb?'<div class="row"><span class="chip"><i style="background:'+BCOL[nb.type]+'"></i>'+BNAME[nb.type]+' boundary · '+PLATES[nb.a].name+' / '+PLATES[nb.b].name+'</span></div>':'<p class="note">This spot is far from any plate boundary. Intraplate quakes do happen, like New Madrid in 1811–12, but they are rare.</p>')+
+  (q?'<p>'+q.fact+'</p>':'<p>Every step of 1 on the magnitude scale releases about 32 times more energy. A Mw 9 releases about 1,000 times more than a Mw 7.</p>')+
+  '<div class="legend"><div><i style="background:#ffd473"></i>P-waves · push-pull, ~8 km/s</div><div><i style="background:#ff8c33"></i>S-waves · side to side, ~4.5 km/s</div><div><i style="background:var(--converge)"></i>Surface waves · rolling, ~3.5 km/s</div></div>');
+ if(ocean&&M>=7.5){setTimeout(()=>tsunamiAt(p,M,false),900);flashBanner('Tsunami warning · offshore Mw '+M.toFixed(1),'warn',4500);}
+ else flashBanner('Earthquake · Mw '+M.toFixed(1),'quake',3000);
+}
+let tsu=null;
+function tsunamiAt(p,M,direct){
+ U.uTs.value.copy(p);U.uTsT.value=0;U.uTsA.value=Math.max(.35,Math.min(1.1,(M-6.5)/2.5));tsu={t0:simReal};whoosh();
+ if(direct){flyTo(p,Math.max(2.8,orbit.tdist));flashBanner('Tsunami launched','warn',2500);
+  setPanel('<div class="eyebrow">Tsunami · Mw '+M.toFixed(1)+' source</div><h2>The wave is crossing the ocean</h2>'+
+  '<div class="stats"><div class="stat"><b>~713 km/h</b><span>Speed over 4 km-deep water</span></div><div class="stat"><b>~200 km</b><span>Wavelength in deep water</span></div><div class="stat"><b>&lt;1 m</b><span>Height at sea</span></div><div class="stat"><b>10–40 m</b><span>Possible run-up at shore</span></div></div>'+
+  '<p>Wave speed depends on depth: √(g × depth). As the seafloor rises near land, the front slows down while the back catches up, so the water piles up. Glowing coastlines show where it hits.</p><p class="note">Clock speed: 1 second here is 20 minutes of real time.</p>');}
+}
+
+/* ---------- Banner ---------- */
+let bannerTimer=0;
+function flashBanner(t,cls,ms){const b=$('#banner');b.textContent=t;b.className=cls||'';b.hidden=false;clearTimeout(bannerTimer);bannerTimer=setTimeout(()=>{b.hidden=true;},ms||2500);}
+
+/* ---------- Plate clock ---------- */
+const clock=$('#clock'),clockOut=$('#clockOut'),playBtn=$('#playBtn');let playing=false;
+function updClock(){const t=+clock.value;U.uTime.value=t;clockOut.textContent=t===0?'Today':(t>0?'+':'−')+Math.abs(t).toFixed(t%1?1:0)+' Myr';}
+clock.addEventListener('input',()=>{playing=false;setPlayIcon();updClock();timeNote();});
+function setPlayIcon(){playBtn.innerHTML=playing?'<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12"/><rect x="9.5" y="2" width="3.5" height="12"/></svg>':'<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2l10 6-10 6z"/></svg>';playBtn.setAttribute('aria-label',playing?'Pause plate motion':'Play plate motion');}
+playBtn.addEventListener('click',()=>{playing=!playing;if(playing&&+clock.value>=80){clock.value=0;}setPlayIcon();if(playing)timeNote();});
+let timeNoted=false;
+function timeNote(){if(timeNoted||tool!=='explore')return;timeNoted=true;setPanel('<div class="eyebrow">Plate clock</div><h2>Running today\'s plate speeds forward and back</h2><p>Dark gaps opening between plates are where new ocean floor would form at spreading ridges. Where plates overlap, one would sink into the mantle at a trench.</p><p>Watch Australia head for Southeast Asia and the Atlantic widen as the Americas pull away from Europe and Africa.</p><p class="note">This applies present-day rates with no changes. Real plates speed up, slow down and turn over tens of millions of years, so treat it as a projection, not a map of the past.</p>'+legendHTML());}
+
+/* ---------- Toggles ---------- */
+$('#tgPlates').addEventListener('change',e=>{tintTarget=e.target.checked?1:0;});let tintTarget=1;
+$('#tgBounds').addEventListener('change',e=>{U.uBounds.value=e.target.checked?1:0;});
+$('#tgFlow').addEventListener('change',e=>{flowPts.visible=e.target.checked;});
+$('#tgMarks').addEventListener('change',e=>{markGroup.visible=e.target.checked;});
+$('#tgSound').addEventListener('change',e=>{soundOn=e.target.checked;ensureAudio();});
+
+/* ---------- Inside Earth mode ---------- */
+let cutTarget=5,shownLayer=-1,waveReal=-1;
+const labelsEl=$('#labels');
+function setMode(m){
+ if(m===mode)return;mode=m;$('#tabSurface').setAttribute('aria-pressed',m==='surface');$('#tabInside').setAttribute('aria-pressed',m==='inside');
+ $('#surfaceCtrls').style.display=m==='surface'?'flex':'none';$('#insideCtrls').style.display=m==='inside'?'flex':'none';
+ $('#tip').hidden=true;U.uHLPlate.value=-1;
+ if(m==='inside'){
+  const n=camDir();U.uCutN.value.copy(n);const w=new THREE.Vector3(0,1,0).addScaledVector(n,-n.y);if(w.lengthSq()<1e-4)w.set(1,0,0);w.normalize();const u=new THREE.Vector3().crossVectors(w,n);
+  DU.uU.value.copy(u);DU.uW.value.copy(w);
+  disc.quaternion.setFromUnitVectors(ZAX,n);disc.visible=true;U.uCut.value=1.02;DU.uS.value=1.02;cutTarget=0;
+  orbit.tdist=fitDist(2.9);orbit.auto=false;orbit.vth=orbit.vph=0;
+  showLayer(2);buildLabels();playing=false;setPlayIcon();
+ }else{cutTarget=1.3;labelsEl.innerHTML='';waveReal=-1;DU.uWaveT.value=-1;introPanel();}
+}
+$('#tabSurface').addEventListener('click',()=>setMode('surface'));$('#tabInside').addEventListener('click',()=>setMode('inside'));$('#backBtn').addEventListener('click',()=>setMode('surface'));
+$('#convBtn').addEventListener('click',e=>{const on=DU.uConv.value<.5;DU.uConv.value=on?1:0;e.target.textContent='Convection: '+(on?'on':'off');e.target.setAttribute('aria-pressed',on);});
+$('#waveBtn').addEventListener('click',()=>{waveReal=0;DU.uWaveT.value=0;rumble(4,.5);
+ setPanel('<div class="eyebrow">Seismic waves</div><h2>How we X-ray the planet</h2><p>A quake at the top sends out P-waves (blue) and S-waves (gold). S-waves cannot travel through liquid, so they stop dead at the outer core. That leaves a huge S-wave shadow beyond 104° from the quake.</p><p>P-waves do pass through the core but bend sharply as they slow down, which leaves a P-wave shadow zone between 104° and 142°.</p><div class="legend"><div><i style="background:var(--tide)"></i>P-wave shadow zone · 104°–142°</div><div><i style="background:var(--ember)"></i>S-wave shadow zone · beyond 104°</div></div><p class="note">Beno Gutenberg used these shadows to place the core boundary at 2,900 km in 1913. The waves here travel in straight lines to keep the picture simple; real ones curve as they speed up with depth.</p>');
+ buildLabels(true);});
+function showLayer(L){shownLayer=L;const l=LAYERS[L];
+ setPanel('<div class="eyebrow">Inside Earth · layer '+(L+1)+' of 5</div><h2>'+l.name+'</h2><div class="stats"><div class="stat"><b>'+l.depth+'</b><span>Depth</span></div><div class="stat"><b>'+l.temp+'</b><span>Temperature</span></div><div class="stat"><b>'+l.state+'</b><span>State</span></div><div class="stat"><b>'+l.dens+'</b><span>Density</span></div></div><p>'+l.fact+'</p><p class="note">Made of: '+l.comp+'.</p>'+
+ '<ul class="list">'+LAYERS.map((x,i)=>'<li><button data-layer="'+i+'" '+(i===L?'style="background:#1e242b"':'')+'>'+x.name+'<em>'+x.depth.split(' (')[0]+'</em></button></li>').join('')+'</ul>');
+ panelBody.querySelectorAll('[data-layer]').forEach(b=>b.onclick=()=>{showLayer(+b.dataset.layer);DU.uHL.value=+b.dataset.layer;});
+}
+let LBL=[];
+function buildLabels(rim){labelsEl.innerHTML='';LBL=LAYERS.map(l=>{const d=document.createElement('div');d.className='lbl';d.textContent=l.name;labelsEl.appendChild(d);return {el:d,r:l.lblR,a:l.lblA};});
+ if(rim){[['P-wave shadow',122-180+360,1.023,'rim'],['S-wave shadow',-150,1.053,'rim s']].forEach(([t,a,r,c])=>{const d=document.createElement('div');d.className='lbl '+c;d.textContent=t;labelsEl.appendChild(d);LBL.push({el:d,r,a,rim:true});});}}
+function placeLabels(){if(mode!=='inside')return;const u=DU.uU.value,w=DU.uW.value;
+ LBL.forEach(L=>{const a=(180-L.a)*D2R;const p=u.clone().multiplyScalar(Math.cos(a)*L.r).addScaledVector(w,Math.sin(a)*L.r);const s=screenOf(p);
+  const vis=DU.uS.value<.05&&(!L.rim||waveReal>8);L.el.style.display=vis?'flex':'none';L.el.style.left=s.x+'px';L.el.style.top=s.y+'px';});}
+
+/* ---------- Sound (starts only after you turn it on) ---------- */
+let ac=null,soundOn=false;
+function ensureAudio(){if(!soundOn||ac)return;try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){ac=null;}}
+function noiseSrc(dur){const b=ac.createBuffer(1,ac.sampleRate*dur,ac.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<d.length;i++){const w=Math.random()*2-1;l=(l+.02*w)/1.02;d[i]=l*3.5;}const s=ac.createBufferSource();s.buffer=b;return s;}
+function rumble(dur,gain){if(!soundOn||!ac)return;const s=noiseSrc(dur),f=ac.createBiquadFilter(),g=ac.createGain();f.type='lowpass';f.frequency.value=90;g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(gain,ac.currentTime+.4);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);s.connect(f).connect(g).connect(ac.destination);s.start();}
+function boom(gain){if(!soundOn||!ac)return;const o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(70,ac.currentTime);o.frequency.exponentialRampToValueAtTime(28,ac.currentTime+1.2);g.gain.setValueAtTime(gain,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+1.6);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+1.7);rumble(3,gain*.6);}
+function whoosh(){if(!soundOn||!ac)return;const s=noiseSrc(3),f=ac.createBiquadFilter(),g=ac.createGain();f.type='bandpass';f.frequency.setValueAtTime(300,ac.currentTime);f.frequency.exponentialRampToValueAtTime(900,ac.currentTime+2.5);g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(.25,ac.currentTime+.8);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+3);s.connect(f).connect(g).connect(ac.destination);s.start();}
+
+/* ---------- Seismograph ---------- */
+const scv=$('#seismoCv'),sx=scv.getContext('2d');
+const QUAKE_SIM=240; // 1 real second = 4 simulated minutes for seismic waves
+function seisSignal(t){
+ let v=(Math.sin(t*23.1)*.5+Math.sin(t*41.7+1.3)*.3+Math.sin(t*67.3+.7)*.2)*.035;
+ if(VENTS.length){v+=Math.sin(t*12.6)*.07*Math.min(1,VENTS.length);}
+ if(quake){const tq=(t-quake.t0)*QUAKE_SIM;const A=Math.min(1,(.18+(quake.M-4)/5.5*.82))/(1+quake.dKm/9000);
+  const arr=[[quake.tP,.35,9],[quake.tS,.65,5],[quake.tR,1,2]];
+  arr.forEach(([ta,amp,f])=>{const d=(tq-ta)/QUAKE_SIM;if(d>0){v+=A*amp*Math.exp(-d/(f>4?1.4:3.2))*Math.sin(d*f*6.283)*(Math.min(1,d*6));}});}
+ return v;
+}
+function drawSeismo(now){
+ const dpr=Math.min(devicePixelRatio||1,2),w=scv.clientWidth,h=scv.clientHeight;if(!w)return;
+ if(scv.width!==Math.round(w*dpr)){scv.width=Math.round(w*dpr);scv.height=Math.round(h*dpr);}
+ sx.setTransform(dpr,0,0,dpr,0,0);sx.clearRect(0,0,w,h);
+ const win=16;sx.strokeStyle='rgba(143,148,155,.18)';sx.lineWidth=1;
+ for(let s=0;s<=win;s+=2){const x=w-(((now%2)+s)/win)*w;sx.beginPath();sx.moveTo(x,0);sx.lineTo(x,h);sx.stroke();}
+ sx.beginPath();sx.moveTo(0,h/2);sx.lineTo(w,h/2);sx.stroke();
+ sx.strokeStyle='#ffb347';sx.lineWidth=1.2;sx.beginPath();
+ for(let x=0;x<=w;x+=1){const t=now-win+(x/w)*win;const y=h/2-Math.max(-1,Math.min(1,seisSignal(t)))*h*.46;x?sx.lineTo(x,y):sx.moveTo(x,y);}sx.stroke();
+ if(quake){sx.font='500 10px "IBM Plex Mono", monospace';sx.textBaseline='top';
+  [['P',quake.tP,'#ffd473'],['S',quake.tS,'#ff8c33'],['Surface',quake.tR,'#ff4d2e']].forEach(([l,ta,c])=>{const tr=quake.t0+ta/QUAKE_SIM;const x=w-(now-tr)/win*w;if(x>=0&&x<=w&&now>=tr){sx.strokeStyle=c;sx.globalAlpha=.8;sx.beginPath();sx.moveTo(x,0);sx.lineTo(x,h);sx.stroke();sx.globalAlpha=1;sx.fillStyle=c;sx.fillText(l,x+3,2);}});
+  const el=(now-quake.t0)*QUAKE_SIM;$('#seismoClock').textContent='T+'+fmtClock(el);
+  const sp=quake.tS-quake.tP;
+  $('#seismoFoot').textContent=el<quake.tP?station.code+' ('+station.name+') · waiting for P-wave…':el<quake.tS?'P arrived · Δ '+quake.deg.toFixed(0)+'° · waiting for S…':'S−P = '+fmtNum(sp)+' s → ≈ '+fmtNum(sp/(1/4.5-1/8))+' km away';
+ }
+}
+function fmtClock(s){s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),ss=s%60;return (h?h+'h ':'')+String(m).padStart(2,'0')+'m '+String(ss).padStart(2,'0')+'s';}
+
+/* ---------- Resize & loop ---------- */
+function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+ U.uScale.value=h*renderer.getPixelRatio()/(2*Math.tan(camera.fov*D2R/2));}
+addEventListener('resize',resize);resize();
+function fitDist(base){return Math.max(base,1.12/(Math.tan(camera.fov*D2R/2)*camera.aspect));}
+orbit.dist=orbit.tdist=fitDist(3.4);
+
+let last=performance.now(),simReal=0;
+function tick(now){
+ const dt=Math.min(.05,(now-last)/1000);last=now;simReal+=dt;U.uClockT.value=simReal;
+ // camera
+ if(orbit.auto&&!reduceMotion)orbit.tth+=dt*.035;
+ if(!pointers.size&&!orbit.flying){orbit.tth+=orbit.vth;orbit.tph=Math.min(Math.PI-.12,Math.max(.12,orbit.tph+orbit.vph));orbit.vth*=.92;orbit.vph*=.92;}
+ const k=1-Math.pow(orbit.flying?.04:.0005,dt);
+ orbit.th+=(orbit.tth-orbit.th)*k;orbit.ph+=(orbit.tph-orbit.ph)*k;orbit.dist+=(orbit.tdist-orbit.dist)*(1-Math.pow(.02,dt));
+ if(orbit.flying&&Math.abs(orbit.tth-orbit.th)<.002&&Math.abs(orbit.tph-orbit.ph)<.002)orbit.flying=false;
+ camera.position.set(Math.sin(orbit.ph)*Math.sin(orbit.th),Math.cos(orbit.ph),Math.sin(orbit.ph)*Math.cos(orbit.th)).multiplyScalar(orbit.dist);
+ camera.lookAt(0,0,0);
+ if(shake>.0002){const s=reduceMotion?shake*.2:shake;camera.position.x+=(Math.random()-.5)*s;camera.position.y+=(Math.random()-.5)*s;camera.position.z+=(Math.random()-.5)*s;shake*=Math.pow(.25,dt);}
+ // light follows camera so the visible face is lit
+ U.uLight.value.set(-.45,.55,.7).normalize();
+ // plate clock
+ if(playing){let t=+clock.value+dt*8;if(t>=80){t=80;playing=false;setPlayIcon();}clock.value=t;updClock();}
+ U.uTint.value+=(tintTarget-U.uTint.value)*Math.min(1,dt*4);
+ // waves
+ if(quake){U.uQT.value=(simReal-quake.t0)*QUAKE_SIM;if(U.uQT.value>22000){U.uQT.value=-1;}}
+ if(tsu){U.uTsT.value=(simReal-tsu.t0)*1200;if(U.uTsT.value>110000){U.uTsT.value=-1;tsu=null;}}
+ // cutaway
+ if(mode==='inside'||U.uCut.value<2){const c=U.uCut.value+(cutTarget-U.uCut.value)*Math.min(1,dt*(mode==='inside'?2.2:3.5));U.uCut.value=c;DU.uS.value=Math.max(0,c);
+  disc.position.copy(U.uCutN.value).multiplyScalar(Math.max(0,c));
+  clipPlane.normal.copy(U.uCutN.value).negate();clipPlane.constant=Math.max(0,c);
+  if(mode==='surface'&&c>1.0){U.uCut.value=5;clipPlane.constant=5;disc.visible=false;}}
+ DU.uT.value=simReal;
+ if(waveReal>=0){waveReal+=dt;DU.uWaveT.value=waveReal*200;if(waveReal>40){waveReal=-1;DU.uWaveT.value=-1;}}
+ if(flowPts.visible)updateFlow(dt);
+ placeMarkers();updateEruptions(dt);placeLabels();
+ renderer.render(scene,camera);
+ drawSeismo(simReal);
+ requestAnimationFrame(tick);
+}
+$('#loading').remove();
+setTool('explore');
+requestAnimationFrame(tick);
+
+$('#panelToggle').addEventListener('click',()=>{const p=$('#panel');const c=p.classList.toggle('collapsed');$('#panelToggle').textContent=c?'Show':'Hide';$('#panelToggle').setAttribute('aria-expanded',!c);});
+window.__RE={setTool,quakeAt,eruptAt,tsunamiAt,setMode,VOLCANOES,QUAKES,PLATES,velocity,bearing,plateOf,ll2v,U,BOUND};
+})();
+</script>
