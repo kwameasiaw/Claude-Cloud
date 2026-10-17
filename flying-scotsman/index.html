@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flying Scotsman 3D</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bevan&family=Nunito:wght@400;600;800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed 3D lineside scene; heritage cab-desk controls along the bottom, a lined "notice board" panel on the right. */
+:root {
+  --ink: #f4ead2;          /* cream lettering */
+  --ink-dim: #c9c1aa;
+  --panel: rgba(16, 30, 22, 0.88);  /* Brunswick-green glass */
+  --panel-solid: #12251a;
+  --line: rgba(244, 234, 210, 0.18);
+  --brass: #d4ab52;
+  --brass-deep: #9c7426;
+  --buffer: #c8202f;       /* buffer-beam red */
+  --apple: #6aa83c;        /* LNER apple green */
+  --good: #7fcf6a;
+  --font-display: "Bevan", "Rockwell", "Georgia", serif;
+  --font-body: "Nunito", "Trebuchet MS", system-ui, sans-serif;
+  --font-data: "DM Mono", ui-monospace, "Menlo", monospace;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --top: calc(env(safe-area-inset-top, 0px) + 14px);
+  --bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+  --panel-w: 352px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  margin: 0; overflow: hidden;
+  background: #9fb9cc;
+  color: var(--ink);
+  font: 15px/1.5 var(--font-body);
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+  -webkit-font-smoothing: antialiased;
+}
+#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--brass); outline-offset: 2px; }
+
+/* ---------- Header plate ---------- */
+.hud { position: fixed; top: var(--top); left: var(--gutter-l); display: flex; flex-direction: column; gap: 10px; max-width: calc(100% - var(--panel-w) - 48px); z-index: 5; }
+.plate {
+  display: inline-flex; flex-direction: column; gap: 2px; align-self: flex-start;
+  background: #111; border: 3px solid var(--brass); border-radius: 60px 60px 10px 10px / 40px 40px 10px 10px;
+  padding: 10px 26px 9px; box-shadow: 0 6px 18px rgba(0,0,0,.35), inset 0 0 0 2px #000;
+}
+.plate h1 { margin: 0; font: 400 clamp(20px, 3.2vw, 32px)/1.05 var(--font-display); letter-spacing: .06em; color: var(--brass); text-shadow: 0 1px 0 #6d4f12; text-wrap: balance; }
+.plate p { margin: 0; font: 500 11.5px/1.3 var(--font-data); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); text-align: center; }
+.row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; border: 1px solid var(--line); background: var(--panel); border-radius: 999px;
+  padding: 6px 12px; font-size: 13px; font-weight: 700; white-space: nowrap; backdrop-filter: blur(6px);
+}
+.chip[aria-pressed="true"] { background: var(--brass); color: #1b1305; border-color: var(--brass); }
+.chip small { font-weight: 600; opacity: .8; }
+.label-mini { font: 500 10.5px var(--font-data); letter-spacing: .14em; text-transform: uppercase; color: #1b2a20; background: rgba(244,234,210,.85); padding: 3px 8px; border-radius: 4px; }
+
+/* ---------- Hotspot markers ---------- */
+#markers { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+.hs {
+  position: absolute; left: -100px; top: -100px; width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  border-radius: 50%; border: 2px solid #fff6dc; background: radial-gradient(circle at 35% 30%, #f6d98c, var(--brass) 55%, var(--brass-deep));
+  color: #2a1d05; font: 800 15px/30px var(--font-body); text-align: center; pointer-events: auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,.45); transition: opacity .25s, transform .15s;
+}
+.hs::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(246,217,140,.8); animation: ping 2.2s ease-out infinite; }
+.hs.seen::after { animation: none; border-color: transparent; }
+.hs.dim { opacity: .38; }
+.hs:hover { transform: scale(1.15); }
+.hs[hidden] { display: none !important; }
+@keyframes ping { 0% { transform: scale(.7); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+
+/* ---------- Right panel ---------- */
+.panel {
+  position: fixed; top: var(--top); right: var(--gutter-r); width: var(--panel-w);
+  bottom: calc(var(--bottom) + var(--desk-h, 150px) + 12px);
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  display: flex; flex-direction: column; z-index: 6; backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  min-height: 0;
+}
+.tabs { display: flex; gap: 4px; padding: 8px; border-bottom: 1px solid var(--line); }
+.tab { flex: 1; background: transparent; border: 0; border-radius: 8px; padding: 8px 6px; font-weight: 800; font-size: 14px; color: var(--ink-dim); }
+.tab[aria-selected="true"] { background: rgba(244,234,210,.12); color: var(--ink); box-shadow: inset 0 -3px 0 var(--brass); }
+.pane { overflow-y: auto; padding: 14px 16px 18px; flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; }
+.pane h2 { margin: 0; font: 400 20px/1.15 var(--font-display); letter-spacing: .03em; color: var(--brass); text-wrap: balance; }
+.pane h3 { margin: 0; font: 500 11px var(--font-data); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+.pane p { margin: 0; }
+.card { background: rgba(0,0,0,.25); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.fact { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
+.fact .ico { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 800 12px var(--font-body); }
+.fact .kid { background: var(--apple); color: #10200a; }
+.fact .eng { background: var(--ink); color: #1b2a20; }
+.fact b { display: block; font: 500 10.5px var(--font-data); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.parts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.part { text-align: left; background: rgba(244,234,210,.06); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; font-size: 13px; font-weight: 700; display: flex; gap: 7px; align-items: center; min-width: 0; }
+.part span.n { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--brass); color: #2a1d05; font-size: 11px; display: grid; place-items: center; }
+.part.seen { border-color: rgba(127,207,106,.5); }
+.part[hidden] { display: none !important; }
+.specs { width: 100%; border-collapse: collapse; font-size: 13px; }
+.specs td { padding: 5px 0; border-bottom: 1px dashed var(--line); vertical-align: top; }
+.specs td:last-child { text-align: right; font-family: var(--font-data); font-size: 12.5px; color: var(--ink); padding-left: 10px; }
+.specs td:first-child { color: var(--ink-dim); }
+.badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.badge { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; font-size: 10.5px; line-height: 1.2; color: var(--ink-dim); }
+.badge i { width: 42px; height: 42px; border-radius: 50%; border: 2px dashed rgba(244,234,210,.3); display: grid; place-items: center; font: 400 15px var(--font-display); font-style: normal; color: rgba(244,234,210,.3); }
+.badge.got i { border: 2px solid #fff3c9; background: radial-gradient(circle at 35% 30%, #f6d98c, var(--brass) 60%, var(--brass-deep)); color: #2a1d05; box-shadow: 0 0 12px rgba(212,171,82,.6); }
+.badge.got { color: var(--ink); }
+
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.timeline li { display: grid; grid-template-columns: 58px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.timeline .yr { font: 400 17px var(--font-display); color: var(--brass); }
+.timeline .t { font-weight: 800; }
+.timeline .d { font-size: 13.5px; color: var(--ink-dim); }
+.mini-btn { justify-self: start; margin-top: 6px; background: transparent; border: 1px solid var(--brass); color: var(--brass); border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 800; }
+
+.quiz-q { font-weight: 800; font-size: 16px; line-height: 1.35; }
+.opts { display: flex; flex-direction: column; gap: 7px; }
+.opt { text-align: left; background: rgba(244,234,210,.07); border: 1px solid var(--line); border-radius: 9px; padding: 10px 12px; font-weight: 700; }
+.opt:hover:not(:disabled) { border-color: var(--brass); }
+.opt.right { background: rgba(127,207,106,.22); border-color: var(--good); }
+.opt.wrong { background: rgba(200,32,47,.25); border-color: var(--buffer); }
+.opt:disabled { cursor: default; }
+.progress-dots { display: flex; gap: 5px; }
+.progress-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(244,234,210,.2); }
+.progress-dots span.ok { background: var(--good); }
+.progress-dots span.no { background: var(--buffer); }
+.progress-dots span.cur { outline: 2px solid var(--brass); }
+.primary { background: var(--brass); color: #1b1305; border: 0; border-radius: 999px; padding: 10px 18px; font-weight: 800; align-self: flex-start; }
+
+/* ---------- Cab desk ---------- */
+.desk {
+  position: fixed; left: var(--gutter-l); right: calc(var(--gutter-r) + var(--panel-w) + 12px); bottom: var(--bottom);
+  background: linear-gradient(180deg, rgba(26,22,18,.92), rgba(12,10,8,.94));
+  border: 1px solid rgba(212,171,82,.35); border-radius: 14px; padding: 10px 14px;
+  display: flex; gap: 14px; align-items: center; z-index: 6; flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+.gauge { width: 118px; flex: none; display: flex; flex-direction: column; align-items: center; }
+.gauge svg { width: 100%; height: auto; display: block; }
+.gauge .cap { font: 500 10px var(--font-data); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); margin-top: -4px; }
+.controls { display: flex; flex-direction: column; gap: 8px; flex: 1 1 260px; min-width: 0; }
+.reg { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.reg label { font-weight: 800; font-size: 13px; }
+.reg output { font: 500 13px var(--font-data); min-width: 40px; text-align: right; font-variant-numeric: tabular-nums; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 30px; background: transparent; }
+input[type=range]::-webkit-slider-runnable-track { height: 10px; border-radius: 6px; background: linear-gradient(90deg, #3a3a3a, var(--brass-deep) 60%, var(--buffer)); border: 1px solid #000; }
+input[type=range]::-moz-range-track { height: 10px; border-radius: 6px; background: linear-gradient(90deg, #3a3a3a, var(--brass-deep) 60%, var(--buffer)); border: 1px solid #000; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; margin-top: -11px; border-radius: 8px; background: radial-gradient(circle at 40% 35%, #fbe6a8, var(--brass) 55%, var(--brass-deep)); border: 2px solid #2a1d05; }
+input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 8px; background: var(--brass); border: 2px solid #2a1d05; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.act {
+  flex: 1 1 auto; border: 0; border-radius: 10px; padding: 9px 12px; font-weight: 800; font-size: 14px;
+  background: #2b2620; color: var(--ink); box-shadow: inset 0 -3px 0 rgba(0,0,0,.4), 0 0 0 1px rgba(244,234,210,.15);
+  display: inline-flex; gap: 6px; align-items: center; justify-content: center; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+}
+.act:active, .act.on { transform: translateY(1px); box-shadow: inset 0 2px 0 rgba(0,0,0,.4), 0 0 0 1px var(--brass); }
+.act.whistle { background: var(--brass); color: #1b1305; }
+.act.brake { background: var(--buffer); }
+.act.coal { background: #3a3a3a; }
+.act svg { width: 18px; height: 18px; }
+.journey { flex: 1 1 100%; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.journey .top { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: var(--ink-dim); flex-wrap: wrap; }
+.journey .top strong { color: var(--ink); }
+.journey .top .num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.track { position: relative; height: 26px; margin: 0 8px; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 11px; height: 4px; border-radius: 2px; background: repeating-linear-gradient(90deg, #6b6155 0 6px, #3b352e 6px 10px); }
+.track .fill { position: absolute; left: 0; top: 11px; height: 4px; border-radius: 2px; background: var(--brass); width: 0; }
+.stn { position: absolute; top: 7px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #1a1714; border: 2px solid var(--ink-dim); }
+.stn.passed { border-color: var(--brass); background: var(--brass); }
+.stn span { position: absolute; top: 13px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--ink-dim); white-space: nowrap; }
+.train-dot { position: absolute; top: 3px; width: 20px; height: 20px; margin-left: -10px; border-radius: 6px 10px 10px 6px; background: var(--apple); border: 2px solid var(--ink); transition: background .3s; }
+.journey .meta { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; font-size: 12px; color: var(--ink-dim); margin-top: 8px; }
+.switch { display: inline-flex; gap: 6px; align-items: center; font-weight: 700; color: var(--ink); cursor: pointer; }
+.switch input { width: 16px; height: 16px; accent-color: var(--brass); }
+
+/* ---------- Toast, splash, mobile toggle ---------- */
+.toast {
+  position: fixed; left: 50%; top: calc(var(--top) + 6px); transform: translate(-50%, -140%);
+  background: #111; border: 3px solid var(--brass); color: var(--brass); border-radius: 12px;
+  padding: 10px 20px; font: 400 18px/1.2 var(--font-display); text-align: center; z-index: 20;
+  transition: transform .45s cubic-bezier(.2,1.4,.4,1); max-width: calc(100% - 32px); box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+.toast small { display: block; font: 600 13px/1.35 var(--font-body); color: var(--ink); margin-top: 3px; }
+.toast.show { transform: translate(-50%, 0); }
+.splash {
+  position: fixed; inset: 0; z-index: 30; display: grid; place-items: center;
+  background: radial-gradient(ellipse at center, rgba(10,20,14,.55), rgba(10,20,14,.82));
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+.splash .box { max-width: 520px; text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.splash h2 { margin: 0; font: 400 clamp(30px, 6vw, 52px)/1.05 var(--font-display); color: var(--brass); letter-spacing: .04em; text-shadow: 0 3px 0 #000; text-wrap: balance; }
+.splash p { margin: 0; font-size: 16.5px; max-width: 46ch; }
+.splash .row { justify-content: center; }
+.splash .primary { font-size: 18px; padding: 13px 26px; align-self: center; }
+.ghost { background: transparent; border: 1px solid var(--ink-dim); border-radius: 999px; padding: 12px 20px; font-weight: 700; }
+.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 13px; color: var(--ink-dim); margin-top: 6px; }
+.how div { background: rgba(0,0,0,.35); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+.how b { display: block; color: var(--ink); }
+.panel-toggle { display: none; }
+.close-panel { display: none; }
+.sound-btn { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 800; }
+
+@media (max-width: 860px) {
+  :root { --panel-w: 0px; }
+  .hud { max-width: calc(100% - 32px); right: var(--gutter-r); }
+  .plate { padding: 7px 18px 6px; }
+  .panel { left: var(--gutter-l); right: var(--gutter-r); width: auto; top: auto; bottom: var(--bottom); max-height: 72%; display: none; z-index: 12; }
+  .panel.open { display: flex; }
+  .close-panel { display: block; background: transparent; border: 0; font-size: 22px; padding: 0 8px; color: var(--ink); }
+  .desk { right: var(--gutter-r); padding: 8px 10px; gap: 8px; }
+  .gauge { width: 84px; }
+  .controls { flex-basis: 180px; }
+  .panel-toggle { display: inline-flex; }
+  .act { padding: 8px 9px; font-size: 13px; }
+  .stn span { font-size: 9px; }
+  .stn.hide-sm span { display: none; }
+  .how { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hs::after { animation: none; }
+  .toast { transition: none; }
+}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-label="3D model of the Flying Scotsman steam locomotive. Drag to turn the camera, scroll or pinch to zoom." tabindex="0"></canvas>
+<div id="markers" aria-hidden="false"></div>
+
+<header class="hud">
+  <div class="plate">
+    <h1>FLYING SCOTSMAN</h1>
+    <p id="plateSub">LNER Class A3 · No. 60103 · Built 1923</p>
+  </div>
+  <div class="row">
+    <span class="label-mini">Paint</span>
+    <div class="chips" role="group" aria-label="Choose paint scheme">
+      <button class="chip" id="livBR" aria-pressed="true">BR green <small>60103 · today</small></button>
+      <button class="chip" id="livLNER" aria-pressed="false">LNER apple green <small>4472 · 1928</small></button>
+    </div>
+  </div>
+  <div class="row">
+    <span class="label-mini">Camera</span>
+    <div class="chips" id="cams" role="group" aria-label="Camera views"></div>
+  </div>
+  <div class="row">
+    <button class="sound-btn" id="soundBtn" aria-pressed="false">Sound: off</button>
+    <button class="sound-btn panel-toggle" id="panelToggle" aria-controls="panel" aria-expanded="false">Facts, story &amp; quiz</button>
+  </div>
+</header>
+
+<aside class="panel" id="panel" aria-label="Facts, story and quiz">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="explore">Explore</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="story">Story</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="quiz">Quiz</button>
+    <button class="close-panel" id="closePanel" aria-label="Close panel">×</button>
+  </div>
+  <div class="pane" id="pane-explore" role="tabpanel">
+    <div class="card" id="detail">
+      <h2 id="dTitle">Meet the most famous engine in the world</h2>
+      <p id="dIntro">Tap a glowing brass button on the engine, or pick a part below, to find out what it does.</p>
+      <div class="fact" id="dKidWrap" hidden><span class="ico kid">Kid</span><p><b>For young explorers</b><span id="dKid"></span></p></div>
+      <div class="fact" id="dEngWrap" hidden><span class="ico eng">Eng</span><p><b>For engineers</b><span id="dEng"></span></p></div>
+    </div>
+    <h3>Parts of the engine</h3>
+    <div class="parts" id="parts"></div>
+    <h3>Your badges</h3>
+    <div class="badges" id="badges"></div>
+    <h3>At a glance</h3>
+    <table class="specs">
+      <tr><td>Designer</td><td>Sir Nigel Gresley</td></tr>
+      <tr><td>Built</td><td>Doncaster Works, 1923</td></tr>
+      <tr><td>Wheel arrangement</td><td>4-6-2 "Pacific"</td></tr>
+      <tr><td>Driving wheels</td><td>6 ft 8 in</td></tr>
+      <tr><td>Cylinders</td><td>3 × 19 × 26 in</td></tr>
+      <tr><td>Boiler pressure (A3)</td><td>220 psi</td></tr>
+      <tr><td>Tractive effort (A3)</td><td>32,910 lbf</td></tr>
+      <tr><td>First official 100 mph</td><td>30 Nov 1934</td></tr>
+      <tr><td>Numbers carried</td><td>1472, 4472, 502, 103, 60103</td></tr>
+      <tr><td>Owner since 2004</td><td>National Railway Museum</td></tr>
+    </table>
+  </div>
+  <div class="pane" id="pane-story" role="tabpanel" hidden>
+    <h2>100 years on the rails</h2>
+    <ol class="timeline" id="timeline"></ol>
+  </div>
+  <div class="pane" id="pane-quiz" role="tabpanel" hidden>
+    <h2>Station quiz</h2>
+    <div class="progress-dots" id="qDots"></div>
+    <p class="quiz-q" id="qText"></p>
+    <div class="opts" id="qOpts"></div>
+    <p id="qWhy" class="d" style="color:var(--ink-dim)"></p>
+    <button class="primary" id="qNext" hidden>Next question</button>
+  </div>
+</aside>
+
+<section class="desk" id="desk" aria-label="Driver's controls">
+  <div class="gauge"><svg id="speedo" viewBox="0 0 120 112" role="img" aria-label="Speed in miles per hour"></svg><span class="cap">Speed mph</span></div>
+  <div class="gauge"><svg id="press" viewBox="0 0 120 112" role="img" aria-label="Boiler pressure in psi"></svg><span class="cap">Boiler psi</span></div>
+  <div class="controls">
+    <div class="reg">
+      <label for="regulator">Regulator</label>
+      <input id="regulator" type="range" min="0" max="100" value="0" aria-describedby="regHint">
+      <output id="regOut" for="regulator">0%</output>
+    </div>
+    <div class="btns">
+      <button class="act whistle" id="whistleBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 21V10M15 21V10M7 10h10M8 10V6a4 4 0 0 1 8 0v4"/></svg>Whistle</button>
+      <button class="act coal" id="coalBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l7-7M10 14l2 2 8-8-4-4-8 8z"/></svg>Shovel coal</button>
+      <button class="act brake" id="brakeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="3"/></svg>Brake</button>
+    </div>
+  </div>
+  <div class="journey">
+    <div class="top">
+      <span><strong>King's Cross → Edinburgh</strong>, the 1928 non-stop route</span>
+      <span class="num" id="jText">0.0 of 392.7 miles</span>
+    </div>
+    <div class="track" id="jTrack"><div class="fill" id="jFill"></div><div class="train-dot" id="jDot"></div></div>
+    <div class="meta">
+      <span id="regHint">Push the regulator to go. Keep the fire hot: shovel coal when the pressure needle drops.</span>
+      <label class="switch"><input type="checkbox" id="autoFire"> Auto-fireman</label>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="splash" id="splash">
+  <div class="box">
+    <h2>All aboard the Flying Scotsman</h2>
+    <p>Spin around a 3D model of the world's most famous steam engine. Drive it to 100 mph like it did in 1934, keep the fire going, and race it all the way from London to Edinburgh.</p>
+    <div class="row">
+      <button class="primary" id="startSound">Start with sound</button>
+      <button class="ghost" id="startQuiet">Start quietly</button>
+    </div>
+    <div class="how">
+      <div><b>Drag</b>to look all around</div>
+      <div><b>Scroll or pinch</b>to zoom in</div>
+      <div><b>Tap brass buttons</b>for secrets</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* =========================================================
+   Renderer, scene, camera
+   ========================================================= */
+THREE.ColorManagement.legacyMode = false;
+const canvas = $('#scene');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+const SKY_H = 0xcfdce4;
+scene.fog = new THREE.Fog(SKY_H, 260, 1100);
+
+function canvasTex(w, h, draw, srgb = true) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d'); draw(g, w, h);
+  const t = new THREE.CanvasTexture(c);
+  if (srgb) t.encoding = THREE.sRGBEncoding;
+  t.anisotropy = 4;
+  t.userData = { canvas: c, ctx: g };
+  return t;
+}
+scene.background = canvasTex(4, 256, (g, w, h) => {
+  const gr = g.createLinearGradient(0, 0, 0, h);
+  gr.addColorStop(0, '#7c9fbd'); gr.addColorStop(0.55, '#b9cbd8'); gr.addColorStop(1, '#dde6ea');
+  g.fillStyle = gr; g.fillRect(0, 0, w, h);
+});
+
+const camera = new THREE.PerspectiveCamera(42, 1, 0.3, 3000);
+camera.position.set(40, 12, 33);
+const controls = new THREE.OrbitControls(camera, canvas);
+controls.target.set(-2, 7, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI * 0.495;
+controls.minDistance = 4;
+controls.maxDistance = 320;
+
+scene.add(new THREE.HemisphereLight(0xe4efff, 0x56704a, 0.85));
+const sun = new THREE.DirectionalLight(0xfff1dc, 2.1);
+sun.position.set(70, 110, 60);
+sun.target.position.set(-25, 0, 0);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -110, right: 80, top: 60, bottom: -60, near: 10, far: 400 });
+sun.shadow.bias = -0.0006;
+sun.shadow.normalBias = 0.04;
+scene.add(sun, sun.target);
+
+/* =========================================================
+   Materials
+   ========================================================= */
+const LIVERY = {
+  BR:   { paint: 0x1c4a2c, wheel: 0x1c4a2c, band: 0x0d0d0d, number: '60103', sub: 'LNER Class A3 · No. 60103 · Built 1923', dot: '#2b6b3f' },
+  LNER: { paint: 0x5f9e33, wheel: 0x5f9e33, band: 0x0d0d0d, number: '4472',  sub: 'LNER Class A1/A3 · No. 4472 · 1928 look', dot: '#6aa83c' }
+};
+const M = {
+  paint: new THREE.MeshStandardMaterial({ color: LIVERY.BR.paint, roughness: 0.32, metalness: 0.25 }),
+  black: new THREE.MeshStandardMaterial({ color: 0x141414, roughness: 0.55, metalness: 0.3 }),
+  smokebox: new THREE.MeshStandardMaterial({ color: 0x1b1b1b, roughness: 0.8, metalness: 0.2 }),
+  red: new THREE.MeshStandardMaterial({ color: 0xc01d2a, roughness: 0.45, metalness: 0.1 }),
+  steel: new THREE.MeshStandardMaterial({ color: 0xc4c8cd, roughness: 0.28, metalness: 0.92 }),
+  dark: new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.6, metalness: 0.6 }),
+  brass: new THREE.MeshStandardMaterial({ color: 0xd2a84e, roughness: 0.25, metalness: 0.9 }),
+  coal: new THREE.MeshStandardMaterial({ color: 0x121212, roughness: 0.95, metalness: 0.1, flatShading: true }),
+  glass: new THREE.MeshStandardMaterial({ color: 0x1f2c35, roughness: 0.08, metalness: 0.6 }),
+  white: new THREE.MeshStandardMaterial({ color: 0xf2f2ee, roughness: 0.4 }),
+  roof: new THREE.MeshStandardMaterial({ color: 0x5b5d5f, roughness: 0.75, metalness: 0.2 }),
+  wheelPaint: null,
+  glow: new THREE.MeshBasicMaterial({ color: 0xff7a1a, transparent: true, opacity: 0.6 })
+};
+
+function mesh(geo, mat, x = 0, y = 0, z = 0, parent) {
+  const m = new THREE.Mesh(geo, mat);
+  m.position.set(x, y, z);
+  if (parent) parent.add(m);
+  return m;
+}
+// Cylinder lying along the X axis
+function cylX(r1, r2, len, seg = 32) { const g = new THREE.CylinderGeometry(r1, r2, len, seg); g.rotateZ(-Math.PI / 2); return g; }
+// Cylinder lying along the Z axis
+function cylZ(r1, r2, len, seg = 32, open = false) { const g = new THREE.CylinderGeometry(r1, r2, len, seg, 1, open); g.rotateX(Math.PI / 2); return g; }
+const box = (x, y, z) => new THREE.BoxGeometry(x, y, z);
+
+// Flat textured "decal" plane. side: +1 faces +z, -1 faces -z, 'x' faces +x
+function decal(w, h, tw, th, draw, parent, pos, facing) {
+  const tex = canvasTex(tw, th, draw);
+  const mat = new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.35, metalness: 0.2, polygonOffset: true, polygonOffsetFactor: -2 });
+  const m = mesh(new THREE.PlaneGeometry(w, h), mat, pos[0], pos[1], pos[2], parent);
+  if (facing === -1) m.rotation.y = Math.PI;
+  if (facing === 'x') m.rotation.y = Math.PI / 2;
+  m.userData.redraw = fn => { const c = tex.userData; c.ctx.clearRect(0, 0, tw, th); fn(c.ctx, tw, th); tex.needsUpdate = true; };
+  return m;
+}
+
+/* =========================================================
+   Wheels
+   ========================================================= */
+// Spoked wheel centre drawn on a canvas, tinted by material colour
+function spokeTexture(n, cw) {
+  return canvasTex(512, 512, (g, w) => {
+    const c = w / 2, R = w / 2 - 4;
+    g.translate(c, c);
+    g.fillStyle = '#ffffff'; g.strokeStyle = '#ffffff';
+    g.beginPath(); g.arc(0, 0, R, 0, Math.PI * 2); g.arc(0, 0, R * 0.86, 0, Math.PI * 2, true); g.fill();
+    g.lineCap = 'round';
+    for (let i = 0; i < n; i++) {
+      const a = i / n * Math.PI * 2;
+      g.lineWidth = R * 0.07;
+      g.beginPath(); g.moveTo(Math.cos(a) * R * 0.2, Math.sin(a) * R * 0.2); g.lineTo(Math.cos(a) * R * 0.88, Math.sin(a) * R * 0.88); g.stroke();
+    }
+    g.beginPath(); g.arc(0, 0, R * 0.24, 0, Math.PI * 2); g.fill();
+    if (cw) { // balance weight opposite the crank pin (pin sits at +x)
+      g.beginPath(); g.arc(0, 0, R * 0.86, Math.PI - 0.75, Math.PI + 0.75); g.arc(0, 0, R * 0.42, Math.PI + 0.6, Math.PI - 0.6, true); g.closePath(); g.fill();
+    }
+    g.fillStyle = '#9a9a9a';
+    g.beginPath(); g.arc(0, 0, R * 0.12, 0, Math.PI * 2); g.fill();
+  });
+}
+const spokeTexDriver = spokeTexture(22, true);
+const spokeTexSmall = spokeTexture(12, false);
+M.wheelPaint = new THREE.MeshStandardMaterial({ map: spokeTexDriver, color: LIVERY.BR.wheel, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.4, metalness: 0.3 });
+const smallWheelPaint = new THREE.MeshStandardMaterial({ map: spokeTexSmall, color: LIVERY.BR.wheel, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.4, metalness: 0.3 });
+const blackWheel = new THREE.MeshStandardMaterial({ map: spokeTexSmall, color: 0x1a1a1a, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.6 });
+
+const GAUGE_Z = 2.35;
+const allAxles = []; // {group, r}
+// Axle with two wheels. phases: crank angle per side (right=+z, left=-z) when cranked
+function axle(parent, x, r, opts = {}) {
+  const g = new THREE.Group(); g.position.set(x, r, 0); parent.add(g);
+  const w = 0.42;
+  const disc = opts.mat || smallWheelPaint;
+  [1, -1].forEach(side => {
+    const z = side * GAUGE_Z;
+    const tyre = mesh(cylZ(r, r, w, 48, true), M.steel, 0, 0, z, g);
+    mesh(cylZ(r + 0.14, r + 0.14, 0.12, 48, true), M.dark, 0, 0, z - side * 0.2, g); // flange
+    const d = mesh(new THREE.CircleGeometry(r * 0.99, 48), disc, 0, 0, z + side * 0.05, g);
+    if (opts.crank) {
+      const ph = side === 1 ? 0 : opts.leftPhase;
+      d.rotation.z = ph;
+      const pin = mesh(cylZ(0.22, 0.22, 0.7, 16), M.steel, Math.cos(ph) * opts.crank, Math.sin(ph) * opts.crank, z + side * 0.4, g);
+      pin.castShadow = true;
+    }
+    mesh(cylZ(r * 0.16, r * 0.16, 0.3, 16), M.steel, 0, 0, z + side * 0.25, g);
+  });
+  mesh(cylZ(0.28, 0.28, GAUGE_Z * 2, 12), M.dark, 0, 0, 0, g);
+  allAxles.push({ group: g, r });
+  return g;
+}
+
+/* =========================================================
+   The locomotive
+   ========================================================= */
+const train = new THREE.Group(); scene.add(train);
+const loco = new THREE.Group(); train.add(loco);
+
+const R_DRIVE = 3.33, CRANK = 1.08, LEFT_PHASE = Math.PI * 2 / 3;
+const DRIVERS_X = [6, -1.25, -8.5];
+DRIVERS_X.forEach(x => axle(loco, x, R_DRIVE, { mat: M.wheelPaint, crank: CRANK, leftPhase: LEFT_PHASE }));
+axle(loco, 20.2, 1.6); axle(loco, 13.95, 1.6);   // leading bogie
+axle(loco, -16.2, 1.85);                          // trailing (Cartazzi) axle
+
+// Frames & bogie
+mesh(box(37, 2.4, 2.6), M.black, 2.2, 3.4, 0, loco);
+mesh(box(8.4, 1.0, 3.8), M.black, 17.1, 2.0, 0, loco);
+[1, -1].forEach(s => mesh(box(2.2, 1.0, 0.5), M.black, -16.2, 1.9, s * 3.0, loco));
+
+// Running plate (high over the driving wheels, dropping at the front)
+mesh(box(27, 0.25, 8.6), M.black, -1.5, 7.0, 0, loco);
+[1, -1].forEach(s => mesh(box(27, 0.8, 0.12), M.paint, -1.5, 6.6, s * 4.3, loco));
+const drop = mesh(box(4.3, 0.25, 8.6), M.black, 13.75, 5.8, 0, loco); drop.rotation.z = -0.6;
+[1, -1].forEach(s => { const v = mesh(box(4.3, 0.8, 0.12), M.paint, 13.75, 5.4, s * 4.3, loco); v.rotation.z = -0.6; });
+mesh(box(6.6, 0.25, 8.6), M.black, 18.8, 4.6, 0, loco);
+[1, -1].forEach(s => mesh(box(6.6, 0.7, 0.12), M.paint, 18.8, 4.25, s * 4.3, loco));
+
+// Buffer beam, buffers, coupling, lamps
+mesh(box(0.5, 1.7, 8.6), M.red, 22.3, 3.9, 0, loco);
+[1, -1].forEach(s => {
+  mesh(cylX(0.42, 0.5, 1.1, 20), M.black, 23.1, 3.9, s * 3.1, loco);
+  mesh(cylX(0.18, 0.18, 0.8, 12), M.steel, 23.9, 3.9, s * 3.1, loco);
+  mesh(cylX(0.78, 0.78, 0.18, 32), M.steel, 24.3, 3.9, s * 3.1, loco);
+});
+mesh(box(1.2, 0.35, 0.35), M.steel, 23.1, 3.6, 0, loco);
+function lamp(x, y, z) {
+  const g = new THREE.Group(); g.position.set(x, y, z); loco.add(g);
+  mesh(box(0.55, 0.75, 0.55), M.white, 0, 0, 0, g);
+  mesh(new THREE.CircleGeometry(0.2, 16), new THREE.MeshBasicMaterial({ color: 0xfff6d0 }), 0.28, 0, 0, g).rotation.y = Math.PI / 2;
+  mesh(cylZ(0.05, 0.05, 0.5, 6), M.white, 0, 0.5, 0, g).rotation.x = 0;
+}
+lamp(22.4, 5.15, 3.3); lamp(22.4, 5.15, -3.3);
+
+// Cylinders (outside pair)
+[1, -1].forEach(s => {
+  mesh(cylX(1.0, 1.0, 4.0, 28), M.paint, 16.5, 3.55, s * 3.7, loco);
+  mesh(cylX(1.06, 1.06, 0.2, 28), M.steel, 18.55, 3.55, s * 3.7, loco);
+  mesh(cylX(1.06, 1.06, 0.2, 28), M.black, 14.45, 3.55, s * 3.7, loco);
+  mesh(box(0.6, 0.8, 0.4), M.black, 16.5, 2.2, s * 3.7, loco); // drain cock block
+  // slide bars
+  [0.38, -0.38].forEach(dy => mesh(box(6.2, 0.12, 0.22), M.steel, 11.3, 3.6 + dy, s * 3.3, loco));
+});
+
+// Boiler, firebox, smokebox
+const BOILER_Y = 9.6;
+mesh(cylX(2.85, 3.15, 19, 48), M.paint, 3.5, BOILER_Y, 0, loco);
+mesh(cylX(3.25, 3.25, 7.2, 48), M.paint, -9.5, BOILER_Y, 0, loco);
+mesh(box(7.2, 2.8, 6.4), M.paint, -9.5, 8.4, 0, loco);
+const bands = [];
+[-12.9, -6.1, 1, 7.5, 12.9].forEach(x => {
+  const r = x < -6 ? 3.28 : 3.15 - (x + 6) / 19 * 0.3 + 0.04;
+  bands.push(mesh(cylX(r, r, 0.22, 48), M.black, x, BOILER_Y, 0, loco));
+});
+mesh(cylX(2.95, 2.95, 6.2, 48), M.smokebox, 16.1, BOILER_Y, 0, loco);
+mesh(cylX(3.05, 3.05, 0.25, 48), M.smokebox, 19.1, BOILER_Y, 0, loco);
+const door = mesh(new THREE.SphereGeometry(2.7, 40, 20), M.smokebox, 19.15, BOILER_Y, 0, loco); door.scale.set(0.14, 1, 1);
+mesh(box(0.25, 0.25, 0.9), M.steel, 19.6, BOILER_Y, 0, loco);
+mesh(cylX(0.08, 0.08, 0.6, 8), M.steel, 19.75, BOILER_Y, 0.45, loco);
+[0.9, -0.9].forEach(dy => mesh(box(0.12, 0.18, 4.0), M.steel, 19.5, BOILER_Y + dy, 0, loco));
+mesh(box(5.4, 3.2, 3.8), M.black, 16.1, 6.0, 0, loco); // saddle
+// handrails
+[1, -1].forEach(s => mesh(cylX(0.06, 0.06, 24, 8), M.steel, 5.5, 11.3, s * 3.1, loco));
+mesh(cylZ(0.06, 0.06, 2.6, 8), M.steel, 19.55, 11.7, 0, loco);
+
+// Chimneys: BR double chimney and the original single
+const chimBR = new THREE.Group(); loco.add(chimBR);
+{ const c = mesh(new THREE.CylinderGeometry(0.8, 0.85, 1.25, 28), M.smokebox, 16.2, 13.05, 0, chimBR); c.scale.set(1.7, 1, 1);
+  const f = mesh(new THREE.CylinderGeometry(1.1, 1.35, 0.35, 28), M.smokebox, 16.2, 12.5, 0, chimBR); f.scale.set(1.5, 1, 1);
+  const lip = mesh(new THREE.CylinderGeometry(0.9, 0.9, 0.14, 28), M.smokebox, 16.2, 13.7, 0, chimBR); lip.scale.set(1.65, 1, 1); }
+const chimLNER = new THREE.Group(); loco.add(chimLNER);
+{ mesh(new THREE.CylinderGeometry(0.78, 0.86, 1.45, 28), M.smokebox, 16.2, 13.1, 0, chimLNER);
+  mesh(new THREE.CylinderGeometry(1.25, 1.4, 0.3, 28), M.smokebox, 16.2, 12.45, 0, chimLNER);
+  mesh(new THREE.CylinderGeometry(0.98, 0.9, 0.18, 28), M.smokebox, 16.2, 13.85, 0, chimLNER); }
+// Banjo dome, safety valves, whistle
+const dome = mesh(new THREE.SphereGeometry(1.2, 32, 16), M.paint, -3.2, 12.55, 0, loco); dome.scale.set(2.1, 0.8, 0.85);
+[0.35, -0.35].forEach(z => mesh(new THREE.CylinderGeometry(0.2, 0.26, 0.7, 12), M.brass, -7.4, 13.05, z, loco));
+mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.9, 12), M.brass, -12.2, 13.15, 0, loco);
+
+// Smoke deflectors (BR era, 1961 on)
+const deflectors = new THREE.Group(); loco.add(deflectors);
+[1, -1].forEach(s => {
+  const p = mesh(box(5.6, 7.0, 0.12), M.paint, 16.0, 8.3, s * 3.85, deflectors);
+  p.rotation.x = s * 0.05;
+  mesh(box(5.6, 0.16, 0.5), M.paint, 16.0, 11.8, s * 3.65, deflectors);
+});
+
+// Splasher & nameplate over the middle driving wheel
+[1, -1].forEach(s => mesh(box(6.8, 0.9, 0.9), M.paint, -1.25, 7.55, s * 3.85, loco));
+function drawNameplate(g, w, h) {
+  g.clearRect(0, 0, w, h);
+  g.fillStyle = '#c99a3e';
+  g.beginPath(); g.moveTo(10, h - 6); g.quadraticCurveTo(w / 2, -h * 0.25, w - 10, h - 6); g.closePath(); g.fill();
+  g.fillStyle = '#0d0d0d';
+  g.beginPath(); g.moveTo(22, h - 14); g.quadraticCurveTo(w / 2, -h * 0.05, w - 22, h - 14); g.closePath(); g.fill();
+  g.fillStyle = '#e8c574'; g.font = `700 ${h * 0.42}px Bevan, Georgia, serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.fillText('FLYING SCOTSMAN', w / 2, h * 0.62);
+}
+const nameplates = [1, -1].map(s => decal(6.2, 1.15, 1024, 190, drawNameplate, loco, [-1.25, 8.15, s * 4.33], s));
+
+// Cab
+[1, -1].forEach(s => {
+  mesh(box(5.8, 6.3, 0.16), M.paint, -15.9, 10.15, s * 4.15, loco);
+  mesh(box(1.9, 1.7, 0.05), M.glass, -16.9, 11.75, s * 4.25, loco);
+  mesh(box(5.8, 0.15, 0.22), M.black, -15.9, 13.25, s * 4.18, loco);
+});
+mesh(box(0.2, 6.3, 8.46), M.paint, -13.0, 10.15, 0, loco);
+const roof = mesh(cylX(4.55, 4.55, 6.6, 40), M.black, -15.8, 13.3, 0, loco); roof.scale.set(1, 0.1, 1);
+[1, -1].forEach(s => { const w = mesh(new THREE.CircleGeometry(0.55, 24), M.glass, -12.88, 12.55, s * 2.6, loco); w.rotation.y = Math.PI / 2; });
+// firehole glow on the backhead (seen from behind the cab)
+const fireGlow = mesh(new THREE.CircleGeometry(0.75, 24), M.glow, -13.12, 8.8, 0, loco); fireGlow.rotation.y = -Math.PI / 2;
+const cabLight = new THREE.PointLight(0xff7a1a, 0.8, 10); cabLight.position.set(-14.2, 9, 0); loco.add(cabLight);
+
+// Cab-side numbers
+function drawCabNumber(liv) {
+  return (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    if (liv === 'BR') { g.font = `700 ${h * 0.72}px "DM Mono", Menlo, monospace`; g.fillStyle = '#f2e6c6'; g.fillText('60103', w / 2, h / 2); }
+    else { g.font = `700 ${h * 0.78}px Bevan, Georgia, serif`; g.fillStyle = '#3a2708'; g.fillText('4472', w / 2 + 4, h / 2 + 4); g.fillStyle = '#e5bf5c'; g.fillText('4472', w / 2, h / 2); }
+  };
+}
+const cabNums = [1, -1].map(s => decal(2.8, 0.85, 512, 156, drawCabNumber('BR'), loco, [-15.6, 9.0, s * 4.24], s));
+
+// Smokebox numberplate & headboard
+const smokePlate = decal(1.9, 0.5, 512, 136, (g, w, h) => {
+  g.fillStyle = '#0c0c0c'; g.fillRect(0, 0, w, h); g.strokeStyle = '#d9d9d9'; g.lineWidth = 8; g.strokeRect(8, 8, w - 16, h - 16);
+  g.fillStyle = '#f2f2f2'; g.font = `700 ${h * 0.62}px "DM Mono", Menlo, monospace`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('60103', w / 2, h / 2 + 2);
+}, loco, [19.62, 10.75, 0], 'x');
+function drawHeadboard(text1, text2) {
+  return (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    g.fillStyle = '#e8e2cf';
+    g.beginPath(); g.moveTo(8, h - 8); g.lineTo(8, h * 0.45); g.quadraticCurveTo(w / 2, -h * 0.25, w - 8, h * 0.45); g.lineTo(w - 8, h - 8); g.closePath(); g.fill();
+    g.fillStyle = '#1e5a34';
+    g.beginPath(); g.moveTo(20, h - 20); g.lineTo(20, h * 0.48); g.quadraticCurveTo(w / 2, -h * 0.12, w - 20, h * 0.48); g.lineTo(w - 20, h - 20); g.closePath(); g.fill();
+    g.fillStyle = '#f2ead2'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = `700 ${h * 0.17}px Nunito, sans-serif`; g.fillText(text1, w / 2, h * 0.42);
+    g.font = `700 ${h * 0.27}px Bevan, Georgia, serif`; g.fillText(text2, w / 2, h * 0.7);
+  };
+}
+const headboard = decal(3.6, 1.4, 768, 300, drawHeadboard('THE', 'CATHEDRALS EXPRESS'), loco, [19.42, 11.95, 0], 'x');
+
+// Motion: coupling rods, connecting rods, crossheads, piston rods
+const motion = [1, -1].map(s => {
+  const coupling = mesh(box(15.4, 0.42, 0.18), M.steel, 0, 0, s * 3.0, loco);
+  const conn = mesh(box(1, 0.36, 0.18), M.steel, 0, 0, s * 3.32, loco);
+  const cross = mesh(box(1.1, 0.62, 0.32), M.steel, 0, 3.6, s * 3.3, loco);
+  const piston = mesh(box(1, 0.2, 0.2), M.steel, 0, 3.6, s * 3.55, loco);
+  return { s, coupling, conn, cross, piston, phase: s === 1 ? 0 : LEFT_PHASE };
+});
+const CONN_L = 10.5, SLIDE_Y = 3.6, MID_X = DRIVERS_X[1];
+function updateMotion(a) {
+  motion.forEach(m => {
+    const ang = a + m.phase;
+    const cx = Math.cos(ang) * CRANK, cy = Math.sin(ang) * CRANK;
+    m.coupling.position.set(-1.25 + cx, R_DRIVE + cy, m.coupling.position.z);
+    const px = MID_X + cx, py = R_DRIVE + cy;
+    const dy = SLIDE_Y - py;
+    const xh = px + Math.sqrt(CONN_L * CONN_L - dy * dy);
+    m.cross.position.x = xh;
+    m.conn.scale.x = CONN_L;
+    m.conn.position.set((px + xh) / 2, (py + SLIDE_Y) / 2, m.conn.position.z);
+    m.conn.rotation.z = Math.atan2(dy, xh - px);
+    const pl = 14.5 - xh;
+    m.piston.scale.x = pl; m.piston.position.x = xh + pl / 2;
+  });
+}
+
+/* ---------- Tender (corridor type) ---------- */
+const tender = new THREE.Group(); train.add(tender);
+mesh(box(25.5, 1.3, 7.4), M.black, -32.6, 3.5, 0, tender);
+mesh(box(25.0, 6.4, 8.6), M.paint, -32.6, 7.5, 0, tender);
+[1, -1].forEach(s => mesh(box(25.0, 0.25, 0.4), M.black, -32.6, 10.65, s * 4.2, tender));
+mesh(box(25.0, 0.6, 8.6), M.black, -32.6, 4.4, 0, tender);
+// coal heap
+for (let i = 0; i < 9; i++) {
+  const c = mesh(new THREE.DodecahedronGeometry(1.6 + Math.random() * 0.8, 0), M.coal, -21.8 - i * 1.25, 10.6 + Math.random() * 0.4, (Math.random() - 0.5) * 3.5, tender);
+  c.scale.set(1.2, 0.55, 1.6); c.rotation.set(Math.random(), Math.random(), Math.random());
+}
+mesh(box(9.5, 0.6, 8.0), M.coal, -26.5, 10.7, 0, tender);
+mesh(box(12.5, 0.3, 8.0), M.black, -38.6, 10.75, 0, tender);
+mesh(new THREE.CylinderGeometry(0.6, 0.6, 0.5, 16), M.black, -42, 11.1, 0, tender);
+mesh(box(0.8, 6.0, 2.6), M.black, -45.4, 7.6, 2.0, tender); // corridor gangway
+[-24, -29.5, -35.5, -41].forEach(x => {
+  axle(tender, x, 2.1, { mat: smallWheelPaint });
+  [1, -1].forEach(s => { mesh(box(1.1, 1.2, 0.6), M.black, x, 2.5, s * 3.2, tender); mesh(box(2.6, 0.35, 0.5), M.steel, x, 3.3, s * 3.3, tender); });
+});
+mesh(box(0.5, 1.4, 8.4), M.black, -45.3, 3.6, 0, tender);
+function drawTender(liv) {
+  return (g, w, h) => {
+    g.clearRect(0, 0, w, h);
+    if (liv === 'LNER') {
+      g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = `700 ${h * 0.6}px Bevan, Georgia, serif`;
+      g.fillStyle = '#3a2708'; g.fillText('L N E R', w / 2 + 6, h / 2 + 6);
+      g.fillStyle = '#e5bf5c'; g.fillText('L N E R', w / 2, h / 2);
+    } else {
+      const cx = w / 2, cy = h / 2, r = h * 0.38;
+      g.strokeStyle = '#efe2bd'; g.lineWidth = 8;
+      g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.stroke();
+      for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; g.beginPath(); g.moveTo(cx + Math.cos(a) * r * 0.25, cy + Math.sin(a) * r * 0.25); g.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); g.lineWidth = 4; g.stroke(); }
+      g.fillStyle = '#b5232f'; g.beginPath(); g.arc(cx, cy, r * 0.5, 0, Math.PI * 2); g.fill();
+      g.fillStyle = '#efe2bd'; g.font = `700 ${r * 0.55}px Bevan, Georgia, serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('BR', cx, cy + 2);
+      g.fillStyle = '#efe2bd'; g.fillRect(cx - r * 2.2, cy - 3, r * 1.1, 6); g.fillRect(cx + r * 1.1, cy - 3, r * 1.1, 6);
+    }
+  };
+}
+const tenderSides = [1, -1].map(s => decal(9, 2.4, 1024, 272, drawTender('BR'), tender, [-32.6, 7.6, s * 4.32], s));
+
+/* ---------- Carriages (teak) ---------- */
+const teakTex = canvasTex(2048, 266, (g, w, h) => {
+  const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#9a6232'); gr.addColorStop(1, '#6f4120');
+  g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 260; i++) { g.strokeStyle = `rgba(${40 + Math.random() * 40},${20 + Math.random() * 20},5,${0.08 + Math.random() * 0.12})`; g.lineWidth = 1 + Math.random() * 2; const y = Math.random() * h; g.beginPath(); g.moveTo(0, y); g.bezierCurveTo(w * 0.3, y + 4, w * 0.6, y - 4, w, y + Math.random() * 6); g.stroke(); }
+  g.strokeStyle = '#d7b46a'; g.lineWidth = 3; g.strokeRect(10, 10, w - 20, h - 20);
+  const win = (x, ww) => { g.fillStyle = '#1d2830'; g.beginPath(); g.roundRect ? g.roundRect(x, 46, ww, 96, 10) : g.rect(x, 46, ww, 96); g.fill(); g.strokeStyle = '#e6c983'; g.lineWidth = 3; g.stroke(); g.fillStyle = 'rgba(255,255,255,.12)'; g.fillRect(x + 6, 52, ww * 0.35, 8); };
+  let x = 60; for (let i = 0; i < 11; i++) { const door = i % 4 === 0; if (door) { g.strokeStyle = '#4a2a12'; g.lineWidth = 3; g.strokeRect(x, 30, 70, h - 58); win(x + 14, 42); x += 92; } else { win(x, 120); x += 150; } }
+  g.fillStyle = '#e6c983'; g.font = '700 26px Nunito, sans-serif'; g.textAlign = 'center'; g.fillText('FIRST', w * 0.75, h - 46);
+});
+const teakMat = new THREE.MeshStandardMaterial({ map: teakTex, roughness: 0.45, metalness: 0.1 });
+const teakPlain = new THREE.MeshStandardMaterial({ color: 0x7e4b25, roughness: 0.5 });
+function carriage(x0) {
+  const g = new THREE.Group(); train.add(g);
+  const L = 58, cx = x0 - L / 2;
+  mesh(box(L, 7.6, 8.6), [teakPlain, teakPlain, teakPlain, teakPlain, teakMat, teakMat], cx, 8.2, 0, g);
+  const r = mesh(cylX(4.4, 4.4, L, 40), M.roof, cx, 12.0, 0, g); r.scale.set(1, 0.2, 1);
+  mesh(box(L - 6, 1.2, 6.5), M.black, cx, 3.8, 0, g);
+  [x0 - 1, x0 - L + 1].forEach(x => mesh(box(1.4, 6.6, 3.2), M.black, x, 8.0, 0, g));
+  [x0 - 9, x0 - L + 9].forEach(bx => {
+    mesh(box(10, 0.9, 5.5), M.black, bx, 2.4, 0, g);
+    [bx + 4, bx - 4].forEach(x => axle(g, x, 1.8, { mat: blackWheel }));
+  });
+  return g;
+}
+carriage(-47); carriage(-107);
+
+train.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+fireGlow.castShadow = false;
+
+/* =========================================================
+   Landscape: ground, ballast, track, trees, poles
+   ========================================================= */
+const grassTex = canvasTex(256, 256, (g, w, h) => {
+  g.fillStyle = '#5c8a3a'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 2600; i++) { g.fillStyle = `hsl(${85 + Math.random() * 25},${35 + Math.random() * 20}%,${25 + Math.random() * 22}%)`; g.fillRect(Math.random() * w, Math.random() * h, 2, 2 + Math.random() * 3); }
+});
+grassTex.wrapS = grassTex.wrapT = THREE.RepeatWrapping; grassTex.repeat.set(220, 220);
+const ground = mesh(new THREE.PlaneGeometry(2400, 2400), new THREE.MeshStandardMaterial({ map: grassTex, roughness: 1 }), 0, -1.2, 0, scene);
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true;
+const GRASS_TILE = 2400 / 220;
+
+const gravelTex = canvasTex(256, 256, (g, w, h) => {
+  g.fillStyle = '#7d756c'; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 3500; i++) { const l = 30 + Math.random() * 45; g.fillStyle = `hsl(30,${5 + Math.random() * 8}%,${l}%)`; g.beginPath(); g.arc(Math.random() * w, Math.random() * h, 1 + Math.random() * 2.2, 0, 7); g.fill(); }
+});
+gravelTex.wrapS = gravelTex.wrapT = THREE.RepeatWrapping; gravelTex.repeat.set(240, 2);
+const BALLAST_LEN = 2400, GRAVEL_TILE = BALLAST_LEN / 240;
+const ballastMat = new THREE.MeshStandardMaterial({ map: gravelTex, roughness: 1 });
+[0, -13].forEach(z => {
+  const b = mesh(box(BALLAST_LEN, 1.0, 13), ballastMat, 0, -0.95, z, scene); b.receiveShadow = true;
+  [1, -1].forEach(s => {
+    const rail = mesh(box(BALLAST_LEN, 0.36, 0.26), M.steel, 0, -0.18, z + s * GAUGE_Z, scene); rail.receiveShadow = true;
+    mesh(box(BALLAST_LEN, 0.1, 0.5), M.dark, 0, -0.38, z + s * GAUGE_Z, scene);
+  });
+});
+const SLEEPER_GAP = 2.6, SLEEPER_N = 320, SLEEPER_SPAN = SLEEPER_GAP * SLEEPER_N;
+const sleeperMat = new THREE.MeshStandardMaterial({ color: 0x4a3b2e, roughness: 0.95 });
+const sleepers = new THREE.InstancedMesh(box(0.9, 0.35, 8.6), sleeperMat, SLEEPER_N * 2);
+sleepers.receiveShadow = true; scene.add(sleepers);
+const dummy = new THREE.Object3D();
+function placeSleepers(shift) {
+  for (let t = 0; t < 2; t++) for (let i = 0; i < SLEEPER_N; i++) {
+    let x = ((i * SLEEPER_GAP - shift) % SLEEPER_SPAN + SLEEPER_SPAN) % SLEEPER_SPAN - SLEEPER_SPAN / 2;
+    dummy.position.set(x, -0.48, t ? -13 : 0); dummy.updateMatrix();
+    sleepers.setMatrixAt(t * SLEEPER_N + i, dummy.matrix);
+  }
+  sleepers.instanceMatrix.needsUpdate = true;
+}
+placeSleepers(0);
+
+// Embankment like the reference photo
+const bank = mesh(new THREE.PlaneGeometry(BALLAST_LEN, 40, 1, 1), new THREE.MeshStandardMaterial({ map: grassTex, roughness: 1 }), 0, 6, 27, scene);
+bank.rotation.x = -Math.PI / 2 - 0.42; bank.receiveShadow = true;
+const top = mesh(new THREE.PlaneGeometry(BALLAST_LEN, 400), bank.material, 0, 14.2, 244, scene);
+top.rotation.x = -Math.PI / 2; top.receiveShadow = true;
+const bankY = z => z < 11 ? -1.2 : z < 44 ? 6 + (z - 27) * 0.456 : 14.2;
+
+// Trees, bushes, telegraph poles (they scroll past to show speed)
+const movers = [];
+const WRAP = 1400;
+const trunkGeo = new THREE.CylinderGeometry(0.5, 0.8, 7, 7);
+const crownGeo = new THREE.IcosahedronGeometry(1, 1);
+const trunkMat = new THREE.MeshStandardMaterial({ color: 0x4b3a28, roughness: 1 });
+const leafMats = [0x3f6e2a, 0x4f8a33, 0x356126, 0x5f9636].map(c => new THREE.MeshStandardMaterial({ color: c, roughness: 0.95, flatShading: true }));
+function rand(a, b) { return a + Math.random() * (b - a); }
+function tree(x, z, s) {
+  const g = new THREE.Group(); g.position.set(x, bankY(z) - 0.5, z); g.scale.setScalar(s); scene.add(g);
+  mesh(trunkGeo, trunkMat, 0, 3.5, 0, g);
+  const n = 3 + (Math.random() * 3 | 0);
+  for (let i = 0; i < n; i++) { const c = mesh(crownGeo, leafMats[i % 4], rand(-2, 2), rand(8, 11), rand(-2, 2), g); c.scale.setScalar(rand(3, 4.6)); }
+  movers.push({ o: g, f: 1 });
+}
+for (let i = 0; i < 70; i++) {
+  const side = Math.random() < 0.6 ? 1 : -1;
+  const z = side > 0 ? rand(34, 260) : rand(-40, -260);
+  tree(rand(-WRAP / 2, WRAP / 2), z, rand(0.8, 1.6));
+}
+tree(30, 52, 2.0); tree(-10, 70, 1.8); // a big tree like the photo
+for (let i = 0; i < 50; i++) {
+  const b = mesh(crownGeo, leafMats[i % 4], rand(-WRAP / 2, WRAP / 2), rand(1, 3), rand(14, 26), scene);
+  b.position.y = bankY(b.position.z) + 0.5; b.scale.set(rand(1.5, 3), rand(1, 2), rand(1.5, 3));
+  movers.push({ o: b, f: 1 });
+}
+const poleMat = new THREE.MeshStandardMaterial({ color: 0x5a4632, roughness: 1 });
+for (let x = -WRAP / 2; x < WRAP / 2; x += 110) {
+  const g = new THREE.Group(); g.position.set(x, -1, -22); scene.add(g);
+  mesh(new THREE.CylinderGeometry(0.25, 0.32, 22, 8), poleMat, 0, 11, 0, g);
+  mesh(box(0.35, 0.35, 5), poleMat, 0, 20.5, 0, g);
+  movers.push({ o: g, f: 1 });
+}
+// Distant hills (barely move: parallax)
+const hillMat = new THREE.MeshStandardMaterial({ color: 0x5f7f4c, roughness: 1, flatShading: true });
+for (let i = 0; i < 14; i++) {
+  const h = mesh(new THREE.IcosahedronGeometry(1, 2), hillMat, rand(-1000, 1000), -10, (i % 2 ? 1 : -1) * rand(520, 800), scene);
+  h.scale.set(rand(140, 260), rand(40, 90), rand(90, 160));
+  movers.push({ o: h, f: 0.04, wrap: 2200 });
+}
+
+/* =========================================================
+   Smoke & steam particles
+   ========================================================= */
+const puffTex = canvasTex(128, 128, (g, w) => {
+  const gr = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
+  gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.4, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, w, w);
+});
+const particles = [];
+for (let i = 0; i < 260; i++) {
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: puffTex, transparent: true, depthWrite: false, opacity: 0, fog: true }));
+  sp.visible = false; scene.add(sp);
+  particles.push({ sp, life: 0, max: 1, v: new THREE.Vector3(), s0: 1, s1: 4, op: 0.7 });
+}
+let pIdx = 0;
+function emit(x, y, z, vx, vy, vz, life, s0, s1, color, op) {
+  const p = particles[pIdx = (pIdx + 1) % particles.length];
+  p.sp.position.set(x, y, z); p.v.set(vx, vy, vz); p.life = 0; p.max = life; p.s0 = s0; p.s1 = s1; p.op = op;
+  p.sp.material.color.set(color); p.sp.material.rotation = Math.random() * 6.28; p.sp.visible = true;
+}
+function updateParticles(dt, wind) {
+  for (const p of particles) {
+    if (!p.sp.visible) continue;
+    p.life += dt;
+    const t = p.life / p.max;
+    if (t >= 1) { p.sp.visible = false; continue; }
+    p.v.y *= (1 - 0.9 * dt); p.v.z *= (1 - 1.5 * dt);
+    p.v.x += (wind - p.v.x) * Math.min(1, 1.8 * dt);
+    p.sp.position.addScaledVector(p.v, dt);
+    const s = p.s0 + (p.s1 - p.s0) * Math.sqrt(t);
+    p.sp.scale.set(s, s, 1);
+    p.sp.material.opacity = p.op * (1 - t) * Math.min(1, t * 8);
+  }
+}
+
+/* =========================================================
+   Sound (synthesised with Web Audio, starts after a tap)
+   ========================================================= */
+const Sound = {
+  ctx: null, on: false, noise: null, hiss: null, hissGain: null,
+  init() {
+    if (this.ctx) return;
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+    this.ctx = new AC();
+    const len = this.ctx.sampleRate * 2, buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    this.noise = buf;
+    this.master = this.ctx.createGain(); this.master.gain.value = 0.8; this.master.connect(this.ctx.destination);
+    // continuous safety-valve / blower hiss
+    const src = this.ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+    const hp = this.ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 3000;
+    this.hissGain = this.ctx.createGain(); this.hissGain.gain.value = 0;
+    src.connect(hp); hp.connect(this.hissGain); this.hissGain.connect(this.master); src.start();
+  },
+  set(on) { this.on = on; if (on) { this.init(); this.ctx && this.ctx.resume(); } else if (this.ctx) this.ctx.suspend(); },
+  chuff(power) {
+    if (!this.on || !this.ctx) return;
+    const t = this.ctx.currentTime, s = this.ctx.createBufferSource(); s.buffer = this.noise;
+    const bp = this.ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 380 + Math.random() * 120; bp.Q.value = 0.9;
+    const g = this.ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.25 + power * 0.55, t + 0.012); g.gain.exponentialRampToValueAtTime(0.001, t + 0.16);
+    s.connect(bp); bp.connect(g); g.connect(this.master); s.start(t, Math.random()); s.stop(t + 0.2);
+  },
+  whistle() {
+    if (!this.on || !this.ctx) return;
+    const t = this.ctx.currentTime, out = this.ctx.createGain();
+    out.gain.setValueAtTime(0.0001, t); out.gain.exponentialRampToValueAtTime(0.28, t + 0.08); out.gain.setValueAtTime(0.28, t + 1.1); out.gain.exponentialRampToValueAtTime(0.001, t + 1.45);
+    out.connect(this.master);
+    [[784, 'sine', 0.6], [1176, 'triangle', 0.25], [1568, 'sine', 0.12]].forEach(([f, type, v]) => {
+      const o = this.ctx.createOscillator(); o.type = type; o.frequency.setValueAtTime(f * 0.96, t); o.frequency.linearRampToValueAtTime(f, t + 0.15);
+      const g = this.ctx.createGain(); g.gain.value = v; o.connect(g); g.connect(out); o.start(t); o.stop(t + 1.5);
+    });
+    const n = this.ctx.createBufferSource(); n.buffer = this.noise; const bp = this.ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1600; bp.Q.value = 3;
+    const ng = this.ctx.createGain(); ng.gain.value = 0.25; n.connect(bp); bp.connect(ng); ng.connect(out); n.start(t); n.stop(t + 1.5);
+  },
+  scrape() {
+    if (!this.on || !this.ctx) return;
+    const t = this.ctx.currentTime, s = this.ctx.createBufferSource(); s.buffer = this.noise;
+    const bp = this.ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 900; bp.Q.value = 0.6;
+    const g = this.ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.35, t + 0.05); g.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+    s.connect(bp); bp.connect(g); g.connect(this.master); s.start(t, Math.random()); s.stop(t + 0.4);
+  },
+  setHiss(v) { if (this.hissGain && this.ctx) this.hissGain.gain.setTargetAtTime(this.on ? v : 0, this.ctx.currentTime, 0.1); }
+};
+
+/* =========================================================
+   Game state & UI
+   ========================================================= */
+const S = { speed: 0, throttle: 0, brake: false, pressure: 190, fire: 0.6, scoops: 0, dist: 0, miles: 0, lastBeat: 0,
+  dark: 0, whistleT: 0, valve: false, livery: 'BR', ton: false, arrived: false, nextStn: 1 };
+const STATIONS = [["King's Cross", 0], ['Peterborough', 76.3], ['York', 188.2], ['Newcastle', 268.3], ['Berwick', 335.8], ['Edinburgh', 392.7]];
+const TOTAL = 392.7, TIME_WARP = 60;
+
+const BADGES = [
+  { id: 'move', l: 'Away!', t: 'Start the train moving' },
+  { id: 'whistle', l: 'Toot', t: 'Blow the whistle' },
+  { id: 'fire', l: 'Fire', t: 'Shovel 10 scoops of coal' },
+  { id: 'valve', l: 'Psst', t: 'Lift the safety valve at 220 psi' },
+  { id: 'ton', l: '100', t: 'Reach 100 mph, like 1934' },
+  { id: 'explore', l: 'Look', t: 'Open every part of the engine' },
+  { id: 'quiz', l: 'Quiz', t: 'Score full marks in the quiz' },
+  { id: 'edin', l: 'Edin', t: 'Run non-stop to Edinburgh' }
+];
+const earned = new Set(store.get('fs-badges', []));
+function renderBadges() {
+  $('#badges').innerHTML = BADGES.map(b => `<div class="badge ${earned.has(b.id) ? 'got' : ''}" title="${b.t}"><i>${b.l}</i><span>${b.t}</span></div>`).join('');
+}
+function award(id) {
+  if (earned.has(id)) return;
+  earned.add(id); store.set('fs-badges', [...earned]); renderBadges();
+  const b = BADGES.find(x => x.id === id);
+  toast('Badge earned!', b.t);
+}
+renderBadges();
+
+let toastTimer;
+function toast(title, sub) {
+  const el = $('#toast');
+  el.innerHTML = `${title}${sub ? `<small>${sub}</small>` : ''}`;
+  el.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 3400);
+}
+
+/* ---------- Gauges ---------- */
+function buildGauge(svg, max, step, labelStep, redFrom) {
+  const cx = 60, cy = 60, r = 50, a0 = 225, a1 = -45;
+  const ang = v => (a0 + (a1 - a0) * v / max) * Math.PI / 180;
+  const pt = (v, rr) => [cx + Math.cos(ang(v)) * rr, cy - Math.sin(ang(v)) * rr];
+  let s = `<circle cx="60" cy="60" r="57" fill="#f1e7cd" stroke="#c9a24a" stroke-width="5"/><circle cx="60" cy="60" r="52" fill="none" stroke="#1a1a1a" stroke-width="0.6"/>`;
+  if (redFrom != null) { const [x1, y1] = pt(redFrom, 47), [x2, y2] = pt(max, 47); s += `<path d="M${x1} ${y1} A47 47 0 0 1 ${x2} ${y2}" stroke="#c8202f" stroke-width="6" fill="none"/>`; }
+  for (let v = 0; v <= max; v += step) {
+    const major = v % labelStep === 0, [x1, y1] = pt(v, r), [x2, y2] = pt(v, major ? r - 8 : r - 4);
+    s += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#1a1a1a" stroke-width="${major ? 1.8 : 0.9}"/>`;
+    if (major) { const [tx, ty] = pt(v, r - 16); s += `<text x="${tx}" y="${ty + 3}" font-size="9" font-family="DM Mono, monospace" text-anchor="middle" fill="#1a1a1a">${v}</text>`; }
+  }
+  s += `<text class="val" x="60" y="88" font-size="13" font-weight="700" font-family="DM Mono, monospace" text-anchor="middle" fill="#1a1a1a">0</text>`;
+  s += `<g class="needle"><path d="M60 64 L57.5 60 L60 14 L62.5 60 Z" fill="#c8202f"/></g><circle cx="60" cy="60" r="5" fill="#1a1a1a"/>`;
+  svg.innerHTML = s;
+  const needle = svg.querySelector('.needle'), val = svg.querySelector('.val');
+  return v => { const deg = 90 - (a0 + (a1 - a0) * clamp(v, 0, max) / max); needle.setAttribute('transform', `rotate(${deg} 60 60)`); val.textContent = Math.round(v); };
+}
+const setSpeedo = buildGauge($('#speedo'), 120, 5, 20, 100);
+const setPress = buildGauge($('#press'), 250, 10, 50, 220);
+
+/* ---------- Journey bar ---------- */
+const jTrack = $('#jTrack');
+STATIONS.forEach(([n, m], i) => {
+  const d = document.createElement('div'); d.className = 'stn' + (i === 1 || i === 4 ? ' hide-sm' : '');
+  d.style.left = (m / TOTAL * 100) + '%'; d.innerHTML = `<span>${n}</span>`; d.dataset.m = m;
+  jTrack.appendChild(d);
+});
+function updateJourney() {
+  const pct = S.miles / TOTAL * 100;
+  $('#jFill').style.width = pct + '%'; $('#jDot').style.left = pct + '%';
+  jTrack.querySelectorAll('.stn').forEach(s => s.classList.toggle('passed', S.miles >= +s.dataset.m));
+  const next = STATIONS.find(([, m]) => m > S.miles + 0.01);
+  $('#jText').textContent = next ? `${S.miles.toFixed(1)} of ${TOTAL} mi · ${next[0]} in ${(next[1] - S.miles).toFixed(1)}` : 'Arrived in Edinburgh!';
+}
+
+/* ---------- Controls ---------- */
+const reg = $('#regulator');
+reg.addEventListener('input', () => { S.throttle = reg.value / 100; $('#regOut').textContent = reg.value + '%'; });
+function whistle() { S.whistleT = 1.4; Sound.whistle(); award('whistle'); }
+$('#whistleBtn').addEventListener('click', whistle);
+function shovel(auto) {
+  S.fire = Math.min(1, S.fire + 0.16); S.dark = 1.6; S.scoops++;
+  Sound.scrape();
+  if (!auto && S.scoops >= 10) award('fire');
+}
+$('#coalBtn').addEventListener('click', () => shovel(false));
+const brakeBtn = $('#brakeBtn');
+const brakeOn = e => { e.preventDefault(); S.brake = true; brakeBtn.classList.add('on'); };
+const brakeOff = () => { S.brake = false; brakeBtn.classList.remove('on'); };
+brakeBtn.addEventListener('pointerdown', brakeOn);
+['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => brakeBtn.addEventListener(ev, brakeOff));
+brakeBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') brakeOn(e); });
+brakeBtn.addEventListener('keyup', brakeOff);
+$('#autoFire').addEventListener('change', e => { S.auto = e.target.checked; });
+window.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') return;
+  if (e.key === 'w' || e.key === 'W') whistle();
+  if (e.key === 'c' || e.key === 'C') shovel(false);
+  if (e.key === 'ArrowUp') { reg.value = Math.min(100, +reg.value + 10); reg.dispatchEvent(new Event('input')); }
+  if (e.key === 'ArrowDown') { reg.value = Math.max(0, +reg.value - 10); reg.dispatchEvent(new Event('input')); }
+});
+
+const soundBtn = $('#soundBtn');
+function setSound(on) { Sound.set(on); soundBtn.setAttribute('aria-pressed', on); soundBtn.textContent = 'Sound: ' + (on ? 'on' : 'off'); }
+soundBtn.addEventListener('click', () => setSound(!Sound.on));
+function closeSplash(withSound) {
+  setSound(withSound);
+  $('#splash').hidden = true;
+  if (withSound) setTimeout(whistle, 300);
+}
+$('#startSound').addEventListener('click', () => closeSplash(true));
+$('#startQuiet').addEventListener('click', () => closeSplash(false));
+
+/* ---------- Livery ---------- */
+function setLivery(l) {
+  S.livery = l; const L = LIVERY[l];
+  M.paint.color.set(L.paint); M.wheelPaint.color.set(L.wheel); smallWheelPaint.color.set(L.wheel);
+  deflectors.visible = l === 'BR'; chimBR.visible = l === 'BR'; chimLNER.visible = l === 'LNER'; smokePlate.visible = l === 'BR';
+  cabNums.forEach(n => n.userData.redraw(drawCabNumber(l)));
+  tenderSides.forEach(n => n.userData.redraw(drawTender(l)));
+  headboard.userData.redraw(l === 'BR' ? drawHeadboard('THE', 'CATHEDRALS EXPRESS') : drawHeadboard('THE', 'FLYING SCOTSMAN'));
+  $('#livBR').setAttribute('aria-pressed', l === 'BR'); $('#livLNER').setAttribute('aria-pressed', l === 'LNER');
+  $('#plateSub').textContent = L.sub; $('#jDot').style.background = L.dot;
+  hotspots.forEach(h => { if (h.only) h.el.hidden = h.only !== l; h.btn.hidden = !!h.only && h.only !== l; });
+}
+$('#livBR').addEventListener('click', () => setLivery('BR'));
+$('#livLNER').addEventListener('click', () => setLivery('LNER'));
+
+/* ---------- Camera presets ---------- */
+const CAMS = [
+  { id: 'photo', l: 'Lineside', p: [40, 12, 33], t: [-2, 7, 0] },
+  { id: 'front', l: 'Head-on', p: [58, 9, 6], t: [12, 8, 0] },
+  { id: 'wheels', l: 'Wheels', p: [3, 4.5, 17], t: [1, 4, 0] },
+  { id: 'cab', l: "Driver's view", p: [-12.3, 14.2, 2.6], t: [30, 11, 1.4] },
+  { id: 'bird', l: "Bird's eye", p: [-20, 85, 60], t: [-40, 0, 0] },
+  { id: 'whole', l: 'Whole train', p: [-55, 26, 95], t: [-55, 6, 0] }
+];
+let camTween = null;
+function goCam(id) {
+  const c = CAMS.find(x => x.id === id);
+  camTween = { t: reduceMotion ? 1 : 0, p0: camera.position.clone(), t0: controls.target.clone(), p1: new THREE.Vector3(...c.p), t1: new THREE.Vector3(...c.t) };
+  document.querySelectorAll('#cams .chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.cam === id));
+}
+$('#cams').innerHTML = CAMS.map(c => `<button class="chip" data-cam="${c.id}" aria-pressed="${c.id === 'photo'}">${c.l}</button>`).join('');
+$('#cams').addEventListener('click', e => { const b = e.target.closest('[data-cam]'); if (b) goCam(b.dataset.cam); });
+controls.addEventListener('start', () => { camTween = null; document.querySelectorAll('#cams .chip').forEach(b => b.setAttribute('aria-pressed', 'false')); });
+
+/* ---------- Hotspots ---------- */
+const HOTSPOTS = [
+  { title: 'Chimney', pos: [16.2, 14.4, 0], cam: [30, 18, 18], tgt: [16, 12, 0],
+    kid: 'Puffs of smoke and steam shoot out of the chimney. Every "chuff" you hear is used steam being pushed out, and it pulls air through the fire to make it burn hotter.',
+    eng: 'British Railways fitted a Kylchap double blastpipe and double chimney in 1959, which made the engine steam more freely. In its 1928 LNER form it had a single chimney. Switch the paint scheme to compare.' },
+  { title: 'Smokebox', pos: [19.8, 9.6, 0], cam: [34, 10, 8], tgt: [18, 9.6, 0],
+    kid: 'The round black door at the front is the smokebox. The little plate shows the engine\'s number. Today that is 60103.',
+    eng: 'Hot gases leave the firebox through the boiler tubes into the smokebox, where the exhaust from the blastpipe draws the fire. Over its life the engine has carried the numbers 1472, 4472, 502, 103 and 60103.' },
+  { title: 'Smoke deflectors', pos: [16, 11.2, 4.1], only: 'BR', cam: [26, 13, 20], tgt: [16, 10, 0],
+    kid: 'These big side plates work like wings. Air rushing past pushes the smoke up and away so the driver can see the signals ahead.',
+    eng: 'German-style trough deflectors were added in 1961. The softer exhaust of the double chimney let smoke drift down along the boiler and over the cab windows.' },
+  { title: 'Boiler', pos: [4, 13, 0], cam: [10, 22, 26], tgt: [3, 10, 0],
+    kid: 'The boiler is a giant kettle. The fire heats water inside it until it turns into steam, and the steam is what makes the wheels go round.',
+    eng: 'Built in 1923 as a Class A1, it was rebuilt as an A3 in 1947 with a higher-pressure boiler (220 psi) and a bigger superheater, which dries the steam for more power. The bulge on top is the "banjo" dome.' },
+  { title: 'Driving wheels', pos: [-1.25, 3.4, 4], cam: [3, 4.5, 17], tgt: [1, 4, 0],
+    kid: 'Each of the six big wheels is 6 feet 8 inches tall. That is taller than most grown-ups! The silver rods push them round together.',
+    eng: 'A 4-6-2 "Pacific": four bogie wheels, six coupled driving wheels and two trailing wheels. Three 19 × 26 in cylinders all drive the middle axle. The middle cylinder\'s valve is worked by Gresley\'s conjugated valve gear.' },
+  { title: 'Nameplate', pos: [-1.25, 8.6, 4.5], cam: [2, 9, 13], tgt: [-1.25, 8.2, 0],
+    kid: 'The engine is named after a famous train, the 10 o\'clock express from London to Edinburgh, which has run since 1862.',
+    eng: 'Named in 1924, the engine was shown at the British Empire Exhibition at Wembley in 1924 and 1925 and became the LNER\'s star locomotive.' },
+  { title: 'Cab', pos: [-15.9, 12.6, 4.4], cam: [-26, 16, 14], tgt: [-15, 10, 0],
+    kid: 'Two people work in here. The driver controls the speed and the brakes. The fireman shovels coal into the fire. Try both jobs with the controls below!',
+    eng: 'On the 1928 non-stop runs a fresh crew rode in the train and swapped over halfway, walking through a narrow corridor built into the tender. That trick let the train run 392 miles without stopping.' },
+  { title: 'Tender', pos: [-30, 12.4, 0], cam: [-30, 22, 26], tgt: [-32, 8, 0],
+    kid: 'The tender is the engine\'s lunchbox. It carries the coal for the fire and the water for the boiler.',
+    eng: 'A corridor tender holding about 9 tons of coal and 5,000 gallons of water. At speed the fireman could lower a scoop into troughs between the rails to top up the water without stopping.' }
+];
+const markers = $('#markers');
+const seen = new Set(store.get('fs-seen', []));
+const hotspots = HOTSPOTS.map((h, i) => {
+  const el = document.createElement('button'); el.className = 'hs' + (seen.has(i) ? ' seen' : ''); el.textContent = i + 1;
+  el.setAttribute('aria-label', h.title); el.addEventListener('click', () => openHotspot(i)); markers.appendChild(el);
+  const btn = document.createElement('button'); btn.className = 'part' + (seen.has(i) ? ' seen' : '');
+  btn.innerHTML = `<span class="n">${i + 1}</span>${h.title}`; btn.addEventListener('click', () => openHotspot(i));
+  $('#parts').appendChild(btn);
+  return { ...h, el, btn, v: new THREE.Vector3(...h.pos), occluded: false };
+});
+function openHotspot(i) {
+  const h = hotspots[i];
+  $('#dTitle').textContent = h.title; $('#dIntro').hidden = true;
+  $('#dKidWrap').hidden = false; $('#dEngWrap').hidden = false;
+  $('#dKid').textContent = h.kid; $('#dEng').textContent = h.eng;
+  seen.add(i); store.set('fs-seen', [...seen]);
+  h.el.classList.add('seen'); h.btn.classList.add('seen');
+  camTween = { t: reduceMotion ? 1 : 0, p0: camera.position.clone(), t0: controls.target.clone(), p1: new THREE.Vector3(...h.cam), t1: new THREE.Vector3(...h.tgt) };
+  document.querySelectorAll('#cams .chip').forEach(b => b.setAttribute('aria-pressed', 'false'));
+  showTab('explore'); openPanel(true);
+  $('#pane-explore').scrollTop = 0;
+  if (HOTSPOTS.every((_, k) => seen.has(k) || HOTSPOTS[k].only)) award('explore');
+}
+
+/* ---------- Tabs & mobile panel ---------- */
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.tab === id));
+  ['explore', 'story', 'quiz'].forEach(p => $('#pane-' + p).hidden = p !== id);
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showTab(t.dataset.tab)));
+const panel = $('#panel'), panelToggle = $('#panelToggle');
+function openPanel(open) { panel.classList.toggle('open', open); panelToggle.setAttribute('aria-expanded', open); }
+panelToggle.addEventListener('click', () => openPanel(!panel.classList.contains('open')));
+$('#closePanel').addEventListener('click', () => openPanel(false));
+
+/* ---------- Story timeline ---------- */
+const TIMELINE = [
+  { y: '1923', t: 'Built at Doncaster', d: 'Completed on 24 February 1923, designed by Sir Nigel Gresley for the new London and North Eastern Railway. It was numbered 1472.', act: 'LNER' },
+  { y: '1924', t: 'A name and a new number', d: 'Renumbered 4472 and named Flying Scotsman, it starred at the British Empire Exhibition at Wembley.' },
+  { y: '1928', t: 'Non-stop to Scotland', d: 'On 1 May 1928 it hauled the first non-stop Flying Scotsman train, 392 miles from London King\'s Cross to Edinburgh.', act: 'journey' },
+  { y: '1934', t: '100 miles an hour', d: 'On 30 November 1934 it became the first steam locomotive officially recorded at 100 mph in Britain.', act: 'ton' },
+  { y: '1947', t: 'Rebuilt as an A3', d: 'Given a higher-pressure boiler. Numbered 502, then 103, and in 1948 British Railways made it 60103.', act: 'BR' },
+  { y: '1963', t: 'Saved from scrap', d: 'Retired by British Railways and bought by businessman Alan Pegler, who kept it running.' },
+  { y: '1969', t: 'Off to America', d: 'Toured the United States and Canada, pulling an exhibition train for several years.' },
+  { y: '1989', t: 'A world record in Australia', d: 'During its tour of Australia it ran 422 miles non-stop from Parkes to Broken Hill, a record for a steam locomotive.' },
+  { y: '2004', t: 'Owned by the nation', d: 'Bought by the National Railway Museum in York, with help from the public.' },
+  { y: '2016', t: 'Back on the main line', d: 'Returned to steam after a ten-year overhaul, and in 2023 celebrated its 100th birthday.' }
+];
+$('#timeline').innerHTML = TIMELINE.map((e, i) => `<li><span class="yr">${e.y}</span><div><div class="t">${e.t}</div><div class="d">${e.d}</div>${e.act ? `<button class="mini-btn" data-act="${e.act}">${{ LNER: 'See it in 1923 colours', journey: 'Start the run to Edinburgh', ton: 'Try for 100 mph', BR: 'See it as 60103' }[e.act]}</button>` : ''}</div></li>`).join('');
+$('#timeline').addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act;
+  if (a === 'LNER') { setLivery('LNER'); goCam('photo'); }
+  if (a === 'BR') { setLivery('BR'); goCam('photo'); }
+  if (a === 'journey') { setLivery('LNER'); S.miles = 0; S.arrived = false; S.nextStn = 1; reg.value = 70; reg.dispatchEvent(new Event('input')); goCam('photo'); toast('Right away!', 'King\'s Cross to Edinburgh, non-stop'); }
+  if (a === 'ton') { setLivery('LNER'); reg.value = 100; reg.dispatchEvent(new Event('input')); goCam('front'); toast('Full regulator!', 'Keep shovelling coal to reach 100 mph'); }
+  openPanel(false);
+});
+
+/* ---------- Quiz ---------- */
+const QUIZ = [
+  { q: 'Who designed the Flying Scotsman?', o: ['Sir Nigel Gresley', 'Isambard Kingdom Brunel', 'George Stephenson', 'James Watt'], a: 0, w: 'Sir Nigel Gresley was chief mechanical engineer of the LNER. He also designed Mallard, the fastest steam engine ever.' },
+  { q: 'In 1934 it was the first steam engine officially recorded at what speed?', o: ['50 mph', '75 mph', '100 mph', '150 mph'], a: 2, w: '100 mph, on 30 November 1934. Try it yourself with the regulator!' },
+  { q: 'Which two cities did the Flying Scotsman train connect?', o: ['Manchester and Leeds', 'London and Edinburgh', 'London and Cardiff', 'Glasgow and York'], a: 1, w: 'London King\'s Cross to Edinburgh Waverley, about 392 miles.' },
+  { q: 'What is the tender behind the engine for?', o: ['Passengers', 'Luggage', 'Coal and water', 'Spare wheels'], a: 2, w: 'Coal to burn and water to boil. No coal, no fire. No water, no steam.' },
+  { q: 'A 4-6-2 engine like this is called a…', o: ['Pacific', 'Atlantic', 'Mikado', 'Prairie'], a: 0, w: 'Four leading wheels, six driving wheels and two trailing wheels make a "Pacific".' },
+  { q: 'Which country did it visit in 1988 and 1989, setting a non-stop record?', o: ['Japan', 'Brazil', 'Australia', 'India'], a: 2, w: 'Australia: 422 miles non-stop from Parkes to Broken Hill in 1989.' }
+];
+let qi = 0, qScore = [];
+function renderQuiz() {
+  $('#qDots').innerHTML = QUIZ.map((_, i) => `<span class="${qScore[i] === true ? 'ok' : qScore[i] === false ? 'no' : ''} ${i === qi ? 'cur' : ''}"></span>`).join('');
+  if (qi >= QUIZ.length) {
+    const n = qScore.filter(Boolean).length;
+    $('#qText').textContent = `You scored ${n} out of ${QUIZ.length}!`;
+    $('#qOpts').innerHTML = '';
+    $('#qWhy').textContent = n === QUIZ.length ? 'Full marks. You could drive the Flying Scotsman yourself.' : 'Have a look around the engine and the Story tab, then try again.';
+    const nx = $('#qNext'); nx.hidden = false; nx.textContent = 'Play again';
+    if (n === QUIZ.length) award('quiz');
+    return;
+  }
+  const Q = QUIZ[qi];
+  $('#qText').textContent = `${qi + 1}. ${Q.q}`; $('#qWhy').textContent = ''; $('#qNext').hidden = true;
+  $('#qOpts').innerHTML = Q.o.map((o, i) => `<button class="opt" data-i="${i}">${o}</button>`).join('');
+}
+$('#qOpts').addEventListener('click', e => {
+  const b = e.target.closest('.opt'); if (!b || b.disabled) return;
+  const Q = QUIZ[qi], i = +b.dataset.i, ok = i === Q.a;
+  qScore[qi] = ok;
+  $('#qOpts').querySelectorAll('.opt').forEach((o, k) => { o.disabled = true; if (k === Q.a) o.classList.add('right'); else if (k === i) o.classList.add('wrong'); });
+  $('#qWhy').textContent = (ok ? 'Correct! ' : 'Not quite. ') + Q.w;
+  if (ok) Sound.chuff(0.6);
+  const nx = $('#qNext'); nx.hidden = false; nx.textContent = qi === QUIZ.length - 1 ? 'See my score' : 'Next question';
+  $('#qDots').innerHTML = QUIZ.map((_, k) => `<span class="${qScore[k] === true ? 'ok' : qScore[k] === false ? 'no' : ''} ${k === qi ? 'cur' : ''}"></span>`).join('');
+});
+$('#qNext').addEventListener('click', () => { if (qi >= QUIZ.length) { qi = 0; qScore = []; } else qi++; renderQuiz(); });
+renderQuiz();
+
+/* =========================================================
+   Main loop
+   ========================================================= */
+const raycaster = new THREE.Raycaster();
+const tmp = new THREE.Vector3();
+let frame = 0, last = performance.now(), wheelAngle = 0;
+
+function resize() {
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false); camera.aspect = w / h;
+  const deskH = $('#desk').offsetHeight;
+  document.documentElement.style.setProperty('--desk-h', deskH + 'px');
+  // Centre the 3D view in the area not covered by the desk and side panel
+  const panelW = w > 860 ? $('#panel').offsetWidth + 16 : 0;
+  camera.setViewOffset(w, h, panelW * 0.5, deskH * 0.42, w, h);
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize); resize();
+new ResizeObserver(resize).observe($('#desk'));
+
+function step(dt) {
+  // --- physics ---
+  const pf = clamp((S.pressure - 60) / 140, 0, 1);
+  let acc = S.throttle * 7.5 * pf - (S.speed > 0 ? 0.25 + 0.0006 * S.speed * S.speed : 0);
+  if (S.brake) acc -= 14;
+  S.speed = clamp(S.speed + acc * dt, 0, 112);
+  if (S.auto && S.fire < 0.6) shovel(true);
+  S.fire = clamp(S.fire - dt * (0.012 + 0.028 * S.throttle), 0, 1);
+  // the exhaust blast draws the fire, so it burns hotter while the engine is working
+  const draught = 0.3 + 0.7 * Math.min(1, S.throttle * 1.5);
+  const use = S.throttle * (0.6 + S.speed / 55) * 3.5;
+  S.pressure = clamp(S.pressure + (S.fire * 15 * draught - use - 0.6 - 0.1 * Math.max(0, S.pressure - 150)) * dt, 20, 220);
+  S.valve = S.pressure >= 219.8;
+  if (S.valve) award('valve');
+  if (S.speed > 2) award('move');
+  if (S.speed >= 100 && !S.ton) { S.ton = true; award('ton'); toast('100 MPH!', 'Just like 30 November 1934'); }
+  if (S.speed < 90) S.ton = false;
+
+  const ft = S.speed * 1.46667, dx = ft * dt;
+  S.dist += dx;
+  if (S.miles < TOTAL) {
+    S.miles = Math.min(TOTAL, S.miles + S.speed * dt / 3600 * TIME_WARP);
+    const st = STATIONS[S.nextStn];
+    if (st && S.miles >= st[1]) {
+      S.nextStn++;
+      if (st[0] === 'Edinburgh') { award('edin'); toast('Welcome to Edinburgh!', '392.7 miles non-stop, just like 1928'); Sound.whistle(); }
+      else toast('Passing ' + st[0], `${(TOTAL - st[1]).toFixed(0)} miles to Edinburgh`);
+    }
+  }
+
+  // --- wheels & motion ---
+  wheelAngle -= dx / R_DRIVE;
+  allAxles.forEach(a => { a.group.rotation.z = -S.dist / a.r; });
+  updateMotion(wheelAngle);
+
+  // --- chuffs & smoke ---
+  const revs = S.dist / (2 * Math.PI * R_DRIVE);
+  const beat = Math.floor(revs * 4);
+  const workingSteam = S.throttle > 0.02 && pf > 0;
+  if (beat !== S.lastBeat) {
+    S.lastBeat = beat;
+    if (workingSteam && S.speed < 75 || workingSteam && beat % 2 === 0) {
+      Sound.chuff(S.throttle);
+      const col = S.dark > 0 ? 0x4a4744 : 0xe6e8ea;
+      for (let k = 0; k < 2; k++) emit(16.2 + rand(-0.4, 0.4), 14.0, rand(-0.3, 0.3), -ft * 0.2, 14 + S.throttle * 18, rand(-1, 1), 2.6 + S.throttle, 1.4, 9 + S.throttle * 6, col, 0.75);
+    }
+  }
+  const idleRate = 3 + S.throttle * 4;
+  if (Math.random() < idleRate * dt) emit(16.2 + rand(-0.3, 0.3), 13.9, rand(-0.3, 0.3), 0, 3.5, rand(-0.4, 0.4), 4, 1.0, 7, S.dark > 0 ? 0x55514d : 0xc9cfd6, 0.45);
+  if (S.dark > 0 && Math.random() < 10 * dt) emit(16.2, 14.0, 0, 0, 9, rand(-0.5, 0.5), 3.5, 1.6, 8, 0x3a3734, 0.7);
+  S.dark = Math.max(0, S.dark - dt);
+  // drain cocks: steam from the cylinders when starting away
+  if (S.throttle > 0.02 && S.speed < 14) {
+    [1, -1].forEach(s => { if (Math.random() < 18 * dt) emit(18.2, 2.0, s * 4.0, rand(2, 6), rand(0.5, 2), s * rand(6, 11), 1.3, 0.8, 5, 0xffffff, 0.8); });
+  }
+  if (S.valve && Math.random() < 30 * dt) emit(-7.4, 13.6, rand(-0.3, 0.3), 0, rand(16, 22), rand(-1, 1), 1.2, 0.6, 4.5, 0xffffff, 0.85);
+  if (S.whistleT > 0) { S.whistleT -= dt; if (Math.random() < 30 * dt) emit(-12.2, 13.8, 0, 0, 10, 0, 0.9, 0.4, 3, 0xffffff, 0.8); }
+  Sound.setHiss(S.valve ? 0.12 : (S.throttle > 0.02 && S.speed < 14 ? 0.05 : 0));
+  updateParticles(dt, -ft * 0.92 - 1.5);
+
+  // --- scenery scroll ---
+  grassTex.offset.x = (grassTex.offset.x + dx / GRASS_TILE) % 1;
+  gravelTex.offset.x = (gravelTex.offset.x + dx / GRAVEL_TILE) % 1;
+  placeSleepers(S.dist % SLEEPER_SPAN);
+  for (const m of movers) {
+    m.o.position.x -= dx * m.f;
+    const W = m.wrap || WRAP;
+    if (m.o.position.x < -W / 2) m.o.position.x += W;
+  }
+
+  // --- fire glow ---
+  const glow = 0.25 + S.fire * 0.6 + Math.sin(performance.now() * 0.02) * 0.05;
+  M.glow.opacity = clamp(glow, 0, 1); cabLight.intensity = glow * 1.2;
+}
+
+function updateMarkers() {
+  const w = window.innerWidth, h = window.innerHeight;
+  const checkOcclusion = frame % 12 === 0;
+  hotspots.forEach(hs => {
+    if (hs.only && hs.only !== S.livery) { hs.el.hidden = true; return; }
+    tmp.copy(hs.v).project(camera);
+    const off = tmp.z > 1 || Math.abs(tmp.x) > 1.05 || Math.abs(tmp.y) > 1.05;
+    hs.el.hidden = off;
+    if (off) return;
+    hs.el.style.left = ((tmp.x + 1) / 2 * w) + 'px'; hs.el.style.top = ((1 - tmp.y) / 2 * h) + 'px';
+    if (checkOcclusion) {
+      const dir = hs.v.clone().sub(camera.position); const dist = dir.length(); dir.normalize();
+      raycaster.set(camera.position, dir); raycaster.far = dist - 0.6;
+      hs.occluded = raycaster.intersectObject(train, true).length > 0;
+      hs.el.classList.toggle('dim', hs.occluded);
+    }
+  });
+}
+
+function loop(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now; frame++;
+  step(dt);
+  if (camTween) {
+    camTween.t = Math.min(1, camTween.t + dt / 1.3);
+    const e = camTween.t < 0.5 ? 4 * camTween.t ** 3 : 1 - (-2 * camTween.t + 2) ** 3 / 2;
+    camera.position.lerpVectors(camTween.p0, camTween.p1, e);
+    controls.target.lerpVectors(camTween.t0, camTween.t1, e);
+    if (camTween.t >= 1) camTween = null;
+  }
+  controls.update();
+  updateMarkers();
+  if (frame % 3 === 0) { setSpeedo(S.speed); setPress(S.pressure); updateJourney(); }
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+}
+setLivery('BR');
+updateMotion(0);
+requestAnimationFrame(loop);
+// Repaint text decals once web fonts arrive
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { setLivery(S.livery); nameplates.forEach(n => n.userData.redraw(drawNameplate)); });
+})();
+</script>
+</body>
+</html>
