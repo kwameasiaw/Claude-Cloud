@@ -1,0 +1,35 @@
+{
+  "pilot": {
+    "country": "United Kingdom",
+    "drone": "DJI Mini 4 Pro",
+    "controller": "DJI RC 2",
+    "app": "DJI Fly",
+    "battery": "standard",
+    "units": "metric"
+  },
+  "mission_defaults": {
+    "speed_ms": 3.0,
+    "transitional_speed_ms": 5.0,
+    "start_alt_agl_m": 15,
+    "cruise_alt_agl_m": 60,
+    "max_climb_gradient": 0.25,
+    "max_transit_gradient": 1.0,
+    "record_video_from_wp1": true,
+    "heading": "auto",
+    "turn": "smooth",
+    "gimbal": "track_poi",
+    "default_gimbal_pitch_deg": -15,
+    "poi_height_agl_m": 5,
+    "finish_action": "hover",
+    "rc_lost_action": "rth",
+    "fly_to_first_waypoint": "diagonal"
+  },
+  "limits": {
+    "max_agl_m": 120,
+    "min_agl_warn_m": 10,
+    "vlos_warn_m": 400,
+    "max_speed_ms": 12,
+    "max_waypoints": 200,
+    "battery_budget_min": 18
+  }
+}

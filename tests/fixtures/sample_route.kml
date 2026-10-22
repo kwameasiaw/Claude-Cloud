@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+  <name>Sample hilltop reveal</name>
+  <Folder>
+    <name>Sample hilltop reveal</name>
+    <Placemark><name>Home</name><Point><coordinates>-1.800000,51.170000,0</coordinates></Point></Placemark>
+    <Placemark><name>POI Monument</name><description>height=8</description>
+      <Point><coordinates>-1.826200,51.178900,0</coordinates></Point></Placemark>
+    <Placemark><name>WP1</name><Point><coordinates>-1.801000,51.171000,0</coordinates></Point></Placemark>
+    <Placemark><name>WP2</name><Point><coordinates>-1.806000,51.173000,0</coordinates></Point></Placemark>
+    <Placemark><name>WP3</name><description>hover=3</description>
+      <Point><coordinates>-1.812000,51.175000,0</coordinates></Point></Placemark>
+    <Placemark><name>WP4</name><Point>
+      <gx:altitudeMode>relativeToGround</gx:altitudeMode>
+      <coordinates>-1.818000,51.176500,55</coordinates></Point></Placemark>
+  </Folder>
+</Document>
+</kml>
