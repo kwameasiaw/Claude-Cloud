@@ -10,61 +10,46 @@
     <Style id="poi"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href></Icon></IconStyle></Style>
     <Placemark><name>Flight path</name><styleUrl>#route</styleUrl>
       <LineString><extrude>1</extrude><tessellate>1</tessellate><altitudeMode>absolute</altitudeMode>
-      <coordinates>-3.0620242,53.8158818,26.0 -3.0612234,53.8158839,39.1 -3.0604226,53.8158861,52.3 -3.0596218,53.8158882,65.4 -3.0588210,53.8158904,78.6 -3.0580202,53.8158925,91.7 -3.0572194,53.8158946,104.9 -3.0564186,53.8158968,118.0 -3.0560656,53.8164065,118.0 -3.0552054,53.8166194,118.0 -3.0543422,53.8164110,118.0 -3.0539814,53.8159032,118.0 -3.0543345,53.8153936,118.0 -3.0551945,53.8151806,118.0 -3.0560578,53.8153890,118.0 -3.0564186,53.8158968,118.0</coordinates></LineString></Placemark>
+      <coordinates>-3.0579419,53.8158927,15.0 -3.0570279,53.8158952,65.0 -3.0561140,53.8158976,115.0 -3.0558492,53.8162798,115.0 -3.0552041,53.8164396,115.0 -3.0545566,53.8162832,115.0 -3.0542860,53.8159024,115.0 -3.0545509,53.8155202,115.0 -3.0551959,53.8153604,115.0 -3.0558434,53.8155168,115.0 -3.0561140,53.8158976,115.0</coordinates></LineString></Placemark>
     <Placemark><name>Fly-in from take-off (not recorded)</name><styleUrl>#flyin</styleUrl>
-      <LineString><altitudeMode>absolute</altitudeMode><coordinates>-3.0567180,53.8158960,10.0 -3.0620242,53.8158818,26.0</coordinates></LineString></Placemark>
-    <Placemark><name>WP1</name><description>26 m above ground / 16 m in DJI Fly, 3 m/s, gimbal 14 deg, REC start</description>
+      <LineString><altitudeMode>absolute</altitudeMode><coordinates>-3.0567180,53.8158960,0.0 -3.0579419,53.8158927,15.0</coordinates></LineString></Placemark>
+    <Placemark><name>WP1</name><description>15 m above ground / 15 m in DJI Fly, 3 m/s, gimbal 20 deg, REC start</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0620242,53.8158818,26.0</coordinates></Point></Placemark>
-    <Placemark><name>WP2</name><description>39 m above ground / 29 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
+      <coordinates>-3.0579419,53.8158927,15.0</coordinates></Point></Placemark>
+    <Placemark><name>WP2</name><description>65 m above ground / 65 m in DJI Fly, 3 m/s, gimbal 20 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0612234,53.8158839,39.1</coordinates></Point></Placemark>
-    <Placemark><name>WP3</name><description>52 m above ground / 42 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
+      <coordinates>-3.0570279,53.8158952,65.0</coordinates></Point></Placemark>
+    <Placemark><name>WP3 (orbit entry)</name><description>105 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0604226,53.8158861,52.3</coordinates></Point></Placemark>
-    <Placemark><name>WP4</name><description>65 m above ground / 55 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
+      <coordinates>-3.0561140,53.8158976,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP4</name><description>105 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0596218,53.8158882,65.4</coordinates></Point></Placemark>
-    <Placemark><name>WP5</name><description>79 m above ground / 69 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
+      <coordinates>-3.0558492,53.8162798,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP5</name><description>105 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0588210,53.8158904,78.6</coordinates></Point></Placemark>
-    <Placemark><name>WP6</name><description>92 m above ground / 82 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0552041,53.8164396,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP6</name><description>97 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0580202,53.8158925,91.7</coordinates></Point></Placemark>
-    <Placemark><name>WP7</name><description>105 m above ground / 95 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0545566,53.8162832,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP7</name><description>97 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0572194,53.8158946,104.9</coordinates></Point></Placemark>
-    <Placemark><name>WP8 (orbit entry)</name><description>118 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0542860,53.8159024,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP8</name><description>90 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0564186,53.8158968,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP9</name><description>108 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0545509,53.8155202,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP9</name><description>106 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0560656,53.8164065,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP10</name><description>108 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0551959,53.8153604,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP10</name><description>106 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0552054,53.8166194,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP11</name><description>100 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
+      <coordinates>-3.0558434,53.8155168,115.0</coordinates></Point></Placemark>
+    <Placemark><name>WP11</name><description>105 m above ground / 115 m in DJI Fly, 3 m/s, gimbal 14 deg, REC stop</description>
       <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0543422,53.8164110,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP12</name><description>100 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0539814,53.8159032,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP13</name><description>93 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0543345,53.8153936,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP14</name><description>109 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0551945,53.8151806,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP15</name><description>109 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0560578,53.8153890,118.0</coordinates></Point></Placemark>
-    <Placemark><name>WP16</name><description>118 m above ground / 108 m in DJI Fly, 3 m/s, gimbal 15 deg, REC stop</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>absolute</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0564186,53.8158968,118.0</coordinates></Point></Placemark>
+      <coordinates>-3.0561140,53.8158976,115.0</coordinates></Point></Placemark>
     <Placemark><name>Home (take-off)</name><styleUrl>#home</styleUrl>
       <Point><coordinates>-3.0567180,53.8158960,0</coordinates></Point></Placemark>
     <Placemark><name>POI: Blackpool Tower</name><styleUrl>#poi</styleUrl>
       <Point><altitudeMode>relativeToGround</altitudeMode><extrude>1</extrude>
-      <coordinates>-3.0552000,53.8159000,130.0</coordinates></Point></Placemark>
+      <coordinates>-3.0552000,53.8159000,120.0</coordinates></Point></Placemark>
   </Document>
 </kml>

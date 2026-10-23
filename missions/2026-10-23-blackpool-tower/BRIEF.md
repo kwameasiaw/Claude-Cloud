@@ -8,37 +8,32 @@
 
 | | |
 |---|---|
-| Waypoints | 16 |
-| Route length (recorded) | 858 m |
-| Video length | 4 min 50 s |
-| Total flight incl. take-off, fly-in, return | ~7.6 min (budget 18 min) |
-| Highest above ground | 118 m (UK limit 120 m) |
-| Furthest from take-off | 348 m |
+| Waypoints | 11 |
+| Route length (recorded) | 487 m |
+| Video length | 2 min 55 s |
+| Total flight incl. take-off, fly-in, return | ~4.9 min (budget 18 min) |
+| Highest above ground | 106 m (UK limit 120 m) |
+| Furthest from take-off | 160 m |
 | Cruise speed | 3 m/s |
-| Steepest allowed climb | +14° |
+| Steepest allowed climb | +58° |
 | At the end | hover · signal lost: rth |
-| Point of interest | Blackpool Tower, aim 130 m above its base |
+| Point of interest | Blackpool Tower, aim 120 m above its base |
 
 ## Waypoints
 
 | # | Height in DJI Fly | Above ground | Leg | Climb | Speed | Gimbal | Facing | Actions |
 |---|---|---|---|---|---|---|---|---|
-| WP1 | 16 m | 26 m | 348 m | +3° | 3 m/s | 14° | POI | REC ▶ |
-| WP2 | 29 m | 39 m | 53 m | +14° | 3 m/s | 14° | POI | - |
-| WP3 | 42 m | 52 m | 53 m | +14° | 3 m/s | 14° | POI | - |
-| WP4 | 55 m | 65 m | 53 m | +14° | 3 m/s | 14° | POI | - |
-| WP5 | 69 m | 79 m | 53 m | +14° | 3 m/s | 14° | POI | - |
-| WP6 | 82 m | 92 m | 53 m | +14° | 3 m/s | 15° | POI | - |
-| WP7 | 95 m | 105 m | 53 m | +14° | 3 m/s | 15° | POI | - |
-| WP8 (orbit entry) | 108 m | 118 m | 53 m | +14° | 3 m/s | 15° | POI | - |
-| WP9 | 108 m | 108 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP10 | 108 m | 108 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP11 | 108 m | 100 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP12 | 108 m | 100 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP13 | 108 m | 93 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP14 | 108 m | 109 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP15 | 108 m | 109 m | 61 m | +0° | 3 m/s | 15° | POI | - |
-| WP16 | 108 m | 118 m | 61 m | +0° | 3 m/s | 15° | POI | REC ■ |
+| WP1 | 15 m | 15 m | 80 m | +11° | 3 m/s | 20° | POI | REC ▶ |
+| WP2 | 65 m | 65 m | 60 m | +40° | 3 m/s | 20° | POI | - |
+| WP3 (orbit entry) | 115 m | 105 m | 60 m | +40° | 3 m/s | 14° | POI | - |
+| WP4 | 115 m | 105 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP5 | 115 m | 105 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP6 | 115 m | 97 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP7 | 115 m | 97 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP8 | 115 m | 90 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP9 | 115 m | 106 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP10 | 115 m | 106 m | 46 m | +0° | 3 m/s | 14° | POI | - |
+| WP11 | 115 m | 105 m | 46 m | +0° | 3 m/s | 14° | POI | REC ■ |
 
 *Leg/Climb on the first row is the un-recorded diagonal fly-in from take-off.*
 

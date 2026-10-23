@@ -15,10 +15,11 @@ mission, checks it and keeps a record of it. Missions can be anywhere in the wor
 
 1. **Cinematic defaults:** slow (3 m/s), smooth curved turns, camera heading and gimbal locked on the POI
    with the gimbal moving evenly between waypoints, recording 4K video.
-2. **Never climb straight up.** Starting at WP1, climb gradually towards the POI while flying forward:
-   no leg steeper than `max_climb_gradient` (1:4, about 14°). WP1 starts low (15 m). Later waypoints
-   with no set height ramp up towards cruise height (60 m) within that gradient, then fly level.
-   The un-recorded fly-in from take-off to WP1 is also diagonal (`pointToPoint`), never vertical-first.
+2. **Never climb straight up, but steep climbs are welcome.** The owner prefers dramatic, steep climbs
+   (2026-10-23: "forget the 14 degrees"). Starting at WP1, the drone climbs towards the POI while flying
+   forward. `max_climb_gradient` is 1.6 (about 58°), roughly the steepest the Mini 4 Pro can manage at
+   cinematic speed without pausing to climb vertically. WP1 starts low (15 m). The un-recorded fly-in
+   from take-off to WP1 is also diagonal (`pointToPoint`), never vertical-first.
 3. **Always record video from WP1** to the last waypoint.
 4. End of mission: hover so the pilot takes back control. Signal lost: return to home.
 
@@ -36,7 +37,7 @@ coordinates and terrain data and returns a Google Earth preview file for review.
    Ask if the owner wants something other than the default approach-and-orbit shot.
 2. `python3 -m waypoint_planner new missions/<YYYY-MM-DD>-<slug> --home LAT,LON --poi LAT,LON
    --name "<Title>" --poi-name "<POI>" [--radius 40 --laps 1 --direction cw]`
-   Default shot: start recording at WP1 (60 m out), climb gradually along the approach towards the
+   Default shot: start recording at WP1 (60 m out), climb along the approach towards the
    POI, join a 40 m orbit tangentially and circle once, ending where the orbit began.
 3. Adjust `mission.json` for the subject: POI aim height (`poi.height_agl_m`, e.g. half a tower's
    height), orbit radius to clear structures and people, per-waypoint overrides.
@@ -46,9 +47,15 @@ coordinates and terrain data and returns a Google Earth preview file for review.
    elevations. Use `settings.flat_ground_confirmed` only when the owner confirms the site is flat.
    The terrain model is a 90 m grid and reads sharp summits low (Rivington Pike: 334–353 m against
    the published 363 m). Around hilltop subjects, set `ground_m` to the published summit height and
-   explain why in `notes`. If Home is on a slope steeper than the climb limit, use `--approach` so
-   the approach starts behind Home. The planner raises earlier waypoints, never lowers them, to keep
-   every climb within the limit.
+   explain why in `notes`. On coasts it can classify the seafront as sea (0 m); use it consistently
+   rather than overriding the take-off cell. If Home is too close to the POI to climb, use
+   `--approach` so the approach starts behind Home. The planner raises earlier waypoints, never
+   lowers them, to keep every climb within the limit.
+   **Height law (UK/EU):** 120 m from the *closest point of the earth's surface* below or around the
+   drone, not from the pilot's position (that rule is only for model gliders) and not from sea
+   level. The planner checks height above the ground under the drone, which is never less than the
+   distance to the closest point, so its check is conservative. Leave about 5 m of margin for
+   barometric drift. The owner has queried this before, so explain it politely if it comes up again.
 5. Fix every ERROR by redesigning (move WP1 back, lengthen the approach, raise the orbit), never
    with `--allow-errors` unless the owner insists. Report each warning to the owner.
 6. Send the owner `preview.kml` to review in Google Earth, the `.kmz` and a summary of `BRIEF.md`.

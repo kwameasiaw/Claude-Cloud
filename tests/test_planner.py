@@ -46,7 +46,9 @@ class PlanTests(unittest.TestCase):
         self.assertTrue(plan.waypoints[0].start_record and plan.waypoints[-1].stop_record)
 
     def test_steep_explicit_climb_raises_earlier_points(self):
-        plan = planner.build_plan(spec_line(wp1={"alt_agl_m": 80}))
+        spec = spec_line(wp1={"alt_agl_m": 80})
+        spec["settings"]["max_climb_gradient"] = 0.25     # pin it: the profile value is the owner's to change
+        plan = planner.build_plan(spec)
         self.assertFalse(any("steeper" in e for e in plan.errors), plan.errors)
         self.assertEqual(plan.waypoints[1].rel_m, 80)
         self.assertGreater(plan.waypoints[0].rel_m, plan.settings["start_alt_agl_m"])
