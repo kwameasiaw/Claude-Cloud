@@ -1,0 +1,83 @@
+{
+  "name": "Rivington Pike orbit",
+  "home": {
+    "lat": 53.619798,
+    "lon": -2.543168
+  },
+  "poi": {
+    "name": "Rivington Pike Tower",
+    "lat": 53.6194,
+    "lon": -2.5413,
+    "height_agl_m": 3.5
+  },
+  "route": {
+    "style": "approach_orbit",
+    "wp1_offset_m": 60,
+    "approach_spacing_m": 60,
+    "orbit_radius_m": 40,
+    "orbit_points_per_lap": 8,
+    "orbit_laps": 1,
+    "orbit_direction": "cw"
+  },
+  "settings": {
+    "cruise_alt_agl_m": 30
+  },
+  "waypoints": [
+    {
+      "label": "WP1",
+      "lat": 53.61971509,
+      "lon": -2.54277883
+    },
+    {
+      "label": "WP2",
+      "lat": 53.61961835,
+      "lon": -2.5423248
+    },
+    {
+      "label": "WP3 (orbit entry)",
+      "lat": 53.61952161,
+      "lon": -2.54187077
+    },
+    {
+      "label": "WP4",
+      "lat": 53.61972538,
+      "lon": -2.54155863
+    },
+    {
+      "label": "WP5",
+      "lat": 53.61973855,
+      "lon": -2.54109498
+    },
+    {
+      "label": "WP6",
+      "lat": 53.6195534,
+      "lon": -2.54075143
+    },
+    {
+      "label": "WP7",
+      "lat": 53.61927839,
+      "lon": -2.54072923
+    },
+    {
+      "label": "WP8",
+      "lat": 53.61907462,
+      "lon": -2.54104138
+    },
+    {
+      "label": "WP9",
+      "lat": 53.61906145,
+      "lon": -2.54150502
+    },
+    {
+      "label": "WP10",
+      "lat": 53.6192466,
+      "lon": -2.54184856
+    },
+    {
+      "label": "WP11",
+      "lat": 53.6195216,
+      "lon": -2.54187077
+    }
+  ],
+  "notes": "POI = Rivington Pike Tower (Grade II, ~5x5 m, 7 m high; listing NGR SD6429413783). Orbit 40 m radius to clear the tower and walkers on the summit; 30 m cruise keeps the tower framed."
+}
