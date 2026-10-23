@@ -45,9 +45,26 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan.waypoints[0].agl_m, plan.settings["start_alt_agl_m"])
         self.assertTrue(plan.waypoints[0].start_record and plan.waypoints[-1].stop_record)
 
-    def test_steep_explicit_climb_is_error(self):
+    def test_steep_explicit_climb_raises_earlier_points(self):
         plan = planner.build_plan(spec_line(wp1={"alt_agl_m": 80}))
-        self.assertTrue(any("steeper" in e for e in plan.errors))
+        self.assertFalse(any("steeper" in e for e in plan.errors), plan.errors)
+        self.assertEqual(plan.waypoints[1].rel_m, 80)
+        self.assertGreater(plan.waypoints[0].rel_m, plan.settings["start_alt_agl_m"])
+        for w in plan.waypoints[1:]:
+            self.assertLessEqual(abs(w.climb_gradient), plan.settings["max_climb_gradient"] + 0.005)
+
+    def test_hillside_approach_climbs_gradually(self):
+        spec = spec_line(n=4, spacing_deg=0.001)
+        spec["settings"] = {}
+        spec["home"]["ground_m"] = 300
+        for i, w in enumerate(spec["waypoints"]):
+            w["ground_m"] = 300 + 25 * i          # ~1:4.5 slope plus a 30 m target at the top
+        spec["waypoints"][-1]["alt_agl_m"] = 30
+        plan = planner.build_plan(spec)
+        self.assertFalse(plan.errors, plan.errors)
+        for w in plan.waypoints[1:]:
+            self.assertLessEqual(w.climb_gradient, plan.settings["max_climb_gradient"] + 0.005)
+        self.assertEqual(plan.waypoints[-1].agl_m, 30)
 
     def test_uk_height_limit(self):
         spec = spec_line(n=3, spacing_deg=0.01, wp2={"alt_agl_m": 130})
@@ -103,6 +120,13 @@ class RouteTests(unittest.TestCase):
         plan = planner.build_plan(spec)
         self.assertFalse(plan.errors, plan.errors)
         self.assertTrue(all(w.heading == "towardPOI" for w in plan.waypoints))
+
+    def test_approach_can_start_behind_home(self):
+        home, poi = {"lat": 51.170, "lon": -1.800}, {"lat": 51.1712, "lon": -1.800}
+        spec = route.generate_spec("T", home, poi, planner.load_profile(), orbit_radius_m=40, approach_m=200)
+        wp1 = spec["waypoints"][0]
+        self.assertAlmostEqual(geo.distance_m(wp1["lat"], wp1["lon"], poi["lat"], poi["lon"]), 240, delta=1)
+        self.assertLess(wp1["lat"], home["lat"])   # behind Home, away from the POI
 
     def test_home_inside_orbit_rejected(self):
         with self.assertRaises(ValueError):

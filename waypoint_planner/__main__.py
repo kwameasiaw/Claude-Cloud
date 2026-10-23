@@ -1,7 +1,7 @@
 """CLI.
 
   python -m waypoint_planner new <missions/YYYY-MM-DD-slug> --home LAT,LON --poi LAT,LON --name "..."
-      [--poi-name X] [--radius M] [--laps N] [--direction cw|ccw]
+      [--poi-name X] [--radius M] [--laps N] [--direction cw|ccw] [--approach M]
       Design a route from just a take-off point and a POI (approach + orbit) -> mission.json.
   python -m waypoint_planner import <route.kml|kmz> <missions/YYYY-MM-DD-slug> [--name "..."]
       Create the mission folder with source file + editable mission.json.
@@ -45,7 +45,8 @@ def cmd_new(args):
     folder.mkdir(parents=True, exist_ok=True)
     poi = {"name": args.poi_name, **_latlon(args.poi)}
     spec = route.generate_spec(args.name, _latlon(args.home), poi, planner.load_profile(),
-                               orbit_radius_m=args.radius, orbit_laps=args.laps, orbit_direction=args.direction)
+                               orbit_radius_m=args.radius, orbit_laps=args.laps, orbit_direction=args.direction,
+                               approach_m=args.approach)
     out = folder / "mission.json"
     out.write_text(json.dumps(spec, indent=2) + "\n")
     print(f"Designed {len(spec['waypoints'])} waypoints ({spec['route']['style']}) -> {out}")
@@ -97,6 +98,7 @@ def main(argv=None):
     p.add_argument("--radius", type=float)
     p.add_argument("--laps", type=int)
     p.add_argument("--direction", choices=["cw", "ccw"])
+    p.add_argument("--approach", type=float, help="WP1 -> orbit entry distance; may start behind Home")
     p.set_defaults(func=cmd_new)
     p = sub.add_parser("import")
     p.add_argument("source")

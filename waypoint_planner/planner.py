@@ -159,6 +159,8 @@ def build_plan(spec, profile=None, leg_samples=None):
         plan.waypoints.append(wp)
         prev = wp
 
+    _smooth_gradients(plan, raw, grad, home_ground)
+
     # --- POI height relative to take-off
     if plan.poi:
         plan.poi.setdefault("height_agl_m", s["poi_height_agl_m"])
@@ -197,6 +199,25 @@ def build_plan(spec, profile=None, leg_samples=None):
     _validate(plan, limits, leg_samples or {})
     _stats(plan, limits)
     return plan
+
+
+def _smooth_gradients(plan, raw, grad, home_ground):
+    """Never climb or descend steeper than `grad`: raise waypoints (never lower them) until every
+    leg fits. A backward pass lifts earlier points so a high target is reached by a gradual climb
+    (e.g. up a hillside); a forward pass lifts later points so descents stay gentle. Raising only
+    adds ground clearance; the 120 m check runs afterwards."""
+    wps = plan.waypoints
+    before = [w.rel_m for w in wps]
+    for i in range(len(wps) - 2, -1, -1):
+        wps[i].rel_m = max(wps[i].rel_m, wps[i + 1].rel_m - grad * wps[i + 1].leg_m)
+    for i in range(1, len(wps)):
+        wps[i].rel_m = max(wps[i].rel_m, wps[i - 1].rel_m - grad * wps[i].leg_m)
+    for w, src, old in zip(wps, raw, before):
+        w.rel_m = round(w.rel_m, 1)
+        w.agl_m = round(w.rel_m - (((w.ground_m or home_ground) - home_ground) if plan.terrain_known else 0.0), 1)
+        if w.rel_m > old + 0.05 and any(k in src for k in ("alt_agl_m", "alt_rel_m", "alt_amsl_m")):
+            plan.warnings.append(f"{w.label}: raised from {old:.0f} m to {w.rel_m:.0f} m (DJI Fly height) "
+                                 f"to keep every climb within the gradient limit.")
 
 
 def _validate(plan, limits, leg_samples):

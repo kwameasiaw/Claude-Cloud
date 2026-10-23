@@ -6,6 +6,7 @@ api.open-meteo.com; callers should fall back gracefully when it is unreachable.
 """
 
 import json
+import time
 import urllib.parse
 import urllib.request
 
@@ -22,7 +23,14 @@ def lookup(points, timeout=15):
             "latitude": ",".join(f"{p[0]:.6f}" for p in chunk),
             "longitude": ",".join(f"{p[1]:.6f}" for p in chunk),
         })
-        with urllib.request.urlopen(f"{API}?{query}", timeout=timeout) as resp:
-            data = json.load(resp)
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(f"{API}?{query}", timeout=timeout) as resp:
+                    data = json.load(resp)
+                break
+            except OSError:
+                if attempt == 2:
+                    raise
+                time.sleep(2 ** attempt)
         out.extend(float(e) for e in data["elevation"])
     return out

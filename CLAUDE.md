@@ -44,6 +44,11 @@ coordinates and terrain data and returns a Google Earth preview file for review.
    build fails without it. If the elevation host is blocked, tell the owner and ask them to allow
    `api.open-meteo.com` or read "elev" values from Google Earth (`ground_m`). Never invent
    elevations. Use `settings.flat_ground_confirmed` only when the owner confirms the site is flat.
+   The terrain model is a 90 m grid and reads sharp summits low (Rivington Pike: 334–353 m against
+   the published 363 m). Around hilltop subjects, set `ground_m` to the published summit height and
+   explain why in `notes`. If Home is on a slope steeper than the climb limit, use `--approach` so
+   the approach starts behind Home. The planner raises earlier waypoints, never lowers them, to keep
+   every climb within the limit.
 5. Fix every ERROR by redesigning (move WP1 back, lengthen the approach, raise the orbit), never
    with `--allow-errors` unless the owner insists. Report each warning to the owner.
 6. Send the owner `preview.kml` to review in Google Earth, the `.kmz` and a summary of `BRIEF.md`.

@@ -2,13 +2,15 @@
   "name": "Rivington Pike orbit",
   "home": {
     "lat": 53.619798,
-    "lon": -2.543168
+    "lon": -2.543168,
+    "ground_m": 319.0
   },
   "poi": {
     "name": "Rivington Pike Tower",
     "lat": 53.6194,
     "lon": -2.5413,
-    "height_agl_m": 3.5
+    "height_agl_m": 3.5,
+    "ground_m": 363.0
   },
   "route": {
     "style": "approach_orbit",
@@ -17,67 +19,98 @@
     "orbit_radius_m": 40,
     "orbit_points_per_lap": 8,
     "orbit_laps": 1,
-    "orbit_direction": "cw"
+    "orbit_direction": "cw",
+    "approach_m": 220.0
   },
-  "settings": {
-    "cruise_alt_agl_m": 30
-  },
+  "settings": {},
   "waypoints": [
     {
       "label": "WP1",
-      "lat": 53.61971509,
-      "lon": -2.54277883
+      "lat": 53.62019038,
+      "lon": -2.54501008,
+      "ground_m": 300.0
     },
     {
       "label": "WP2",
-      "lat": 53.61961835,
-      "lon": -2.5423248
+      "lat": 53.62002319,
+      "lon": -2.54422524,
+      "ground_m": 315.0
     },
     {
-      "label": "WP3 (orbit entry)",
-      "lat": 53.61952161,
-      "lon": -2.54187077
+      "label": "WP3",
+      "lat": 53.619856,
+      "lon": -2.54344041,
+      "ground_m": 319.0
     },
     {
       "label": "WP4",
-      "lat": 53.61972538,
-      "lon": -2.54155863
+      "lat": 53.6196888,
+      "lon": -2.54265559,
+      "ground_m": 319.0
     },
     {
-      "label": "WP5",
-      "lat": 53.61973855,
-      "lon": -2.54109498
+      "label": "WP5 (orbit entry)",
+      "lat": 53.6195216,
+      "lon": -2.54187077,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP6",
-      "lat": 53.6195534,
-      "lon": -2.54075143
+      "lat": 53.61972538,
+      "lon": -2.54155863,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP7",
-      "lat": 53.61927839,
-      "lon": -2.54072923
+      "lat": 53.61973855,
+      "lon": -2.54109498,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP8",
-      "lat": 53.61907462,
-      "lon": -2.54104138
+      "lat": 53.6195534,
+      "lon": -2.54075143,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP9",
-      "lat": 53.61906145,
-      "lon": -2.54150502
+      "lat": 53.61927839,
+      "lon": -2.54072923,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP10",
-      "lat": 53.6192466,
-      "lon": -2.54184856
+      "lat": 53.61907462,
+      "lon": -2.54104138,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     },
     {
       "label": "WP11",
+      "lat": 53.61906145,
+      "lon": -2.54150502,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
+    },
+    {
+      "label": "WP12",
+      "lat": 53.6192466,
+      "lon": -2.54184856,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
+    },
+    {
+      "label": "WP13",
       "lat": 53.6195216,
-      "lon": -2.54187077
+      "lon": -2.54187077,
+      "ground_m": 363.0,
+      "alt_agl_m": 35
     }
   ],
-  "notes": "POI = Rivington Pike Tower (Grade II, ~5x5 m, 7 m high; listing NGR SD6429413783). Orbit 40 m radius to clear the tower and walkers on the summit; 30 m cruise keeps the tower framed."
+  "notes": "POI: Rivington Pike Tower (Grade II, ~5x5 m, 7 m high). Take-off is on the steep west slope (~44 m below the summit within 130 m), so the approach starts 130 m behind Home and climbs at <=14 deg. Orbit: 40 m radius, 35 m above the published 363 m summit height. Orbit/POI ground heights are set to 363 m on purpose because the 90 m terrain model under-reads this sharp summit."
 }

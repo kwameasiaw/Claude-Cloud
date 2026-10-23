@@ -5,19 +5,30 @@ from xml.sax.saxutils import escape
 
 
 def preview_kml(plan):
-    """3D flight path for Google Earth. Uses height above ground so it sits correctly on terrain."""
+    """3D flight path for Google Earth.
+
+    With terrain data the path is drawn at its true altitude above sea level (take-off ground +
+    DJI Fly height), so Google Earth's own terrain shows the real clearance. Without it, heights
+    are drawn above the ground and the document is labelled as not terrain-checked."""
     w = plan.waypoints
     home = plan.home
-    path = " ".join(f"{p.lon:.7f},{p.lat:.7f},{p.agl_m:.1f}" for p in w)
-    fly_in = f"{home['lon']:.7f},{home['lat']:.7f},0 {w[0].lon:.7f},{w[0].lat:.7f},{w[0].agl_m:.1f}"
+    if plan.terrain_known:
+        mode, base = "absolute", home["ground_m"]
+        alt = lambda p: base + p.rel_m
+    else:
+        mode, base = "relativeToGround", 0.0
+        alt = lambda p: p.agl_m
+    path = " ".join(f"{p.lon:.7f},{p.lat:.7f},{alt(p):.1f}" for p in w)
+    fly_in = (f"{home['lon']:.7f},{home['lat']:.7f},{base:.1f} "
+              f"{w[0].lon:.7f},{w[0].lat:.7f},{alt(w[0]):.1f}")
     marks = []
     for p in w:
         desc = (f"{p.agl_m:.0f} m above ground / {p.rel_m:.0f} m in DJI Fly, {p.speed_ms:g} m/s, "
                 f"gimbal {p.gimbal_pitch_deg:.0f} deg" + (f", hover {p.hover_s:g}s" if p.hover_s else "")
                 + (", REC start" if p.start_record else "") + (", REC stop" if p.stop_record else ""))
         marks.append(f"""    <Placemark><name>{escape(p.label)}</name><description>{escape(desc)}</description>
-      <styleUrl>#wp</styleUrl><Point><altitudeMode>relativeToGround</altitudeMode><extrude>1</extrude>
-      <coordinates>{p.lon:.7f},{p.lat:.7f},{p.agl_m:.1f}</coordinates></Point></Placemark>""")
+      <styleUrl>#wp</styleUrl><Point><altitudeMode>{mode}</altitudeMode><extrude>1</extrude>
+      <coordinates>{p.lon:.7f},{p.lat:.7f},{alt(p):.1f}</coordinates></Point></Placemark>""")
     marks.append(f"""    <Placemark><name>Home (take-off)</name><styleUrl>#home</styleUrl>
       <Point><coordinates>{home['lon']:.7f},{home['lat']:.7f},0</coordinates></Point></Placemark>""")
     if plan.poi:
@@ -36,10 +47,10 @@ def preview_kml(plan):
     <Style id="home"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/H.png</href></Icon></IconStyle></Style>
     <Style id="poi"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href></Icon></IconStyle></Style>
     <Placemark><name>Flight path</name><styleUrl>#route</styleUrl>
-      <LineString><extrude>1</extrude><tessellate>1</tessellate><altitudeMode>relativeToGround</altitudeMode>
+      <LineString><extrude>1</extrude><tessellate>1</tessellate><altitudeMode>{mode}</altitudeMode>
       <coordinates>{path}</coordinates></LineString></Placemark>
     <Placemark><name>Fly-in from take-off (not recorded)</name><styleUrl>#flyin</styleUrl>
-      <LineString><altitudeMode>relativeToGround</altitudeMode><coordinates>{fly_in}</coordinates></LineString></Placemark>
+      <LineString><altitudeMode>{mode}</altitudeMode><coordinates>{fly_in}</coordinates></LineString></Placemark>
 {chr(10).join(marks)}
   </Document>
 </kml>
