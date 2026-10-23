@@ -5,7 +5,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from waypoint_planner import kml_import, planner, wpml
+from waypoint_planner import geo, kml_import, planner, route, wpml
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_route.kml"
 W = "{http://www.dji.com/wpmz/1.0.6}"
@@ -16,7 +16,7 @@ def spec_line(n=4, spacing_deg=0.002, **wp_overrides):
     for i, extra in wp_overrides.items():
         wps[int(i[2:])].update(extra)
     return {"name": "Test", "home": {"lat": 51.1695, "lon": -1.80}, "poi": None,
-            "settings": {}, "waypoints": wps}
+            "settings": {"flat_ground_confirmed": True}, "waypoints": wps}
 
 
 class ImportTests(unittest.TestCase):
@@ -80,6 +80,34 @@ class PlanTests(unittest.TestCase):
         expected = -math.degrees(math.atan2(last.rel_m, 111.2 * 0.5))
         self.assertAlmostEqual(last.gimbal_pitch_deg, expected, delta=1.0)
         self.assertEqual(last.heading, "towardPOI")
+
+
+    def test_missing_terrain_is_error_unless_confirmed_flat(self):
+        spec = spec_line()
+        spec["settings"] = {}
+        self.assertTrue(any("No terrain data" in e for e in planner.build_plan(spec).errors))
+
+
+class RouteTests(unittest.TestCase):
+    def test_approach_orbit(self):
+        home, poi = {"lat": 51.170, "lon": -1.800}, {"name": "T", "lat": 51.1735, "lon": -1.8045}
+        spec = route.generate_spec("T", home, poi, planner.load_profile(), orbit_radius_m=40, orbit_laps=1)
+        wps = spec["waypoints"]
+        orbit = [w for w in wps if not w["label"].startswith(("WP1 ",))][-8:]
+        for w in orbit:
+            self.assertAlmostEqual(geo.distance_m(w["lat"], w["lon"], poi["lat"], poi["lon"]), 40, delta=0.5)
+        entry = next(w for w in wps if "orbit entry" in w["label"])
+        self.assertAlmostEqual(geo.distance_m(entry["lat"], entry["lon"], orbit[-1]["lat"], orbit[-1]["lon"]),
+                               0, delta=0.5)
+        spec["settings"]["flat_ground_confirmed"] = True
+        plan = planner.build_plan(spec)
+        self.assertFalse(plan.errors, plan.errors)
+        self.assertTrue(all(w.heading == "towardPOI" for w in plan.waypoints))
+
+    def test_home_inside_orbit_rejected(self):
+        with self.assertRaises(ValueError):
+            route.generate_spec("T", {"lat": 51.17, "lon": -1.8}, {"lat": 51.1701, "lon": -1.8},
+                                planner.load_profile(), orbit_radius_m=40)
 
 
 class KmzTests(unittest.TestCase):

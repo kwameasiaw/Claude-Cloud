@@ -119,8 +119,13 @@ def build_plan(spec, profile=None, leg_samples=None):
 
     plan.terrain_known = _ground(home) is not None and all(w.get("ground_m") is not None for w in raw)
     if not plan.terrain_known:
-        plan.warnings.append("No terrain data: heights assume the ground is level with the take-off point. "
-                             "Check hills/valleys along the route before flying.")
+        if s.get("flat_ground_confirmed"):
+            plan.warnings.append("No terrain data: heights assume the ground is level with the take-off point "
+                                 "(the pilot has confirmed the site is flat).")
+        else:
+            plan.errors.append("No terrain data: without ground heights the drone could fly into rising "
+                               "ground. Run build with --terrain, add ground_m values, or set "
+                               "settings.flat_ground_confirmed once the pilot confirms the site is flat.")
     home_ground = _ground(home) or 0.0
 
     def to_rel(agl, ground):

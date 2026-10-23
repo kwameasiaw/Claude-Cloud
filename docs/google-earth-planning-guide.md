@@ -1,5 +1,10 @@
 # Planning a route in Google Earth
 
+> **Usual workflow:** you don't need to draw anything. Send the take-off point and the point of
+> interest (right-click a spot in Google Earth, then click the coordinates to copy them). Claude designs
+> the route and sends back `preview.kml` for you to review in Google Earth. This guide is for when you
+> want to draw a route yourself.
+
 This works in Google Earth Pro (desktop, recommended) or Google Earth on the web.
 
 ## 1. Make a folder for the mission

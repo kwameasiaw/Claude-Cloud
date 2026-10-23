@@ -28,7 +28,7 @@ def preview_kml(plan):
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>{escape(plan.name)} (flight preview)</name>
+    <name>{escape(plan.name)} (flight preview{"" if plan.terrain_known else ": HEIGHTS NOT TERRAIN-CHECKED"})</name>
     <Style id="route"><LineStyle><color>ff00d4ff</color><width>4</width></LineStyle>
       <PolyStyle><color>4000d4ff</color></PolyStyle></Style>
     <Style id="flyin"><LineStyle><color>ff9e9e9e</color><width>2</width></LineStyle></Style>

@@ -26,3 +26,12 @@ def bearing_deg(lat1, lon1, lat2, lon2):
 def interpolate(lat1, lon1, lat2, lon2, fraction):
     """Linear interpolation between two nearby points."""
     return lat1 + (lat2 - lat1) * fraction, lon1 + (lon2 - lon1) * fraction
+
+
+def destination(lat, lon, bearing, distance):
+    """Point reached by travelling `distance` metres from (lat, lon) on initial `bearing` degrees."""
+    p1, l1 = math.radians(lat), math.radians(lon)
+    b, d = math.radians(bearing), distance / EARTH_RADIUS_M
+    p2 = math.asin(math.sin(p1) * math.cos(d) + math.cos(p1) * math.sin(d) * math.cos(b))
+    l2 = l1 + math.atan2(math.sin(b) * math.sin(d) * math.cos(p1), math.cos(d) - math.sin(p1) * math.sin(p2))
+    return math.degrees(p2), (math.degrees(l2) + 540) % 360 - 180
