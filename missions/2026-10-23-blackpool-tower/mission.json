@@ -1,0 +1,136 @@
+{
+  "name": "Blackpool Tower orbit",
+  "home": {
+    "lat": 53.815896,
+    "lon": -3.056718,
+    "ground_m": 10.0
+  },
+  "poi": {
+    "name": "Blackpool Tower",
+    "lat": 53.8159,
+    "lon": -3.0552,
+    "ground_m": 10.0,
+    "height_agl_m": 130
+  },
+  "route": {
+    "style": "approach_orbit",
+    "wp1_offset_m": 60,
+    "approach_spacing_m": 60,
+    "orbit_radius_m": 80.0,
+    "orbit_points_per_lap": 8,
+    "orbit_laps": 1,
+    "orbit_direction": "cw",
+    "approach_m": 368.0
+  },
+  "settings": {
+    "cruise_alt_agl_m": 108
+  },
+  "waypoints": [
+    {
+      "label": "WP1",
+      "lat": 53.81588178,
+      "lon": -3.06202425,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP2",
+      "lat": 53.81588394,
+      "lon": -3.06122345,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP3",
+      "lat": 53.81588609,
+      "lon": -3.06042264,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP4",
+      "lat": 53.81588824,
+      "lon": -3.05962184,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP5",
+      "lat": 53.81589038,
+      "lon": -3.05882103,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP6",
+      "lat": 53.81589252,
+      "lon": -3.05802023,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP7",
+      "lat": 53.81589465,
+      "lon": -3.05721942,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP8 (orbit entry)",
+      "lat": 53.81589678,
+      "lon": -3.05641862,
+      "alt_rel_m": 108,
+      "ground_m": 0.0
+    },
+    {
+      "label": "WP9",
+      "lat": 53.81640645,
+      "lon": -3.05606556,
+      "alt_rel_m": 108,
+      "ground_m": 10.0
+    },
+    {
+      "label": "WP10",
+      "lat": 53.81661945,
+      "lon": -3.05520545,
+      "alt_rel_m": 108,
+      "ground_m": 10.0
+    },
+    {
+      "label": "WP11",
+      "lat": 53.816411,
+      "lon": -3.05434215,
+      "alt_rel_m": 108,
+      "ground_m": 18.0
+    },
+    {
+      "label": "WP12",
+      "lat": 53.81590321,
+      "lon": -3.05398138,
+      "alt_rel_m": 108,
+      "ground_m": 18.0
+    },
+    {
+      "label": "WP13",
+      "lat": 53.81539355,
+      "lon": -3.05433446,
+      "alt_rel_m": 108,
+      "ground_m": 25.0
+    },
+    {
+      "label": "WP14",
+      "lat": 53.81518055,
+      "lon": -3.05519455,
+      "alt_rel_m": 108,
+      "ground_m": 9.0
+    },
+    {
+      "label": "WP15",
+      "lat": 53.81538899,
+      "lon": -3.05605783,
+      "alt_rel_m": 108,
+      "ground_m": 9.0
+    },
+    {
+      "label": "WP16",
+      "lat": 53.81589678,
+      "lon": -3.05641862,
+      "alt_rel_m": 108,
+      "ground_m": 0.0
+    }
+  ],
+  "notes": "POI: Blackpool Tower (158 m; Historic England 53.8159,-3.0552). Owner's point treated as take-off (seafront, ~100 m W of the tower). Home/POI ground_m = 10 m from the nearest land cell of the 90 m DEM (the take-off cell itself reads 0 m, i.e. sea). Approach starts ~350 m out over the beach/sea and climbs at <=14 deg to 108 m (DJI Fly height; 118 m above sea level, so <=120 m even over the beach at low tide), then an 80 m-radius orbit; camera tilted up at the upper tower (aim 130 m) so the crown is in frame. Tower is ~5.2 km (2.8 nm) from Blackpool Airport's reference point; its FRZ covers the seafront south of Central Pier."
+}

@@ -81,6 +81,15 @@ class PlanTests(unittest.TestCase):
         self.assertTrue(plan.terrain_known)
         self.assertEqual([w.rel_m for w in plan.waypoints], [20, 30, 40])
 
+    def test_sea_level_ground_is_not_treated_as_missing(self):
+        spec = spec_line(n=3)
+        spec["home"]["ground_m"] = 10.0
+        for w in spec["waypoints"]:
+            w["ground_m"] = 0.0
+            w["alt_rel_m"] = 20
+        plan = planner.build_plan(spec)
+        self.assertEqual([w.agl_m for w in plan.waypoints], [30, 30, 30])
+
     def test_fill_terrain_and_leg_samples(self):
         spec = spec_line(n=3)
         samples = planner.fill_terrain(spec, lambda pts: [50.0] * len(pts))

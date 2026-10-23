@@ -154,7 +154,7 @@ def build_plan(spec, profile=None, leg_samples=None):
             else:
                 step = s["cruise_alt_agl_m"] - prev.agl_m
                 wp.agl_m = prev.agl_m + max(-grad * leg, min(grad * leg, step))
-            wp.rel_m = to_rel(wp.agl_m, ground or home_ground)
+            wp.rel_m = to_rel(wp.agl_m, home_ground if ground is None else ground)
         wp.agl_m, wp.rel_m = round(wp.agl_m, 1), round(wp.rel_m, 1)
         plan.waypoints.append(wp)
         prev = wp
@@ -214,7 +214,7 @@ def _smooth_gradients(plan, raw, grad, home_ground):
         wps[i].rel_m = max(wps[i].rel_m, wps[i - 1].rel_m - grad * wps[i].leg_m)
     for w, src, old in zip(wps, raw, before):
         w.rel_m = round(w.rel_m, 1)
-        w.agl_m = round(w.rel_m - (((w.ground_m or home_ground) - home_ground) if plan.terrain_known else 0.0), 1)
+        w.agl_m = round(w.rel_m - (((home_ground if w.ground_m is None else w.ground_m) - home_ground) if plan.terrain_known else 0.0), 1)
         if w.rel_m > old + 0.05 and any(k in src for k in ("alt_agl_m", "alt_rel_m", "alt_amsl_m")):
             plan.warnings.append(f"{w.label}: raised from {old:.0f} m to {w.rel_m:.0f} m (DJI Fly height) "
                                  f"to keep every climb within the gradient limit.")
