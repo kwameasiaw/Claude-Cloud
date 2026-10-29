@@ -169,22 +169,27 @@
       "t": "2026-10-29T18:19:55+00:00",
       "equity": 97.06,
       "cash": 57.9
+    },
+    {
+      "t": "2026-10-29T19:06:04+00:00",
+      "equity": 97.06,
+      "cash": 57.9
     }
   ],
   "last_run": {
-    "at": "2026-10-29T18:19:41+00:00",
+    "at": "2026-10-29T19:06:01+00:00",
     "scanned": 1000,
-    "flagged": 240,
-    "passed_filters": 148,
-    "candidates": 22,
+    "flagged": 178,
+    "passed_filters": 165,
+    "candidates": 25,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Dota 2: PARIVISION vs Team Yandex (BO3) - PARI Universe Playoffs: spread 0.26 is unusually wide",
-      "Will Frosinone Calcio win on 2026-10-29?: price swung +16c in 24h",
-      "Erste Bank Open: Arthur Fery vs Lorenzo Musetti: price swung +22c in 24h",
-      "Counter-Strike: HOTU vs GamerLegion (BO3) - Tesla Cup Playoffs: spread 0.16 is unusually wide",
-      "Swiss Indoors Basel: Taylor Fritz vs Denis Shapovalov: spread 0.06 is unusually wide"
+      "Will Frosinone Calcio win on 2026-10-29?: price swung +41c in 24h",
+      "Erste Bank Open: Arthur Fery vs Lorenzo Musetti: price swung +72c in 24h",
+      "Billionaire one-time wealth tax passes in California election 2026?: price swung +10c in 24h",
+      "Will US Lecce win on 2026-10-29?: price swung -19c in 24h",
+      "Afghanistan and Zimbabwe in the UAE T20s: Afghanistan vs Zimbabwe: price swung +21c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
