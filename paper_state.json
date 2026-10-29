@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8",
-      "last_bid": 0.77,
+      "last_bid": 0.71,
       "tags": [
         "iran",
         "trump",
@@ -179,22 +179,27 @@
       "t": "2026-10-29T20:05:24+00:00",
       "equity": 96.82,
       "cash": 57.9
+    },
+    {
+      "t": "2026-10-29T21:04:37+00:00",
+      "equity": 96.07,
+      "cash": 57.9
     }
   ],
   "last_run": {
-    "at": "2026-10-29T20:05:21+00:00",
+    "at": "2026-10-29T21:04:35+00:00",
     "scanned": 1000,
-    "flagged": 138,
-    "passed_filters": 211,
-    "candidates": 35,
+    "flagged": 183,
+    "passed_filters": 180,
+    "candidates": 27,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Guayaquil: Diego Dedura-Palomero vs Valerio Aboian: price swung -65c in 24h",
-      "Afghanistan and Zimbabwe in the UAE T20s: Afghanistan vs Zimbabwe: price swung +24c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -34c in 24h",
-      "Al Nassr Saudi Club vs. Al Kholood Saudi Club: O/U 4.5: price swung +71c in 24h",
-      "Will Predict.fun launch a token by October 31, 2026?: price swung +20c in 24h"
+      "LoL: Karmine Corp vs CTBC Flying Oyster - Game 1 Winner: price swung +28c in 24h",
+      "LoL: Karmine Corp vs CTBC Flying Oyster (BO3) - Worlds Group Stage: price swung +13c in 24h",
+      "Game Handicap: KC (-1.5) vs CTBC Flying Oyster (+1.5): price swung +19c in 24h",
+      "Will Atalanta BC win on 2026-10-29?: price swung +19c in 24h",
+      "Will ACF Fiorentina win on 2026-10-29?: price swung -20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

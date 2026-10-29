@@ -103,7 +103,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.19,
+      "last_bid": 0.25,
       "tags": [
         "iran",
         "israel",
@@ -257,7 +257,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.34,
+      "last_bid": 0.35,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -451,10 +451,15 @@
       "t": "2026-10-29T20:05:25+00:00",
       "equity": 99.48,
       "cash": 87.49
+    },
+    {
+      "t": "2026-10-29T21:04:38+00:00",
+      "equity": 100.47,
+      "cash": 87.49
     }
   ],
   "last_run": {
-    "at": "2026-10-29T20:05:25+00:00",
+    "at": "2026-10-29T21:04:38+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
