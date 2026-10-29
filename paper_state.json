@@ -119,7 +119,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:57+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.8,
+      "last_bid": 0.76,
       "tags": [
         "iran",
         "israel",
@@ -141,6 +141,11 @@
     {
       "t": "2026-10-29T16:53:21+00:00",
       "equity": 99.15,
+      "cash": 50.18
+    },
+    {
+      "t": "2026-10-29T17:03:33+00:00",
+      "equity": 98.66,
       "cash": 50.18
     }
   ]
