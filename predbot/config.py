@@ -34,6 +34,39 @@ class Config:
     take_profit_price: float = 0.95       # lock in once the bid reaches 95c
     exit_hours_before_close: float = 0.0  # 0 = hold to resolution if no stop/target hit
 
+    # --- Scan agent: flag and skip anything odd ---------------------------------
+    flag_day_move: float = 0.10           # a 10c+ swing in 24h is "weird"; skip until it settles
+    flag_spread: float = 0.04             # spreads this wide suggest a broken or thin book
+
+    # --- Research agents ------------------------------------------------------
+    research_max_items: int = 12          # headlines/posts per source per market
+    research_workers: int = 8             # parallel fetches
+    research_top: int = 12                # research only the most promising candidates
+
+    # --- Prediction agent -----------------------------------------------------
+    llm_model: str = "claude-opus-5-5"
+    llm_weight: float = 0.25              # how far the LLM may pull the estimate...
+    llm_max_shift: float = 0.05           # ...and never more than 5c either way
+    min_confidence: float = 0.55          # only fire above this confidence score
+    model_path: str = "models/calibration.json"
+    model_meta_path: str = "models/calibration_meta.json"
+    examples_path: str = "models/training_examples.json"
+    calibration_path: str = "models/calibration_table.json"
+
+    # --- Risk agent -----------------------------------------------------------
+    kelly_fraction: float = 0.25          # quarter-Kelly: a quarter of the "optimal" bet
+    max_drawdown_halt: float = 0.25       # stop new bets if the pot is 25% below its start
+    daily_loss_halt: float = 0.10         # pause new bets for the day after a 10% drop
+
+    # --- Postmortems ----------------------------------------------------------
+    lesson_min_repeats: int = 3           # a lesson only changes behaviour once seen 3 times
+    postmortem_path: str = "postmortems.jsonl"
+    lessons_path: str = "lessons.json"
+
+    # --- Stocks pot (separate £100, simulated against Alpaca's live quotes) ---
+    stocks_state_path: str = "stocks_state.json"
+    stocks_journal_path: str = "stocks_journal.csv"
+
     # --- Files ----------------------------------------------------------------
     state_path: str = "paper_state.json"
     journal_path: str = "trade_journal.csv"

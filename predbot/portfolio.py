@@ -22,6 +22,7 @@ class Position:
     last_bid: float | None = None   # net of the fee we'd pay to sell now
     tags: list[str] = field(default_factory=list)
     closes_at: str = ""
+    decision: dict = field(default_factory=dict)    # what each agent saw and decided
 
 
 @dataclass
@@ -38,6 +39,7 @@ class ClosedTrade:
     reason: str
     opened_at: str
     closed_at: str
+    decision: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -47,6 +49,7 @@ class Portfolio:
     positions: list[Position] = field(default_factory=list)
     closed: list[ClosedTrade] = field(default_factory=list)
     history: list[dict] = field(default_factory=list)   # {"t", "equity", "cash"} per cycle
+    last_run: dict = field(default_factory=dict)        # pipeline funnel from the latest cycle
 
     @classmethod
     def load(cls, path: str, starting_bankroll: float) -> "Portfolio":
@@ -60,6 +63,7 @@ class Portfolio:
             positions=[Position(**p) for p in data.get("positions", [])],
             closed=[ClosedTrade(**t) for t in data.get("closed", [])],
             history=data.get("history", []),
+            last_run=data.get("last_run", {}),
         )
 
     def save(self, path: str) -> None:
@@ -98,17 +102,19 @@ class Portfolio:
             stake=pos.stake, proceeds=round(proceeds, 4), pnl=round(proceeds - pos.stake, 4),
             reason=reason, opened_at=pos.opened_at,
             closed_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            decision=pos.decision,
         )
         self.cash += proceeds
         self.positions.remove(pos)
         self.closed.append(trade)
         if journal_path:
             new = not os.path.exists(journal_path)
+            row = {k: v for k, v in asdict(trade).items() if k != "decision"}
             with open(journal_path, "a", newline="") as f:
-                w = csv.DictWriter(f, fieldnames=list(asdict(trade)))
+                w = csv.DictWriter(f, fieldnames=list(row))
                 if new:
                     w.writeheader()
-                w.writerow(asdict(trade))
+                w.writerow(row)
         return trade
 
     def stats(self) -> dict:
@@ -116,16 +122,22 @@ class Portfolio:
         wins = [t for t in self.closed if t.pnl > 0]
         losses = [t for t in self.closed if t.pnl <= 0]
         eq = self.equity()
+        avg_win = sum(t.pnl for t in wins) / len(wins) if wins else 0.0
+        avg_loss = sum(t.pnl for t in losses) / len(losses) if losses else 0.0
         return {
             "trades": n,
             "wins": len(wins),
             "losses": len(losses),
             "win_rate": len(wins) / n if n else None,
-            # If prices were perfectly fair, we'd win about as often as the average
-            # entry price. Beating this number is the real test of an edge.
-            "expected_win_rate": sum(t.entry_price for t in self.closed) / n if n else None,
-            "avg_win": sum(t.pnl for t in wins) / len(wins) if wins else 0.0,
-            "avg_loss": sum(t.pnl for t in losses) / len(losses) if losses else 0.0,
+            # The win rate at which average wins exactly pay for average losses.
+            # Beating this number, not just "winning often", is the real test of an edge.
+            "break_even_win_rate": (abs(avg_loss) / (avg_win + abs(avg_loss))
+                                    if wins and losses else
+                                    # until there are both: for £1 contracts it's the average price paid
+                                    sum(t.entry_price for t in self.closed) / n
+                                    if n and all(t.entry_price < 1 for t in self.closed) else None),
+            "avg_win": avg_win,
+            "avg_loss": avg_loss,
             "realised_pnl": sum(t.pnl for t in self.closed),
             "equity": eq,
             "return_pct": (eq / self.starting_bankroll - 1) * 100,

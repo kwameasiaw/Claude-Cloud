@@ -1,0 +1,4 @@
+anthropic>=2.0
+pydantic>=2.0
+numpy>=1.26
+xgboost-cpu>=2.0

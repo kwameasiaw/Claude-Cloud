@@ -100,65 +100,98 @@ td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric
 dl { display: grid; gap: 12px; margin: 0; }
 dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
 .empty { color: var(--ink-2); font-size: .92rem; }
+.pots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 640px) { .pots { grid-template-columns: minmax(0,1fr); } }
+.pot { display: grid; gap: 6px; }
+.pot .value { font: 650 2.4rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.pot .facts { font-size: .84rem; }
+.part { display: grid; gap: 28px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.part > h2 { font-size: 1.45rem; }
+.funnel { display: grid; gap: 8px; }
+.f-row { display: grid; grid-template-columns: 10.5rem minmax(0,1fr) 3.2rem; gap: 10px; align-items: center; font-size: .9rem; }
+.f-row .track { height: 12px; position: relative; }
+.f-row .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+.f-row .val { text-align: right; font: 600 .9rem var(--f-data); }
+@media (max-width: 560px) { .f-row { grid-template-columns: minmax(0,1fr) 3.2rem; } .f-row .track { grid-column: 1 / -1; grid-row: 2; } }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: .78rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); background: var(--panel); }
+.chip.on { background: var(--good-wash); color: var(--ink); border-color: transparent; }
+.chip.off { background: var(--track); }
+.pm { display: grid; gap: 10px; }
+.pm ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.pm li { display: grid; grid-template-columns: 6.5rem minmax(0,1fr); gap: 8px; font-size: .88rem; color: var(--ink-2); }
+.pm li b { color: var(--ink); font-weight: 600; text-transform: capitalize; }
+@media (max-width: 560px) { .pm li { grid-template-columns: minmax(0,1fr); gap: 0; } }
+.note { font-size: .88rem; color: var(--ink-2); padding: 10px 12px; border-radius: 8px; background: var(--accent-wash); max-width: 65ch; }
 </style>
 <div class="wrap">
   <header>
     <h1>Paper Pot</h1>
-    <span class="paper">Practice money only &middot; updated 29 Oct 2026, 17:03 UTC</span>
+    <span class="paper">Practice money only &middot; updated 29 Oct 2026, 17:35 UTC</span>
   </header>
 
-  <section class="hero" aria-label="Pot value">
-    <span class="eyebrow">What your &pound;100 is worth now</span>
-    <span class="value">&pound;98.66</span>
-    <span class="delta down">&#9660; -&pound;1.34 (-1.3%) since the start</span>
-  </section>
-
-  <div class="tiles">
-    <div class="tile"><span class="small">Cash not in bets</span><b>&pound;50.18</b></div>
-    <div class="tile"><span class="small">Money in open bets</span><b>&pound;49.82</b></div>
-    <div class="tile"><span class="small">Open bets</span><b>5 of 5</b></div>
-    <div class="tile"><span class="small">Finished bets</span><b>0</b></div>
+  <div class="pots">
+    <div class="panel pot">
+    <span class="eyebrow">Prediction markets pot</span>
+    <span class="value">&pound;99.27</span>
+    <span class="delta down">&#9660; -&pound;0.73 (-0.7%) since the start</span>
+    <div class="facts"><span><b>5</b> of 5 bets open</span>
+      <span><b>&pound;50.18</b> cash</span><span><b>0</b> finished, none finished yet</span></div>
+  </div>
+    <div class="panel pot">
+    <span class="eyebrow">Stocks pot</span>
+    <span class="value">&pound;100.00</span>
+    <span class="delta flat">&#9644; &pound;0.00 (+0.0%) since the start</span>
+    <div class="facts"><span><b>0</b> of 5 trades open</span>
+      <span><b>&pound;100.00</b> cash</span><span><b>0</b> finished, none finished yet</span></div>
+  </div>
   </div>
 
-  <section>
-    <h2>Your pot over time</h2>
-    <p class="muted">Open bets are valued at what they could be sold for right now. A small dip right after
-      buying is normal: you buy at the asking price and value at the lower selling price.</p>
-    <div class="panel"><div class="chart" id="pot-chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 58.0, &quot;label&quot;: &quot;29 Oct 16:48 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 201.4, &quot;y&quot;: 132.8, &quot;label&quot;: &quot;29 Oct 16:53 UTC  \u00a399.15&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 175.9, &quot;label&quot;: &quot;29 Oct 17:03 UTC  \u00a398.66&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;98.66"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;98.5</text><line x1="52" x2="544" y1="146.0" y2="146.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="150.0" text-anchor="end">&#163;99</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="62.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="52.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 16:48</text><text x="544.0" y="212" text-anchor="end">29 Oct 17:03</text><polygon points="52.0,190 52.0,58.0 201.4,132.8 544.0,175.9 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,58.0 201.4,132.8 544.0,175.9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="175.9" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line id="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
-  </section>
-
-  <section>
-    <h2>Is it winning often enough?</h2>
-    <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
-      to break even. The grey bar is that break-even level for the bets made so far.</p>
-    <div class="panel"><div class="verdict wait">No bets have finished yet, so there is no win rate. Results appear here as each bet settles or hits its stop-loss or cash-out price.</div></div>
-  </section>
-
-  <section>
-    <h2>Open bets</h2>
-    <p class="muted">Each line shows prices from 50p to &pound;1. The blue dot is today's price. If it slides into the red
-      zone the bot sells to limit the loss; in the green zone it sells to lock in the gain. Otherwise it waits for the result.</p>
-    <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
-      <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
-      <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
-      <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
-    <div class="bets">
+  <section class="part">
+    <h2>Prediction markets</h2>
+    <section>
+      <h2>How the bot decided this hour</h2>
+      <p class="muted">Every hour five agents run in order: scan all markets, research the best ones, estimate the
+        real chance, check the risk and size the bet, then review any losses. Each bar shows how many markets
+        made it through each step.</p>
+      <div class="panel" style="display:grid;gap:14px"><div class="chips"><span class="chip off">News feeds off</span><span class="chip off">Reddit off</span><span class="chip off">X off</span><span class="chip off">Claude analysis off</span><span class="chip off">XGBoost model: off (didn't beat market prices on 978 past markets)</span></div><div class="note">Last run: all 5 bet slots in use.</div></div>
+    </section>
+    <section>
+      <h2>Pot over time</h2>
+      <p class="muted">Open bets are valued at what they could be sold for right now, so a small dip right after
+        buying is normal.</p>
+      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 58.0, &quot;label&quot;: &quot;29 Oct 16:48 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 100.5, &quot;y&quot;: 132.8, &quot;label&quot;: &quot;29 Oct 16:53 UTC  \u00a399.15&quot;}, {&quot;x&quot;: 211.8, &quot;y&quot;: 175.9, &quot;label&quot;: &quot;29 Oct 17:03 UTC  \u00a398.66&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 122.2, &quot;label&quot;: &quot;29 Oct 17:34 UTC  \u00a399.27&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;99.27"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;98.5</text><line x1="52" x2="544" y1="146.0" y2="146.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="150.0" text-anchor="end">&#163;99</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="62.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="52.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 16:48</text><text x="544.0" y="212" text-anchor="end">29 Oct 17:34</text><polygon points="52.0,190 52.0,58.0 100.5,132.8 211.8,175.9 544.0,122.2 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,58.0 100.5,132.8 211.8,175.9 544.0,122.2" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="122.2" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
+        to break even. The grey bar is that level for the bets made so far.</p>
+      <div class="panel"><div class="verdict wait">No bets have finished yet, so there is no win rate. Results appear here as each one closes.</div></div>
+    </section>
+    <section>
+      <h2>Open bets</h2>
+      <p class="muted">Each line shows prices from 50p to &pound;1. The blue dot is the price now. In the red
+        zone the bot sells to limit the loss; in the green zone it sells to lock in the gain.</p>
+      <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
+        <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
+        <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
+        <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
+      <div class="bets">
 <article class="panel bet">
   <div class="bet-head">
     <a href="https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8" target="_blank" rel="noopener">US x Iran ceasefire continues through November 8?</a>
-    <span class="pill bad">-&pound;0.12 so far</span>
+    <span class="pill ">+&pound;0.00 so far</span>
   </div>
   <div class="facts"><span>Bet on <b>Yes</b></span><span>Staked <b>&pound;10.00</b>
     at <b>81p</b></span>
     <span>Pays <b>&pound;12.35</b> if right</span><span>settles in about 10 days</span></div>
-  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p; cash out at 95p">
+  
+  <div class="ptrack" role="img" aria-label="Price now 81p; paid 81p; stop-loss 65p">
     <div class="line"></div>
-    <div class="zone stop" style="width:29.6%"></div>
-    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="zone stop" style="width:29.6%"></div><div class="zone win" style="width:calc(100% - 90.0%)"></div><div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
-    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
-    <div class="mk now below" style="left:60.0%"><i class="dot"></i><span>now 80p</span></div>
+    <div class="mk now below" style="left:62.0%"><i class="dot"></i><span>now 81p</span></div>
   </div>
 </article>
 <article class="panel bet">
@@ -169,12 +202,11 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   <div class="facts"><span>Bet on <b>Chiefs</b></span><span>Staked <b>&pound;9.99</b>
     at <b>81p</b></span>
     <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 3 days</span></div>
-  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p; cash out at 95p">
+  
+  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p">
     <div class="line"></div>
-    <div class="zone stop" style="width:30.3%"></div>
-    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="zone stop" style="width:30.3%"></div><div class="zone win" style="width:calc(100% - 90.0%)"></div><div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:30.3%"><span>stop 65p</span><i class="tick"></i></div>
-    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:62.9%"><i class="dot"></i></div>
     <div class="mk now below" style="left:59.0%"><i class="dot"></i><span>now 80p</span></div>
   </div>
@@ -187,12 +219,11 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;9.96</b>
     at <b>81p</b></span>
     <span>Pays <b>&pound;12.30</b> if right</span><span>settles in about 5 days</span></div>
-  <div class="ptrack" role="img" aria-label="Price now 79p; paid 81p; stop-loss 65p; cash out at 95p">
+  
+  <div class="ptrack" role="img" aria-label="Price now 79p; paid 81p; stop-loss 65p">
     <div class="line"></div>
-    <div class="zone stop" style="width:29.6%"></div>
-    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="zone stop" style="width:29.6%"></div><div class="zone win" style="width:calc(100% - 90.0%)"></div><div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
-    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
     <div class="mk now below" style="left:58.0%"><i class="dot"></i><span>now 79p</span></div>
   </div>
@@ -205,12 +236,11 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;9.94</b>
     at <b>82p</b></span>
     <span>Pays <b>&pound;12.12</b> if right</span><span>settles in about 5 days</span></div>
-  <div class="ptrack" role="img" aria-label="Price now 81p; paid 82p; stop-loss 66p; cash out at 95p">
+  
+  <div class="ptrack" role="img" aria-label="Price now 81p; paid 82p; stop-loss 66p">
     <div class="line"></div>
-    <div class="zone stop" style="width:31.2%"></div>
-    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="zone stop" style="width:31.2%"></div><div class="zone win" style="width:calc(100% - 90.0%)"></div><div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:31.2%"><span>stop 66p</span><i class="tick"></i></div>
-    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:64.0%"><i class="dot"></i></div>
     <div class="mk now below" style="left:62.0%"><i class="dot"></i><span>now 81p</span></div>
   </div>
@@ -218,50 +248,84 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
 <article class="panel bet">
   <div class="bet-head">
     <a href="https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7" target="_blank" rel="noopener">Israel x Iran ceasefire continues through November 7?</a>
-    <span class="pill bad">-&pound;0.61 so far</span>
+    <span class="pill bad">-&pound;0.12 so far</span>
   </div>
   <div class="facts"><span>Bet on <b>Yes</b></span><span>Staked <b>&pound;9.93</b>
     at <b>81p</b></span>
     <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 9 days</span></div>
-  <div class="ptrack" role="img" aria-label="Price now 76p; paid 81p; stop-loss 65p; cash out at 95p">
+  
+  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p">
     <div class="line"></div>
-    <div class="zone stop" style="width:29.6%"></div>
-    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="zone stop" style="width:29.6%"></div><div class="zone win" style="width:calc(100% - 90.0%)"></div><div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
-    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
-    <div class="mk now below" style="left:52.0%"><i class="dot"></i><span>now 76p</span></div>
+    <div class="mk now below" style="left:60.0%"><i class="dot"></i><span>now 80p</span></div>
   </div>
 </article></div>
+    </section>
+  </section>
+
+  <section class="part">
+    <h2>Stocks</h2>
+    <div class="note">Alpaca keys not set (APCA_API_KEY_ID / APCA_API_SECRET_KEY).</div>
+    <p class="muted">The stocks pot buys sharp short dips in the S&amp;P 500 and Nasdaq index funds (SPY, QQQ) and the
+      biggest US companies, but only while each is in a long-term uptrend. Each trade risks about 1.5% of the pot
+      if the stop is hit, and never more than 10% of the pot goes into one trade. Share prices are in US dollars;
+      the pot counts &pound;1 as $1.</p>
+    <section>
+      <h2>Pot over time</h2>
+      <div class="panel"><p class="empty">The chart fills in after the bot has run a couple of times. It checks every hour.</p></div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <p class="muted">For stocks, break-even depends on how big the wins are compared with the losses. If wins are
+        half the size of losses, the bot must win two trades in three.</p>
+      <div class="panel"><div class="verdict wait">No trades have finished yet, so there is no win rate. Results appear here as each one closes.</div></div>
+    </section>
+    <section>
+      <h2>Open trades</h2>
+      <div class="bets"><p class="empty">No open stock trades right now.</p></div>
+    </section>
+  </section>
+
+  <section class="part">
+    <h2>Lessons from losses</h2>
+    <p class="muted">After every losing trade, five reviewers each check one step (scan, research, prediction, risk,
+      execution) and decide whether it was bad luck or a mistake. Some losses are expected even when everything is
+      done right, so a lesson only changes the bot once the same mistake shows up 3 times,
+      and lessons can only make it more careful.</p>
+    <div class="panel" style="display:grid;gap:10px"><span class="eyebrow">Lessons in force</span><p class="empty">No lessons yet. A lesson changes the bot only after the same problem shows up in 3 separate losses.</p></div><p class="empty">No losing trades yet, so no postmortems.</p>
   </section>
 
   <section>
-    <h2>Finished bets</h2>
-    <div class="panel"><p class="empty">None yet. Finished bets will be listed here with what they made or lost.</p></div>
+    <h2>Finished trades</h2>
+    <div class="panel"><p class="empty">None yet. Finished trades will be listed here with what they made or lost.</p></div>
   </section>
 
   <section>
     <h2>Words you'll see</h2>
     <div class="panel"><dl>
-      <dt>Price = chance</dt><dd>A share pays &pound;1 if the event happens and nothing if not. A price of 80p
-        means the market thinks there's about an 80% chance.</dd>
-      <dt>Stop-loss</dt><dd>A safety exit. If the price falls 20% below what was paid, the bot sells and takes
-        a small loss rather than risk losing the whole stake. Big news can make prices jump past it.</dd>
-      <dt>Cash out</dt><dd>Once a bet reaches 95p the bot sells, locking in most of the win without waiting
-        for the result.</dd>
-      <dt>Break-even win rate</dt><dd>How often the bets must win just to not lose money. It equals the
-        average price paid. Beating it is the real goal; a high win rate alone isn't enough.</dd>
-      <dt>Paper money</dt><dd>Pretend money. Prices and order books are real, but no real money is bought or sold.</dd>
+      <dt>Price = chance</dt><dd>A prediction-market share pays &pound;1 if the event happens and nothing if not.
+        A price of 80p means the market thinks there's about an 80% chance.</dd>
+      <dt>Edge</dt><dd>How much better the bot's estimate is than the price, after fees. An estimate of 84% on an
+        81p bet is a 3p edge.</dd>
+      <dt>Kelly sizing</dt><dd>A formula that sets the bet size from the edge and the pot. The bot uses a quarter of
+        what Kelly suggests, and never more than 10% of the pot, so small edges get small bets.</dd>
+      <dt>Stop-loss</dt><dd>A safety exit: sell if the price falls a set amount below what was paid. Big news can make
+        prices jump past it.</dd>
+      <dt>Dip in an uptrend</dt><dd>A stock that has risen over the past 200 days but fell sharply over the last two.
+        These often bounce back within days; sometimes they keep falling, which is what the stop is for.</dd>
+      <dt>Break-even win rate</dt><dd>How often trades must win just to not lose money. Beating it is the real goal;
+        a high win rate alone isn't enough.</dd>
+      <dt>Paper money</dt><dd>Pretend money. Prices are real, but no real money is bought or sold.</dd>
     </dl></div>
   </section>
-  <p class="small">Each bet is 10% of the pot, at most 5 at once and at most
-    2 on the same topic. Prices come from Polymarket.</p>
 </div>
 <script>
 (function(){
-  var box = document.getElementById('pot-chart'); if (!box) return;
+  document.querySelectorAll('.chart[data-points]').forEach(function(box){
   var pts = JSON.parse(box.dataset.points), svg = box.querySelector('svg'),
-      tip = box.querySelector('.tip'), cross = svg.querySelector('#cross');
+      tip = box.querySelector('.tip'), cross = svg.querySelector('.cross');
   function show(e){
     var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal,
         x = (e.clientX - r.left) * vb.width / r.width, best = pts[0];
@@ -272,5 +336,6 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   }
   svg.addEventListener('pointermove', show);
   svg.addEventListener('pointerleave', function(){ tip.hidden = true; cross.style.display = 'none'; });
+  });
 })();
 </script>

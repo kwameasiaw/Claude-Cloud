@@ -1,8 +1,11 @@
 """Builds dashboard.html: a plain-English, self-contained view of the paper pot."""
 import json
+import os
 from datetime import datetime, timezone
 from html import escape
 
+from . import llm
+from .agents import postmortem
 from .config import Config
 from .portfolio import Portfolio, Position
 
@@ -103,13 +106,36 @@ td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric
 dl { display: grid; gap: 12px; margin: 0; }
 dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
 .empty { color: var(--ink-2); font-size: .92rem; }
+.pots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 640px) { .pots { grid-template-columns: minmax(0,1fr); } }
+.pot { display: grid; gap: 6px; }
+.pot .value { font: 650 2.4rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.pot .facts { font-size: .84rem; }
+.part { display: grid; gap: 28px; padding-top: 8px; border-top: 1px solid var(--rule); }
+.part > h2 { font-size: 1.45rem; }
+.funnel { display: grid; gap: 8px; }
+.f-row { display: grid; grid-template-columns: 10.5rem minmax(0,1fr) 3.2rem; gap: 10px; align-items: center; font-size: .9rem; }
+.f-row .track { height: 12px; position: relative; }
+.f-row .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+.f-row .val { text-align: right; font: 600 .9rem var(--f-data); }
+@media (max-width: 560px) { .f-row { grid-template-columns: minmax(0,1fr) 3.2rem; } .f-row .track { grid-column: 1 / -1; grid-row: 2; } }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: .78rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); background: var(--panel); }
+.chip.on { background: var(--good-wash); color: var(--ink); border-color: transparent; }
+.chip.off { background: var(--track); }
+.pm { display: grid; gap: 10px; }
+.pm ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.pm li { display: grid; grid-template-columns: 6.5rem minmax(0,1fr); gap: 8px; font-size: .88rem; color: var(--ink-2); }
+.pm li b { color: var(--ink); font-weight: 600; text-transform: capitalize; }
+@media (max-width: 560px) { .pm li { grid-template-columns: minmax(0,1fr); gap: 0; } }
+.note { font-size: .88rem; color: var(--ink-2); padding: 10px 12px; border-radius: 8px; background: var(--accent-wash); max-width: 65ch; }
 """
 
 TIP_JS = """
 (function(){
-  var box = document.getElementById('pot-chart'); if (!box) return;
+  document.querySelectorAll('.chart[data-points]').forEach(function(box){
   var pts = JSON.parse(box.dataset.points), svg = box.querySelector('svg'),
-      tip = box.querySelector('.tip'), cross = svg.querySelector('#cross');
+      tip = box.querySelector('.tip'), cross = svg.querySelector('.cross');
   function show(e){
     var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal,
         x = (e.clientX - r.left) * vb.width / r.width, best = pts[0];
@@ -120,13 +146,13 @@ TIP_JS = """
   }
   svg.addEventListener('pointermove', show);
   svg.addEventListener('pointerleave', function(){ tip.hidden = true; cross.style.display = 'none'; });
+  });
 })();
 """
 
 
 def _gbp(v: float, sign: bool = False) -> str:
-    s = f"{'+' if sign and v > 0 else ''}{'-' if v < 0 else ''}&pound;{abs(v):,.2f}"
-    return s
+    return f"{'+' if sign and v > 0 else ''}{'-' if v < 0 else ''}&pound;{abs(v):,.2f}"
 
 
 def _when(iso: str) -> datetime | None:
@@ -180,35 +206,37 @@ def pot_chart(pf: Portfolio) -> str:
                'stroke-linejoin="round" stroke-linecap="round"/>')
     ex, ey = pts[-1]
     out.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/>')
-    out.append(f'<line id="cross" x1="0" x2="0" y1="{T}" y2="{base}" stroke="var(--ink-3)" stroke-width="1" style="display:none"/>')
+    out.append(f'<line class="cross" x1="0" x2="0" y1="{T}" y2="{base}" stroke="var(--ink-3)" stroke-width="1" style="display:none"/>')
     out.append(f'<rect x="{L}" y="0" width="{W-L-R}" height="{H}" fill="transparent"/>')
     out.append("</svg>")
     data = [{"x": round(x, 1), "y": round(y, 1), "label": f"{t:%d %b %H:%M} UTC  £{v:,.2f}"}
             for (x, y), (t, v) in zip(pts, hist)]
-    return (f'<div class="chart" id="pot-chart" data-points=\'{escape(json.dumps(data))}\'>'
+    return (f'<div class="chart" data-points=\'{escape(json.dumps(data))}\'>'
             + "".join(out) + '<div class="tip" hidden></div></div>')
 
 
-def scorecard(pf: Portfolio, st: dict) -> str:
+def scorecard(st: dict, noun: str) -> str:
     if not st["trades"]:
-        return ('<div class="verdict wait">No bets have finished yet, so there is no win rate. '
-                'Results appear here as each bet settles or hits its stop-loss or cash-out price.</div>')
-    wr, be = st["win_rate"] * 100, st["expected_win_rate"] * 100
-    rows = [("Bets won so far", wr, "var(--accent)"), ("Needed to break even", be, "var(--ink-3)")]
+        return (f'<div class="verdict wait">No {noun}s have finished yet, so there is no win rate. '
+                'Results appear here as each one closes.</div>')
+    wr = st["win_rate"] * 100
+    be = st["break_even_win_rate"] * 100 if st["break_even_win_rate"] is not None else None
+    rows = [(f"{noun.capitalize()}s won so far", wr, "var(--accent)")]
+    if be is not None:
+        rows.append(("Needed to break even", be, "var(--ink-3)"))
     bars = "".join(
         f'<div class="bar-row"><span>{label}</span><div class="track"><div class="fill" '
         f'style="width:{min(v,100):.1f}%;background:{c}"></div></div><span class="val">{v:.0f}%</span></div>'
         for label, v, c in rows)
     n = st["trades"]
-    if n < 30:
-        verdict = ("wait", f"Only {n} bet{'s' if n != 1 else ''} finished. Wait for about 30 before judging; "
+    if n < 30 or be is None:
+        verdict = ("wait", f"Only {n} {noun}{'s' if n != 1 else ''} finished. Wait for about 30 before judging; "
                    "a few lucky or unlucky results can swing these numbers a lot.")
     elif wr > be:
         verdict = ("good", f"Winning {wr - be:.0f} points more often than needed. The strategy looks like it has an edge.")
     else:
         verdict = ("bad", f"Winning {be - wr:.0f} points less often than needed. So far the strategy is losing money.")
-    return (f'<div class="score">{bars}</div>'
-            f'<div class="verdict {verdict[0]}">{verdict[1]}</div>')
+    return f'<div class="score">{bars}</div><div class="verdict {verdict[0]}">{verdict[1]}</div>'
 
 
 def _days_left(pos: Position, now: datetime) -> str:
@@ -227,11 +255,29 @@ def track_floor(pf: Portfolio) -> float:
     return max(0.0, min([0.5] + [int((v - 0.05) * 10) / 10 for v in lows]))
 
 
+def _track(lo: float, hi: float, stop: float, paid: float, now_p: float, target: float | None,
+           fmt, label: str) -> str:
+    pct = lambda p: f"{max(0, min(100, (p - lo) / (hi - lo) * 100)):.1f}%"
+    win = (f'<div class="zone win" style="width:calc(100% - {pct(target)})"></div>'
+           f'<div class="mk" style="left:{pct(target)}"><span>cash out {fmt(target)}</span><i class="tick"></i></div>'
+           if target else "")
+    return f"""<div class="ptrack" role="img" aria-label="{label}">
+    <div class="line"></div>
+    <div class="zone stop" style="width:{pct(stop)}"></div>{win}
+    <div class="mk" style="left:{pct(stop)}"><span>stop {fmt(stop)}</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:{pct(paid)}"><i class="dot"></i></div>
+    <div class="mk now below" style="left:{pct(now_p)}"><i class="dot"></i><span>now {fmt(now_p)}</span></div>
+  </div>"""
+
+
 def bet_card(pos: Position, cfg: Config, now: datetime, lo: float) -> str:
     now_p = pos.last_bid if pos.last_bid is not None else pos.entry_price
     pnl = pos.shares * now_p - pos.stake
-    pct = lambda p: f"{max(0, min(100, (p - lo) / (1 - lo) * 100)):.1f}%"
     pill = "good" if pnl > 0.005 else "bad" if pnl < -0.005 else ""
+    pred = pos.decision.get("prediction", {})
+    why = (f'<p class="small">Bot\'s estimate {pred["p_final"]*100:.0f}% vs market {pred["p_market"]*100:.0f}% '
+           f'({escape(pred.get("method", ""))}), confidence {pred.get("confidence", 0):.2f}</p>' if pred else "")
+    pence = lambda p: f"{p*100:.0f}p"
     return f"""
 <article class="panel bet">
   <div class="bet-head">
@@ -241,42 +287,139 @@ def bet_card(pos: Position, cfg: Config, now: datetime, lo: float) -> str:
   <div class="facts"><span>Bet on <b>{escape(pos.outcome)}</b></span><span>Staked <b>{_gbp(pos.stake)}</b>
     at <b>{pos.entry_price*100:.0f}p</b></span>
     <span>Pays <b>{_gbp(pos.shares)}</b> if right</span><span>{_days_left(pos, now)}</span></div>
-  <div class="ptrack" role="img" aria-label="Price now {now_p*100:.0f}p; paid {pos.entry_price*100:.0f}p; stop-loss {pos.stop_price*100:.0f}p; cash out at {cfg.take_profit_price*100:.0f}p">
-    <div class="line"></div>
-    <div class="zone stop" style="width:{pct(pos.stop_price)}"></div>
-    <div class="zone win" style="width:calc(100% - {pct(cfg.take_profit_price)})"></div>
-    <div class="mk" style="left:{pct(pos.stop_price)}"><span>stop {pos.stop_price*100:.0f}p</span><i class="tick"></i></div>
-    <div class="mk" style="left:{pct(cfg.take_profit_price)}"><span>cash out {cfg.take_profit_price*100:.0f}p</span><i class="tick"></i></div>
-    <div class="mk paid below" style="left:{pct(pos.entry_price)}"><i class="dot"></i></div>
-    <div class="mk now below" style="left:{pct(now_p)}"><i class="dot"></i><span>now {now_p*100:.0f}p</span></div>
-  </div>
+  {why}
+  {_track(lo, 1.0, pos.stop_price, pos.entry_price, now_p, cfg.take_profit_price, pence,
+          f"Price now {now_p*100:.0f}p; paid {pos.entry_price*100:.0f}p; stop-loss {pos.stop_price*100:.0f}p")}
 </article>"""
 
 
-def closed_table(pf: Portfolio) -> str:
-    if not pf.closed:
-        return '<p class="empty">None yet. Finished bets will be listed here with what they made or lost.</p>'
-    why = {"stop-loss": "Sold at stop-loss", "take-profit": "Cashed out early",
-           "resolved WIN": "Won", "resolved LOSS": "Lost", "time-exit": "Sold before close"}
-    rows = "".join(
-        f'<tr><td>{escape(t.question)}<div class="small">{escape(t.outcome)} &middot; {why.get(t.reason, t.reason)}</div></td>'
-        f'<td class="r">{t.entry_price*100:.0f}p</td><td class="r">{t.exit_price*100:.0f}p</td>'
-        f'<td class="r">{_gbp(t.pnl, True)}</td></tr>'
-        for t in reversed(pf.closed))
-    return ('<div class="table-wrap"><table><thead><tr><th>Bet</th><th class="r">Paid</th>'
-            f'<th class="r">Sold / paid out</th><th class="r">Profit</th></tr></thead><tbody>{rows}</tbody></table></div>')
+def stock_card(pos: Position, now: datetime) -> str:
+    now_p = pos.last_bid if pos.last_bid is not None else pos.entry_price
+    pnl = pos.shares * now_p - pos.stake
+    pill = "good" if pnl > 0.005 else "bad" if pnl < -0.005 else ""
+    lo, hi = pos.stop_price * 0.98, max(pos.entry_price, now_p) * 1.04
+    usd = lambda p: f"${p:,.2f}"
+    opened = _when(pos.opened_at)
+    held = f"held {(now - opened).days} day{'s' if (now - opened).days != 1 else ''}" if opened else ""
+    return f"""
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="{escape(pos.url)}" target="_blank" rel="noopener">{escape(pos.question)}</a>
+    <span class="pill {pill}">{_gbp(pnl, True)} so far</span>
+  </div>
+  <div class="facts"><span>Bought <b>{_gbp(pos.stake)}</b> at <b>{usd(pos.entry_price)}</b></span>
+    <span>Sector <b>{escape(", ".join(pos.tags))}</b></span><span>{held}</span></div>
+  <p class="small">{escape("; ".join(pos.decision.get("signal", [])))}. Sells when the price recovers above its
+    5-day average, at the stop, or after about 10 trading days.</p>
+  {_track(lo, hi, pos.stop_price, pos.entry_price, now_p, None, usd,
+          f"Price now {usd(now_p)}; paid {usd(pos.entry_price)}; stop-loss {usd(pos.stop_price)}")}
+</article>"""
 
 
-def render(pf: Portfolio, cfg: Config, now: datetime | None = None) -> str:
-    now = now or datetime.now(timezone.utc)
+def closed_table(rows: list[tuple[str, object]]) -> str:
+    if not rows:
+        return '<p class="empty">None yet. Finished trades will be listed here with what they made or lost.</p>'
+    why = {"stop-loss": "Sold at stop-loss", "take-profit": "Sold at target", "resolved WIN": "Won",
+           "resolved LOSS": "Lost", "time-exit": "Sold on time limit"}
+    price = lambda t, v: f"${v:,.2f}" if t.outcome == "Long" else f"{v*100:.0f}p"
+    body = "".join(
+        f'<tr><td>{escape(t.question)}<div class="small">{pot} &middot; {escape(t.outcome)} &middot; '
+        f'{why.get(t.reason, t.reason)}</div></td><td class="r">{price(t, t.entry_price)}</td>'
+        f'<td class="r">{price(t, t.exit_price)}</td><td class="r">{_gbp(t.pnl, True)}</td></tr>'
+        for pot, t in sorted(rows, key=lambda r: r[1].closed_at, reverse=True))
+    return ('<div class="table-wrap"><table><thead><tr><th>Trade</th><th class="r">Bought</th>'
+            f'<th class="r">Sold / paid out</th><th class="r">Profit</th></tr></thead><tbody>{body}</tbody></table></div>')
+
+
+def pot_card(name: str, pf: Portfolio, cfg: Config, noun: str) -> str:
     st = pf.stats()
-    eq, change = st["equity"], st["equity"] - pf.starting_bankroll
+    change = st["equity"] - pf.starting_bankroll
     direction = "up" if change > 0.005 else "down" if change < -0.005 else "flat"
     arrow = {"up": "&#9650;", "down": "&#9660;", "flat": "&#9644;"}[direction]
-    in_bets = sum(p.stake for p in pf.positions)
-    lo = track_floor(pf)
-    bets = "".join(bet_card(p, cfg, now, lo) for p in pf.positions) or \
+    wr = f"{st['win_rate']*100:.0f}% won" if st["win_rate"] is not None else "none finished yet"
+    return f"""<div class="panel pot">
+    <span class="eyebrow">{name}</span>
+    <span class="value">{_gbp(st['equity'])}</span>
+    <span class="delta {direction}">{arrow} {_gbp(change, True)} ({st['return_pct']:+.1f}%) since the start</span>
+    <div class="facts"><span><b>{len(pf.positions)}</b> of {cfg.max_open_positions} {noun}s open</span>
+      <span><b>{_gbp(st['cash'])}</b> cash</span><span><b>{st['trades']}</b> finished, {wr}</span></div>
+  </div>"""
+
+
+def pipeline(pf: Portfolio, cfg: Config) -> str:
+    run = pf.last_run or {}
+    meta = {}
+    if os.path.exists(cfg.model_meta_path):
+        with open(cfg.model_meta_path) as f:
+            meta = json.load(f)
+    sources = set(run.get("sources", []))
+    chip = lambda on, text: f'<span class="chip {"on" if on else "off"}">{text}</span>'
+    if meta.get("beats_market"):
+        model = chip(True, "XGBoost model: on")
+    elif meta:
+        model = chip(False, f"XGBoost model: off (didn't beat market prices on {meta.get('markets', 0):,} past markets)")
+    else:
+        model = chip(False, "XGBoost model: not trained yet")
+    chips = "".join([
+        chip("news" in sources, "News feeds " + ("on" if "news" in sources else "off")),
+        chip("reddit" in sources, "Reddit " + ("on" if "reddit" in sources else "off")),
+        chip("x" in sources, "X " + ("on" if "x" in sources else "off")),
+        chip(llm.available(), "Claude analysis " + ("on" if llm.available() else "off")),
+        model,
+    ])
+    if run.get("skipped"):
+        body = f'<div class="note">Last run: {escape(run["skipped"])}.</div>'
+    elif "scanned" in run:
+        steps = [("Markets scanned", run.get("scanned", 0)), ("Passed the filters", run.get("passed_filters", 0)),
+                 ("Favourites in range", run.get("candidates", 0)), ("Researched", run.get("researched", 0)),
+                 ("Cleared prediction", run.get("predicted_fire", 0)), ("Approved by risk", run.get("approved", 0)),
+                 ("Bets placed", run.get("traded", 0))]
+        top = max(1, steps[0][1])
+        body = '<div class="funnel">' + "".join(
+            f'<div class="f-row"><span>{label}</span><div class="track"><div class="fill" '
+            f'style="width:{v / top * 100:.2f}%"></div></div><span class="val">{v:,}</span></div>'
+            for label, v in steps) + "</div>"
+        body += (f'<p class="small">{run.get("flagged", 0):,} markets were flagged and skipped for unusual price '
+                 'swings or very wide spreads.</p>')
+        for ex in run.get("blocked_examples", [])[:3]:
+            body += f'<p class="small">Risk blocked: {escape(ex)}</p>'
+    else:
+        body = '<p class="empty">The pipeline summary appears after the next run.</p>'
+    return f'<div class="panel" style="display:grid;gap:14px"><div class="chips">{chips}</div>{body}</div>'
+
+
+def lessons_panel(cfg: Config) -> str:
+    lessons = postmortem.load_lessons(cfg)
+    label = {"avoid_tag": "Avoid topic", "caution_category": "Extra caution on",
+             "raise_min_edge": "Require a bigger edge", "lower_max_price": "Buy fewer expensive favourites"}
+    def nice(key):
+        kind, _, value = key.partition(":")
+        return label.get(kind, kind) + (f" '{value}'" if value else "")
+    active = "".join(f'<span class="chip on">{escape(nice(k))}</span>' for k in lessons.get("active", []))
+    pending = "".join(f'<span class="chip">{escape(nice(k))} ({n} of {cfg.lesson_min_repeats})</span>'
+                      for k, n in lessons.get("counts", {}).items() if k not in lessons.get("active", []))
+    rules = (f'<div class="chips">{active}{pending}</div>' if active or pending else
+             '<p class="empty">No lessons yet. A lesson changes the bot only after the same problem shows up in '
+             f'{cfg.lesson_min_repeats} separate losses.</p>')
+    posts = postmortem.recent(cfg, 5)
+    cards = "".join(f"""<article class="panel pm">
+    <div class="bet-head"><span><b>{escape(r['question'])}</b></span>
+      <span class="pill {'bad' if r['verdict'] == 'process error' else ''}">{escape(r['verdict'])} &middot; {_gbp(r['pnl'], True)}</span></div>
+    <ul>{"".join(f"<li><b>{escape(v['area'])}</b><span>{escape(v['finding'])}</span></li>" for v in r['reviews'])}</ul>
+  </article>""" for r in posts) or '<p class="empty">No losing trades yet, so no postmortems.</p>'
+    return f'<div class="panel" style="display:grid;gap:10px"><span class="eyebrow">Lessons in force</span>{rules}</div>{cards}'
+
+
+def render(cfg: Config, now: datetime | None = None) -> str:
+    now = now or datetime.now(timezone.utc)
+    pm = Portfolio.load(cfg.state_path, cfg.starting_bankroll)
+    sk = Portfolio.load(cfg.stocks_state_path, cfg.starting_bankroll)
+    lo = track_floor(pm)
+    bets = "".join(bet_card(p, cfg, now, lo) for p in pm.positions) or \
         '<p class="empty">No open bets right now. The bot only bets when a market passes every check.</p>'
+    trades = "".join(stock_card(p, now) for p in sk.positions) or \
+        '<p class="empty">No open stock trades right now.</p>'
+    stock_status = sk.last_run.get("skipped", "")
     return f"""<title>Paper Pot</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -289,70 +432,104 @@ def render(pf: Portfolio, cfg: Config, now: datetime | None = None) -> str:
     <span class="paper">Practice money only &middot; updated {now:%d %b %Y, %H:%M} UTC</span>
   </header>
 
-  <section class="hero" aria-label="Pot value">
-    <span class="eyebrow">What your &pound;{pf.starting_bankroll:g} is worth now</span>
-    <span class="value">{_gbp(eq)}</span>
-    <span class="delta {direction}">{arrow} {_gbp(change, True)} ({st['return_pct']:+.1f}%) since the start</span>
-  </section>
-
-  <div class="tiles">
-    <div class="tile"><span class="small">Cash not in bets</span><b>{_gbp(st['cash'])}</b></div>
-    <div class="tile"><span class="small">Money in open bets</span><b>{_gbp(in_bets)}</b></div>
-    <div class="tile"><span class="small">Open bets</span><b>{len(pf.positions)} of {cfg.max_open_positions}</b></div>
-    <div class="tile"><span class="small">Finished bets</span><b>{st['trades']}</b></div>
+  <div class="pots">
+    {pot_card("Prediction markets pot", pm, cfg, "bet")}
+    {pot_card("Stocks pot", sk, cfg, "trade")}
   </div>
 
-  <section>
-    <h2>Your pot over time</h2>
-    <p class="muted">Open bets are valued at what they could be sold for right now. A small dip right after
-      buying is normal: you buy at the asking price and value at the lower selling price.</p>
-    <div class="panel">{pot_chart(pf)}</div>
+  <section class="part">
+    <h2>Prediction markets</h2>
+    <section>
+      <h2>How the bot decided this hour</h2>
+      <p class="muted">Every hour five agents run in order: scan all markets, research the best ones, estimate the
+        real chance, check the risk and size the bet, then review any losses. Each bar shows how many markets
+        made it through each step.</p>
+      {pipeline(pm, cfg)}
+    </section>
+    <section>
+      <h2>Pot over time</h2>
+      <p class="muted">Open bets are valued at what they could be sold for right now, so a small dip right after
+        buying is normal.</p>
+      <div class="panel">{pot_chart(pm)}</div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
+        to break even. The grey bar is that level for the bets made so far.</p>
+      <div class="panel">{scorecard(pm.stats(), "bet")}</div>
+    </section>
+    <section>
+      <h2>Open bets</h2>
+      <p class="muted">Each line shows prices from {lo*100:.0f}p to &pound;1. The blue dot is the price now. In the red
+        zone the bot sells to limit the loss; in the green zone it sells to lock in the gain.</p>
+      <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
+        <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
+        <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
+        <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
+      <div class="bets">{bets}</div>
+    </section>
+  </section>
+
+  <section class="part">
+    <h2>Stocks</h2>
+    {f'<div class="note">{escape(stock_status)}.</div>' if stock_status else ''}
+    <p class="muted">The stocks pot buys sharp short dips in the S&amp;P 500 and Nasdaq index funds (SPY, QQQ) and the
+      biggest US companies, but only while each is in a long-term uptrend. Each trade risks about 1.5% of the pot
+      if the stop is hit, and never more than 10% of the pot goes into one trade. Share prices are in US dollars;
+      the pot counts &pound;1 as $1.</p>
+    <section>
+      <h2>Pot over time</h2>
+      <div class="panel">{pot_chart(sk)}</div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <p class="muted">For stocks, break-even depends on how big the wins are compared with the losses. If wins are
+        half the size of losses, the bot must win two trades in three.</p>
+      <div class="panel">{scorecard(sk.stats(), "trade")}</div>
+    </section>
+    <section>
+      <h2>Open trades</h2>
+      <div class="bets">{trades}</div>
+    </section>
+  </section>
+
+  <section class="part">
+    <h2>Lessons from losses</h2>
+    <p class="muted">After every losing trade, five reviewers each check one step (scan, research, prediction, risk,
+      execution) and decide whether it was bad luck or a mistake. Some losses are expected even when everything is
+      done right, so a lesson only changes the bot once the same mistake shows up {cfg.lesson_min_repeats} times,
+      and lessons can only make it more careful.</p>
+    {lessons_panel(cfg)}
   </section>
 
   <section>
-    <h2>Is it winning often enough?</h2>
-    <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
-      to break even. The grey bar is that break-even level for the bets made so far.</p>
-    <div class="panel">{scorecard(pf, st)}</div>
-  </section>
-
-  <section>
-    <h2>Open bets</h2>
-    <p class="muted">Each line shows prices from {lo*100:.0f}p to &pound;1. The blue dot is today's price. If it slides into the red
-      zone the bot sells to limit the loss; in the green zone it sells to lock in the gain. Otherwise it waits for the result.</p>
-    <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
-      <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
-      <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
-      <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
-    <div class="bets">{bets}</div>
-  </section>
-
-  <section>
-    <h2>Finished bets</h2>
-    <div class="panel">{closed_table(pf)}</div>
+    <h2>Finished trades</h2>
+    <div class="panel">{closed_table([("Prediction markets", t) for t in pm.closed] + [("Stocks", t) for t in sk.closed])}</div>
   </section>
 
   <section>
     <h2>Words you'll see</h2>
     <div class="panel"><dl>
-      <dt>Price = chance</dt><dd>A share pays &pound;1 if the event happens and nothing if not. A price of 80p
-        means the market thinks there's about an 80% chance.</dd>
-      <dt>Stop-loss</dt><dd>A safety exit. If the price falls 20% below what was paid, the bot sells and takes
-        a small loss rather than risk losing the whole stake. Big news can make prices jump past it.</dd>
-      <dt>Cash out</dt><dd>Once a bet reaches 95p the bot sells, locking in most of the win without waiting
-        for the result.</dd>
-      <dt>Break-even win rate</dt><dd>How often the bets must win just to not lose money. It equals the
-        average price paid. Beating it is the real goal; a high win rate alone isn't enough.</dd>
-      <dt>Paper money</dt><dd>Pretend money. Prices and order books are real, but no real money is bought or sold.</dd>
+      <dt>Price = chance</dt><dd>A prediction-market share pays &pound;1 if the event happens and nothing if not.
+        A price of 80p means the market thinks there's about an 80% chance.</dd>
+      <dt>Edge</dt><dd>How much better the bot's estimate is than the price, after fees. An estimate of 84% on an
+        81p bet is a 3p edge.</dd>
+      <dt>Kelly sizing</dt><dd>A formula that sets the bet size from the edge and the pot. The bot uses a quarter of
+        what Kelly suggests, and never more than 10% of the pot, so small edges get small bets.</dd>
+      <dt>Stop-loss</dt><dd>A safety exit: sell if the price falls a set amount below what was paid. Big news can make
+        prices jump past it.</dd>
+      <dt>Dip in an uptrend</dt><dd>A stock that has risen over the past 200 days but fell sharply over the last two.
+        These often bounce back within days; sometimes they keep falling, which is what the stop is for.</dd>
+      <dt>Break-even win rate</dt><dd>How often trades must win just to not lose money. Beating it is the real goal;
+        a high win rate alone isn't enough.</dd>
+      <dt>Paper money</dt><dd>Pretend money. Prices are real, but no real money is bought or sold.</dd>
     </dl></div>
   </section>
-  <p class="small">Each bet is 10% of the pot, at most {cfg.max_open_positions} at once and at most
-    {cfg.max_per_theme} on the same topic. Prices come from Polymarket.</p>
 </div>
 <script>{TIP_JS}</script>
 """
 
 
-def write_dashboard(pf: Portfolio, cfg: Config) -> None:
+def write_dashboard(cfg: Config) -> None:
     with open(cfg.dashboard_path, "w", encoding="utf-8") as f:
-        f.write(render(pf, cfg))
+        f.write(render(cfg))

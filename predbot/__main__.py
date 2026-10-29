@@ -1,81 +1,97 @@
-"""CLI: python -m predbot {scan,run,loop,report,reset}"""
+"""CLI: python -m predbot {scan,run,loop,report,dashboard,train,reset}"""
 import argparse
+import json
 import os
 import time
-from datetime import datetime, timezone
 
-from . import strategy
+from . import engine
+from .agents import scan
 from .config import Config
 from .dashboard import write_dashboard
-from .engine import run_cycle
 from .polymarket import PolymarketClient
 from .portfolio import Portfolio
+from .stocks import engine as stock_engine
 
 
 def cmd_scan(cfg: Config) -> None:
-    markets = PolymarketClient().list_open_markets()
-    now = datetime.now(timezone.utc)
-    signals = strategy.scan(markets, cfg, now)
-    print(f"{len(markets)} markets scanned, {len(signals)} tradeable (no trades placed)\n")
-    for s in signals[:15]:
-        print(f"* {s.market.question}\n    {'; '.join(s.reasons)}\n    {s.market.url}")
+    res = scan.run(PolymarketClient().list_open_markets(), cfg)
+    print(f"{res.scanned} markets scanned, {len(res.flagged)} flagged, "
+          f"{len(res.candidates)} candidates (no research, no trades)\n")
+    for m, why in res.flagged[:5]:
+        print(f"! flagged: {m.question[:70]} ({why})")
+    for c in res.candidates[:15]:
+        print(f"* {c.market.question}\n    {'; '.join(c.notes)}\n    {c.market.url}")
+
+
+def _report(name: str, pf: Portfolio) -> None:
+    st = pf.stats()
+    pct = lambda v: "n/a" if v is None else f"{v*100:.1f}%"
+    print(f"== {name} ==")
+    print(f"Pot  start £{pf.starting_bankroll:.2f}  ->  £{st['equity']:.2f} "
+          f"({st['return_pct']:+.1f}%)   cash £{st['cash']:.2f}")
+    print(f"Closed {st['trades']} (W {st['wins']} / L {st['losses']})   win rate {pct(st['win_rate'])}   "
+          f"break-even {pct(st['break_even_win_rate'])}   realised £{st['realised_pnl']:+.2f}")
+    for p in pf.positions:
+        now = p.last_bid if p.last_bid is not None else p.entry_price
+        print(f"  £{p.stake:6.2f} {p.outcome:>6} @ {p.entry_price:.3f}  now {now:.3f}  "
+              f"stop {p.stop_price:.3f}  {p.question[:55]}")
+    if pf.last_run.get("skipped"):
+        print(f"  last run: {pf.last_run['skipped']}")
 
 
 def cmd_report(cfg: Config) -> None:
-    pf = Portfolio.load(cfg.state_path, cfg.starting_bankroll)
-    st = pf.stats()
-    pct = lambda v: "n/a" if v is None else f"{v*100:.1f}%"
-    print(f"Paper bankroll  start £{pf.starting_bankroll:.2f}  ->  equity £{st['equity']:.2f} "
-          f"({st['return_pct']:+.1f}%)   cash £{st['cash']:.2f}")
-    print(f"Closed trades   {st['trades']}  (W {st['wins']} / L {st['losses']})   "
-          f"win rate {pct(st['win_rate'])}   break-even win rate {pct(st['expected_win_rate'])}")
-    print(f"Avg win £{st['avg_win']:+.2f}   avg loss £{st['avg_loss']:+.2f}   "
-          f"realised P&L £{st['realised_pnl']:+.2f}")
-    if st["trades"] < 30:
-        print("(fewer than 30 closed trades: too few to judge the strategy yet)")
-    if pf.positions:
-        print("\nOpen positions:")
-        for p in pf.positions:
-            bid = p.last_bid if p.last_bid is not None else p.entry_price
-            print(f"  £{p.stake:6.2f} {p.outcome:>4} @ {p.entry_price:.3f}  now {bid:.3f}  "
-                  f"stop {p.stop_price:.3f}  {p.question[:60]}")
+    _report("Prediction markets", Portfolio.load(cfg.state_path, cfg.starting_bankroll))
+    _report("Stocks", Portfolio.load(cfg.stocks_state_path, cfg.starting_bankroll))
+
+
+def run_all(cfg: Config) -> None:
+    for name, fn in (("polymarket", engine.run_cycle), ("stocks", stock_engine.run_cycle)):
+        try:
+            fn(cfg)
+        except Exception as e:   # one side failing must not stop the other
+            print(f"{name} cycle failed: {e}", flush=True)
+    write_dashboard(cfg)
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(prog="predbot", description="Polymarket paper-trading bot")
+    ap = argparse.ArgumentParser(prog="predbot", description="Paper-trading bot: Polymarket + US stocks")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("scan", help="show current opportunities without trading")
-    sub.add_parser("run", help="run one trading cycle")
+    sub.add_parser("scan", help="show current Polymarket candidates without trading")
+    sub.add_parser("run", help="run one cycle for both pots and rebuild the dashboard")
     lp = sub.add_parser("loop", help="run cycles forever")
-    lp.add_argument("--minutes", type=float, default=15, help="minutes between cycles")
-    sub.add_parser("report", help="show paper P&L and win rate")
+    lp.add_argument("--minutes", type=float, default=60, help="minutes between cycles")
+    sub.add_parser("report", help="show both pots")
     sub.add_parser("dashboard", help="rebuild dashboard.html from saved state")
-    sub.add_parser("reset", help="delete paper state and journal, start again at £100")
+    sub.add_parser("train", help="retrain the XGBoost calibration model on resolved markets")
+    rp = sub.add_parser("reset", help="delete a pot's state and start again at £100")
+    rp.add_argument("pot", choices=["polymarket", "stocks"])
     args = ap.parse_args()
     cfg = Config()
 
     if args.cmd == "scan":
         cmd_scan(cfg)
     elif args.cmd == "run":
-        run_cycle(cfg)
+        run_all(cfg)
         cmd_report(cfg)
     elif args.cmd == "loop":
         while True:
-            try:
-                run_cycle(cfg)
-            except Exception as e:  # keep looping through network errors
-                print(f"cycle failed: {e}", flush=True)
+            run_all(cfg)
             time.sleep(args.minutes * 60)
     elif args.cmd == "report":
         cmd_report(cfg)
     elif args.cmd == "dashboard":
-        write_dashboard(Portfolio.load(cfg.state_path, cfg.starting_bankroll), cfg)
+        write_dashboard(cfg)
         print(f"Wrote {cfg.dashboard_path}")
+    elif args.cmd == "train":
+        from .train import train
+        print(json.dumps(train(cfg), indent=2))
     elif args.cmd == "reset":
-        for path in (cfg.state_path, cfg.journal_path, cfg.dashboard_path):
+        paths = ((cfg.state_path, cfg.journal_path) if args.pot == "polymarket"
+                 else (cfg.stocks_state_path, cfg.stocks_journal_path))
+        for path in paths:
             if os.path.exists(path):
                 os.remove(path)
-        print(f"Reset. Next run starts with £{cfg.starting_bankroll:.2f} paper money.")
+        print(f"Reset the {args.pot} pot. Next run starts with £{cfg.starting_bankroll:.2f}.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,27 @@
+{
+  "markets": 978,
+  "train_examples": 6640,
+  "test_examples": 2108,
+  "test_logloss_model": 0.6624189200119586,
+  "test_logloss_market": 0.6305031916098751,
+  "test_brier_model": 0.23443967813542288,
+  "test_brier_market": 0.22163766674573054,
+  "band_examples": 501,
+  "band_win_rate": 0.6487025948103793,
+  "band_avg_price": 0.7066766467065868,
+  "band_brier_model": 0.23949732047413932,
+  "band_brier_market": 0.23555913173652693,
+  "features": [
+    "price",
+    "logit",
+    "days_to_close",
+    "change_1d",
+    "change_7d",
+    "volatility_3d",
+    "range_7d",
+    "cat_sports",
+    "cat_crypto",
+    "cat_politics"
+  ],
+  "beats_market": false
+}

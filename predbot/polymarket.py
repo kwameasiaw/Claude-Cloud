@@ -1,5 +1,6 @@
 """Read-only client for Polymarket's public APIs. No account or API key needed."""
 import json
+import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
@@ -68,6 +69,9 @@ class Market:
     token_ids: list[str] = field(default_factory=list)
     fee_rate: float = 0.0       # taker fee: fee per share = rate * (p * (1 - p)) ** exponent
     fee_exponent: float = 1.0
+    category: str = "other"     # sports / crypto / politics / other, from the fee schedule
+    start_date: datetime | None = None
+    closed_time: datetime | None = None
 
     @property
     def url(self) -> str:
@@ -90,6 +94,14 @@ class Market:
         if price <= 0.01:
             return 0.0
         return None
+
+
+def category_of(fee_type: str | None) -> str:
+    fee_type = fee_type or ""
+    for name in ("sports", "crypto", "politics"):
+        if fee_type.startswith(name):
+            return name
+    return "other"
 
 
 def parse_market(raw: dict) -> Market | None:
@@ -137,6 +149,9 @@ def parse_market(raw: dict) -> Market | None:
         token_ids=[str(t) for t in tokens],
         fee_rate=fee_rate,
         fee_exponent=_f(schedule.get("exponent"), 1.0),
+        category=category_of(raw.get("feeType")),
+        start_date=_parse_time(raw.get("startDate")),
+        closed_time=_parse_time(raw.get("closedTime")),
     )
 
 
@@ -160,6 +175,37 @@ class PolymarketClient:
 
     def get_market(self, market_id: str) -> Market | None:
         return parse_market(_get(f"{GAMMA}/markets/{urllib.parse.quote(market_id)}"))
+
+    def price_history(self, token_id: str, start_ts: int | None = None,
+                      end_ts: int | None = None) -> list[tuple[int, float]]:
+        """Hourly (timestamp, price) points for a token, oldest first."""
+        q = {"market": token_id, "fidelity": 60}
+        if start_ts and end_ts:
+            q.update(startTs=start_ts, endTs=end_ts)
+        else:
+            q["interval"] = "max"
+        data = _get(f"{CLOB}/prices-history?{urllib.parse.urlencode(q)}")
+        return [(int(h["t"]), _f(h["p"])) for h in data.get("history", [])]
+
+    def list_resolved_markets(self, pages: int = 40, page_size: int = 100,
+                              min_volume: float = 20_000, order: str = "closedTime") -> list[dict]:
+        """Raw Gamma rows for recently resolved markets, newest first (training data)."""
+        rows = []
+        for page in range(pages):
+            q = urllib.parse.urlencode({
+                "closed": "true", "limit": page_size, "offset": page * page_size,
+                "order": order, "ascending": "false", "volume_num_min": min_volume,
+            })
+            try:
+                batch = _get(f"{GAMMA}/markets?{q}")
+            except urllib.error.HTTPError as e:
+                if e.code == 422:   # the API stops paging after a few thousand rows
+                    break
+                raise
+            rows += batch
+            if len(batch) < page_size:
+                break
+        return rows
 
     def get_event_tags(self, event_id: str) -> list[str]:
         """Topic tags for an event (e.g. 'senate-midterms'), used to spot related bets."""

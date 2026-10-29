@@ -1,38 +1,14 @@
-"""Decides which markets are worth trading, and when to get out.
-
-The idea: on prediction markets, heavy favourites tend to resolve YES slightly
-more often than their price implies, and longshots slightly less (the
-"favourite-longshot bias"). So we only buy liquid favourites priced 60-82c
-that are not falling, and only when that small bias still beats the spread.
-"""
-from dataclasses import dataclass
-from datetime import datetime, timezone
+"""Shared market rules: basic filters, related-bet caps, order-book fills and exits."""
+from datetime import datetime
 
 from .config import Config
-from .polymarket import Market, Outcome
-
-
-@dataclass
-class Signal:
-    market: Market
-    outcome: Outcome
-    fair_value: float
-    edge: float
-    reasons: list[str]
+from .polymarket import Market
 
 
 def hours_to_close(market: Market, now: datetime) -> float | None:
     if market.end_date is None:
         return None
     return (market.end_date - now).total_seconds() / 3600
-
-
-def fair_value(o: Outcome) -> float:
-    """Price-implied probability nudged for the favourite-longshot bias and trend."""
-    mid = (o.bid + o.ask) / 2
-    bias = 0.03 * (mid - 0.5) / 0.5            # up to +3c for heavy favourites
-    trend = 0.25 * max(0.0, min(o.week_change, 0.08))  # small credit for steady rise
-    return min(0.99, mid + bias + trend)
 
 
 def rejection(market: Market, cfg: Config, now: datetime) -> str | None:
@@ -56,42 +32,6 @@ def rejection(market: Market, cfg: Config, now: datetime) -> str | None:
     if hrs > cfg.max_days_to_close * 24:
         return "closes too far out"
     return None
-
-
-def evaluate(market: Market, cfg: Config, now: datetime | None = None) -> Signal | None:
-    now = now or datetime.now(timezone.utc)
-    if rejection(market, cfg, now):
-        return None
-    fav = max(market.outcomes, key=lambda o: o.ask)
-    if not (cfg.min_entry_price <= fav.ask <= cfg.max_entry_price):
-        return None
-    if fav.day_change < -cfg.max_day_drop or fav.week_change < -cfg.max_week_drop:
-        return None
-    fv = fair_value(fav)
-    fee = market.taker_fee(fav.ask)
-    edge = fv - fav.ask - fee
-    if edge < cfg.min_edge:
-        return None
-    reasons = [
-        f"favourite '{fav.name}' at {fav.ask:.2f}" + (f" +{fee*100:.1f}c fee" if fee else ""),
-        f"fair {fv:.3f} (edge {edge*100:.1f}c after fees)",
-        f"24h {fav.day_change*100:+.1f}c, 7d {fav.week_change*100:+.1f}c",
-        f"liq ${market.liquidity:,.0f}, vol24h ${market.volume_24h:,.0f}",
-        f"closes in {hours_to_close(market, now)/24:.1f}d",
-    ]
-    return Signal(market, fav, fv, edge, reasons)
-
-
-def scan(markets: list[Market], cfg: Config, now: datetime | None = None) -> list[Signal]:
-    """Best opportunities first, at most one per event (they move together)."""
-    signals = [s for s in (evaluate(m, cfg, now) for m in markets) if s]
-    signals.sort(key=lambda s: s.edge, reverse=True)
-    seen, out = set(), []
-    for s in signals:
-        if s.market.event_id not in seen:
-            seen.add(s.market.event_id)
-            out.append(s)
-    return out
 
 
 # Tags too broad to mean two bets are linked.

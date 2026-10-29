@@ -1,0 +1,11 @@
+{
+  "cash": 100.0,
+  "starting_bankroll": 100.0,
+  "positions": [],
+  "closed": [],
+  "history": [],
+  "last_run": {
+    "at": "2026-10-29T17:34:01+00:00",
+    "skipped": "Alpaca keys not set (APCA_API_KEY_ID / APCA_API_SECRET_KEY)"
+  }
+}

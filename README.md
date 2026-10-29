@@ -1,71 +1,63 @@
-# predbot: Polymarket paper-trading bot
+# Paper Pot: Polymarket + US stocks paper-trading bot
 
-A **paper-money** trading bot for [Polymarket](https://polymarket.com) prediction markets.
-It reads live public prices (no account, no API key, no real money) and simulates
-trades against the real order book.
+Two separate **£100 paper-money pots**, run every hour:
 
-## Quick start
+* **Prediction markets** (Polymarket): a five-agent pipeline, below.
+* **Stocks** (SPY, QQQ and ~25 of the largest US companies via Alpaca's free data):
+  buys sharp two-day dips in stocks above their 200-day average, sells on recovery,
+  at the stop, or after ~10 trading days. Market hours only.
 
-Needs Python 3.10+ and nothing else (standard library only).
+No real money moves. Fills are simulated against live order books and quotes.
+`dashboard.html` is rebuilt after each run for a plain-English view.
+
+## The prediction-market pipeline
+
+| Step | Agent | What it does |
+|---|---|---|
+| 1 | Scan (`agents/scan.py`) | Filters ~1,000 open markets by liquidity, volume, spread and time to close; flags and skips 10c+ daily swings and very wide spreads |
+| 2 | Research (`agents/research.py`) | Fetches Google News RSS, Reddit and X in parallel; Claude scores whether the coverage supports the price |
+| 3 | Prediction (`agents/predict.py`) | XGBoost model (only if it beat the market on held-out markets) or an empirical calibration table, nudged by Claude by at most 5c; fires only above the edge and confidence bars |
+| 4 | Risk (`agents/risk.py`) | Quarter-Kelly sizing, 10% cap, max 5 open, max 2 per topic, drawdown and daily-loss halts, then a paper fill walked through the real order book |
+| 5 | Postmortem (`agents/postmortem.py`) | Five reviewers (scan, research, prediction, risk, execution) review every loss; a rule changes behaviour only after 3 separate losses suggest it, and only toward more caution |
+
+## What the data says (read this)
+
+`python -m predbot train` pulls ~4,000 resolved markets. On the ~1,000 usable ones:
+
+* The XGBoost model did **not** beat the market's own prices on the newest 20% of markets,
+  so it stays switched off.
+* Favourites priced 60-82p won **64%** of the time against an average price of **70%**
+  (573 markets, 95% range -9 to -1.5 points). Underdogs at 18-40p won about 6 points
+  *more* often than their price. In other words, favourites have been slightly
+  **over**priced, so the bot now finds no edge in buying them and mostly sits out.
+
+## Setup
 
 ```bash
-python -m predbot scan          # look at today's opportunities, no trading
-python -m predbot run           # one cycle: manage positions, maybe open new ones
-python -m predbot loop --minutes 15   # keep running every 15 minutes
-python -m predbot report        # bankroll, win rate, P&L, open positions
-python -m predbot dashboard     # rebuild dashboard.html (also done after every run)
-python -m predbot reset         # wipe paper state and start again at £100
+pip install -r requirements.txt
+python -m predbot run           # one cycle for both pots + dashboard
+python -m predbot report        # both pots in the terminal
+python -m predbot scan          # Polymarket candidates, no trading
+python -m predbot train         # retrain the model and calibration table
 python -m unittest -v           # tests
 ```
 
-State is kept in `paper_state.json`; every closed trade is appended to `trade_journal.csv`.
-Both are committed so the paper portfolio survives between sessions. Every run also
-rebuilds `dashboard.html`, a plain-English page with charts of the pot, the win rate
-against the break-even rate, and where each open bet sits between its stop-loss and
-cash-out price.
+Optional keys (environment variables) and the hosts each needs allowed:
 
-## The rules it follows
+| Feature | Variables | Hosts |
+|---|---|---|
+| Stocks pot | `APCA_API_KEY_ID`, `APCA_API_SECRET_KEY` (free Alpaca paper account) | `paper-api.alpaca.markets`, `data.alpaca.markets` |
+| Claude analysis + postmortems | `ANTHROPIC_API_KEY` | `api.anthropic.com` |
+| News research | none | `news.google.com` |
+| Reddit research | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` (free "script" app) | `www.reddit.com`, `oauth.reddit.com` |
+| X research | `X_BEARER_TOKEN` (paid X API plan) | `api.x.com` |
 
-| Rule | Setting |
-|---|---|
-| Starting pot | £100 paper |
-| Size per trade | 10% of current equity (≈ £10 at the start) |
-| Max open trades | 5, so at least half the pot is always in cash |
-| Markets traded | binary, ≥ $10k liquidity, ≥ $5k traded in 24h, spread ≤ 2c, closes in 1–30 days |
-| Entry | buy the favourite only when priced 60–82c, not falling (≤ 3c drop today, ≤ 5c this week), and the model's fair value beats the price paid |
-| Correlation | one trade per event, and at most 2 open bets sharing a topic tag (e.g. `midterms`) |
-| Fees | Polymarket taker fees (`rate × p × (1−p)`, up to 7% on crypto) are charged on entry and early exit, and must not eat the edge |
-| Fill | walks the real order book; skips if the stake would move the price by more than 1c |
-| Stop-loss | sell if the bid falls 20% below the entry price (e.g. 70c → 56c) |
-| Take-profit | sell once the bid reaches 95c |
-| Otherwise | hold to resolution (pays £1 per share if right, £0 if wrong) |
+Without a key, that part is skipped and the dashboard shows it as off.
 
-All of these live in `predbot/config.py`.
+## Caveats
 
-### Why favourites priced 60–82c?
-
-If a market is fairly priced, a contract bought at 70c wins about 70% of the time.
-So this price band is what gives the 60–70%+ win rate you asked for. The edge
-the bot is betting on is the **favourite-longshot bias**: on betting and prediction
-markets, favourites have historically resolved slightly *more* often than their
-price implies. The bot only buys when that small bias, plus a steady (not falling)
-price trend, is still worth more than the spread.
-
-## Read this before trusting it
-
-- **Win rate is not profit.** Buying at 75c and winning 75% of the time breaks
-  even. A win only pays about 25–40% of the stake, and a loss held to resolution
-  costs all of it. So `report` shows a **break-even win rate** (the average entry
-  price) next to the real one. The strategy only has an edge if the real win rate
-  is consistently *above* the break-even one.
-- **The edge is small and unproven.** The favourite-longshot bias is real
-  but worth about 1–3c. That is exactly why this runs on paper first. Judge it after
-  **at least 30–50 closed trades**, not after a good or bad week.
-- **Stops can be jumped.** Prediction-market prices can gap straight from 70c to 5c on
-  news. The stop sells at whatever the bid is when the bot next checks, which can
-  be far below the stop price.
-- **Paper fills are optimistic.** Real trading adds latency, partial fills and other
-  people reacting to the same news.
-- Polymarket quotes in USD; the paper pot treats each unit as £1.
-- Real-money access to Polymarket depends on where you live. Check the rules in your
-  country (including the UK) before ever going live.
+* Win rate is not profit; the dashboard shows the break-even win rate beside it.
+* Stops can be jumped: prices can gap past them between hourly checks.
+* Polymarket quotes USD and US stocks trade in USD; both pots count £1 as $1.
+* Real-money trading is deliberately not built in. Polymarket and US brokers have their
+  own rules on who can trade from where; check them before ever going live.
