@@ -1,11 +1,67 @@
 {
-  "cash": 100.0,
+  "cash": 90.0,
   "starting_bankroll": 100.0,
-  "positions": [],
+  "positions": [
+    {
+      "market_id": "NVDA",
+      "event_id": "NVDA",
+      "question": "Nvidia (NVDA)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.046992,
+      "entry_price": 212.8,
+      "stake": 10.0,
+      "stop_price": 197.99,
+      "opened_at": "2026-10-29T18:19:47+00:00",
+      "url": "https://www.google.com/finance/quote/NVDA",
+      "last_bid": 212.78,
+      "tags": [
+        "tech"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 197.99,
+        "signal": [
+          "+4.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.0% below"
+        ],
+        "risk": {
+          "stake": 10.0,
+          "reasons": [
+            "stop 7.0% away",
+            "risking 1.5% of pot -> \u00a321.55",
+            "cap 10% = \u00a310.00",
+            "stake \u00a310.00"
+          ]
+        }
+      }
+    }
+  ],
   "closed": [],
-  "history": [],
+  "history": [
+    {
+      "t": "2026-10-29T18:19:47+00:00",
+      "equity": 100.0,
+      "cash": 100.0
+    },
+    {
+      "t": "2026-10-29T18:19:47+00:00",
+      "equity": 100.0,
+      "cash": 90.0
+    }
+  ],
   "last_run": {
-    "at": "2026-10-29T18:04:28+00:00",
-    "skipped": "Alpaca keys not set (APCA_API_KEY_ID / APCA_API_SECRET_KEY)"
+    "at": "2026-10-29T18:19:45+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }

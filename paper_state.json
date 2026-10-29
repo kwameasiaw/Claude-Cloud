@@ -1,5 +1,5 @@
 {
-  "cash": 50.180000000000014,
+  "cash": 57.903359000000016,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -110,33 +110,25 @@
       ],
       "closes_at": "2026-11-04T04:59:00+00:00",
       "decision": {}
-    },
+    }
+  ],
+  "closed": [
     {
       "market_id": "6367378",
-      "event_id": "711714",
       "question": "Israel x Iran ceasefire continues through November 7?",
       "outcome": "Yes",
-      "token_id": "15707328176527456759678868855667660030738069444951598508574029683550162720104",
-      "shares": 12.2593,
       "entry_price": 0.81,
+      "exit_price": 0.63,
+      "shares": 12.2593,
       "stake": 9.93,
-      "stop_price": 0.648,
+      "proceeds": 7.7234,
+      "pnl": -2.2066,
+      "reason": "stop-loss",
       "opened_at": "2026-10-29T16:48:57+00:00",
-      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.81,
-      "tags": [
-        "iran",
-        "israel",
-        "geopolitics",
-        "israel-x-iran",
-        "israel-election",
-        "diplomacy-ceasefire"
-      ],
-      "closes_at": "2026-11-08T04:59:00+00:00",
+      "closed_at": "2026-10-29T18:19:41+00:00",
       "decision": {}
     }
   ],
-  "closed": [],
   "history": [
     {
       "t": "2026-10-29T16:48:54+00:00",
@@ -167,10 +159,35 @@
       "t": "2026-10-29T18:04:27+00:00",
       "equity": 99.27,
       "cash": 50.18
+    },
+    {
+      "t": "2026-10-29T18:19:45+00:00",
+      "equity": 97.06,
+      "cash": 57.9
+    },
+    {
+      "t": "2026-10-29T18:19:55+00:00",
+      "equity": 97.06,
+      "cash": 57.9
     }
   ],
   "last_run": {
-    "at": "2026-10-29T18:04:27+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-10-29T18:19:41+00:00",
+    "scanned": 1000,
+    "flagged": 240,
+    "passed_filters": 148,
+    "candidates": 22,
+    "shortlisted": 0,
+    "researched": 0,
+    "flag_examples": [
+      "Dota 2: PARIVISION vs Team Yandex (BO3) - PARI Universe Playoffs: spread 0.26 is unusually wide",
+      "Will Frosinone Calcio win on 2026-10-29?: price swung +16c in 24h",
+      "Erste Bank Open: Arthur Fery vs Lorenzo Musetti: price swung +22c in 24h",
+      "Counter-Strike: HOTU vs GamerLegion (BO3) - Tesla Cup Playoffs: spread 0.16 is unusually wide",
+      "Swiss Indoors Basel: Taylor Fritz vs Denis Shapovalov: spread 0.06 is unusually wide"
+    ],
+    "predicted_fire": 0,
+    "approved": 0,
+    "traded": 0
   }
 }
