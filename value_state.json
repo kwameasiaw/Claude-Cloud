@@ -1,0 +1,458 @@
+{
+  "cash": 87.49000000000001,
+  "starting_bankroll": 100.0,
+  "positions": [
+    {
+      "market_id": "6282802",
+      "event_id": "699735",
+      "question": "US announces end of Iranian blockade by November 15, 2026?",
+      "outcome": "Yes",
+      "token_id": "14546978402393561886763794016233348324197383968729459022246166822328488515646",
+      "shares": 15.65,
+      "entry_price": 0.2,
+      "stake": 3.13,
+      "stop_price": 0.13,
+      "opened_at": "2026-10-29T17:39:12+00:00",
+      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
+      "last_bid": 0.19,
+      "tags": [
+        "iran",
+        "trump",
+        "blockade",
+        "politics",
+        "shipping",
+        "peace-deal",
+        "geopolitics",
+        "trump-iran",
+        "strait-of-hormuz",
+        "oil",
+        "diplomacy-ceasefire"
+      ],
+      "closes_at": "2026-11-16T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "trump",
+          "blockade",
+          "politics",
+          "shipping",
+          "peace-deal",
+          "geopolitics",
+          "trump-iran",
+          "strait-of-hormuz",
+          "oil",
+          "diplomacy-ceasefire"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $43,257",
+          "vol24h $13,427",
+          "closes in 17.5d"
+        ],
+        "stop_price": 0.13,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2,
+          "edge": 0.1002,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +10.0c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.13,
+          "kelly": 0.1253,
+          "reasons": [
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
+            "cap 10% = \u00a310.00",
+            "stake \u00a33.13"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6367378",
+      "event_id": "711714",
+      "question": "Israel x Iran ceasefire continues through November 7?",
+      "outcome": "No",
+      "token_id": "95218737879821071926194781477946013279807762514353560074338565580948718279183",
+      "shares": 15.65,
+      "entry_price": 0.2,
+      "stake": 3.13,
+      "stop_price": 0.13,
+      "opened_at": "2026-10-29T17:39:13+00:00",
+      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
+      "last_bid": 0.19,
+      "tags": [
+        "iran",
+        "israel",
+        "geopolitics",
+        "israel-x-iran",
+        "israel-election",
+        "diplomacy-ceasefire"
+      ],
+      "closes_at": "2026-11-08T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "israel",
+          "geopolitics",
+          "israel-x-iran",
+          "israel-election",
+          "diplomacy-ceasefire"
+        ],
+        "scan": [
+          "'No' at 0.20",
+          "liq $24,389",
+          "vol24h $8,095",
+          "closes in 9.5d"
+        ],
+        "stop_price": 0.13,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2,
+          "edge": 0.1002,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +10.0c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.13,
+          "kelly": 0.1253,
+          "reasons": [
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
+            "cap 10% = \u00a39.98",
+            "stake \u00a33.13"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "5794343",
+      "event_id": "1203178",
+      "question": "Will Paris Saint-Germain FC win on 2026-10-30?",
+      "outcome": "No",
+      "token_id": "13511782308924455198503440684300538156604553117271281945365988532661224330912",
+      "shares": 13.9423,
+      "entry_price": 0.208,
+      "stake": 2.9,
+      "stop_price": 0.1352,
+      "opened_at": "2026-10-29T17:39:13+00:00",
+      "url": "https://polymarket.com/market/fl1-hac-psg-2026-10-30-psg",
+      "last_bid": 0.1823,
+      "tags": [
+        "sports",
+        "games",
+        "soccer",
+        "ligue-1"
+      ],
+      "closes_at": "2026-10-30T18:00:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "sports",
+          "games",
+          "soccer",
+          "ligue-1"
+        ],
+        "scan": [
+          "'No' at 0.20",
+          "liq $110,435",
+          "vol24h $9,314",
+          "closes in 1.0d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.9,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.90",
+            "cap 10% = \u00a39.97",
+            "stake \u00a32.90"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "629690",
+      "event_id": "57222",
+      "question": "Will the Democrats win the Texas governor race in 2026?",
+      "outcome": "Yes",
+      "token_id": "48232987449750988261789196083999659380058157021032932634331257492238853387252",
+      "shares": 4.8286,
+      "entry_price": 0.35,
+      "stake": 1.69,
+      "stop_price": 0.2275,
+      "opened_at": "2026-10-29T17:39:14+00:00",
+      "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
+      "last_bid": 0.34,
+      "tags": [
+        "texas-midterm",
+        "governor-midterms",
+        "midterms",
+        "elections",
+        "politics",
+        "us-presidential-election",
+        "governor-tossups",
+        "midterm-tossups",
+        "texas-governor"
+      ],
+      "closes_at": "2026-11-04T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "texas-midterm",
+          "governor-midterms",
+          "midterms",
+          "elections",
+          "politics",
+          "us-presidential-election",
+          "governor-tossups",
+          "midterm-tossups",
+          "texas-governor"
+        ],
+        "scan": [
+          "'Yes' at 0.35",
+          "liq $335,809",
+          "vol24h $73,971",
+          "closes in 5.5d"
+        ],
+        "stop_price": 0.2275,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.345,
+          "p_base": 0.3942,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3942,
+          "cost": 0.35,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 39.4%",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.69,
+          "kelly": 0.0679,
+          "reasons": [
+            "Kelly 6.8% of pot -> quarter-Kelly \u00a31.69",
+            "cap 10% = \u00a39.93",
+            "stake \u00a31.69"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "562828",
+      "event_id": "32228",
+      "question": "2026 Balance of Power: D Senate, D House",
+      "outcome": "No",
+      "token_id": "24483563228660028121020430722896740519524131851526579619586176931221901842798",
+      "shares": 4.8824,
+      "entry_price": 0.34,
+      "stake": 1.66,
+      "stop_price": 0.221,
+      "opened_at": "2026-10-29T17:39:14+00:00",
+      "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
+      "last_bid": 0.33,
+      "tags": [
+        "united-states",
+        "rewards-20-4pt5-50",
+        "politics",
+        "us-presidential-election",
+        "elections",
+        "midterms",
+        "earn-4",
+        "main-election",
+        "global-elections",
+        "midterms-control",
+        "midterm-combos"
+      ],
+      "closes_at": "2026-11-04T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "united-states",
+          "rewards-20-4pt5-50",
+          "politics",
+          "us-presidential-election",
+          "elections",
+          "midterms",
+          "earn-4",
+          "main-election",
+          "global-elections",
+          "midterms-control",
+          "midterm-combos"
+        ],
+        "scan": [
+          "'No' at 0.34",
+          "liq $5,727,709",
+          "vol24h $621,951",
+          "closes in 5.5d"
+        ],
+        "stop_price": 0.221,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.335,
+          "p_base": 0.3842,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3842,
+          "cost": 0.34,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 38.4%",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.66,
+          "kelly": 0.0669,
+          "reasons": [
+            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.66",
+            "cap 10% = \u00a39.93",
+            "stake \u00a31.66"
+          ]
+        }
+      }
+    }
+  ],
+  "closed": [],
+  "history": [
+    {
+      "t": "2026-10-29T17:39:12+00:00",
+      "equity": 100.0,
+      "cash": 100.0
+    },
+    {
+      "t": "2026-10-29T17:39:14+00:00",
+      "equity": 99.23,
+      "cash": 87.49
+    }
+  ],
+  "last_run": {
+    "at": "2026-10-29T17:39:06+00:00",
+    "scanned": 1000,
+    "flagged": 128,
+    "passed_filters": 222,
+    "candidates": 134,
+    "shortlisted": 43,
+    "researched": 12,
+    "flag_examples": [
+      "Dota 2: PARIVISION vs Team Yandex - Game 2 Winner: price swung +50c in 24h",
+      "Erste Bank Open: Arthur Fery vs Lorenzo Musetti: price swung +20c in 24h",
+      "Will Bitcoin dip to $77,500 in October?: price swung -11c in 24h",
+      "Afghanistan and Zimbabwe in the UAE T20s: Afghanistan vs Zimbabwe: price swung +24c in 24h",
+      "Golden State Valkyries vs. Atlanta Dream: price swung -31c in 24h"
+    ],
+    "sources": [],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 5,
+    "traded": 5,
+    "blocked_examples": []
+  }
+}

@@ -8,9 +8,10 @@
 """
 import time
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 from datetime import datetime, timezone
 
-from . import strategy
+from . import calibration, strategy
 from .agents import postmortem, predict, research, risk, scan
 from .config import Config
 from .polymarket import PolymarketClient
@@ -66,7 +67,41 @@ def run_postmortems(pf: Portfolio, closed: list, cfg: Config) -> None:
                  + (f"; new lesson(s): {', '.join(rec['rules_activated'])}" if rec["rules_activated"] else ""))
 
 
-def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> dict:
+POTS = ("favourites", "value")
+
+
+def pot_config(cfg: Config, pot: str) -> Config:
+    """Settings for one prediction-market pot. Both share filters, risk rules and lessons."""
+    if pot == "value":
+        return replace(cfg, state_path=cfg.value_state_path, journal_path=cfg.value_journal_path,
+                       min_entry_price=cfg.value_min_price, max_entry_price=cfg.value_max_price,
+                       stop_loss_pct=cfg.value_stop_loss_pct)
+    return cfg
+
+
+def shortlist(cands: list, cfg: Config) -> list:
+    """Rank candidates by the calibration table's edge (cheap, no network), one per event,
+    so research and Claude calls go to the most promising markets only."""
+    table = calibration.load(cfg.calibration_path)
+    if not table:
+        return sorted(cands, key=lambda c: c.market.liquidity, reverse=True)
+    scored = []
+    for c in cands:
+        mid = (c.outcome.bid + c.outcome.ask) / 2
+        est = calibration.estimate(table, mid)
+        if est:
+            scored.append((est[0] - c.outcome.ask - c.market.taker_fee(c.outcome.ask), c))
+    scored.sort(key=lambda sc: sc[0], reverse=True)
+    out, seen = [], set()
+    for edge, c in scored:
+        if edge > 0 and c.market.event_id not in seen:
+            seen.add(c.market.event_id)
+            out.append(c)
+    return out
+
+
+def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config,
+                       pot: str = "favourites") -> dict:
     funnel = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     if len(pf.positions) >= cfg.max_open_positions:
         _log(f"at max {cfg.max_open_positions} open bets; pipeline skipped")
@@ -83,13 +118,15 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> 
 
     # 1. Scan
     markets = client.list_open_markets()
-    sr = scan.run(markets, cfg_eff, avoid_tags, client.get_event_tags if avoid_tags else None)
-    sr.candidates.sort(key=lambda c: c.market.liquidity, reverse=True)   # deepest books first
-    cands = [c for c in sr.candidates if not pf.holds(c.market.id, c.market.event_id)][:cfg.research_top]
+    sr = scan.run(markets, cfg_eff, avoid_tags, client.get_event_tags if avoid_tags else None,
+                  mode="value" if pot == "value" else "favourite")
+    ranked = shortlist([c for c in sr.candidates if not pf.holds(c.market.id, c.market.event_id)], cfg_eff)
+    cands = ranked[:cfg.research_top]
     funnel.update(scanned=sr.scanned, flagged=len(sr.flagged), passed_filters=sr.passed_filters,
-                  candidates=len(sr.candidates), researched=len(cands),
+                  candidates=len(sr.candidates), shortlisted=len(ranked), researched=len(cands),
                   flag_examples=[f"{m.question[:70]}: {why}" for m, why in sr.flagged[:5]])
-    _log(f"scan: {sr.scanned} markets, {len(sr.flagged)} flagged, {len(sr.candidates)} candidates")
+    _log(f"[{pot}] scan: {sr.scanned} markets, {len(sr.flagged)} flagged, "
+         f"{len(sr.candidates)} in range, {len(ranked)} with a calibrated edge")
     if not cands:
         funnel.update(predicted_fire=0, approved=0, traded=0)
         return funnel
@@ -146,7 +183,7 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> 
             continue
         stop = strategy.stop_price(cost, cfg)
         decision = {
-            "category": m.category, "tags": tags, "scan": c.notes, "stop_price": stop,
+            "pot": pot, "category": m.category, "tags": tags, "scan": c.notes, "stop_price": stop,
             "research": found[m.id].to_dict(), "prediction": p.to_dict(),
             "risk": {"stake": rd.stake, "kelly": round(rd.kelly_fraction, 4), "reasons": rd.reasons},
         }
@@ -167,14 +204,16 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> 
     return funnel
 
 
-def run_cycle(cfg: Config, client: PolymarketClient | None = None) -> Portfolio:
+def run_cycle(cfg: Config, client: PolymarketClient | None = None,
+              pot: str = "favourites") -> Portfolio:
+    cfg = pot_config(cfg, pot)
     client = client or PolymarketClient()
     pf = Portfolio.load(cfg.state_path, cfg.starting_bankroll)
     closed = manage_positions(pf, client, cfg)
     pf.save(cfg.state_path)
     try:
         run_postmortems(pf, closed, cfg)
-        pf.last_run = open_new_positions(pf, client, cfg)
+        pf.last_run = open_new_positions(pf, client, cfg, pot)
     finally:
         pf.snapshot()
         pf.save(cfg.state_path)

@@ -33,7 +33,10 @@ def flag(market: Market, cfg: Config) -> str | None:
 
 
 def run(markets: list[Market], cfg: Config, avoid_tags: set[str] = frozenset(),
-        tags_for=None, now: datetime | None = None) -> ScanResult:
+        tags_for=None, now: datetime | None = None, mode: str = "favourite") -> ScanResult:
+    """mode "favourite": the favourite of each event, one per event.
+    mode "value": every outcome in the price band; the engine later keeps the side
+    the calibration data rates best, one per event."""
     now = now or datetime.now(timezone.utc)
     res = ScanResult(scanned=len(markets))
     seen_events = set()
@@ -47,18 +50,20 @@ def run(markets: list[Market], cfg: Config, avoid_tags: set[str] = frozenset(),
         if strategy.rejection(m, cfg, now):
             continue
         res.passed_filters += 1
-        fav = max(m.outcomes, key=lambda o: o.ask)
-        if not (cfg.min_entry_price <= fav.ask <= cfg.max_entry_price):
+        options = m.outcomes if mode == "value" else [max(m.outcomes, key=lambda o: o.ask)]
+        options = [o for o in options
+                   if cfg.min_entry_price <= o.ask <= cfg.max_entry_price
+                   and o.day_change >= -cfg.max_day_drop and o.week_change >= -cfg.max_week_drop]
+        if not options:
             continue
-        if fav.day_change < -cfg.max_day_drop or fav.week_change < -cfg.max_week_drop:
-            continue
-        if m.event_id in seen_events:
+        if mode != "value" and m.event_id in seen_events:
             continue
         if avoid_tags and tags_for and avoid_tags & set(tags_for(m.event_id)):
             res.flagged.append((m, "topic blocked by an earlier postmortem lesson"))
             continue
         seen_events.add(m.event_id)
-        res.candidates.append(Candidate(m, fav, [
-            f"'{fav.name}' at {fav.ask:.2f}", f"liq ${m.liquidity:,.0f}",
-            f"vol24h ${m.volume_24h:,.0f}", f"closes in {strategy.hours_to_close(m, now)/24:.1f}d"]))
+        for o in options:
+            res.candidates.append(Candidate(m, o, [
+                f"'{o.name}' at {o.ask:.2f}", f"liq ${m.liquidity:,.0f}",
+                f"vol24h ${m.volume_24h:,.0f}", f"closes in {strategy.hours_to_close(m, now)/24:.1f}d"]))
     return res

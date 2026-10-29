@@ -40,15 +40,18 @@ def _report(name: str, pf: Portfolio) -> None:
 
 
 def cmd_report(cfg: Config) -> None:
-    _report("Prediction markets", Portfolio.load(cfg.state_path, cfg.starting_bankroll))
-    _report("Stocks", Portfolio.load(cfg.stocks_state_path, cfg.starting_bankroll))
+    _report("Favourites pot", Portfolio.load(cfg.state_path, cfg.starting_bankroll))
+    _report("Value pot", Portfolio.load(cfg.value_state_path, cfg.starting_bankroll))
+    _report("Stocks pot", Portfolio.load(cfg.stocks_state_path, cfg.starting_bankroll))
 
 
 def run_all(cfg: Config) -> None:
-    for name, fn in (("polymarket", engine.run_cycle), ("stocks", stock_engine.run_cycle)):
+    jobs = [(pot, lambda pot=pot: engine.run_cycle(cfg, pot=pot)) for pot in engine.POTS]
+    jobs.append(("stocks", lambda: stock_engine.run_cycle(cfg)))
+    for name, job in jobs:
         try:
-            fn(cfg)
-        except Exception as e:   # one side failing must not stop the other
+            job()
+        except Exception as e:   # one pot failing must not stop the others
             print(f"{name} cycle failed: {e}", flush=True)
     write_dashboard(cfg)
 
@@ -57,14 +60,14 @@ def main() -> None:
     ap = argparse.ArgumentParser(prog="predbot", description="Paper-trading bot: Polymarket + US stocks")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("scan", help="show current Polymarket candidates without trading")
-    sub.add_parser("run", help="run one cycle for both pots and rebuild the dashboard")
+    sub.add_parser("run", help="run one cycle for all three pots and rebuild the dashboard")
     lp = sub.add_parser("loop", help="run cycles forever")
     lp.add_argument("--minutes", type=float, default=60, help="minutes between cycles")
-    sub.add_parser("report", help="show both pots")
+    sub.add_parser("report", help="show all three pots")
     sub.add_parser("dashboard", help="rebuild dashboard.html from saved state")
     sub.add_parser("train", help="retrain the XGBoost calibration model on resolved markets")
     rp = sub.add_parser("reset", help="delete a pot's state and start again at £100")
-    rp.add_argument("pot", choices=["polymarket", "stocks"])
+    rp.add_argument("pot", choices=["favourites", "value", "stocks"])
     args = ap.parse_args()
     cfg = Config()
 
@@ -86,8 +89,9 @@ def main() -> None:
         from .train import train
         print(json.dumps(train(cfg), indent=2))
     elif args.cmd == "reset":
-        paths = ((cfg.state_path, cfg.journal_path) if args.pot == "polymarket"
-                 else (cfg.stocks_state_path, cfg.stocks_journal_path))
+        paths = {"favourites": (cfg.state_path, cfg.journal_path),
+                 "value": (cfg.value_state_path, cfg.value_journal_path),
+                 "stocks": (cfg.stocks_state_path, cfg.stocks_journal_path)}[args.pot]
         for path in paths:
             if os.path.exists(path):
                 os.remove(path)

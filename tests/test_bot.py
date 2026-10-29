@@ -60,12 +60,15 @@ class FakeClient:
 
 
 def temp_cfg(d: str, favourite_estimate: float = 0.80) -> Config:
-    """Config writing into a temp dir, with a calibration table saying 70-75p wins ~80%."""
+    """Config writing into a temp dir. Calibration table: 70-75p wins `favourite_estimate`,
+    30-35p outsiders win 42%."""
     cal = os.path.join(d, "cal.json")
     calibration.save({"bucket": 0.05, "shrink": 60, "buckets": {
+        "6": {"n": 200, "win_rate": 0.42, "avg_price": 0.325, "estimate": 0.42},
         "14": {"n": 200, "win_rate": favourite_estimate, "avg_price": 0.705, "estimate": favourite_estimate}}}, cal)
     j = lambda name: os.path.join(d, name)
     return replace(Config(), state_path=j("s.json"), journal_path=j("j.csv"),
+                   value_state_path=j("v.json"), value_journal_path=j("vj.csv"),
                    dashboard_path=j("d.html"), stocks_state_path=j("ss.json"),
                    stocks_journal_path=j("sj.csv"), postmortem_path=j("pm.jsonl"),
                    lessons_path=j("lessons.json"), calibration_path=cal,
@@ -152,8 +155,8 @@ class RiskTest(unittest.TestCase):
         self.assertEqual(risk.kelly(0.60, 0.70), 0.0)
 
     def test_sizes_small_edge_small_and_caps_big_edge(self):
-        small = risk.check_bet(0.73, 0.71, self.pf, self.cfg, [])
-        self.assertFalse(small.approved)                  # quarter-Kelly < £2 minimum
+        small = risk.check_bet(0.715, 0.71, self.pf, self.cfg, [])
+        self.assertFalse(small.approved)                  # quarter-Kelly < £1 minimum
         big = risk.check_bet(0.95, 0.70, self.pf, self.cfg, [])
         self.assertTrue(big.approved)
         self.assertAlmostEqual(big.stake, 10.0)           # capped at 10% of the pot
@@ -215,7 +218,29 @@ class EngineTest(unittest.TestCase):
         page = render(self.cfg)
         self.assertIn("<title>Paper Pot</title>", page)
         self.assertIn("Stocks pot", page)
+        self.assertIn("Value pot", page)
         self.assertIn("Markets scanned", page)
+
+
+class ValuePotTest(unittest.TestCase):
+    def test_value_scan_offers_both_sides(self):
+        cfg = replace(Config(), min_entry_price=0.20, max_entry_price=0.80)
+        res = scan.run([parse_market(raw_market(bid=0.67, ask=0.68))], cfg, mode="value")
+        self.assertEqual(sorted(c.outcome.name for c in res.candidates), ["No", "Yes"])
+
+    def test_buys_underpriced_outsider_with_wider_stop(self):
+        with tempfile.TemporaryDirectory() as d:
+            cfg = temp_cfg(d, favourite_estimate=0.65)   # favourites overpriced, outsiders under
+            client = FakeClient([raw_market(bid=0.67, ask=0.68, week=-0.02)])
+            fav = run_cycle(cfg, client, pot="favourites")
+            val = run_cycle(cfg, client, pot="value")
+            self.assertFalse(fav.positions)
+            self.assertEqual([p.outcome for p in val.positions], ["No"])
+            pos = val.positions[0]
+            self.assertAlmostEqual(pos.stop_price, round(pos.entry_price * 0.65, 4))
+            self.assertLess(pos.stake, 10.0)             # Kelly sizes a 9c edge below the cap
+            self.assertTrue(os.path.exists(cfg.value_state_path))
+            self.assertFalse(os.path.exists(cfg.state_path) and Portfolio.load(cfg.state_path, 100).positions)
 
 
 class PostmortemTest(unittest.TestCase):

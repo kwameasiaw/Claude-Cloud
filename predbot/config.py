@@ -7,7 +7,7 @@ class Config:
     # --- Bankroll -----------------------------------------------------------
     starting_bankroll: float = 100.0      # paper GBP (Polymarket quotes USD; we treat units as £)
     stake_fraction: float = 0.10          # each trade risks 10% of current equity
-    min_stake: float = 2.0                # don't bother with dust trades
+    min_stake: float = 1.0                # about Polymarket's own minimum order
     max_open_positions: int = 5           # keeps >=50% of the pot in cash at all times
     max_per_theme: int = 2                # e.g. at most 2 bets on the US midterms at once
 
@@ -62,6 +62,13 @@ class Config:
     lesson_min_repeats: int = 3           # a lesson only changes behaviour once seen 3 times
     postmortem_path: str = "postmortems.jsonl"
     lessons_path: str = "lessons.json"
+
+    # --- Value pot: buys whichever side the calibration data says is underpriced ---
+    value_state_path: str = "value_state.json"
+    value_journal_path: str = "value_journal.csv"
+    value_min_price: float = 0.20
+    value_max_price: float = 0.80
+    value_stop_loss_pct: float = 0.35     # cheap outcomes swing more; the edge needs room
 
     # --- Stocks pot (separate £100, simulated against Alpaca's live quotes) ---
     stocks_state_path: str = "stocks_state.json"

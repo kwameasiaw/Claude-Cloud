@@ -1,8 +1,10 @@
 # Paper Pot: Polymarket + US stocks paper-trading bot
 
-Two separate **£100 paper-money pots**, run every hour:
+Three separate **£100 paper-money pots**, run every hour, so the approaches can be compared:
 
-* **Prediction markets** (Polymarket): a five-agent pipeline, below.
+* **Favourites pot** (Polymarket): buys only the favourite at 60-82p, 20% stop-loss.
+* **Value pot** (Polymarket): buys whichever side at 20-80p the calibration data says is
+  underpriced (often the outsider), 35% stop-loss. Both use the five-agent pipeline below.
 * **Stocks** (SPY, QQQ and ~25 of the largest US companies via Alpaca's free data):
   buys sharp two-day dips in stocks above their 200-day average, sells on recovery,
   at the stop, or after ~10 trading days. Market hours only.
@@ -29,14 +31,14 @@ No real money moves. Fills are simulated against live order books and quotes.
 * Favourites priced 60-82p won **64%** of the time against an average price of **70%**
   (573 markets, 95% range -9 to -1.5 points). Underdogs at 18-40p won about 6 points
   *more* often than their price. In other words, favourites have been slightly
-  **over**priced, so the bot now finds no edge in buying them and mostly sits out.
+  **over**priced, so the favourites pot mostly sits out and the value pot tests the reverse.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
-python -m predbot run           # one cycle for both pots + dashboard
-python -m predbot report        # both pots in the terminal
+python -m predbot run           # one cycle for all three pots + dashboard
+python -m predbot report        # all three pots in the terminal
 python -m predbot scan          # Polymarket candidates, no trading
 python -m predbot train         # retrain the model and calibration table
 python -m unittest -v           # tests

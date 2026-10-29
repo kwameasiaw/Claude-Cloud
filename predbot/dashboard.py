@@ -106,10 +106,10 @@ td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric
 dl { display: grid; gap: 12px; margin: 0; }
 dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
 .empty { color: var(--ink-2); font-size: .92rem; }
-.pots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
-@media (max-width: 640px) { .pots { grid-template-columns: minmax(0,1fr); } }
+.pots { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 760px) { .pots { grid-template-columns: minmax(0,1fr); } }
 .pot { display: grid; gap: 6px; }
-.pot .value { font: 650 2.4rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.pot .value { font: 650 2.1rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
 .pot .facts { font-size: .84rem; }
 .part { display: grid; gap: 28px; padding-top: 8px; border-top: 1px solid var(--rule); }
 .part > h2 { font-size: 1.45rem; }
@@ -371,7 +371,8 @@ def pipeline(pf: Portfolio, cfg: Config) -> str:
         body = f'<div class="note">Last run: {escape(run["skipped"])}.</div>'
     elif "scanned" in run:
         steps = [("Markets scanned", run.get("scanned", 0)), ("Passed the filters", run.get("passed_filters", 0)),
-                 ("Favourites in range", run.get("candidates", 0)), ("Researched", run.get("researched", 0)),
+                 ("In the price range", run.get("candidates", 0)),
+                 ("Edge on past data", run.get("shortlisted", 0)), ("Researched", run.get("researched", 0)),
                  ("Cleared prediction", run.get("predicted_fire", 0)), ("Approved by risk", run.get("approved", 0)),
                  ("Bets placed", run.get("traded", 0))]
         top = max(1, steps[0][1])
@@ -410,13 +411,45 @@ def lessons_panel(cfg: Config) -> str:
     return f'<div class="panel" style="display:grid;gap:10px"><span class="eyebrow">Lessons in force</span>{rules}</div>{cards}'
 
 
+def prediction_section(pf: Portfolio, cfg: Config, title: str, blurb: str, now: datetime) -> str:
+    lo = track_floor(pf)
+    bets = "".join(bet_card(p, cfg, now, lo) for p in pf.positions) or \
+        '<p class="empty">No open bets right now. The bot only bets when a market passes every check.</p>'
+    return f"""<section class="part">
+    <h2>{title}</h2>
+    <p class="muted">{blurb}</p>
+    <section>
+      <h2>How the bot decided this hour</h2>
+      {pipeline(pf, cfg)}
+    </section>
+    <section>
+      <h2>Pot over time</h2>
+      <div class="panel">{pot_chart(pf)}</div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <div class="panel">{scorecard(pf.stats(), "bet")}</div>
+    </section>
+    <section>
+      <h2>Open bets</h2>
+      <p class="muted">Each line shows prices from {lo*100:.0f}p to &pound;1. The blue dot is the price now. In the red
+        zone the bot sells to limit the loss; in the green zone it sells to lock in the gain.</p>
+      <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
+        <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
+        <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
+        <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
+      <div class="bets">{bets}</div>
+    </section>
+  </section>"""
+
+
 def render(cfg: Config, now: datetime | None = None) -> str:
     now = now or datetime.now(timezone.utc)
-    pm = Portfolio.load(cfg.state_path, cfg.starting_bankroll)
+    from .engine import pot_config
+    fav_cfg, val_cfg = pot_config(cfg, "favourites"), pot_config(cfg, "value")
+    pm = Portfolio.load(fav_cfg.state_path, cfg.starting_bankroll)
+    vp = Portfolio.load(val_cfg.state_path, cfg.starting_bankroll)
     sk = Portfolio.load(cfg.stocks_state_path, cfg.starting_bankroll)
-    lo = track_floor(pm)
-    bets = "".join(bet_card(p, cfg, now, lo) for p in pm.positions) or \
-        '<p class="empty">No open bets right now. The bot only bets when a market passes every check.</p>'
     trades = "".join(stock_card(p, now) for p in sk.positions) or \
         '<p class="empty">No open stock trades right now.</p>'
     stock_status = sk.last_run.get("skipped", "")
@@ -433,42 +466,24 @@ def render(cfg: Config, now: datetime | None = None) -> str:
   </header>
 
   <div class="pots">
-    {pot_card("Prediction markets pot", pm, cfg, "bet")}
+    {pot_card("Favourites pot", pm, cfg, "bet")}
+    {pot_card("Value pot", vp, cfg, "bet")}
     {pot_card("Stocks pot", sk, cfg, "trade")}
   </div>
+  <p class="small">Three separate &pound;100 pots, so you can see which approach actually works. Every hour five
+    agents run for each prediction-market pot: scan all markets, research the best ones, estimate the real chance,
+    check the risk and size the bet, then review any losses.</p>
 
-  <section class="part">
-    <h2>Prediction markets</h2>
-    <section>
-      <h2>How the bot decided this hour</h2>
-      <p class="muted">Every hour five agents run in order: scan all markets, research the best ones, estimate the
-        real chance, check the risk and size the bet, then review any losses. Each bar shows how many markets
-        made it through each step.</p>
-      {pipeline(pm, cfg)}
-    </section>
-    <section>
-      <h2>Pot over time</h2>
-      <p class="muted">Open bets are valued at what they could be sold for right now, so a small dip right after
-        buying is normal.</p>
-      <div class="panel">{pot_chart(pm)}</div>
-    </section>
-    <section>
-      <h2>Is it winning often enough?</h2>
-      <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
-        to break even. The grey bar is that level for the bets made so far.</p>
-      <div class="panel">{scorecard(pm.stats(), "bet")}</div>
-    </section>
-    <section>
-      <h2>Open bets</h2>
-      <p class="muted">Each line shows prices from {lo*100:.0f}p to &pound;1. The blue dot is the price now. In the red
-        zone the bot sells to limit the loss; in the green zone it sells to lock in the gain.</p>
-      <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
-        <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
-        <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
-        <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
-      <div class="bets">{bets}</div>
-    </section>
-  </section>
+  {prediction_section(pm, fav_cfg, "Favourites pot",
+      f"Buys only the favourite, priced {fav_cfg.min_entry_price*100:.0f}&ndash;{fav_cfg.max_entry_price*100:.0f}p, "
+      "aiming for a high win rate. Past data says favourites in this range have been slightly overpriced, so "
+      "expect this pot to bet rarely.", now)}
+
+  {prediction_section(vp, val_cfg, "Value pot",
+      f"Buys whichever side, priced {val_cfg.min_entry_price*100:.0f}&ndash;{val_cfg.max_entry_price*100:.0f}p, "
+      "past data says is underpriced. That is often the outsider, so expect to win less often (around 35&ndash;55%) "
+      f"but collect more per win. Its stop-loss is {val_cfg.stop_loss_pct*100:.0f}% below the price paid, wider than "
+      "the favourites pot, because cheaper prices swing more.", now)}
 
   <section class="part">
     <h2>Stocks</h2>
@@ -504,7 +519,8 @@ def render(cfg: Config, now: datetime | None = None) -> str:
 
   <section>
     <h2>Finished trades</h2>
-    <div class="panel">{closed_table([("Prediction markets", t) for t in pm.closed] + [("Stocks", t) for t in sk.closed])}</div>
+    <div class="panel">{closed_table([("Favourites pot", t) for t in pm.closed] + [("Value pot", t) for t in vp.closed]
+                                     + [("Stocks pot", t) for t in sk.closed])}</div>
   </section>
 
   <section>
