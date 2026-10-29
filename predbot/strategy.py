@@ -68,12 +68,13 @@ def evaluate(market: Market, cfg: Config, now: datetime | None = None) -> Signal
     if fav.day_change < -cfg.max_day_drop or fav.week_change < -cfg.max_week_drop:
         return None
     fv = fair_value(fav)
-    edge = fv - fav.ask
+    fee = market.taker_fee(fav.ask)
+    edge = fv - fav.ask - fee
     if edge < cfg.min_edge:
         return None
     reasons = [
-        f"favourite '{fav.name}' at {fav.ask:.2f}",
-        f"fair {fv:.3f} (edge {edge*100:.1f}c)",
+        f"favourite '{fav.name}' at {fav.ask:.2f}" + (f" +{fee*100:.1f}c fee" if fee else ""),
+        f"fair {fv:.3f} (edge {edge*100:.1f}c after fees)",
         f"24h {fav.day_change*100:+.1f}c, 7d {fav.week_change*100:+.1f}c",
         f"liq ${market.liquidity:,.0f}, vol24h ${market.volume_24h:,.0f}",
         f"closes in {hours_to_close(market, now)/24:.1f}d",
@@ -91,6 +92,20 @@ def scan(markets: list[Market], cfg: Config, now: datetime | None = None) -> lis
             seen.add(s.market.event_id)
             out.append(s)
     return out
+
+
+# Tags too broad to mean two bets are linked.
+BROAD_TAGS = {"politics", "elections", "global-elections", "united-states", "world",
+              "sports", "crypto", "business", "economy", "culture", "geopolitics",
+              "pop-culture", "finance", "tech", "science", "games", "hide-from-new"}
+
+
+def theme_clash(tags: list[str], open_tags: list[list[str]], cfg: Config) -> str | None:
+    """A shared specific tag held by max_per_theme open positions already, if any."""
+    for tag in set(tags) - BROAD_TAGS:
+        if sum(tag in held for held in open_tags) >= cfg.max_per_theme:
+            return tag
+    return None
 
 
 def simulate_fill(asks: list[tuple[float, float]], stake: float) -> tuple[float, float] | None:

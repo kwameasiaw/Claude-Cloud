@@ -18,6 +18,7 @@ python -m unittest -v           # tests
 ```
 
 State is kept in `paper_state.json`; every closed trade is appended to `trade_journal.csv`.
+Both are committed so the paper portfolio survives between sessions.
 
 ## The rules it follows
 
@@ -28,7 +29,8 @@ State is kept in `paper_state.json`; every closed trade is appended to `trade_jo
 | Max open trades | 5, so at least half the pot is always in cash |
 | Markets traded | binary, ≥ $10k liquidity, ≥ $5k traded in 24h, spread ≤ 2c, closes in 1–30 days |
 | Entry | buy the favourite only when priced 60–82c, not falling (≤ 3c drop today, ≤ 5c this week), and the model's fair value beats the price paid |
-| Correlation | one trade per event at most |
+| Correlation | one trade per event, and at most 2 open bets sharing a topic tag (e.g. `midterms`) |
+| Fees | Polymarket taker fees (`rate × p × (1−p)`, up to 7% on crypto) are charged on entry and early exit, and must not eat the edge |
 | Fill | walks the real order book; skips if the stake would move the price by more than 1c |
 | Stop-loss | sell if the bid falls 20% below the entry price (e.g. 70c → 56c) |
 | Take-profit | sell once the bid reaches 95c |

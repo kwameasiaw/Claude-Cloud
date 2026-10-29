@@ -9,6 +9,7 @@ class Config:
     stake_fraction: float = 0.10          # each trade risks 10% of current equity
     min_stake: float = 2.0                # don't bother with dust trades
     max_open_positions: int = 5           # keeps >=50% of the pot in cash at all times
+    max_per_theme: int = 2                # e.g. at most 2 bets on the US midterms at once
 
     # --- Market filters (only trade liquid, honest-priced markets) -----------
     min_liquidity: float = 10_000.0       # USD resting on the book
@@ -25,7 +26,7 @@ class Config:
     max_entry_price: float = 0.82
     max_day_drop: float = 0.03            # skip if the favourite fell >3c today
     max_week_drop: float = 0.05           # ...or >5c this week (falling knife)
-    min_edge: float = 0.005               # model's fair value must beat the ask by 0.5c
+    min_edge: float = 0.005               # fair value must beat ask + taker fee by 0.5c
     max_book_slippage: float = 0.01       # stake must fill within 1c of best ask
 
     # --- Exits ----------------------------------------------------------------

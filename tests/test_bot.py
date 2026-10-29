@@ -31,8 +31,12 @@ def raw_market(mid="1", bid=0.70, ask=0.71, days=5, liq=50_000, vol=20_000,
 
 
 class FakeClient:
-    def __init__(self, markets):
+    def __init__(self, markets, tags=None):
         self.markets = {m["id"]: m for m in markets}
+        self.tags = tags or {}
+
+    def get_event_tags(self, event_id):
+        return self.tags.get(event_id, [])
 
     def list_open_markets(self):
         return [m for m in map(parse_market, self.markets.values()) if m and not m.closed]
@@ -84,6 +88,17 @@ class StrategyTest(unittest.TestCase):
         ms = [parse_market(raw_market(mid=str(i), event="same")) for i in range(3)]
         self.assertEqual(len(strategy.scan(ms, self.cfg)), 1)
 
+    def test_fees_can_kill_the_edge(self):
+        raw = raw_market(bid=0.76, ask=0.77, week=0.0)
+        self.assertIsNotNone(strategy.evaluate(parse_market(raw), self.cfg))
+        raw.update(feesEnabled=True, feeSchedule={"rate": 0.07, "exponent": 1})
+        self.assertIsNone(strategy.evaluate(parse_market(raw), self.cfg))
+
+    def test_theme_clash(self):
+        held = [["midterms", "politics"], ["midterms", "texas"]]
+        self.assertEqual(strategy.theme_clash(["midterms", "ohio"], held, self.cfg), "midterms")
+        self.assertIsNone(strategy.theme_clash(["politics", "nba"], held, self.cfg))
+
     def test_exit_rules(self):
         self.assertEqual(strategy.exit_reason(0.70, 0.56, 48, self.cfg), "stop-loss")
         self.assertEqual(strategy.exit_reason(0.70, 0.95, 48, self.cfg), "take-profit")
@@ -97,6 +112,12 @@ class StrategyTest(unittest.TestCase):
 
 
 class EngineTest(unittest.TestCase):
+    def test_caps_related_bets(self):
+        markets = [raw_market(mid=str(i), event=f"e{i}") for i in range(4)]
+        client = FakeClient(markets, {f"e{i}": ["midterms"] for i in range(4)})
+        pf = run_cycle(self.cfg, client)
+        self.assertEqual(len(pf.positions), self.cfg.max_per_theme)
+
     def setUp(self):
         self.dir = tempfile.TemporaryDirectory()
         self.cfg = replace(Config(), state_path=os.path.join(self.dir.name, "s.json"),
@@ -110,6 +131,7 @@ class EngineTest(unittest.TestCase):
         client = FakeClient(markets)
         pf = run_cycle(self.cfg, client)
         self.assertEqual(len(pf.positions), self.cfg.max_open_positions)
+        self.assertEqual(len({p.event_id for p in pf.positions}), len(pf.positions))
         self.assertAlmostEqual(pf.positions[0].stake, 10.0)       # 10% of £100
         self.assertAlmostEqual(pf.equity(), 100.0, delta=1.0)
 

@@ -31,11 +31,12 @@ def manage_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> No
         o = market.outcome(pos.token_id)
         if o is None:
             continue
-        pos.last_bid = o.bid
+        net_bid = round(o.bid - market.taker_fee(o.bid), 4)
+        pos.last_bid = net_bid
         reason = strategy.exit_reason(pos.entry_price, o.bid,
                                       strategy.hours_to_close(market, now), cfg)
         if reason and market.accepting_orders:
-            t = pf.close(pos, o.bid, reason, cfg.journal_path)
+            t = pf.close(pos, net_bid, reason, cfg.journal_path)
             _log(f"EXIT {reason} @ {o.bid:.3f}: {pos.question[:70]} -> P&L £{t.pnl:+.2f}")
 
 
@@ -59,24 +60,30 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config,
             _log("not enough free cash for a minimum-size trade")
             break
         try:
+            tags = client.get_event_tags(m.event_id)
             asks = client.get_asks(o.token_id)
         except Exception as e:
-            _log(f"skip (order book unavailable): {m.question[:60]} ({e})")
+            _log(f"skip (market data unavailable): {m.question[:60]} ({e})")
+            continue
+        clash = strategy.theme_clash(tags, [p.tags for p in pf.positions], cfg)
+        if clash:
+            _log(f"skip (already {cfg.max_per_theme} bets on '{clash}'): {m.question[:60]}")
             continue
         fill = strategy.simulate_fill(asks, stake)
         if fill is None:
             _log(f"skip (book too thin for £{stake:.2f}): {m.question[:60]}")
             continue
-        shares, avg = fill
-        if avg - o.ask > cfg.max_book_slippage or sig.fair_value - avg < cfg.min_edge:
+        _, avg = fill
+        cost = avg + m.taker_fee(avg)   # all-in price per share
+        if avg - o.ask > cfg.max_book_slippage or sig.fair_value - cost < cfg.min_edge:
             _log(f"skip (fill {avg:.3f} eats the edge): {m.question[:60]}")
             continue
         pos = Position(
             market_id=m.id, event_id=m.event_id, question=m.question, outcome=o.name,
-            token_id=o.token_id, shares=round(shares, 4), entry_price=round(avg, 4),
-            stake=stake, stop_price=strategy.stop_price(avg, cfg),
+            token_id=o.token_id, shares=round(stake / cost, 4), entry_price=round(cost, 4),
+            stake=stake, stop_price=strategy.stop_price(cost, cfg),
             opened_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            url=m.url, last_bid=o.bid,
+            url=m.url, last_bid=round(o.bid - m.taker_fee(o.bid), 4), tags=tags,
         )
         pf.open(pos)
         _log(f"BUY £{stake:.2f} of '{o.name}' @ {avg:.3f} (stop {pos.stop_price:.3f}, "

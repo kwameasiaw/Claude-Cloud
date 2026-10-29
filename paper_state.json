@@ -1,0 +1,130 @@
+{
+  "cash": 50.180000000000014,
+  "starting_bankroll": 100.0,
+  "positions": [
+    {
+      "market_id": "5686980",
+      "event_id": "1038648",
+      "question": "US x Iran ceasefire continues through November 8?",
+      "outcome": "Yes",
+      "token_id": "11308864288973006753199540704778798414330563151778440954216228592301141985802",
+      "shares": 12.3457,
+      "entry_price": 0.81,
+      "stake": 10.0,
+      "stop_price": 0.648,
+      "opened_at": "2026-10-29T16:48:54+00:00",
+      "url": "https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8",
+      "last_bid": 0.8,
+      "tags": [
+        "iran",
+        "trump",
+        "israel",
+        "military",
+        "politics",
+        "geopolitics",
+        "middle-east",
+        "israel-x-iran",
+        "military-action",
+        "military-strikes",
+        "trump-iran",
+        "diplomacy-ceasefire"
+      ]
+    },
+    {
+      "market_id": "5657803",
+      "event_id": "1176737",
+      "question": "Spread: Broncos (-7.5)",
+      "outcome": "Chiefs",
+      "token_id": "112683473321212523767425696071078550544504989715534911537088095276828712806785",
+      "shares": 12.2634,
+      "entry_price": 0.8146,
+      "stake": 9.99,
+      "stop_price": 0.6517,
+      "opened_at": "2026-10-29T16:48:54+00:00",
+      "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
+      "last_bid": 0.7952,
+      "tags": [
+        "sports",
+        "nfl",
+        "games"
+      ]
+    },
+    {
+      "market_id": "629506",
+      "event_id": "57181",
+      "question": "Will the Republicans win the Nevada governor race in 2026?",
+      "outcome": "No",
+      "token_id": "76313209944639250426806286965492886883353059598478633315707597639545615999446",
+      "shares": 12.2963,
+      "entry_price": 0.81,
+      "stake": 9.96,
+      "stop_price": 0.648,
+      "opened_at": "2026-10-29T16:48:55+00:00",
+      "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
+      "last_bid": 0.79,
+      "tags": [
+        "nevada-midterm",
+        "governor-midterms",
+        "midterms",
+        "us-presidential-election",
+        "politics",
+        "elections",
+        "aaron-ford",
+        "joe-lombardo",
+        "governor-tossups",
+        "midterm-tossups",
+        "nevada-governor"
+      ]
+    },
+    {
+      "market_id": "943476",
+      "event_id": "106174",
+      "question": "Will the Republican Party win the NC-01 House seat?",
+      "outcome": "No",
+      "token_id": "54560170355459704184898143385353650333050618305218101329552280696552769656385",
+      "shares": 12.122,
+      "entry_price": 0.82,
+      "stake": 9.94,
+      "stop_price": 0.656,
+      "opened_at": "2026-10-29T16:48:55+00:00",
+      "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
+      "last_bid": 0.81,
+      "tags": [
+        "midterms",
+        "house-elections",
+        "north-carolina-midterm",
+        "us-presidential-election",
+        "house-tossups",
+        "politics",
+        "elections",
+        "nov-4-elections",
+        "tossup-house-races",
+        "midterm-tossups",
+        "north-carolina-house"
+      ]
+    },
+    {
+      "market_id": "6367378",
+      "event_id": "711714",
+      "question": "Israel x Iran ceasefire continues through November 7?",
+      "outcome": "Yes",
+      "token_id": "15707328176527456759678868855667660030738069444951598508574029683550162720104",
+      "shares": 12.2593,
+      "entry_price": 0.81,
+      "stake": 9.93,
+      "stop_price": 0.648,
+      "opened_at": "2026-10-29T16:48:57+00:00",
+      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
+      "last_bid": 0.8,
+      "tags": [
+        "iran",
+        "israel",
+        "geopolitics",
+        "israel-x-iran",
+        "israel-election",
+        "diplomacy-ceasefire"
+      ]
+    }
+  ],
+  "closed": []
+}

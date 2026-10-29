@@ -66,6 +66,8 @@ class Market:
     outcomes: list[Outcome] = field(default_factory=list)
     final_prices: list[float] = field(default_factory=list)
     token_ids: list[str] = field(default_factory=list)
+    fee_rate: float = 0.0       # taker fee: fee per share = rate * (p * (1 - p)) ** exponent
+    fee_exponent: float = 1.0
 
     @property
     def url(self) -> str:
@@ -73,6 +75,10 @@ class Market:
 
     def outcome(self, token_id: str) -> Outcome | None:
         return next((o for o in self.outcomes if o.token_id == token_id), None)
+
+    def taker_fee(self, price: float) -> float:
+        """Fee per share for a taker trade at this price (Polymarket charges none at settlement)."""
+        return self.fee_rate * (price * (1 - price)) ** self.fee_exponent
 
     def settlement_price(self, token_id: str) -> float | None:
         """1.0 or 0.0 once the market has resolved, otherwise None."""
@@ -113,6 +119,8 @@ def parse_market(raw: dict) -> Market | None:
         ]
 
     events = raw.get("events") or [{}]
+    schedule = raw.get("feeSchedule") or {}
+    fee_rate = _f(schedule.get("rate")) if raw.get("feesEnabled") else 0.0
     return Market(
         id=str(raw.get("id")),
         question=raw.get("question", ""),
@@ -127,11 +135,16 @@ def parse_market(raw: dict) -> Market | None:
         outcomes=outcomes,
         final_prices=prices,
         token_ids=[str(t) for t in tokens],
+        fee_rate=fee_rate,
+        fee_exponent=_f(schedule.get("exponent"), 1.0),
     )
 
 
 class PolymarketClient:
-    def list_open_markets(self, pages: int = 4, page_size: int = 250) -> list[Market]:
+    def __init__(self):
+        self._tags: dict[str, list[str]] = {}
+
+    def list_open_markets(self, pages: int = 10, page_size: int = 100) -> list[Market]:
         markets = []
         for page in range(pages):
             q = urllib.parse.urlencode({
@@ -141,12 +154,19 @@ class PolymarketClient:
             })
             batch = _get(f"{GAMMA}/markets?{q}")
             markets += [m for m in map(parse_market, batch) if m]
-            if len(batch) < page_size:
+            if len(batch) < page_size:  # the API caps pages at 100 rows
                 break
         return markets
 
     def get_market(self, market_id: str) -> Market | None:
         return parse_market(_get(f"{GAMMA}/markets/{urllib.parse.quote(market_id)}"))
+
+    def get_event_tags(self, event_id: str) -> list[str]:
+        """Topic tags for an event (e.g. 'senate-midterms'), used to spot related bets."""
+        if event_id not in self._tags:
+            event = _get(f"{GAMMA}/events/{urllib.parse.quote(event_id)}")
+            self._tags[event_id] = [t["slug"] for t in event.get("tags") or [] if t.get("slug")]
+        return self._tags[event_id]
 
     def get_asks(self, token_id: str) -> list[tuple[float, float]]:
         """Ask levels for a token as (price, size), cheapest first."""

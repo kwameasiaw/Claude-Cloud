@@ -19,7 +19,8 @@ class Position:
     stop_price: float
     opened_at: str
     url: str = ""
-    last_bid: float | None = None
+    last_bid: float | None = None   # net of the fee we'd pay to sell now
+    tags: list[str] = field(default_factory=list)
 
 
 @dataclass
