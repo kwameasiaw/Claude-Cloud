@@ -1,0 +1,276 @@
+<title>Paper Pot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;650&display=swap">
+<style>
+/* Layout: one reading column; summary first, then the pot chart, scorecard,
+   each open bet drawn as a price track, finished bets, and a glossary. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #14171c; --ink-2: #4c5361; --ink-3: #7a8191;
+  --rule: #e3e6ec; --accent: #2a78d6; --accent-wash: rgba(42,120,214,.10);
+  --good: #0ca30c; --bad: #d03b3b; --bad-wash: rgba(208,59,59,.10); --good-wash: rgba(12,163,12,.12);
+  --track: #e9ecf1;
+  --f-display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121418; --panel: #1a1d22; --ink: #eef0f3; --ink-2: #b9bfca; --ink-3: #8a91a0;
+  --rule: #2b3038; --accent: #3987e5; --accent-wash: rgba(57,135,229,.16);
+  --bad-wash: rgba(208,59,59,.20); --good-wash: rgba(12,163,12,.20); --track: #262a32;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121418; --panel: #1a1d22; --ink: #eef0f3; --ink-2: #b9bfca; --ink-3: #8a91a0;
+  --rule: #2b3038; --accent: #3987e5; --accent-wash: rgba(57,135,229,.16);
+  --bad-wash: rgba(208,59,59,.20); --good-wash: rgba(12,163,12,.20); --track: #262a32;
+  color-scheme: dark; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--f-body); }
+.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 28px;
+  padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+h1 { font-size: 1.5rem; font-weight: 700; }
+h2 { font-size: 1.2rem; font-weight: 650; }
+p { margin: 0; max-width: 65ch; }
+.muted { color: var(--ink-2); }
+.small { font-size: .85rem; color: var(--ink-3); }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; }
+.paper { font-size: .78rem; font-weight: 600; color: var(--ink-2); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 2px 10px; background: var(--panel); }
+section { display: grid; gap: 14px; min-width: 0; }
+.panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 18px; min-width: 0; }
+.hero { display: grid; gap: 4px; }
+.hero .value { font: 650 3.2rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.delta { font-weight: 600; font-size: 1rem; }
+.delta.up { color: var(--good); } .delta.down { color: var(--bad); } .delta.flat { color: var(--ink-2); }
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+.tile { background: var(--panel); padding: 12px 14px; display: grid; gap: 2px; }
+.tile b { font: 600 1.15rem var(--f-data); font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .tiles { grid-template-columns: repeat(2, minmax(0,1fr)); } .hero .value { font-size: 2.6rem; } }
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font: 11px var(--f-data); fill: var(--ink-3); }
+@media (max-width: 560px) { .chart text { font-size: 17px; } }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font: 12px/1.4 var(--f-data);
+  padding: 6px 8px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); }
+.score { display: grid; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: 11.5rem minmax(0,1fr) 3.5rem; gap: 10px; align-items: center; }
+.bar-row .track { height: 14px; background: var(--track); border-radius: 0 4px 4px 0; position: relative; }
+.bar-row .fill { position: absolute; inset: 0 auto 0 0; border-radius: 0 4px 4px 0; }
+.bar-row .val { text-align: right; font: 600 .95rem var(--f-data); }
+@media (max-width: 560px) { .bar-row { grid-template-columns: minmax(0,1fr) 3.5rem; } .bar-row .track { grid-column: 1 / -1; grid-row: 2; } }
+.verdict { padding: 10px 12px; border-radius: 8px; font-size: .92rem; }
+.verdict.good { background: var(--good-wash); } .verdict.bad { background: var(--bad-wash); }
+.verdict.wait { background: var(--accent-wash); }
+.bets { display: grid; gap: 14px; }
+.bet { display: grid; gap: 12px; }
+.bet-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+.bet-head a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.bet-head a:hover, .bet-head a:focus-visible { text-decoration: underline; }
+.pill { display: inline-block; font-size: .78rem; font-weight: 600; padding: 1px 8px; border-radius: 999px;
+  background: var(--accent-wash); color: var(--ink); }
+.pill.good { background: var(--good-wash); } .pill.bad { background: var(--bad-wash); }
+.ptrack { position: relative; height: 62px; margin: 0 28px; }
+.ptrack .line { position: absolute; left: 0; right: 0; top: 22px; height: 8px; background: var(--track); border-radius: 4px; }
+.ptrack .zone { position: absolute; top: 22px; height: 8px; }
+.ptrack .zone.stop { left: 0; background: var(--bad); opacity: .35; border-radius: 4px 0 0 4px; }
+.ptrack .zone.win { right: 0; background: var(--good); opacity: .35; border-radius: 0 4px 4px 0; }
+.mk { position: absolute; top: 0; transform: translateX(-50%); display: grid; justify-items: center; gap: 2px;
+  font: 600 .72rem var(--f-data); color: var(--ink-2); white-space: nowrap; }
+.mk.below { top: 19px; }
+.mk.paid { top: 20px; }
+.mk .tick { width: 2px; height: 16px; background: var(--ink-3); }
+.mk.now .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 2px var(--panel); margin-top: 1px; }
+.mk.paid .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--ink-2); background: var(--panel); }
+.facts { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .88rem; color: var(--ink-2); }
+.facts b { color: var(--ink); font-family: var(--f-data); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .82rem; color: var(--ink-2); }
+.legend i { display: inline-block; width: 12px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+dl { display: grid; gap: 12px; margin: 0; }
+dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
+.empty { color: var(--ink-2); font-size: .92rem; }
+</style>
+<div class="wrap">
+  <header>
+    <h1>Paper Pot</h1>
+    <span class="paper">Practice money only &middot; updated 29 Oct 2026, 16:54 UTC</span>
+  </header>
+
+  <section class="hero" aria-label="Pot value">
+    <span class="eyebrow">What your &pound;100 is worth now</span>
+    <span class="value">&pound;99.15</span>
+    <span class="delta down">&#9660; -&pound;0.85 (-0.9%) since the start</span>
+  </section>
+
+  <div class="tiles">
+    <div class="tile"><span class="small">Cash not in bets</span><b>&pound;50.18</b></div>
+    <div class="tile"><span class="small">Money in open bets</span><b>&pound;49.82</b></div>
+    <div class="tile"><span class="small">Open bets</span><b>5 of 5</b></div>
+    <div class="tile"><span class="small">Finished bets</span><b>0</b></div>
+  </div>
+
+  <section>
+    <h2>Your pot over time</h2>
+    <p class="muted">Open bets are valued at what they could be sold for right now. A small dip right after
+      buying is normal: you buy at the asking price and value at the lower selling price.</p>
+    <div class="panel"><div class="chart" id="pot-chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 72.7, &quot;label&quot;: &quot;29 Oct 16:48 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 172.4, &quot;label&quot;: &quot;29 Oct 16:53 UTC  \u00a399.15&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;99.15"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;99</text><line x1="52" x2="544" y1="131.3" y2="131.3" stroke="var(--rule)" stroke-width="1"/><text x="44" y="135.3" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="72.7" y2="72.7" stroke="var(--rule)" stroke-width="1"/><text x="44" y="76.7" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="72.7" y2="72.7" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="66.7" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 16:48</text><text x="544.0" y="212" text-anchor="end">29 Oct 16:53</text><polygon points="52.0,190 52.0,72.7 544.0,172.4 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,72.7 544.0,172.4" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="172.4" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line id="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+  </section>
+
+  <section>
+    <h2>Is it winning often enough?</h2>
+    <p class="muted">A bet bought at 80p pays &pound;1 if it wins, so it has to win at least 80% of the time
+      to break even. The grey bar is that break-even level for the bets made so far.</p>
+    <div class="panel"><div class="verdict wait">No bets have finished yet, so there is no win rate. Results appear here as each bet settles or hits its stop-loss or cash-out price.</div></div>
+  </section>
+
+  <section>
+    <h2>Open bets</h2>
+    <p class="muted">Each line shows prices from 50p to &pound;1. The blue dot is today's price. If it slides into the red
+      zone the bot sells to limit the loss; in the green zone it sells to lock in the gain. Otherwise it waits for the result.</p>
+    <div class="legend"><span><i style="background:var(--bad);opacity:.5"></i>Stop-loss zone</span>
+      <span><i style="background:var(--good);opacity:.5"></i>Cash-out zone</span>
+      <span><i style="background:var(--accent);border-radius:50%;width:10px;height:10px"></i>Price now</span>
+      <span><i style="border:2px solid var(--ink-2);border-radius:50%;width:8px;height:8px"></i>Price paid</span></div>
+    <div class="bets">
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8" target="_blank" rel="noopener">US x Iran ceasefire continues through November 8?</a>
+    <span class="pill bad">-&pound;0.12 so far</span>
+  </div>
+  <div class="facts"><span>Bet on <b>Yes</b></span><span>Staked <b>&pound;10.00</b>
+    at <b>81p</b></span>
+    <span>Pays <b>&pound;12.35</b> if right</span><span>settles in about 11 days</span></div>
+  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p; cash out at 95p">
+    <div class="line"></div>
+    <div class="zone stop" style="width:29.6%"></div>
+    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
+    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:60.0%"><i class="dot"></i><span>now 80p</span></div>
+  </div>
+</article>
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5" target="_blank" rel="noopener">Spread: Broncos (-7.5)</a>
+    <span class="pill bad">-&pound;0.24 so far</span>
+  </div>
+  <div class="facts"><span>Bet on <b>Chiefs</b></span><span>Staked <b>&pound;9.99</b>
+    at <b>81p</b></span>
+    <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 3 days</span></div>
+  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p; cash out at 95p">
+    <div class="line"></div>
+    <div class="zone stop" style="width:30.3%"></div>
+    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="mk" style="left:30.3%"><span>stop 65p</span><i class="tick"></i></div>
+    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:62.9%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:59.0%"><i class="dot"></i><span>now 80p</span></div>
+  </div>
+</article>
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026" target="_blank" rel="noopener">Will the Republicans win the Nevada governor race in 2026?</a>
+    <span class="pill bad">-&pound;0.25 so far</span>
+  </div>
+  <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;9.96</b>
+    at <b>81p</b></span>
+    <span>Pays <b>&pound;12.30</b> if right</span><span>settles in about 6 days</span></div>
+  <div class="ptrack" role="img" aria-label="Price now 79p; paid 81p; stop-loss 65p; cash out at 95p">
+    <div class="line"></div>
+    <div class="zone stop" style="width:29.6%"></div>
+    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
+    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:58.0%"><i class="dot"></i><span>now 79p</span></div>
+  </div>
+</article>
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat" target="_blank" rel="noopener">Will the Republican Party win the NC-01 House seat?</a>
+    <span class="pill bad">-&pound;0.12 so far</span>
+  </div>
+  <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;9.94</b>
+    at <b>82p</b></span>
+    <span>Pays <b>&pound;12.12</b> if right</span><span>settles in about 6 days</span></div>
+  <div class="ptrack" role="img" aria-label="Price now 81p; paid 82p; stop-loss 66p; cash out at 95p">
+    <div class="line"></div>
+    <div class="zone stop" style="width:31.2%"></div>
+    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="mk" style="left:31.2%"><span>stop 66p</span><i class="tick"></i></div>
+    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:64.0%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:62.0%"><i class="dot"></i><span>now 81p</span></div>
+  </div>
+</article>
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7" target="_blank" rel="noopener">Israel x Iran ceasefire continues through November 7?</a>
+    <span class="pill bad">-&pound;0.12 so far</span>
+  </div>
+  <div class="facts"><span>Bet on <b>Yes</b></span><span>Staked <b>&pound;9.93</b>
+    at <b>81p</b></span>
+    <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 10 days</span></div>
+  <div class="ptrack" role="img" aria-label="Price now 80p; paid 81p; stop-loss 65p; cash out at 95p">
+    <div class="line"></div>
+    <div class="zone stop" style="width:29.6%"></div>
+    <div class="zone win" style="width:calc(100% - 90.0%)"></div>
+    <div class="mk" style="left:29.6%"><span>stop 65p</span><i class="tick"></i></div>
+    <div class="mk" style="left:90.0%"><span>cash out 95p</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:62.0%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:60.0%"><i class="dot"></i><span>now 80p</span></div>
+  </div>
+</article></div>
+  </section>
+
+  <section>
+    <h2>Finished bets</h2>
+    <div class="panel"><p class="empty">None yet. Finished bets will be listed here with what they made or lost.</p></div>
+  </section>
+
+  <section>
+    <h2>Words you'll see</h2>
+    <div class="panel"><dl>
+      <dt>Price = chance</dt><dd>A share pays &pound;1 if the event happens and nothing if not. A price of 80p
+        means the market thinks there's about an 80% chance.</dd>
+      <dt>Stop-loss</dt><dd>A safety exit. If the price falls 20% below what was paid, the bot sells and takes
+        a small loss rather than risk losing the whole stake. Big news can make prices jump past it.</dd>
+      <dt>Cash out</dt><dd>Once a bet reaches 95p the bot sells, locking in most of the win without waiting
+        for the result.</dd>
+      <dt>Break-even win rate</dt><dd>How often the bets must win just to not lose money. It equals the
+        average price paid. Beating it is the real goal; a high win rate alone isn't enough.</dd>
+      <dt>Paper money</dt><dd>Pretend money. Prices and order books are real, but no real money is bought or sold.</dd>
+    </dl></div>
+  </section>
+  <p class="small">Each bet is 10% of the pot, at most 5 at once and at most
+    2 on the same topic. Prices come from Polymarket.</p>
+</div>
+<script>
+(function(){
+  var box = document.getElementById('pot-chart'); if (!box) return;
+  var pts = JSON.parse(box.dataset.points), svg = box.querySelector('svg'),
+      tip = box.querySelector('.tip'), cross = svg.querySelector('#cross');
+  function show(e){
+    var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal,
+        x = (e.clientX - r.left) * vb.width / r.width, best = pts[0];
+    pts.forEach(function(p){ if (Math.abs(p.x - x) < Math.abs(best.x - x)) best = p; });
+    cross.setAttribute('x1', best.x); cross.setAttribute('x2', best.x); cross.style.display = '';
+    tip.hidden = false; tip.textContent = best.label;
+    tip.style.left = (best.x * r.width / vb.width) + 'px'; tip.style.top = (best.y * r.height / vb.height) + 'px';
+  }
+  svg.addEventListener('pointermove', show);
+  svg.addEventListener('pointerleave', function(){ tip.hidden = true; cross.style.display = 'none'; });
+})();
+</script>

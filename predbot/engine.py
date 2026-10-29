@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 
 from . import strategy
 from .config import Config
+from .dashboard import write_dashboard
 from .polymarket import PolymarketClient
 from .portfolio import Portfolio, Position
 
@@ -21,6 +22,8 @@ def manage_positions(pf: Portfolio, client: PolymarketClient, cfg: Config) -> No
             continue
         if market is None:
             continue
+        if market.end_date and not pos.closes_at:
+            pos.closes_at = market.end_date.isoformat(timespec="seconds")
 
         settle = market.settlement_price(pos.token_id)
         if settle is not None:
@@ -84,6 +87,7 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config,
             stake=stake, stop_price=strategy.stop_price(cost, cfg),
             opened_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
             url=m.url, last_bid=round(o.bid - m.taker_fee(o.bid), 4), tags=tags,
+            closes_at=m.end_date.isoformat(timespec="seconds") if m.end_date else "",
         )
         pf.open(pos)
         _log(f"BUY £{stake:.2f} of '{o.name}' @ {avg:.3f} (stop {pos.stop_price:.3f}, "
@@ -100,5 +104,7 @@ def run_cycle(cfg: Config, client: PolymarketClient | None = None) -> Portfolio:
     try:
         open_new_positions(pf, client, cfg)
     finally:
+        pf.snapshot()
         pf.save(cfg.state_path)
+        write_dashboard(pf, cfg)
     return pf

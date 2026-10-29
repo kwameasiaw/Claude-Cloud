@@ -13,12 +13,16 @@ python -m predbot scan          # look at today's opportunities, no trading
 python -m predbot run           # one cycle: manage positions, maybe open new ones
 python -m predbot loop --minutes 15   # keep running every 15 minutes
 python -m predbot report        # bankroll, win rate, P&L, open positions
+python -m predbot dashboard     # rebuild dashboard.html (also done after every run)
 python -m predbot reset         # wipe paper state and start again at £100
 python -m unittest -v           # tests
 ```
 
 State is kept in `paper_state.json`; every closed trade is appended to `trade_journal.csv`.
-Both are committed so the paper portfolio survives between sessions.
+Both are committed so the paper portfolio survives between sessions. Every run also
+rebuilds `dashboard.html`, a plain-English page with charts of the pot, the win rate
+against the break-even rate, and where each open bet sits between its stop-loss and
+cash-out price.
 
 ## The rules it follows
 

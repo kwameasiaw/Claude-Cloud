@@ -21,6 +21,7 @@ class Position:
     url: str = ""
     last_bid: float | None = None   # net of the fee we'd pay to sell now
     tags: list[str] = field(default_factory=list)
+    closes_at: str = ""
 
 
 @dataclass
@@ -45,6 +46,7 @@ class Portfolio:
     starting_bankroll: float
     positions: list[Position] = field(default_factory=list)
     closed: list[ClosedTrade] = field(default_factory=list)
+    history: list[dict] = field(default_factory=list)   # {"t", "equity", "cash"} per cycle
 
     @classmethod
     def load(cls, path: str, starting_bankroll: float) -> "Portfolio":
@@ -57,6 +59,7 @@ class Portfolio:
             starting_bankroll=data["starting_bankroll"],
             positions=[Position(**p) for p in data.get("positions", [])],
             closed=[ClosedTrade(**t) for t in data.get("closed", [])],
+            history=data.get("history", []),
         )
 
     def save(self, path: str) -> None:
@@ -64,6 +67,15 @@ class Portfolio:
         with open(tmp, "w") as f:
             json.dump(asdict(self), f, indent=2)
         os.replace(tmp, path)
+
+    def snapshot(self) -> None:
+        if not self.history:
+            first = min((p.opened_at for p in self.positions), default=None)
+            if first:
+                self.history.append({"t": first, "equity": self.starting_bankroll,
+                                     "cash": self.starting_bankroll})
+        self.history.append({"t": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                             "equity": round(self.equity(), 2), "cash": round(self.cash, 2)})
 
     def equity(self) -> float:
         """Cash plus open positions marked at their last known bid (what we could sell for)."""

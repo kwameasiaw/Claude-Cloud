@@ -121,7 +121,8 @@ class EngineTest(unittest.TestCase):
     def setUp(self):
         self.dir = tempfile.TemporaryDirectory()
         self.cfg = replace(Config(), state_path=os.path.join(self.dir.name, "s.json"),
-                           journal_path=os.path.join(self.dir.name, "j.csv"))
+                           journal_path=os.path.join(self.dir.name, "j.csv"),
+                           dashboard_path=os.path.join(self.dir.name, "d.html"))
 
     def tearDown(self):
         self.dir.cleanup()
@@ -150,6 +151,12 @@ class EngineTest(unittest.TestCase):
         # State survives a reload.
         again = Portfolio.load(self.cfg.state_path, 100)
         self.assertAlmostEqual(again.cash, pf.cash)
+        self.assertEqual(len(again.history), 3)   # seeded start + one per cycle
+        with open(self.cfg.dashboard_path) as f:
+            page = f.read()
+        self.assertIn("<title>Paper Pot</title>", page)
+        self.assertIn("Sold at stop-loss", page)
+        self.assertIn('id="pot-chart"', page)
 
 
 if __name__ == "__main__":

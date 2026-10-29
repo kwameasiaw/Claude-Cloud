@@ -28,7 +28,8 @@
         "military-strikes",
         "trump-iran",
         "diplomacy-ceasefire"
-      ]
+      ],
+      "closes_at": "2026-11-09T04:59:00+00:00"
     },
     {
       "market_id": "5657803",
@@ -47,7 +48,8 @@
         "sports",
         "nfl",
         "games"
-      ]
+      ],
+      "closes_at": "2026-11-01T21:25:00+00:00"
     },
     {
       "market_id": "629506",
@@ -74,7 +76,8 @@
         "governor-tossups",
         "midterm-tossups",
         "nevada-governor"
-      ]
+      ],
+      "closes_at": "2026-11-04T04:59:00+00:00"
     },
     {
       "market_id": "943476",
@@ -101,7 +104,8 @@
         "tossup-house-races",
         "midterm-tossups",
         "north-carolina-house"
-      ]
+      ],
+      "closes_at": "2026-11-04T04:59:00+00:00"
     },
     {
       "market_id": "6367378",
@@ -123,8 +127,21 @@
         "israel-x-iran",
         "israel-election",
         "diplomacy-ceasefire"
-      ]
+      ],
+      "closes_at": "2026-11-08T04:59:00+00:00"
     }
   ],
-  "closed": []
+  "closed": [],
+  "history": [
+    {
+      "t": "2026-10-29T16:48:54+00:00",
+      "equity": 100.0,
+      "cash": 100.0
+    },
+    {
+      "t": "2026-10-29T16:53:21+00:00",
+      "equity": 99.15,
+      "cash": 50.18
+    }
+  ]
 }

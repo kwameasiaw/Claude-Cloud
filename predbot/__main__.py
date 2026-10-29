@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 from . import strategy
 from .config import Config
+from .dashboard import write_dashboard
 from .engine import run_cycle
 from .polymarket import PolymarketClient
 from .portfolio import Portfolio
@@ -48,6 +49,7 @@ def main() -> None:
     lp = sub.add_parser("loop", help="run cycles forever")
     lp.add_argument("--minutes", type=float, default=15, help="minutes between cycles")
     sub.add_parser("report", help="show paper P&L and win rate")
+    sub.add_parser("dashboard", help="rebuild dashboard.html from saved state")
     sub.add_parser("reset", help="delete paper state and journal, start again at £100")
     args = ap.parse_args()
     cfg = Config()
@@ -66,8 +68,11 @@ def main() -> None:
             time.sleep(args.minutes * 60)
     elif args.cmd == "report":
         cmd_report(cfg)
+    elif args.cmd == "dashboard":
+        write_dashboard(Portfolio.load(cfg.state_path, cfg.starting_bankroll), cfg)
+        print(f"Wrote {cfg.dashboard_path}")
     elif args.cmd == "reset":
-        for path in (cfg.state_path, cfg.journal_path):
+        for path in (cfg.state_path, cfg.journal_path, cfg.dashboard_path):
             if os.path.exists(path):
                 os.remove(path)
         print(f"Reset. Next run starts with £{cfg.starting_bankroll:.2f} paper money.")

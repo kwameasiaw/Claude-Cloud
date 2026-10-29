@@ -37,3 +37,4 @@ class Config:
     # --- Files ----------------------------------------------------------------
     state_path: str = "paper_state.json"
     journal_path: str = "trade_journal.csv"
+    dashboard_path: str = "dashboard.html"
