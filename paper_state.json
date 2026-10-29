@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8",
-      "last_bid": 0.81,
+      "last_bid": 0.8,
       "tags": [
         "iran",
         "trump",
@@ -123,7 +123,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:57+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.8,
+      "last_bid": 0.81,
       "tags": [
         "iran",
         "israel",
@@ -162,10 +162,15 @@
       "t": "2026-10-29T17:39:06+00:00",
       "equity": 99.27,
       "cash": 50.18
+    },
+    {
+      "t": "2026-10-29T18:04:27+00:00",
+      "equity": 99.27,
+      "cash": 50.18
     }
   ],
   "last_run": {
-    "at": "2026-10-29T17:39:06+00:00",
+    "at": "2026-10-29T18:04:27+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
