@@ -444,6 +444,40 @@ def prediction_section(pf: Portfolio, cfg: Config, title: str, blurb: str, now: 
   </section>"""
 
 
+def spend_panel(cfg: Config, now: datetime) -> str:
+    sp = llm.spend_summary(cfg.llm_usage_path)
+    if not sp["calls"]:
+        why = ("The key is set; nothing has been spent yet." if llm.available()
+               else "No Claude API key is set yet, so nothing has been spent.")
+        return f'<div class="panel"><p class="empty">{why}</p></div>'
+    used = sp["total"] / cfg.llm_budget_usd * 100
+    first = _when(sp["first"]) or now
+    days = max(1.0, (now - first).total_seconds() / 86400)
+    per_day = sp["week"] / min(7.0, days)
+    left = cfg.llm_budget_usd - sp["total"]
+    if left <= 0:
+        runway = "The budget is used up; top up or the Claude steps will stop working."
+    elif per_day > 0:
+        runway = f"At the last week's pace (${per_day:.2f} a day) the rest lasts about {left / per_day:.0f} more days."
+    else:
+        runway = "No spend in the last week."
+    names = {"news scoring": "News scoring", "postmortem": "Postmortems"}
+    rows = "".join(
+        f'<tr><td>{escape(names.get(k, k))}</td><td class="r">{v["calls"]:,}</td><td class="r">${v["cost"]:.2f}</td></tr>'
+        for k, v in sorted(sp["by_purpose"].items(), key=lambda kv: -kv[1]["cost"]))
+    models = ", ".join(f"{escape(m)} ({v['calls']:,} calls)" for m, v in sp["by_model"].items())
+    return f"""<div class="panel" style="display:grid;gap:14px">
+    <div class="bar-row"><span>Used of your ${cfg.llm_budget_usd:.0f}</span><div class="track"><div class="fill"
+      style="width:{min(used, 100):.1f}%;background:var(--accent)"></div></div><span class="val">${sp['total']:.2f}</span></div>
+    <div class="facts"><span>Today <b>${sp['today']:.2f}</b></span><span>Last 7 days <b>${sp['week']:.2f}</b></span>
+      <span><b>{sp['calls']:,}</b> calls</span></div>
+    <p class="small">{runway} Costs are estimated from token counts at list prices; your Claude Console shows the exact bill.</p>
+    <div class="table-wrap"><table><thead><tr><th>Used for</th><th class="r">Calls</th><th class="r">Cost</th></tr></thead>
+      <tbody>{rows}</tbody></table></div>
+    <p class="small">Models: {models}.</p>
+  </div>"""
+
+
 def render(cfg: Config, now: datetime | None = None) -> str:
     now = now or datetime.now(timezone.utc)
     from .engine import pot_config
@@ -507,6 +541,13 @@ def render(cfg: Config, now: datetime | None = None) -> str:
       <h2>Open trades</h2>
       <div class="bets">{trades}</div>
     </section>
+  </section>
+
+  <section class="part">
+    <h2>Claude API spend</h2>
+    <p class="muted">News scoring runs on Claude Haiku, the cheapest model, because it happens often and is a simple
+      job. Postmortems run on Claude Opus, the stronger model, because they are rarer and need more judgement.</p>
+    {spend_panel(cfg, now)}
   </section>
 
   <section class="part">

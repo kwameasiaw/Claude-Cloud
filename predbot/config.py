@@ -44,7 +44,10 @@ class Config:
     research_top: int = 12                # research only the most promising candidates
 
     # --- Prediction agent -----------------------------------------------------
-    llm_model: str = "claude-opus-5-5"
+    llm_model: str = "claude-opus-5-5"              # postmortem reviewers
+    research_llm_model: str = "claude-haiku-5-5"    # news scoring: simple and frequent, so the cheap model
+    llm_budget_usd: float = 20.0                    # shown on the dashboard against actual spend
+    llm_usage_path: str = "llm_usage.jsonl"
     llm_weight: float = 0.25              # how far the LLM may pull the estimate...
     llm_max_shift: float = 0.05           # ...and never more than 5c either way
     min_confidence: float = 0.55          # only fire above this confidence score

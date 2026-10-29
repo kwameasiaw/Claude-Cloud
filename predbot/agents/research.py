@@ -194,7 +194,8 @@ def _score(c: Candidate, r: Research, cfg: Config) -> None:
     prompt = (f"Market: {c.market.question}\nOutcome we would buy: {c.outcome.name}\n"
               f"Market price for that outcome: {c.outcome.ask:.2f} (= {c.outcome.ask*100:.0f}% implied)\n"
               f"Closes: {c.market.end_date:%d %b %Y}\n\nRecent coverage:\n{lines}")
-    v = llm.ask(SYSTEM, prompt, Verdict, cfg.llm_model)
+    v = llm.ask(SYSTEM, prompt, Verdict, cfg.research_llm_model, purpose="news scoring",
+                usage_path=cfg.llm_usage_path)
     if v:
         r.llm_probability = min(0.99, max(0.01, v.probability))
         r.stance = max(-1.0, min(1.0, v.stance))

@@ -49,7 +49,7 @@ Optional keys (environment variables) and the hosts each needs allowed:
 | Feature | Variables | Hosts |
 |---|---|---|
 | Stocks pot | `APCA_API_KEY_ID`, `APCA_API_SECRET_KEY` (free Alpaca paper account) | `paper-api.alpaca.markets`, `data.alpaca.markets` |
-| Claude analysis + postmortems | `ANTHROPIC_API_KEY` | `api.anthropic.com` |
+| Claude analysis + postmortems | `ANTHROPIC_API_KEY` (news scoring on Claude Haiku 5.5, postmortems on Claude Opus 5.5; every call's cost is logged to `llm_usage.jsonl` and shown on the dashboard) | `api.anthropic.com` |
 | News research | none | `news.google.com` |
 | BBC News research | none | `feeds.bbci.co.uk` |
 | Guardian research | none | `www.theguardian.com` |

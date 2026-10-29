@@ -5,7 +5,7 @@ import unittest
 from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 
-from predbot import calibration, strategy
+from predbot import calibration, llm, strategy
 from predbot.agents import postmortem, research, risk, scan
 from predbot.config import Config
 from predbot.dashboard import render
@@ -71,7 +71,7 @@ def temp_cfg(d: str, favourite_estimate: float = 0.80) -> Config:
                    value_state_path=j("v.json"), value_journal_path=j("vj.csv"),
                    dashboard_path=j("d.html"), stocks_state_path=j("ss.json"),
                    stocks_journal_path=j("sj.csv"), postmortem_path=j("pm.jsonl"),
-                   lessons_path=j("lessons.json"), calibration_path=cal,
+                   lessons_path=j("lessons.json"), calibration_path=cal, llm_usage_path=j("u.jsonl"),
                    model_path=j("none.json"), model_meta_path=j("none_meta.json"))
 
 
@@ -178,6 +178,61 @@ class ResearchTest(unittest.TestCase):
                 research.guardian("Iran ceasefire", 10)
         finally:
             research._section_items = original
+
+
+class FakeUsage:
+    input_tokens, output_tokens = 1_500, 500
+    cache_creation_input_tokens = cache_read_input_tokens = 0
+
+
+class FakeMessages:
+    def __init__(self):
+        self.calls = []
+
+    def parse(self, **kw):
+        self.calls.append(kw)
+        out = research.Verdict(probability=0.4, stance=0.2, summary="ok")
+        return type("R", (), {"stop_reason": "end_turn", "parsed_output": out,
+                              "usage": FakeUsage(), "model": kw["model"]})()
+
+
+class LlmCostTest(unittest.TestCase):
+    def setUp(self):
+        self.fake = FakeMessages()
+        llm._client = type("C", (), {"beta": type("B", (), {"messages": self.fake})()})()
+        self.had_key = os.environ.get("ANTHROPIC_API_KEY")
+        os.environ["ANTHROPIC_API_KEY"] = "test"
+
+    def tearDown(self):
+        llm._client = None
+        if self.had_key is None:
+            os.environ.pop("ANTHROPIC_API_KEY", None)
+        else:
+            os.environ["ANTHROPIC_API_KEY"] = self.had_key
+
+    def test_records_cost_and_skips_fallback_for_haiku(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "u.jsonl")
+            llm.ask("s", "p", research.Verdict, "claude-haiku-5-5", purpose="news scoring", usage_path=path)
+            llm.ask("s", "p", research.Verdict, "claude-opus-5-5", purpose="postmortem", usage_path=path)
+            self.assertNotIn("fallbacks", self.fake.calls[0])      # Haiku rejects it
+            self.assertEqual(self.fake.calls[1]["fallbacks"], "default")
+            sp = llm.spend_summary(path)
+            self.assertEqual(sp["calls"], 2)
+            haiku = (1_500 * 0.10 + 500 * 0.50) / 1e6
+            opus = (1_500 * 4 + 500 * 20) / 1e6
+            self.assertAlmostEqual(sp["by_purpose"]["news scoring"]["cost"], haiku)
+            self.assertAlmostEqual(sp["total"], haiku + opus)
+            self.assertAlmostEqual(sp["today"], sp["total"])
+
+    def test_dashboard_shows_spend(self):
+        with tempfile.TemporaryDirectory() as d:
+            cfg = temp_cfg(d)
+            llm.ask("s", "p", research.Verdict, "claude-haiku-5-5", purpose="news scoring",
+                    usage_path=cfg.llm_usage_path)
+            page = render(cfg)
+            self.assertIn("Used of your $20", page)
+            self.assertIn("News scoring", page)
 
 
 class RiskTest(unittest.TestCase):

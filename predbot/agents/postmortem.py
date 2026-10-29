@@ -97,7 +97,8 @@ def _offline_review(area: str, trade: dict, d: dict, history: list[dict]) -> Rev
 def _llm_review(area: str, trade: dict, d: dict, cfg: Config) -> Review | None:
     prompt = ("Losing trade:\n" + json.dumps(trade, indent=2, default=str)
               + "\n\nWhat the bot knew when it placed the bet:\n" + json.dumps(d, indent=2, default=str))
-    return llm.ask(SYSTEM.format(area=REVIEWERS[area]), prompt, Review, cfg.llm_model)
+    return llm.ask(SYSTEM.format(area=REVIEWERS[area]), prompt, Review, cfg.llm_model,
+                   purpose="postmortem", usage_path=cfg.llm_usage_path)
 
 
 def _valid(rule: Rule, d: dict) -> bool:
