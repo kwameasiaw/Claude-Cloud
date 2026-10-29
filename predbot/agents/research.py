@@ -3,6 +3,8 @@ judge whether the narrative supports the market's odds.
 
 Sources switch on when their access exists:
   * RSS news (Google News search)  -> needs news.google.com allowed
+  * BBC News section feeds          -> needs feeds.bbci.co.uk allowed
+  * Guardian section feeds          -> needs www.theguardian.com allowed
   * Reddit search                   -> needs REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET
   * X (Twitter) recent search       -> needs X_BEARER_TOKEN (paid X API plan)
 Without ANTHROPIC_API_KEY the headlines are still collected but not scored.
@@ -11,6 +13,8 @@ import base64
 import json
 import os
 import re
+import threading
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -69,6 +73,71 @@ def rss_news(query: str, limit: int) -> list[Item]:
             for i in root.iter("item")][:limit]
 
 
+# BBC and the Guardian have no search feed, so read their main section feeds once
+# (cached for 20 minutes) and keep the headlines that mention the market's key words.
+BBC_FEEDS = [f"https://feeds.bbci.co.uk/{path}/rss.xml" for path in (
+    "news", "news/world", "news/politics", "news/business", "news/technology",
+    "news/world/us_and_canada", "news/world/middle_east", "news/world/europe", "sport", "sport/football")]
+GUARDIAN_FEEDS = [f"https://www.theguardian.com/{path}/rss" for path in (
+    "world", "us-news", "politics", "business", "technology", "world/middleeast",
+    "world/europe-news", "sport", "football")]
+_feed_cache: dict[str, tuple[float, list[tuple[str, str, str]]]] = {}
+_feed_lock = threading.Lock()
+STOP = {"will", "the", "and", "for", "with", "that", "this", "from", "into", "over", "under",
+        "win", "won", "wins", "through", "before", "after", "2025", "2026", "2027", "end", "yes", "no", "who", "what", "when"}
+
+
+def _section_items(url: str) -> list[tuple[str, str, str]]:
+    with _feed_lock:
+        hit = _feed_cache.get(url)
+        if hit and time.time() - hit[0] < 1200:
+            return hit[1]
+    root = ET.fromstring(_fetch(url))
+    items = [(i.findtext("title", ""), i.findtext("description", ""), i.findtext("pubDate", ""))
+             for i in root.iter("item")]
+    with _feed_lock:
+        _feed_cache[url] = (time.time(), items)
+    return items
+
+
+def keywords(query: str) -> list[str]:
+    words = re.findall(r"[A-Za-z][A-Za-z'.-]+", query)
+    return [w.lower() for w in words if w.lower() not in STOP and (len(w) >= 4 or w.isupper())]
+
+
+def matches(text: str, keys: list[str]) -> bool:
+    """At least two key words (or every key word, if there are fewer) appear in the text."""
+    if not keys:
+        return False
+    text = text.lower()
+    hits = sum(1 for k in keys if re.search(rf"\b{re.escape(k)}\b", text))
+    return hits >= min(2, len(keys))
+
+
+def _section_source(name: str, urls: list[str]):
+    def search(query: str, limit: int) -> list[Item]:
+        keys, found, errors = keywords(query), [], 0
+        for url in urls:
+            try:
+                rows = _section_items(url)
+            except Exception:
+                errors += 1
+                continue
+            found += [Item(name, t, when) for t, d, when in rows if matches(f"{t} {d}", keys)]
+        if errors == len(urls):
+            raise RuntimeError(f"{name} feeds unreachable")
+        seen, out = set(), []
+        for item in found:
+            if item.title not in seen:
+                seen.add(item.title)
+                out.append(item)
+        return out[:limit]
+    return search
+
+
+bbc = _section_source("bbc", BBC_FEEDS)
+guardian = _section_source("guardian", GUARDIAN_FEEDS)
+
 _reddit_token = None
 
 
@@ -99,7 +168,7 @@ def x_posts(query: str, limit: int) -> list[Item]:
     return [Item("x", t["text"].replace("\n", " ")[:200]) for t in data.get("data", [])]
 
 
-SOURCES = {"news": rss_news, "reddit": reddit, "x": x_posts}
+SOURCES = {"news": rss_news, "bbc": bbc, "guardian": guardian, "reddit": reddit, "x": x_posts}
 
 
 class Verdict(BaseModel):
@@ -134,6 +203,7 @@ def _score(c: Candidate, r: Research, cfg: Config) -> None:
 
 def run(candidates: list[Candidate], cfg: Config) -> dict[str, Research]:
     """Research every candidate across every source in parallel. Keyed by market id."""
+    candidates = list({c.market.id: c for c in candidates}.values())   # one per market
     results = {c.market.id: Research() for c in candidates}
     jobs = [(c, name, fn) for c in candidates for name, fn in SOURCES.items()]
 

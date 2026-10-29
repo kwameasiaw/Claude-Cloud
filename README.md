@@ -17,7 +17,7 @@ No real money moves. Fills are simulated against live order books and quotes.
 | Step | Agent | What it does |
 |---|---|---|
 | 1 | Scan (`agents/scan.py`) | Filters ~1,000 open markets by liquidity, volume, spread and time to close; flags and skips 10c+ daily swings and very wide spreads |
-| 2 | Research (`agents/research.py`) | Fetches Google News RSS, Reddit and X in parallel; Claude scores whether the coverage supports the price |
+| 2 | Research (`agents/research.py`) | Fetches Google News, BBC and Guardian feeds (plus Reddit and X if configured) in parallel; Claude scores whether the coverage supports the price |
 | 3 | Prediction (`agents/predict.py`) | XGBoost model (only if it beat the market on held-out markets) or an empirical calibration table, nudged by Claude by at most 5c; fires only above the edge and confidence bars |
 | 4 | Risk (`agents/risk.py`) | Quarter-Kelly sizing, 10% cap, max 5 open, max 2 per topic, drawdown and daily-loss halts, then a paper fill walked through the real order book |
 | 5 | Postmortem (`agents/postmortem.py`) | Five reviewers (scan, research, prediction, risk, execution) review every loss; a rule changes behaviour only after 3 separate losses suggest it, and only toward more caution |
@@ -51,6 +51,8 @@ Optional keys (environment variables) and the hosts each needs allowed:
 | Stocks pot | `APCA_API_KEY_ID`, `APCA_API_SECRET_KEY` (free Alpaca paper account) | `paper-api.alpaca.markets`, `data.alpaca.markets` |
 | Claude analysis + postmortems | `ANTHROPIC_API_KEY` | `api.anthropic.com` |
 | News research | none | `news.google.com` |
+| BBC News research | none | `feeds.bbci.co.uk` |
+| Guardian research | none | `www.theguardian.com` |
 | Reddit research | `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET` (free "script" app) | `www.reddit.com`, `oauth.reddit.com` |
 | X research | `X_BEARER_TOKEN` (paid X API plan) | `api.x.com` |
 

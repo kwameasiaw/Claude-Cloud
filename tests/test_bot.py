@@ -145,6 +145,41 @@ class CalibrationTest(unittest.TestCase):
         self.assertEqual(n, 100)
 
 
+class ResearchTest(unittest.TestCase):
+    def test_section_feed_keeps_matching_headlines(self):
+        rows = [("Abbott lead over Hinojosa in Texas governor race narrows", "", ""),
+                ("Texas floods hit Houston", "", ""),
+                ("Abbott lead over Hinojosa in Texas governor race narrows", "", "")]   # duplicate
+        original = research._section_items
+        research._section_items = lambda url: rows
+        try:
+            items = research.bbc("Democrats Texas governor race", 10)
+        finally:
+            research._section_items = original
+        self.assertEqual([i.title for i in items], [rows[0][0]])
+
+    def test_each_market_researched_once(self):
+        m = parse_market(raw_market())
+        both = [scan.Candidate(m, m.outcomes[0]), scan.Candidate(m, m.outcomes[1])]
+        original = research.SOURCES
+        research.SOURCES = {"news": lambda q, n: [research.Item("news", "headline")]}
+        try:
+            out = research.run(both, Config())
+        finally:
+            research.SOURCES = original
+        self.assertEqual(len(out[m.id].items), 1)
+        self.assertEqual(out[m.id].sources_ok, ["news"])
+
+    def test_unreachable_feeds_count_as_failed_source(self):
+        original = research._section_items
+        research._section_items = lambda url: (_ for _ in ()).throw(OSError("blocked"))
+        try:
+            with self.assertRaises(RuntimeError):
+                research.guardian("Iran ceasefire", 10)
+        finally:
+            research._section_items = original
+
+
 class RiskTest(unittest.TestCase):
     def setUp(self):
         self.cfg = Config()

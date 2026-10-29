@@ -361,8 +361,9 @@ def pipeline(pf: Portfolio, cfg: Config) -> str:
     else:
         model = chip(False, "XGBoost model: not trained yet")
     chips = "".join([
-        chip("news" in sources, "News feeds " + ("on" if "news" in sources else "off")),
-        chip("reddit" in sources, "Reddit " + ("on" if "reddit" in sources else "off")),
+        chip("news" in sources, "Google News " + ("on" if "news" in sources else "off")),
+        chip("bbc" in sources, "BBC " + ("on" if "bbc" in sources else "off")),
+        chip("guardian" in sources, "Guardian " + ("on" if "guardian" in sources else "off")),
         chip("x" in sources, "X " + ("on" if "x" in sources else "off")),
         chip(llm.available(), "Claude analysis " + ("on" if llm.available() else "off")),
         model,
