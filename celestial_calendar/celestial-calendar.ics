@@ -1,0 +1,655 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Celestial Calendar//Chorley PR6//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sky Events - Chorley PR6
+X-WR-TIMEZONE:Europe/London
+BEGIN:VEVENT
+UID:3df2e512-26eb-5cd9-a993-a45a661c985c@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261115T210000Z
+DTEND:20261115T220000Z
+SUMMARY:Mars-Jupiter conjunction (1.2 deg apart)
+DESCRIPTION:Mars and Jupiter appear very close together. Check sun separat
+ ion: 86 deg from the Sun. Look low in the twilight sky.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mars-Jupiter conjunction (1.2 deg apart)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c82b629a-2077-5fd7-8755-45cbeb9a07cb@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261117T220000Z
+DTEND:20261118T000000Z
+SUMMARY:Leonids meteor shower peak (~15/hr max)
+DESCRIPTION:Fast meteors\, often bright trails. Moon 55% illuminated: some
+  moonlight. Find a dark spot\, give your eyes 20 min to adapt\, look up a
+ nd away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Leonids meteor shower peak (~15/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:5f3ef3b8-fb3c-5948-a509-0a7ef890f8b6@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261120T233544Z
+DTEND:20261121T003544Z
+SUMMARY:Mercury greatest elongation (20 deg)
+DESCRIPTION:Best time to spot Mercury\, in the morning sky (before sunrise
+ ). Elongation 19.6 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (20 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20b6f421-9f98-589b-ac65-e4b7139eb2b6@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261124T145404Z
+DTEND:20261124T155404Z
+SUMMARY:Full Moon: Beaver Moon
+DESCRIPTION:Full Moon at 14:54 GMT\, Tue 24 Nov 2026. Moon distance ~360\,
+ 754 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Beaver Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fdf2e748-9799-52c6-8e87-deb7c20d2164@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261214T220000Z
+DTEND:20261215T000000Z
+SUMMARY:Geminids meteor shower peak (~150/hr max)
+DESCRIPTION:Best shower of the year\; bright slow meteors. Moon 28% illumi
+ nated: some moonlight. Find a dark spot\, give your eyes 20 min to adapt\
+ , look up and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Geminids meteor shower peak (~150/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:f9be7d81-4dda-5828-bb1b-082b45364db6@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261221T205022Z
+DTEND:20261221T215022Z
+SUMMARY:December Solstice
+DESCRIPTION:December Solstice at 20:50 GMT\, Mon 21 Dec 2026.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:December Solstice
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:f642d75a-dd30-5807-ba5e-f572970550c2@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20261224T012845Z
+DTEND:20261224T022845Z
+SUMMARY:Full Moon: Cold Moon (Supermoon)
+DESCRIPTION:Full Moon at 01:28 GMT\, Thu 24 Dec 2026. Moon distance ~356\,
+ 729 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Cold Moon (Supermoon)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:3c772b64-a1b3-5bd9-83cc-9c9a7b5c561a@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270103T175604Z
+DTEND:20270103T185604Z
+SUMMARY:Venus greatest elongation (47 deg)
+DESCRIPTION:Best time to spot Venus\, in the morning sky (before sunrise).
+  Elongation 47.0 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Venus greatest elongation (47 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dfe0dcc8-5353-5a5f-9d03-d7d1d9ec8284@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270103T220000Z
+DTEND:20270104T000000Z
+SUMMARY:Quadrantids meteor shower peak (~80/hr max)
+DESCRIPTION:Sharp\, short peak\; best after midnight. Moon 13% illuminated
+ : dark moonless sky - excellent. Find a dark spot\, give your eyes 20 min
+  to adapt\, look up and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Quadrantids meteor shower peak (~80/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:691d426d-4836-5ee7-9d13-3a74abe582d7@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270122T121750Z
+DTEND:20270122T131750Z
+SUMMARY:Full Moon: Wolf Moon (Supermoon)
+DESCRIPTION:Full Moon at 12:17 GMT\, Fri 22 Jan 2027. Moon distance ~357\,
+ 635 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Wolf Moon (Supermoon)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:abdc5948-1b78-548c-910d-b277ad761a0a@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270203T062004Z
+DTEND:20270203T072004Z
+SUMMARY:Mercury greatest elongation (18 deg)
+DESCRIPTION:Best time to spot Mercury\, in the evening sky (after sunset).
+  Elongation 18.3 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (18 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cb1532a6-5c45-5a5d-9d32-5b1062af950c@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270206T155932Z
+DTEND:20270206T165932Z
+SUMMARY:Annular Solar Eclipse (not visible from Chorley)
+DESCRIPTION:Global greatest eclipse 15:59 UTC\, Sat 06 Feb 2027. Not visib
+ le from the UK\; live streams are usually available.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Annular Solar Eclipse (not visible from Chorley)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:60dc4755-3c74-50ad-b0bd-70f6d922474c@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270211T001705Z
+DTEND:20270211T011705Z
+SUMMARY:Jupiter at opposition
+DESCRIPTION:Jupiter is closest and brightest\, visible all night. Thu 11 F
+ eb 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Jupiter at opposition
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c92e40c9-9bb6-5f30-a087-cf249e611f9e@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270219T154417Z
+DTEND:20270219T164417Z
+SUMMARY:Mars at opposition
+DESCRIPTION:Mars is closest and brightest\, visible all night. Fri 19 Feb 
+ 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mars at opposition
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ab936645-ff12-5c49-b69e-ecef107ddc8a@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270220T231244Z
+DTEND:20270221T031344Z
+SUMMARY:Penumbral Lunar Eclipse
+DESCRIPTION:Greatest eclipse 23:12 GMT\, Sat 20 Feb 2027. Moon altitude fr
+ om Chorley at peak: 43 deg. Penumbral eclipses are very subtle to the eye
+ .
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Penumbral Lunar Eclipse
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:0ac73582-6015-5367-bd40-fb714b0d764c@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270220T232407Z
+DTEND:20270221T002407Z
+SUMMARY:Full Moon: Snow Moon
+DESCRIPTION:Full Moon at 23:24 GMT\, Sat 20 Feb 2027. Moon distance ~363\,
+ 296 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Snow Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:3f1a8cf3-3631-558a-8f54-9bfaf2d1d863@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270317T065659Z
+DTEND:20270317T075659Z
+SUMMARY:Mercury greatest elongation (28 deg)
+DESCRIPTION:Best time to spot Mercury\, in the morning sky (before sunrise
+ ). Elongation 27.6 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (28 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:f81f2f12-41dd-5c89-8545-6971d10abf71@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270320T202443Z
+DTEND:20270320T212443Z
+SUMMARY:March Equinox
+DESCRIPTION:March Equinox at 20:24 GMT\, Sat 20 Mar 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:March Equinox
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1f59329e-bf22-5912-b8c7-b3c794026806@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270322T104419Z
+DTEND:20270322T114419Z
+SUMMARY:Full Moon: Worm Moon
+DESCRIPTION:Full Moon at 10:44 GMT\, Mon 22 Mar 2027. Moon distance ~372\,
+ 518 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Worm Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1e98c4ce-5ce8-5bce-9b07-38ac8ddf78ab@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270420T222744Z
+DTEND:20270420T232744Z
+SUMMARY:Full Moon: Pink Moon
+DESCRIPTION:Full Moon at 23:27 BST\, Tue 20 Apr 2027. Moon distance ~383\,
+ 421 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Pink Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fa6e682e-ad78-5ecd-beb9-7a97a889f3d6@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270422T210000Z
+DTEND:20270422T230000Z
+SUMMARY:Lyrids meteor shower peak (~18/hr max)
+DESCRIPTION:Occasional bright fireballs. Moon 95% illuminated: bright Moon
+  will wash out fainter meteors. Find a dark spot\, give your eyes 20 min 
+ to adapt\, look up and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lyrids meteor shower peak (~18/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:3946fea8-e8b7-55d1-a69a-f5ead9cc145a@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270507T020000Z
+DTEND:20270507T040000Z
+SUMMARY:Eta Aquariids meteor shower peak (~30/hr max)
+DESCRIPTION:Halley's debris\; low from the UK\, pre-dawn. Moon 1% illumina
+ ted: dark moonless sky - excellent. Find a dark spot\, give your eyes 20 
+ min to adapt\, look up and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Eta Aquariids meteor shower peak (~30/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:18db63b7-3dd7-5a6d-a19e-3a303cd4a5da@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270507T200000Z
+DTEND:20270507T210000Z
+SUMMARY:Venus-Saturn conjunction (0.6 deg apart)
+DESCRIPTION:Venus and Saturn appear very close together. Check sun separat
+ ion: 26 deg from the Sun. Look low in the twilight sky.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Venus-Saturn conjunction (0.6 deg apart)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:9e650b5c-1a49-5b56-ac0e-7ac1b54a736a@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270520T105939Z
+DTEND:20270520T115939Z
+SUMMARY:Full Moon: Flower Moon
+DESCRIPTION:Full Moon at 11:59 BST\, Thu 20 May 2027. Moon distance ~393\,
+ 893 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Flower Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dfa07291-7de1-5cb5-acd3-447273be28a1@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270528T100157Z
+DTEND:20270528T110157Z
+SUMMARY:Mercury greatest elongation (23 deg)
+DESCRIPTION:Best time to spot Mercury\, in the evening sky (after sunset).
+  Elongation 22.9 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (23 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2edd5645-21f6-5c83-9bd1-0aaebde7f328@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270619T004501Z
+DTEND:20270619T014501Z
+SUMMARY:Full Moon: Strawberry Moon
+DESCRIPTION:Full Moon at 01:45 BST\, Sat 19 Jun 2027. Moon distance ~401\,
+ 943 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Strawberry Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:a98be852-788f-587b-bcd4-8f737c1251f2@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270621T141033Z
+DTEND:20270621T151033Z
+SUMMARY:June Solstice
+DESCRIPTION:June Solstice at 15:10 BST\, Mon 21 Jun 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:June Solstice
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:4a616da8-2bc2-5156-ae78-a89fd0fd2b71@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270715T192942Z
+DTEND:20270715T202942Z
+SUMMARY:Mercury greatest elongation (21 deg)
+DESCRIPTION:Best time to spot Mercury\, in the morning sky (before sunrise
+ ). Elongation 20.7 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (21 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:e941db47-4875-5364-8979-70344a960ad2@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270718T154536Z
+DTEND:20270718T164536Z
+SUMMARY:Full Moon: Buck Moon (Micromoon)
+DESCRIPTION:Full Moon at 16:45 BST\, Sun 18 Jul 2027. Moon distance ~405\,
+ 968 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Buck Moon (Micromoon)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:704bbe36-7a9c-5f16-87b1-16403010ea3e@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270718T160254Z
+DTEND:20270718T162754Z
+SUMMARY:Penumbral Lunar Eclipse (below horizon from Chorley)
+DESCRIPTION:Greatest eclipse 17:02 BST\, Sun 18 Jul 2027. Moon altitude fr
+ om Chorley at peak: -38 deg. Penumbral eclipses are very subtle to the ey
+ e.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Penumbral Lunar Eclipse (below horizon from Chorley)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:0ae2bceb-9083-59e6-8640-1681c197c8a6@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270802T080619Z
+DTEND:20270802T100619Z
+SUMMARY:Partial Solar Eclipse (visible from Chorley\, max 35% sun covered)
+DESCRIPTION:Max at 09:59 BST\, sun altitude 38 deg. NEVER look at the Sun 
+ without certified eclipse glasses.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Partial Solar Eclipse (visible from Chorley\, max 35% sun cove
+ red)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1dc1957a-3592-5a3d-966d-f1f62fe96021@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270812T210000Z
+DTEND:20270812T230000Z
+SUMMARY:Perseids meteor shower peak (~100/hr max)
+DESCRIPTION:Warm summer nights\, plenty of fireballs. Moon 84% illuminated
+ : bright Moon will wash out fainter meteors. Find a dark spot\, give your
+  eyes 20 min to adapt\, look up and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Perseids meteor shower peak (~100/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:62b75ac5-74c0-54e9-9511-336c195e0a1c@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270817T071344Z
+DTEND:20270817T105244Z
+SUMMARY:Penumbral Lunar Eclipse (below horizon from Chorley)
+DESCRIPTION:Greatest eclipse 08:13 BST\, Tue 17 Aug 2027. Moon altitude fr
+ om Chorley at peak: -19 deg. Penumbral eclipses are very subtle to the ey
+ e.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Penumbral Lunar Eclipse (below horizon from Chorley)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7784549c-90e4-501e-9f7f-8abe4eac7994@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270817T072919Z
+DTEND:20270817T082919Z
+SUMMARY:Full Moon: Sturgeon Moon (Micromoon)
+DESCRIPTION:Full Moon at 08:29 BST\, Tue 17 Aug 2027. Moon distance ~405\,
+ 069 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Sturgeon Moon (Micromoon)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fc6cd51e-4541-50fb-a353-9b99cd3cf427@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270915T230409Z
+DTEND:20270916T000409Z
+SUMMARY:Full Moon: Harvest/Corn Moon
+DESCRIPTION:Full Moon at 00:04 BST\, Thu 16 Sep 2027. Moon distance ~399\,
+ 341 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Harvest/Corn Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:de4df058-9201-5eda-81f7-bf2daa67d8de@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270923T060118Z
+DTEND:20270923T070118Z
+SUMMARY:September Equinox
+DESCRIPTION:September Equinox at 07:01 BST\, Thu 23 Sep 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:September Equinox
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:0bead94f-5630-5b88-9a71-7665981b40f5@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20270924T220559Z
+DTEND:20270924T230559Z
+SUMMARY:Mercury greatest elongation (26 deg)
+DESCRIPTION:Best time to spot Mercury\, in the evening sky (after sunset).
+  Elongation 26.3 deg.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Mercury greatest elongation (26 deg)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:dbd8a3a7-f88e-5250-986a-10f085e1e3c1@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20271015T134734Z
+DTEND:20271015T144734Z
+SUMMARY:Full Moon: Hunter's Moon
+DESCRIPTION:Full Moon at 14:47 BST\, Fri 15 Oct 2027. Moon distance ~389\,
+ 926 km. Best viewed when it rises in the east around sunset.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Full Moon: Hunter's Moon
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:f0fb3f2f-47fd-51fe-ba8d-b9c9970d873f@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20271018T001834Z
+DTEND:20271018T011834Z
+SUMMARY:Saturn at opposition
+DESCRIPTION:Saturn is closest and brightest\, visible all night. Mon 18 Oc
+ t 2027.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Saturn at opposition
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:21be4dd5-f909-5878-bdb9-13d8a692661f@celestial-calendar
+DTSTAMP:20261029T222634Z
+DTSTART:20271021T210000Z
+DTEND:20271021T230000Z
+SUMMARY:Orionids meteor shower peak (~20/hr max)
+DESCRIPTION:Also Halley's debris\, fast meteors. Moon 59% illuminated: som
+ e moonlight. Find a dark spot\, give your eyes 20 min to adapt\, look up 
+ and away from the Moon.
+LOCATION:Whitley Woods\, Chorley PR6
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Orionids meteor shower peak (~20/hr max)
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
