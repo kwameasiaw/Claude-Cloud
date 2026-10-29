@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8",
-      "last_bid": 0.8,
+      "last_bid": 0.77,
       "tags": [
         "iran",
         "trump",
@@ -94,7 +94,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.81,
+      "last_bid": 0.82,
       "tags": [
         "midterms",
         "house-elections",
@@ -174,22 +174,27 @@
       "t": "2026-10-29T19:06:04+00:00",
       "equity": 97.06,
       "cash": 57.9
+    },
+    {
+      "t": "2026-10-29T20:05:24+00:00",
+      "equity": 96.82,
+      "cash": 57.9
     }
   ],
   "last_run": {
-    "at": "2026-10-29T19:06:01+00:00",
+    "at": "2026-10-29T20:05:21+00:00",
     "scanned": 1000,
-    "flagged": 178,
-    "passed_filters": 165,
-    "candidates": 25,
+    "flagged": 138,
+    "passed_filters": 211,
+    "candidates": 35,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Frosinone Calcio win on 2026-10-29?: price swung +41c in 24h",
-      "Erste Bank Open: Arthur Fery vs Lorenzo Musetti: price swung +72c in 24h",
-      "Billionaire one-time wealth tax passes in California election 2026?: price swung +10c in 24h",
-      "Will US Lecce win on 2026-10-29?: price swung -19c in 24h",
-      "Afghanistan and Zimbabwe in the UAE T20s: Afghanistan vs Zimbabwe: price swung +21c in 24h"
+      "Guayaquil: Diego Dedura-Palomero vs Valerio Aboian: price swung -65c in 24h",
+      "Afghanistan and Zimbabwe in the UAE T20s: Afghanistan vs Zimbabwe: price swung +24c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -34c in 24h",
+      "Al Nassr Saudi Club vs. Al Kholood Saudi Club: O/U 4.5: price swung +71c in 24h",
+      "Will Predict.fun launch a token by October 31, 2026?: price swung +20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 212.81,
+      "last_bid": 203.58,
       "tags": [
         "tech"
       ],
@@ -59,16 +59,17 @@
       "t": "2026-10-29T19:06:10+00:00",
       "equity": 100.0,
       "cash": 90.0
+    },
+    {
+      "t": "2026-10-29T20:05:27+00:00",
+      "equity": 99.57,
+      "cash": 90.0
     }
   ],
   "last_run": {
-    "at": "2026-10-29T19:06:05+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 1,
-    "traded": 0,
-    "blocked_examples": [
-      "NVDA: already holding NVDA"
-    ]
+    "at": "2026-10-29T20:05:25+00:00",
+    "scanned": 22,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
