@@ -1,37 +1,7 @@
 {
-  "cash": 57.903359000000016,
+  "cash": 65.06386500000002,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "5686980",
-      "event_id": "1038648",
-      "question": "US x Iran ceasefire continues through November 8?",
-      "outcome": "Yes",
-      "token_id": "11308864288973006753199540704778798414330563151778440954216228592301141985802",
-      "shares": 12.3457,
-      "entry_price": 0.81,
-      "stake": 10.0,
-      "stop_price": 0.648,
-      "opened_at": "2026-10-29T16:48:54+00:00",
-      "url": "https://polymarket.com/market/us-x-iran-ceasefire-continues-through-november-8",
-      "last_bid": 0.71,
-      "tags": [
-        "iran",
-        "trump",
-        "israel",
-        "military",
-        "politics",
-        "geopolitics",
-        "middle-east",
-        "israel-x-iran",
-        "military-action",
-        "military-strikes",
-        "trump-iran",
-        "diplomacy-ceasefire"
-      ],
-      "closes_at": "2026-11-09T04:59:00+00:00",
-      "decision": {}
-    },
     {
       "market_id": "5657803",
       "event_id": "1176737",
@@ -127,6 +97,21 @@
       "opened_at": "2026-10-29T16:48:57+00:00",
       "closed_at": "2026-10-29T18:19:41+00:00",
       "decision": {}
+    },
+    {
+      "market_id": "5686980",
+      "question": "US x Iran ceasefire continues through November 8?",
+      "outcome": "Yes",
+      "entry_price": 0.81,
+      "exit_price": 0.58,
+      "shares": 12.3457,
+      "stake": 10.0,
+      "proceeds": 7.1605,
+      "pnl": -2.8395,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-29T16:48:54+00:00",
+      "closed_at": "2026-10-29T22:04:23+00:00",
+      "decision": {}
     }
   ],
   "history": [
@@ -184,22 +169,27 @@
       "t": "2026-10-29T21:04:37+00:00",
       "equity": 96.07,
       "cash": 57.9
+    },
+    {
+      "t": "2026-10-29T22:04:27+00:00",
+      "equity": 94.47,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-29T21:04:35+00:00",
+    "at": "2026-10-29T22:04:24+00:00",
     "scanned": 1000,
-    "flagged": 183,
-    "passed_filters": 180,
-    "candidates": 27,
+    "flagged": 166,
+    "passed_filters": 188,
+    "candidates": 28,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "LoL: Karmine Corp vs CTBC Flying Oyster - Game 2 Winner: price swung -22c in 24h",
       "LoL: Karmine Corp vs CTBC Flying Oyster - Game 1 Winner: price swung +28c in 24h",
-      "LoL: Karmine Corp vs CTBC Flying Oyster (BO3) - Worlds Group Stage: price swung +13c in 24h",
-      "Game Handicap: KC (-1.5) vs CTBC Flying Oyster (+1.5): price swung +19c in 24h",
-      "Will Atalanta BC win on 2026-10-29?: price swung +19c in 24h",
-      "Will ACF Fiorentina win on 2026-10-29?: price swung -20c in 24h"
+      "US x Iran ceasefire continues through November 8?: price swung -14c in 24h",
+      "US x Iran ceasefire continues through October 31?: price swung -14c in 24h",
+      "Will Bitcoin dip to $77,500 in October?: price swung +47c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
