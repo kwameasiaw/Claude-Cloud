@@ -194,22 +194,27 @@
       "t": "2026-10-30T02:04:16+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T03:04:25+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T02:04:13+00:00",
+    "at": "2026-10-30T03:04:22+00:00",
     "scanned": 1000,
-    "flagged": 237,
-    "passed_filters": 185,
-    "candidates": 24,
+    "flagged": 183,
+    "passed_filters": 207,
+    "candidates": 26,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Cavaliers vs. Hawks: price swung -22c in 24h",
-      "Kings vs. Pelicans: price swung -27c in 24h",
-      "Panthers vs. Packers: price swung -19c in 24h",
-      "Spread: Packers (-3.5): price swung +16c in 24h",
-      "Spread: Pelicans (-6.5): price swung +20c in 24h"
+      "Panthers vs. Packers: price swung -30c in 24h",
+      "Spread: Packers (-3.5): price swung +30c in 24h",
+      "Will CR Flamengo win on 2026-10-29?: price swung +46c in 24h",
+      "Capitals vs. Predators: price swung +49c in 24h",
+      "Grizzlies vs. Trail Blazers: O/U 233.5: price swung -18c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
