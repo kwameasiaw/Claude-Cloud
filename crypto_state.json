@@ -1,5 +1,5 @@
 {
-  "cash": 70.0,
+  "cash": 60.01,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 72355.325301,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77340.7,
+      "last_bid": 77151.3,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 2008.300768,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2231.354,
+      "last_bid": 2226.604,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 47.0645,
       "opened_at": "2026-10-30T10:04:56+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 54.835,
+      "last_bid": 55.184,
       "tags": [
         "altcoin"
       ],
@@ -118,6 +118,46 @@
             "risking 1.5% of pot -> \u00a310.00",
             "cap 10% = \u00a310.00",
             "stake \u00a310.00"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "AVAX/USD",
+      "event_id": "AVAX/USD",
+      "question": "Avalanche (AVAX/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 1.213809,
+      "entry_price": 8.23029,
+      "stake": 9.99,
+      "stop_price": 7.000422,
+      "opened_at": "2026-10-30T13:08:03+00:00",
+      "url": "https://www.google.com/finance/quote/AVAX-USD",
+      "last_bid": 8.217,
+      "tags": [
+        "altcoin"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 7.000422,
+        "signal": [
+          "+0.7% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 14.9% below"
+        ],
+        "risk": {
+          "stake": 9.99,
+          "reasons": [
+            "stop 14.9% away",
+            "risking 1.5% of pot -> \u00a310.03",
+            "cap 10% = \u00a39.99",
+            "stake \u00a39.99"
           ]
         }
       }
@@ -149,18 +189,22 @@
       "t": "2026-10-30T12:08:11+00:00",
       "equity": 99.92,
       "cash": 70.0
+    },
+    {
+      "t": "2026-10-30T13:08:03+00:00",
+      "equity": 99.92,
+      "cash": 60.01
     }
   ],
   "last_run": {
-    "at": "2026-10-30T12:08:10+00:00",
+    "at": "2026-10-30T13:08:02+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 3,
-    "traded": 0,
+    "traded": 1,
     "blocked_examples": [
-      "BTC/USD: already holding BTC/USD",
       "ETH/USD: already holding ETH/USD",
-      "LTC/USD: already holding LTC/USD"
+      "BTC/USD: already holding BTC/USD"
     ]
   }
 }

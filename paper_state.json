@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.79,
+      "last_bid": 0.78,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -249,22 +249,27 @@
       "t": "2026-10-30T12:08:09+00:00",
       "equity": 94.58,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T13:08:00+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T12:08:04+00:00",
+    "at": "2026-10-30T13:07:57+00:00",
     "scanned": 1000,
-    "flagged": 132,
-    "passed_filters": 239,
-    "candidates": 26,
+    "flagged": 133,
+    "passed_filters": 245,
+    "candidates": 28,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Guangzhou Open: Xinran Sun vs Claire Liu: price swung +65c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +58c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +17c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -16c in 24h",
-      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -52c in 24h"
+      "Will Bitcoin dip to $75,000 in October?: price swung +19c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -21c in 24h",
+      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -57c in 24h",
+      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +54c in 24h",
+      "Will Predict.fun launch a token by October 31, 2026?: price swung -91c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
