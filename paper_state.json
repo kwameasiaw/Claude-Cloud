@@ -14,7 +14,7 @@
       "stop_price": 0.6517,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
-      "last_bid": 0.785,
+      "last_bid": 0.7749,
       "tags": [
         "sports",
         "nfl",
@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.79,
+      "last_bid": 0.8,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -199,22 +199,27 @@
       "t": "2026-10-30T03:04:25+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T04:04:27+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T03:04:22+00:00",
+    "at": "2026-10-30T04:04:24+00:00",
     "scanned": 1000,
-    "flagged": 183,
-    "passed_filters": 207,
-    "candidates": 26,
+    "flagged": 162,
+    "passed_filters": 231,
+    "candidates": 32,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Panthers vs. Packers: price swung -30c in 24h",
-      "Spread: Packers (-3.5): price swung +30c in 24h",
-      "Will CR Flamengo win on 2026-10-29?: price swung +46c in 24h",
-      "Capitals vs. Predators: price swung +49c in 24h",
-      "Grizzlies vs. Trail Blazers: O/U 233.5: price swung -18c in 24h"
+      "Grizzlies vs. Trail Blazers: price swung +55c in 24h",
+      "Spread: Trail Blazers (-7.5): price swung -46c in 24h",
+      "Senators vs. Kings: price swung -51c in 24h",
+      "Grizzlies vs. Trail Blazers: O/U 233.5: price swung -30c in 24h",
+      "Pan Pacific Open: Kamilla Rakhimova vs Maya Joint: price swung +54c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
