@@ -289,22 +289,27 @@
       "t": "2026-10-30T20:05:10+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T21:04:22+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T20:05:07+00:00",
+    "at": "2026-10-30T21:04:20+00:00",
     "scanned": 1000,
-    "flagged": 218,
-    "passed_filters": 202,
-    "candidates": 23,
+    "flagged": 192,
+    "passed_filters": 199,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Paris Saint-Germain FC win on 2026-10-30?: price swung +22c in 24h",
-      "Knicks vs. 76ers: price swung +10c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +12c in 24h",
-      "Will OGC Nice win on 2026-10-31?: price swung +64c in 24h",
-      "Spread: Paris Saint-Germain FC (-1.5): price swung +44c in 24h"
+      "Knicks vs. 76ers: price swung +12c in 24h",
+      "LoL: Team Liquid vs LOS (BO3) - Worlds Group Stage: price swung -30c in 24h",
+      "Will Villarreal CF win on 2026-10-30?: price swung -11c in 24h",
+      "Will 1. FSV Mainz 05 win on 2026-10-30?: price swung -44c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
