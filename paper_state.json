@@ -264,22 +264,27 @@
       "t": "2026-10-30T15:05:25+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T16:04:31+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T15:05:21+00:00",
+    "at": "2026-10-30T16:04:28+00:00",
     "scanned": 1000,
-    "flagged": 133,
-    "passed_filters": 225,
-    "candidates": 28,
+    "flagged": 138,
+    "passed_filters": 214,
+    "candidates": 27,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Bitcoin dip to $75,000 in October?: price swung +12c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -54c in 24h",
-      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +54c in 24h",
-      "Will Elon Musk post 380-399 tweets from October 23 to October 30, 2026: price swung +89c in 24h",
-      "Will the price of Bitcoin be above $78,000 on October 30?: price swung -87c in 24h"
+      "Will commitments to the 1W public sale exceed $40M?: price swung +31c in 24h",
+      "Will Elon Musk post 380-399 tweets from October 23 to October 30, 2026: price swung +98c in 24h",
+      "Will commitments to the 1W public sale exceed $60M?: price swung +66c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -51c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
