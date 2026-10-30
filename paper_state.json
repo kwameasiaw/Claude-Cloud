@@ -259,22 +259,27 @@
       "t": "2026-10-30T14:07:58+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T15:05:25+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T14:07:54+00:00",
+    "at": "2026-10-30T15:05:21+00:00",
     "scanned": 1000,
-    "flagged": 138,
-    "passed_filters": 236,
-    "candidates": 32,
+    "flagged": 133,
+    "passed_filters": 225,
+    "candidates": 28,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: Nemiga vs Vitality (BO3) - PGL Masters Bucharest Playo: price swung +86c in 24h",
-      "Counter-Strike: Nemiga vs Vitality - Map 2 Winner: price swung +55c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +25c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -22c in 24h",
-      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -62c in 24h"
+      "Will Bitcoin dip to $75,000 in October?: price swung +12c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -54c in 24h",
+      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +54c in 24h",
+      "Will Elon Musk post 380-399 tweets from October 23 to October 30, 2026: price swung +89c in 24h",
+      "Will the price of Bitcoin be above $78,000 on October 30?: price swung -87c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

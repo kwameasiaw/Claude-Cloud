@@ -1,5 +1,5 @@
 {
-  "cash": 60.05999999999999,
+  "cash": 50.09999999999999,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 207.81,
+      "last_bid": 206.24,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 697.12,
+      "last_bid": 695.56,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 760.08,
+      "last_bid": 759.0,
       "tags": [
         "index"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 367.36,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 397.61,
+      "last_bid": 395.9,
       "tags": [
         "consumer"
       ],
@@ -158,6 +158,46 @@
             "risking 1.5% of pot -> \u00a318.71",
             "cap 10% = \u00a39.98",
             "stake \u00a39.98"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "MSFT",
+      "event_id": "MSFT",
+      "question": "Microsoft (MSFT)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.019033,
+      "entry_price": 523.29,
+      "stake": 9.96,
+      "stop_price": 494.5,
+      "opened_at": "2026-10-30T15:05:32+00:00",
+      "url": "https://www.google.com/finance/quote/MSFT",
+      "last_bid": 521.56,
+      "tags": [
+        "tech"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 494.5,
+        "signal": [
+          "+19.3% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 5.5% below"
+        ],
+        "risk": {
+          "stake": 9.96,
+          "reasons": [
+            "stop 5.5% away",
+            "risking 1.5% of pot -> \u00a327.15",
+            "cap 10% = \u00a39.96",
+            "stake \u00a39.96"
           ]
         }
       }
@@ -279,16 +319,23 @@
       "t": "2026-10-30T14:08:02+00:00",
       "equity": 99.72,
       "cash": 60.06
+    },
+    {
+      "t": "2026-10-30T15:05:32+00:00",
+      "equity": 99.54,
+      "cash": 50.1
     }
   ],
   "last_run": {
-    "at": "2026-10-30T14:07:59+00:00",
+    "at": "2026-10-30T15:05:26+00:00",
     "scanned": 28,
     "market_open": true,
     "signals": 4,
-    "traded": 3,
+    "traded": 1,
     "blocked_examples": [
-      "NVDA: already holding NVDA"
+      "SPY: already holding SPY",
+      "QQQ: already holding QQQ",
+      "NVDA: already 5 open trades"
     ]
   }
 }
