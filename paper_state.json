@@ -209,22 +209,27 @@
       "t": "2026-10-30T05:04:20+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T06:05:28+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T05:04:17+00:00",
+    "at": "2026-10-30T06:05:25+00:00",
     "scanned": 1000,
-    "flagged": 142,
-    "passed_filters": 244,
-    "candidates": 30,
+    "flagged": 130,
+    "passed_filters": 254,
+    "candidates": 31,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Bitcoin reach $82,500 in October?: price swung -20c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -16c in 24h",
       "US-Iran ceasefire continues through the midterms?: price swung -11c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +11c in 24h",
-      "Will Predict.fun launch a token by October 31, 2026?: price swung -62c in 24h",
-      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +52c in 24h"
+      "Will Predict.fun launch a token by October 31, 2026?: price swung -55c in 24h",
+      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +55c in 24h",
+      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -41c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
