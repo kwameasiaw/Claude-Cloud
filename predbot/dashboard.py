@@ -106,8 +106,8 @@ td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric
 dl { display: grid; gap: 12px; margin: 0; }
 dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
 .empty { color: var(--ink-2); font-size: .92rem; }
-.pots { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
-@media (max-width: 760px) { .pots { grid-template-columns: minmax(0,1fr); } }
+.pots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 560px) { .pots { grid-template-columns: minmax(0,1fr); } }
 .pot { display: grid; gap: 6px; }
 .pot .value { font: 650 2.1rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
 .pot .facts { font-size: .84rem; }
@@ -293,12 +293,18 @@ def bet_card(pos: Position, cfg: Config, now: datetime, lo: float) -> str:
 </article>"""
 
 
-def stock_card(pos: Position, now: datetime) -> str:
+def _usd(p: float) -> str:
+    """Dollar price; coins under $1 (e.g. Dogecoin) need more than two decimals."""
+    return f"${p:,.2f}" if p >= 1 else f"${p:.4f}"
+
+
+def stock_card(pos: Position, now: datetime,
+               hold: str = "after about 10 trading days", group: str = "Sector") -> str:
     now_p = pos.last_bid if pos.last_bid is not None else pos.entry_price
     pnl = pos.shares * now_p - pos.stake
     pill = "good" if pnl > 0.005 else "bad" if pnl < -0.005 else ""
     lo, hi = pos.stop_price * 0.98, max(pos.entry_price, now_p) * 1.04
-    usd = lambda p: f"${p:,.2f}"
+    usd = _usd
     opened = _when(pos.opened_at)
     held = f"held {(now - opened).days} day{'s' if (now - opened).days != 1 else ''}" if opened else ""
     return f"""
@@ -308,9 +314,9 @@ def stock_card(pos: Position, now: datetime) -> str:
     <span class="pill {pill}">{_gbp(pnl, True)} so far</span>
   </div>
   <div class="facts"><span>Bought <b>{_gbp(pos.stake)}</b> at <b>{usd(pos.entry_price)}</b></span>
-    <span>Sector <b>{escape(", ".join(pos.tags))}</b></span><span>{held}</span></div>
+    <span>{group} <b>{escape(", ".join(pos.tags))}</b></span><span>{held}</span></div>
   <p class="small">{escape("; ".join(pos.decision.get("signal", [])))}. Sells when the price recovers above its
-    5-day average, at the stop, or after about 10 trading days.</p>
+    5-day average, at the stop, or {hold}.</p>
   {_track(lo, hi, pos.stop_price, pos.entry_price, now_p, None, usd,
           f"Price now {usd(now_p)}; paid {usd(pos.entry_price)}; stop-loss {usd(pos.stop_price)}")}
 </article>"""
@@ -321,7 +327,7 @@ def closed_table(rows: list[tuple[str, object]]) -> str:
         return '<p class="empty">None yet. Finished trades will be listed here with what they made or lost.</p>'
     why = {"stop-loss": "Sold at stop-loss", "take-profit": "Sold at target", "resolved WIN": "Won",
            "resolved LOSS": "Lost", "time-exit": "Sold on time limit"}
-    price = lambda t, v: f"${v:,.2f}" if t.outcome == "Long" else f"{v*100:.0f}p"
+    price = lambda t, v: _usd(v) if t.outcome == "Long" else f"{v*100:.0f}p"
     body = "".join(
         f'<tr><td>{escape(t.question)}<div class="small">{pot} &middot; {escape(t.outcome)} &middot; '
         f'{why.get(t.reason, t.reason)}</div></td><td class="r">{price(t, t.entry_price)}</td>'
@@ -488,6 +494,10 @@ def render(cfg: Config, now: datetime | None = None) -> str:
     trades = "".join(stock_card(p, now) for p in sk.positions) or \
         '<p class="empty">No open stock trades right now.</p>'
     stock_status = sk.last_run.get("skipped", "")
+    cp = Portfolio.load(cfg.crypto_state_path, cfg.starting_bankroll)
+    coins = "".join(stock_card(p, now, "after 10 days", "Group") for p in cp.positions) or \
+        '<p class="empty">No open crypto trades right now.</p>'
+    crypto_status = cp.last_run.get("skipped", "")
     return f"""<title>Paper Pot</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -504,8 +514,9 @@ def render(cfg: Config, now: datetime | None = None) -> str:
     {pot_card("Favourites pot", pm, cfg, "bet")}
     {pot_card("Value pot", vp, cfg, "bet")}
     {pot_card("Stocks pot", sk, cfg, "trade")}
+    {pot_card("Crypto pot", cp, cfg, "trade")}
   </div>
-  <p class="small">Three separate &pound;100 pots, so you can see which approach actually works. Every hour five
+  <p class="small">Four separate &pound;100 pots, so you can see which approach actually works. Every hour five
     agents run for each prediction-market pot: scan all markets, research the best ones, estimate the real chance,
     check the risk and size the bet, then review any losses.</p>
 
@@ -544,6 +555,28 @@ def render(cfg: Config, now: datetime | None = None) -> str:
   </section>
 
   <section class="part">
+    <h2>Crypto</h2>
+    {f'<div class="note">{escape(crypto_status)}.</div>' if crypto_status else ''}
+    <p class="muted">The crypto pot uses the same rule as the stocks pot on the biggest coins (Bitcoin, Ether, Solana
+      and others): buy a sharp two-day dip, but only while the coin is above its 200-day average. Coins trade every
+      day and swing about three times as much as big stocks, so stops sit 5&ndash;15% below the price paid and
+      trades last at most 10 days. It holds at most two of Bitcoin and Ether, and at most two smaller coins, because
+      coins tend to rise and fall together. Prices are in US dollars; the pot counts &pound;1 as $1.</p>
+    <section>
+      <h2>Pot over time</h2>
+      <div class="panel">{pot_chart(cp)}</div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <div class="panel">{scorecard(cp.stats(), "trade")}</div>
+    </section>
+    <section>
+      <h2>Open trades</h2>
+      <div class="bets">{coins}</div>
+    </section>
+  </section>
+
+  <section class="part">
     <h2>Claude API spend</h2>
     <p class="muted">News scoring runs on Claude Haiku, the cheapest model, because it happens often and is a simple
       job. Postmortems run on Claude Opus, the stronger model, because they are rarer and need more judgement.</p>
@@ -562,7 +595,8 @@ def render(cfg: Config, now: datetime | None = None) -> str:
   <section>
     <h2>Finished trades</h2>
     <div class="panel">{closed_table([("Favourites pot", t) for t in pm.closed] + [("Value pot", t) for t in vp.closed]
-                                     + [("Stocks pot", t) for t in sk.closed])}</div>
+                                     + [("Stocks pot", t) for t in sk.closed]
+                                     + [("Crypto pot", t) for t in cp.closed])}</div>
   </section>
 
   <section>
@@ -576,7 +610,7 @@ def render(cfg: Config, now: datetime | None = None) -> str:
         what Kelly suggests, and never more than 10% of the pot, so small edges get small bets.</dd>
       <dt>Stop-loss</dt><dd>A safety exit: sell if the price falls a set amount below what was paid. Big news can make
         prices jump past it.</dd>
-      <dt>Dip in an uptrend</dt><dd>A stock that has risen over the past 200 days but fell sharply over the last two.
+      <dt>Dip in an uptrend</dt><dd>A stock or coin that has risen over the past 200 days but fell sharply over the last two.
         These often bounce back within days; sometimes they keep falling, which is what the stop is for.</dd>
       <dt>Break-even win rate</dt><dd>How often trades must win just to not lose money. Beating it is the real goal;
         a high win rate alone isn't enough.</dd>

@@ -70,7 +70,8 @@ def temp_cfg(d: str, favourite_estimate: float = 0.80) -> Config:
     return replace(Config(), state_path=j("s.json"), journal_path=j("j.csv"),
                    value_state_path=j("v.json"), value_journal_path=j("vj.csv"),
                    dashboard_path=j("d.html"), stocks_state_path=j("ss.json"),
-                   stocks_journal_path=j("sj.csv"), postmortem_path=j("pm.jsonl"),
+                   stocks_journal_path=j("sj.csv"), crypto_state_path=j("cs.json"),
+                   crypto_journal_path=j("cj.csv"), postmortem_path=j("pm.jsonl"),
                    lessons_path=j("lessons.json"), calibration_path=cal, llm_usage_path=j("u.jsonl"),
                    model_path=j("none.json"), model_meta_path=j("none_meta.json"))
 
@@ -309,6 +310,7 @@ class EngineTest(unittest.TestCase):
         self.assertIn("<title>Paper Pot</title>", page)
         self.assertIn("Stocks pot", page)
         self.assertIn("Value pot", page)
+        self.assertIn("Crypto pot", page)
         self.assertIn("Markets scanned", page)
 
 
@@ -360,10 +362,10 @@ def bars_with_dip(n=260, start=100.0):
 
 
 class FakeAlpaca:
-    def __init__(self):
-        self.bars = {"AAPL": bars_with_dip()}
-        last = self.bars["AAPL"][-1]["c"]
-        self.quotes = {"AAPL": (round(last * 0.9995, 2), round(last * 1.0005, 2))}
+    def __init__(self, symbol="AAPL", start=100.0):
+        self.bars = {symbol: bars_with_dip(start=start)}
+        last = self.bars[symbol][-1]["c"]
+        self.quotes = {symbol: (last * 0.9995, last * 1.0005)}
 
     def clock(self):
         return {"is_open": True}
@@ -404,6 +406,30 @@ class StocksTest(unittest.TestCase):
                 self.assertIn("Alpaca keys not set", pf.last_run["skipped"])
             finally:
                 os.environ.update(env)
+
+
+
+class CryptoTest(unittest.TestCase):
+    def test_buys_coin_dip_with_wider_stop_into_its_own_pot(self):
+        with tempfile.TemporaryDirectory() as d:
+            cfg, fake = temp_cfg(d), FakeAlpaca("DOGE/USD", start=0.05)
+            pf = stock_engine.run_crypto_cycle(cfg, fake)
+            self.assertEqual([p.market_id for p in pf.positions], ["DOGE/USD"])
+            pos = pf.positions[0]
+            self.assertGreaterEqual(1 - pos.stop_price / pos.entry_price, 0.049)   # crypto stops 5-15%
+            self.assertEqual(pos.tags, ["altcoin"])
+            self.assertTrue(os.path.exists(cfg.crypto_state_path))
+            self.assertFalse(os.path.exists(cfg.stocks_state_path))
+            self.assertIn("DOGE-USD", pos.url)
+            recovered = fake.bars["DOGE/USD"][-3]["c"]
+            fake.quotes["DOGE/USD"] = (recovered, recovered * 1.0005)
+            pf = stock_engine.run_crypto_cycle(cfg, fake)
+            self.assertEqual([t.reason for t in pf.closed], ["take-profit"])
+            self.assertIn("$0.0", render(cfg))     # sub-dollar coins keep their decimals
+
+    def test_stocks_ignore_coins(self):
+        self.assertNotIn("BTC/USD", stock_strategy.UNIVERSE)
+        self.assertIn("BTC/USD", stock_strategy.CRYPTO_RULES.universe)
 
 
 if __name__ == "__main__":

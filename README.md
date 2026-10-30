@@ -1,6 +1,6 @@
-# Paper Pot: Polymarket + US stocks paper-trading bot
+# Paper Pot: Polymarket, US stocks and crypto paper-trading bot
 
-Three separate **£100 paper-money pots**, run every hour, so the approaches can be compared:
+Four separate **£100 paper-money pots**, run every hour, so the approaches can be compared:
 
 * **Favourites pot** (Polymarket): buys only the favourite at 60-82p, 20% stop-loss.
 * **Value pot** (Polymarket): buys whichever side at 20-80p the calibration data says is
@@ -8,6 +8,9 @@ Three separate **£100 paper-money pots**, run every hour, so the approaches can
 * **Stocks** (SPY, QQQ and ~25 of the largest US companies via Alpaca's free data):
   buys sharp two-day dips in stocks above their 200-day average, sells on recovery,
   at the stop, or after ~10 trading days. Market hours only.
+* **Crypto** (Bitcoin, Ether and 10 other large coins via Alpaca's crypto data): the same
+  dip-in-an-uptrend rule, every hour around the clock, with 5-15% stops, a 10-day limit
+  and at most two of BTC/ETH plus two smaller coins open at once.
 
 No real money moves. Fills are simulated against live order books and quotes.
 `dashboard.html` is rebuilt after each run for a plain-English view.
@@ -37,8 +40,8 @@ No real money moves. Fills are simulated against live order books and quotes.
 
 ```bash
 pip install -r requirements.txt
-python -m predbot run           # one cycle for all three pots + dashboard
-python -m predbot report        # all three pots in the terminal
+python -m predbot run           # one cycle for all four pots + dashboard
+python -m predbot report        # all four pots in the terminal
 python -m predbot scan          # Polymarket candidates, no trading
 python -m predbot train         # retrain the model and calibration table
 python -m unittest -v           # tests
@@ -62,6 +65,6 @@ Without a key, that part is skipped and the dashboard shows it as off.
 
 * Win rate is not profit; the dashboard shows the break-even win rate beside it.
 * Stops can be jumped: prices can gap past them between hourly checks.
-* Polymarket quotes USD and US stocks trade in USD; both pots count £1 as $1.
+* Polymarket quotes USD and US stocks and coins trade in USD; every pot counts £1 as $1.
 * Real-money trading is deliberately not built in. Polymarket and US brokers have their
   own rules on who can trade from where; check them before ever going live.

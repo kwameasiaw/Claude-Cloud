@@ -77,6 +77,10 @@ class Config:
     stocks_state_path: str = "stocks_state.json"
     stocks_journal_path: str = "stocks_journal.csv"
 
+    # --- Crypto pot (separate £100, the stocks dip rules on big coins, Alpaca's live quotes) ---
+    crypto_state_path: str = "crypto_state.json"
+    crypto_journal_path: str = "crypto_journal.csv"
+
     # --- Files ----------------------------------------------------------------
     state_path: str = "paper_state.json"
     journal_path: str = "trade_journal.csv"

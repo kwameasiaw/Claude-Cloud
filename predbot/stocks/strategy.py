@@ -5,8 +5,11 @@ unusually sharp two-day drop). Exit: when the price climbs back above its 5-day
 average (the dip has recovered), at the stop-loss, or after 10 trading days.
 Strategies like this tend to win often with small gains, so the break-even win
 rate on the dashboard matters as much as the win rate itself.
+
+The crypto pot runs the same rules on the biggest coins, with wider stops because
+coins swing about three times as much as large stocks.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 UNIVERSE = {
     "SPY": ("S&P 500 index fund", "index"), "QQQ": ("Nasdaq-100 index fund", "index"),
@@ -21,10 +24,31 @@ UNIVERSE = {
     "ABBV": ("AbbVie", "health"), "XOM": ("ExxonMobil", "energy"), "PG": ("Procter & Gamble", "staples"),
 }
 
-RSI_ENTRY = 10.0
-MAX_HOLD_DAYS = 14          # calendar days, about 10 trading days
-ATR_STOP_MULT = 2.5
-MIN_STOP, MAX_STOP = 0.03, 0.08
+CRYPTO_UNIVERSE = {
+    "BTC/USD": ("Bitcoin", "major"), "ETH/USD": ("Ether", "major"),
+    "SOL/USD": ("Solana", "altcoin"), "XRP/USD": ("XRP", "altcoin"), "DOGE/USD": ("Dogecoin", "altcoin"),
+    "LINK/USD": ("Chainlink", "altcoin"), "AVAX/USD": ("Avalanche", "altcoin"), "LTC/USD": ("Litecoin", "altcoin"),
+    "BCH/USD": ("Bitcoin Cash", "altcoin"), "DOT/USD": ("Polkadot", "altcoin"), "UNI/USD": ("Uniswap", "altcoin"),
+    "AAVE/USD": ("Aave", "altcoin"),
+}
+
+
+@dataclass(frozen=True)
+class Rules:
+    universe: dict = field(default_factory=lambda: UNIVERSE)
+    rsi_entry: float = 10.0
+    max_hold_days: float = 14       # calendar days, about 10 trading days
+    atr_stop_mult: float = 2.5
+    min_stop: float = 0.03
+    max_stop: float = 0.08
+    max_spread: float = 0.005       # skip quotes with a bid-ask spread over 0.5%
+    decimals: int = 2               # price rounding for stops
+
+
+STOCK_RULES = Rules()
+# Coins trade every day, so 10 calendar days is 10 trading days; stops sit 5-15% away.
+CRYPTO_RULES = Rules(universe=CRYPTO_UNIVERSE, max_hold_days=10, min_stop=0.05, max_stop=0.15,
+                     max_spread=0.007, decimals=6)
 
 
 def sma(closes: list[float], n: int) -> float | None:
@@ -63,28 +87,29 @@ class StockSignal:
     reasons: list[str]
 
 
-def evaluate(symbol: str, bars: list[dict], ask: float) -> StockSignal | None:
+def evaluate(symbol: str, bars: list[dict], ask: float, rules: Rules = STOCK_RULES) -> StockSignal | None:
     closes = [b["c"] for b in bars]
     s200, r2, a14 = sma(closes, 200), rsi(closes), atr(bars)
     if s200 is None or r2 is None or a14 is None:
         return None
-    if closes[-1] <= s200 or r2 >= RSI_ENTRY:
+    if closes[-1] <= s200 or r2 >= rules.rsi_entry:
         return None
     if ask > closes[-1] * 1.01:          # already bounced today; the dip is gone
         return None
-    dist = min(MAX_STOP, max(MIN_STOP, ATR_STOP_MULT * a14 / ask))
-    name, sector = UNIVERSE.get(symbol, (symbol, "other"))
-    return StockSignal(symbol, name, sector, ask, round(ask * (1 - dist), 2), r2, s200, [
+    dist = min(rules.max_stop, max(rules.min_stop, rules.atr_stop_mult * a14 / ask))
+    name, sector = rules.universe.get(symbol, (symbol, "other"))
+    return StockSignal(symbol, name, sector, ask, round(ask * (1 - dist), rules.decimals), r2, s200, [
         f"{(closes[-1] / s200 - 1) * 100:+.1f}% above its 200-day average (uptrend)",
         f"2-day RSI {r2:.1f} (sharp dip)", f"stop {dist*100:.1f}% below"])
 
 
-def exit_reason(bars: list[dict], bid: float, stop: float, held_days: float) -> str | None:
+def exit_reason(bars: list[dict], bid: float, stop: float, held_days: float,
+                rules: Rules = STOCK_RULES) -> str | None:
     if bid <= stop:
         return "stop-loss"
     s5 = sma([b["c"] for b in bars], 5)
     if s5 and bid > s5:
         return "take-profit"
-    if held_days >= MAX_HOLD_DAYS:
+    if held_days >= rules.max_hold_days:
         return "time-exit"
     return None

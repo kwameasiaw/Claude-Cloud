@@ -9,6 +9,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 
 DATA = "https://data.alpaca.markets/v2"
+CRYPTO = "https://data.alpaca.markets/v1beta3/crypto/us"
 TRADING = "https://paper-api.alpaca.markets/v2"
 
 
@@ -51,6 +52,39 @@ class AlpacaClient:
         """{symbol: (bid, ask)}; symbols without a usable two-sided quote are left out."""
         q = urllib.parse.urlencode({"symbols": ",".join(symbols), "feed": "iex"})
         data = _get(f"{DATA}/stocks/quotes/latest?{q}")
+        out = {}
+        for sym, quote in (data.get("quotes") or {}).items():
+            bid, ask = float(quote.get("bp") or 0), float(quote.get("ap") or 0)
+            if 0 < bid <= ask:
+                out[sym] = (bid, ask)
+        return out
+
+
+class AlpacaCryptoClient:
+    """Same interface as AlpacaClient, for coins quoted in US dollars (e.g. BTC/USD).
+    Crypto trades around the clock, so the clock is always open."""
+
+    def clock(self) -> dict:
+        return {"is_open": True}
+
+    def daily_bars(self, symbols: list[str], days: int = 330) -> dict[str, list[dict]]:
+        start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
+        out: dict[str, list[dict]] = {s: [] for s in symbols}
+        token = None
+        while True:
+            q = {"symbols": ",".join(symbols), "timeframe": "1Day", "start": start, "limit": 10000}
+            if token:
+                q["page_token"] = token
+            data = _get(f"{CRYPTO}/bars?{urllib.parse.urlencode(q)}")
+            for sym, bars in (data.get("bars") or {}).items():
+                out[sym] += bars
+            token = data.get("next_page_token")
+            if not token:
+                return out
+
+    def latest_quotes(self, symbols: list[str]) -> dict[str, tuple[float, float]]:
+        q = urllib.parse.urlencode({"symbols": ",".join(symbols)})
+        data = _get(f"{CRYPTO}/latest/quotes?{q}")
         out = {}
         for sym, quote in (data.get("quotes") or {}).items():
             bid, ask = float(quote.get("bp") or 0), float(quote.get("ap") or 0)

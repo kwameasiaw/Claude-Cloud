@@ -104,12 +104,12 @@ def open_new_positions(pf: Portfolio, client: PolymarketClient, cfg: Config,
                        pot: str = "favourites") -> dict:
     funnel = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     if len(pf.positions) >= cfg.max_open_positions:
-        _log(f"at max {cfg.max_open_positions} open bets; pipeline skipped")
+        _log(f"[{pot}] at max {cfg.max_open_positions} open bets; pipeline skipped")
         funnel["skipped"] = f"all {cfg.max_open_positions} bet slots in use"
         return funnel
     halt = risk.portfolio_halt(pf, cfg)
     if halt:
-        _log(f"risk halt: {halt}")
+        _log(f"[{pot}] risk halt: {halt}")
         funnel["skipped"] = halt
         return funnel
 
