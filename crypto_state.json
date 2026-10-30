@@ -14,7 +14,7 @@
       "stop_price": 72355.325301,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77582.83,
+      "last_bid": 77340.7,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 2008.300768,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2243.22,
+      "last_bid": 2231.354,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 47.0645,
       "opened_at": "2026-10-30T10:04:56+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 55.4655,
+      "last_bid": 54.835,
       "tags": [
         "altcoin"
       ],
@@ -144,17 +144,23 @@
       "t": "2026-10-30T11:05:00+00:00",
       "equity": 100.12,
       "cash": 70.0
+    },
+    {
+      "t": "2026-10-30T12:08:11+00:00",
+      "equity": 99.92,
+      "cash": 70.0
     }
   ],
   "last_run": {
-    "at": "2026-10-30T11:05:00+00:00",
+    "at": "2026-10-30T12:08:10+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 2,
+    "signals": 3,
     "traded": 0,
     "blocked_examples": [
+      "BTC/USD: already holding BTC/USD",
       "ETH/USD: already holding ETH/USD",
-      "BTC/USD: already holding BTC/USD"
+      "LTC/USD: already holding LTC/USD"
     ]
   }
 }

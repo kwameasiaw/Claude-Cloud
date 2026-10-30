@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.78,
+      "last_bid": 0.79,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -244,22 +244,27 @@
       "t": "2026-10-30T11:04:58+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T12:08:09+00:00",
+      "equity": 94.58,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T11:04:56+00:00",
+    "at": "2026-10-30T12:08:04+00:00",
     "scanned": 1000,
-    "flagged": 124,
-    "passed_filters": 249,
-    "candidates": 28,
+    "flagged": 132,
+    "passed_filters": 239,
+    "candidates": 26,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "Guangzhou Open: Xinran Sun vs Claire Liu: price swung +65c in 24h",
       "India Tour of New Zealand T20s: New Zealand vs India: price swung +58c in 24h",
-      "Guangzhou Open: Xinran Sun vs Claire Liu: price swung +26c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +13c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -15c in 24h",
-      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -53c in 24h"
+      "Will Bitcoin dip to $75,000 in October?: price swung +17c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -16c in 24h",
+      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -52c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
