@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.18,
+      "last_bid": 0.19,
       "tags": [
         "iran",
         "trump",
@@ -103,7 +103,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.25,
+      "last_bid": 0.24,
       "tags": [
         "iran",
         "israel",
@@ -342,7 +342,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.3,
+      "last_bid": 0.31,
       "tags": [
         "united-states",
         "rewards-20-4pt5-50",
@@ -501,10 +501,15 @@
       "t": "2026-10-30T06:05:29+00:00",
       "equity": 100.55,
       "cash": 87.49
+    },
+    {
+      "t": "2026-10-30T07:07:27+00:00",
+      "equity": 100.6,
+      "cash": 87.49
     }
   ],
   "last_run": {
-    "at": "2026-10-30T06:05:29+00:00",
+    "at": "2026-10-30T07:07:27+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
