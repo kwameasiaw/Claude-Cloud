@@ -1,5 +1,5 @@
 {
-  "cash": 90.0,
+  "cash": 60.05999999999999,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 203.58,
+      "last_bid": 207.81,
       "tags": [
         "tech"
       ],
@@ -38,6 +38,126 @@
             "risking 1.5% of pot -> \u00a321.55",
             "cap 10% = \u00a310.00",
             "stake \u00a310.00"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "QQQ",
+      "event_id": "QQQ",
+      "question": "Nasdaq-100 index fund (QQQ)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.014315,
+      "entry_price": 697.19,
+      "stake": 9.98,
+      "stop_price": 663.1,
+      "opened_at": "2026-10-30T14:08:02+00:00",
+      "url": "https://www.google.com/finance/quote/QQQ",
+      "last_bid": 697.12,
+      "tags": [
+        "index"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "index",
+        "tags": [
+          "index"
+        ],
+        "stop_price": 663.1,
+        "signal": [
+          "+2.7% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 4.9% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 4.9% away",
+            "risking 1.5% of pot -> \u00a330.61",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "SPY",
+      "event_id": "SPY",
+      "question": "S&P 500 index fund (SPY)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.01313,
+      "entry_price": 760.11,
+      "stake": 9.98,
+      "stop_price": 737.31,
+      "opened_at": "2026-10-30T14:08:02+00:00",
+      "url": "https://www.google.com/finance/quote/SPY",
+      "last_bid": 760.08,
+      "tags": [
+        "index"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "index",
+        "tags": [
+          "index"
+        ],
+        "stop_price": 737.31,
+        "signal": [
+          "+4.3% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 3.0% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 3.0% away",
+            "risking 1.5% of pot -> \u00a349.89",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "TSLA",
+      "event_id": "TSLA",
+      "question": "Tesla (TSLA)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.024994,
+      "entry_price": 399.3,
+      "stake": 9.98,
+      "stop_price": 367.36,
+      "opened_at": "2026-10-30T14:08:02+00:00",
+      "url": "https://www.google.com/finance/quote/TSLA",
+      "last_bid": 397.61,
+      "tags": [
+        "consumer"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "consumer",
+        "tags": [
+          "consumer"
+        ],
+        "stop_price": 367.36,
+        "signal": [
+          "+3.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.71",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
           ]
         }
       }
@@ -154,12 +274,21 @@
       "t": "2026-10-30T13:08:02+00:00",
       "equity": 99.57,
       "cash": 90.0
+    },
+    {
+      "t": "2026-10-30T14:08:02+00:00",
+      "equity": 99.72,
+      "cash": 60.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T13:08:01+00:00",
-    "scanned": 25,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-10-30T14:07:59+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 4,
+    "traded": 3,
+    "blocked_examples": [
+      "NVDA: already holding NVDA"
+    ]
   }
 }
