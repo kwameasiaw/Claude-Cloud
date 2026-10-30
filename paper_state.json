@@ -299,22 +299,27 @@
       "t": "2026-10-30T22:04:26+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T23:04:09+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T22:04:23+00:00",
+    "at": "2026-10-30T23:04:06+00:00",
     "scanned": 1000,
-    "flagged": 144,
-    "passed_filters": 200,
-    "candidates": 32,
+    "flagged": 152,
+    "passed_filters": 205,
+    "candidates": 33,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "LoL: Team Liquid vs LOS - Game 2 Winner: price swung +28c in 24h",
-      "Will Lille OSC win on 2026-10-30?: price swung +62c in 24h",
-      "Will RCD Espanyol de Barcelona win on 2026-10-30?: price swung +87c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -20c in 24h",
-      "Rockets vs. Mavericks: O/U 223.5: price swung -14c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung +27c in 24h",
+      "US x Iran ceasefire continues through November 8?: price swung +26c in 24h",
+      "Rockets vs. Mavericks: O/U 223.5: price swung -16c in 24h",
+      "Queretaro: Nadia Podoroska vs Carole Monnet: price swung +38c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -267,7 +267,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.29,
+      "last_bid": 0.3,
       "tags": [
         "united-states",
         "rewards-20-4pt5-50",
@@ -356,7 +356,7 @@
       "stop_price": 0.2152,
       "opened_at": "2026-10-30T19:04:15+00:00",
       "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-      "last_bid": 0.318,
+      "last_bid": 0.316,
       "tags": [
         "taiwan",
         "politics",
@@ -672,10 +672,15 @@
       "t": "2026-10-30T22:04:26+00:00",
       "equity": 98.63,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-30T23:04:09+00:00",
+      "equity": 98.66,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-30T22:04:26+00:00",
+    "at": "2026-10-30T23:04:09+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
