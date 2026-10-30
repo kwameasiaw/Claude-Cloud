@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.8,
+      "last_bid": 0.78,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -64,7 +64,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.84,
+      "last_bid": 0.85,
       "tags": [
         "midterms",
         "house-elections",
@@ -239,22 +239,27 @@
       "t": "2026-10-30T10:04:54+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T11:04:58+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T10:04:52+00:00",
+    "at": "2026-10-30T11:04:56+00:00",
     "scanned": 1000,
-    "flagged": 127,
-    "passed_filters": 246,
-    "candidates": 29,
+    "flagged": 124,
+    "passed_filters": 249,
+    "candidates": 28,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Pan Pacific Open: Alexandra Eala vs Diana Shnaider: price swung +15c in 24h",
       "India Tour of New Zealand T20s: New Zealand vs India: price swung +58c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung +15c in 24h",
-      "Will Bitcoin reach $82,500 in October?: price swung -16c in 24h",
-      "Will Predict.fun launch a token by October 31, 2026?: price swung -79c in 24h"
+      "Guangzhou Open: Xinran Sun vs Claire Liu: price swung +26c in 24h",
+      "Will Bitcoin dip to $75,000 in October?: price swung +13c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -15c in 24h",
+      "Will the price of Bitcoin be above $80,000 on October 30?: price swung -53c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
