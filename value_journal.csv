@@ -1,0 +1,2 @@
+market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reason,opened_at,closed_at
+5794343,Will Paris Saint-Germain FC win on 2026-10-30?,No,0.208,0.1243,13.9423,2.9,1.733,-1.167,stop-loss,2026-10-29T17:39:13+00:00,2026-10-30T19:04:07+00:00

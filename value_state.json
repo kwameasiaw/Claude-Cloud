@@ -1,5 +1,5 @@
 {
-  "cash": 87.49000000000001,
+  "cash": 87.68302789,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.19,
+      "last_bid": 0.2,
       "tags": [
         "iran",
         "trump",
@@ -103,7 +103,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.19,
+      "last_bid": 0.21,
       "tags": [
         "iran",
         "israel",
@@ -166,81 +166,6 @@
             "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
             "cap 10% = \u00a39.98",
             "stake \u00a33.13"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "5794343",
-      "event_id": "1203178",
-      "question": "Will Paris Saint-Germain FC win on 2026-10-30?",
-      "outcome": "No",
-      "token_id": "13511782308924455198503440684300538156604553117271281945365988532661224330912",
-      "shares": 13.9423,
-      "entry_price": 0.208,
-      "stake": 2.9,
-      "stop_price": 0.1352,
-      "opened_at": "2026-10-29T17:39:13+00:00",
-      "url": "https://polymarket.com/market/fl1-hac-psg-2026-10-30-psg",
-      "last_bid": 0.2114,
-      "tags": [
-        "sports",
-        "games",
-        "soccer",
-        "ligue-1"
-      ],
-      "closes_at": "2026-10-30T18:00:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "sports",
-        "tags": [
-          "sports",
-          "games",
-          "soccer",
-          "ligue-1"
-        ],
-        "scan": [
-          "'No' at 0.20",
-          "liq $110,435",
-          "vol24h $9,314",
-          "closes in 1.0d"
-        ],
-        "stop_price": 0.1352,
-        "research": {
-          "items": 0,
-          "sources_ok": [],
-          "sources_failed": [
-            "news",
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": []
-        },
-        "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
-          "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.208,
-          "edge": 0.0922,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "edge +9.2c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 2.9,
-          "kelly": 0.1164,
-          "reasons": [
-            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.90",
-            "cap 10% = \u00a39.97",
-            "stake \u00a32.90"
           ]
         }
       }
@@ -418,9 +343,170 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "3580933",
+      "event_id": "848341",
+      "question": "Will Puma Shen win the next Taipei Mayor election?",
+      "outcome": "Yes",
+      "token_id": "71621185653281721927174401118354054745399424014255544529977515442951477963801",
+      "shares": 4.6526,
+      "entry_price": 0.331,
+      "stake": 1.54,
+      "stop_price": 0.2152,
+      "opened_at": "2026-10-30T19:04:15+00:00",
+      "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
+      "last_bid": 0.315,
+      "tags": [
+        "taiwan",
+        "politics",
+        "elections",
+        "main-election",
+        "global-elections",
+        "taiwan-elections"
+      ],
+      "closes_at": "2026-11-29T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "taiwan",
+          "politics",
+          "elections",
+          "main-election",
+          "global-elections",
+          "taiwan-elections"
+        ],
+        "scan": [
+          "'Yes' at 0.33",
+          "liq $117,323",
+          "vol24h $28,152",
+          "closes in 29.4d"
+        ],
+        "stop_price": 0.2152,
+        "research": {
+          "items": 15,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] DPP\u2019s Shen edges KMT\u2019s Chiang in Taipei survey - Taipei Times",
+            "[news] China Critic Tests Opposition\u2019s Decades-Old Grip in Taipei - Bloomberg.com",
+            "[news] What Explains the Rise of Puma Shen as a DPP Candidate in Taipei? - New Bloom Magazine",
+            "[news] How Taiwan\u2019s November Local Elections Could Change the World - The Wire China",
+            "[news] Shen leads Chiang 45% to 41% in Taipei mayoral poll - Taiwan News",
+            "[news] 2026 Elections: China trying to isolate Puma Shen: source - Taipei Times",
+            "[news] Taipei mayor takes veiled swipe at Puma Shen, says substance beats showmanship - \u8054\u5408\u65e9\u62a5",
+            "[bbc] Burnham rules out early general election in next 12 months"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.3225,
+          "p_base": 0.3717,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3717,
+          "cost": 0.33,
+          "edge": 0.0417,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 32%",
+            "calibration table (206 past markets) says 37.2%",
+            "15 headlines found, not scored (no Claude API key)",
+            "edge +4.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.54,
+          "kelly": 0.0622,
+          "reasons": [
+            "Kelly 6.2% of pot -> quarter-Kelly \u00a31.54",
+            "cap 10% = \u00a39.88",
+            "stake \u00a31.54"
+          ]
+        }
+      }
     }
   ],
-  "closed": [],
+  "closed": [
+    {
+      "market_id": "5794343",
+      "question": "Will Paris Saint-Germain FC win on 2026-10-30?",
+      "outcome": "No",
+      "entry_price": 0.208,
+      "exit_price": 0.1243,
+      "shares": 13.9423,
+      "stake": 2.9,
+      "proceeds": 1.733,
+      "pnl": -1.167,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-29T17:39:13+00:00",
+      "closed_at": "2026-10-30T19:04:07+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "sports",
+          "games",
+          "soccer",
+          "ligue-1"
+        ],
+        "scan": [
+          "'No' at 0.20",
+          "liq $110,435",
+          "vol24h $9,314",
+          "closes in 1.0d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.9,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.90",
+            "cap 10% = \u00a39.97",
+            "stake \u00a32.90"
+          ]
+        }
+      }
+    }
+  ],
   "history": [
     {
       "t": "2026-10-29T17:39:12+00:00",
@@ -566,10 +652,42 @@
       "t": "2026-10-30T18:04:24+00:00",
       "equity": 99.59,
       "cash": 87.49
+    },
+    {
+      "t": "2026-10-30T19:04:15+00:00",
+      "equity": 98.77,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-30T18:04:24+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-10-30T19:04:07+00:00",
+    "scanned": 1000,
+    "flagged": 213,
+    "passed_filters": 202,
+    "candidates": 95,
+    "shortlisted": 30,
+    "researched": 12,
+    "flag_examples": [
+      "Will Bitcoin dip to $75,000 in October?: price swung +26c in 24h",
+      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +15c in 24h",
+      "Rockets vs. Mavericks: O/U 223.5: price swung -14c in 24h",
+      "Will OGC Nice win on 2026-10-31?: price swung +46c in 24h",
+      "Will Bitcoin reach $82,500 in October?: price swung -29c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (206 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": [
+      "Will the Republicans win the Nebraska Senate race in 2026?: already 2 bets on 'us-presidential-election'",
+      "Will Dan Sullivan win the Alaska Senate race in 2026?: already 2 bets on 'us-presidential-election'",
+      "Will the Democrats win the Florida governor race in 2026?: already 2 bets on 'us-presidential-election'",
+      "Will the Republican Party win the NJ-02 House seat?: already 2 bets on 'us-presidential-election'"
+    ]
   }
 }
