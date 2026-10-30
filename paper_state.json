@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.79,
+      "last_bid": 0.78,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -284,22 +284,27 @@
       "t": "2026-10-30T19:04:06+00:00",
       "equity": 94.58,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T20:05:10+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T19:04:03+00:00",
+    "at": "2026-10-30T20:05:07+00:00",
     "scanned": 1000,
-    "flagged": 213,
-    "passed_filters": 205,
-    "candidates": 30,
+    "flagged": 218,
+    "passed_filters": 202,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Bitcoin dip to $75,000 in October?: price swung +26c in 24h",
-      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +15c in 24h",
-      "Rockets vs. Mavericks: O/U 223.5: price swung -14c in 24h",
-      "Will OGC Nice win on 2026-10-31?: price swung +46c in 24h",
-      "Spread: Le Havre AC (-1.5): price swung -27c in 24h"
+      "Will Paris Saint-Germain FC win on 2026-10-30?: price swung +22c in 24h",
+      "Knicks vs. 76ers: price swung +10c in 24h",
+      "Will Bitcoin dip to $75,000 in October?: price swung +12c in 24h",
+      "Will OGC Nice win on 2026-10-31?: price swung +64c in 24h",
+      "Spread: Paris Saint-Germain FC (-1.5): price swung +44c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
