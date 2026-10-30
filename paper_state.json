@@ -204,22 +204,27 @@
       "t": "2026-10-30T04:04:27+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T05:04:20+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T04:04:24+00:00",
+    "at": "2026-10-30T05:04:17+00:00",
     "scanned": 1000,
-    "flagged": 162,
-    "passed_filters": 231,
-    "candidates": 32,
+    "flagged": 142,
+    "passed_filters": 244,
+    "candidates": 30,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Grizzlies vs. Trail Blazers: price swung +55c in 24h",
-      "Spread: Trail Blazers (-7.5): price swung -46c in 24h",
-      "Senators vs. Kings: price swung -51c in 24h",
-      "Grizzlies vs. Trail Blazers: O/U 233.5: price swung -30c in 24h",
-      "Pan Pacific Open: Kamilla Rakhimova vs Maya Joint: price swung +54c in 24h"
+      "Will Bitcoin reach $82,500 in October?: price swung -20c in 24h",
+      "US-Iran ceasefire continues through the midterms?: price swung -11c in 24h",
+      "Will Bitcoin dip to $75,000 in October?: price swung +11c in 24h",
+      "Will Predict.fun launch a token by October 31, 2026?: price swung -62c in 24h",
+      "Guayaquil: Emilio Camacho vs Joao Lucas Da Silva: price swung +52c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
