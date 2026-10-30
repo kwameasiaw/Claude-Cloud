@@ -179,22 +179,27 @@
       "t": "2026-10-29T23:04:27+00:00",
       "equity": 94.34,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T00:04:22+00:00",
+      "equity": 94.34,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-29T23:04:24+00:00",
+    "at": "2026-10-30T00:04:19+00:00",
     "scanned": 1000,
-    "flagged": 166,
-    "passed_filters": 201,
-    "candidates": 25,
+    "flagged": 176,
+    "passed_filters": 194,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "LoL: Karmine Corp vs CTBC Flying Oyster - Game 2 Winner: price swung +27c in 24h",
-      "LoL: Top Esports vs Bilibili Gaming - Game 1 Winner: price swung -28c in 24h",
-      "LoL: Karmine Corp vs CTBC Flying Oyster (BO3) - Worlds Group Stage: price swung +20c in 24h",
-      "Swiss Indoors Basel: Ben Shelton vs Jerome Kym: price swung -11c in 24h",
-      "US x Iran ceasefire continues through October 31?: price swung -28c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung -20c in 24h",
+      "LoL: Top Esports vs Bilibili Gaming (BO3) - Worlds Group Stage: price swung -16c in 24h",
+      "Will Bitcoin dip to $77,500 in October?: price swung +75c in 24h",
+      "Will Cruzeiro EC win on 2026-10-29?: price swung +31c in 24h",
+      "Will CR Flamengo win on 2026-10-29?: price swung +25c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
