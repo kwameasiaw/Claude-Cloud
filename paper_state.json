@@ -64,7 +64,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.82,
+      "last_bid": 0.84,
       "tags": [
         "midterms",
         "house-elections",
@@ -184,22 +184,27 @@
       "t": "2026-10-30T00:04:22+00:00",
       "equity": 94.34,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T01:04:40+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T00:04:19+00:00",
+    "at": "2026-10-30T01:04:37+00:00",
     "scanned": 1000,
-    "flagged": 176,
+    "flagged": 214,
     "passed_filters": 194,
-    "candidates": 23,
+    "candidates": 26,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through October 31?: price swung -20c in 24h",
-      "LoL: Top Esports vs Bilibili Gaming (BO3) - Worlds Group Stage: price swung -16c in 24h",
-      "Will Bitcoin dip to $77,500 in October?: price swung +75c in 24h",
-      "Will Cruzeiro EC win on 2026-10-29?: price swung +31c in 24h",
-      "Will CR Flamengo win on 2026-10-29?: price swung +25c in 24h"
+      "LoL: Top Esports vs Bilibili Gaming - Game 2 Winner: price swung +69c in 24h",
+      "LoL: Top Esports vs Bilibili Gaming (BO3) - Worlds Group Stage: price swung +75c in 24h",
+      "Cavaliers vs. Hawks: price swung -10c in 24h",
+      "Spread: Packers (-3.5): price swung -19c in 24h",
+      "US x Iran ceasefire continues through October 31?: price swung -11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
