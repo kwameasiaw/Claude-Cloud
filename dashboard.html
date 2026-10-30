@@ -100,8 +100,8 @@ td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric
 dl { display: grid; gap: 12px; margin: 0; }
 dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 65ch; }
 .empty { color: var(--ink-2); font-size: .92rem; }
-.pots { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
-@media (max-width: 760px) { .pots { grid-template-columns: minmax(0,1fr); } }
+.pots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 560px) { .pots { grid-template-columns: minmax(0,1fr); } }
 .pot { display: grid; gap: 6px; }
 .pot .value { font: 650 2.1rem/1.05 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
 .pot .facts { font-size: .84rem; }
@@ -127,7 +127,7 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
 <div class="wrap">
   <header>
     <h1>Paper Pot</h1>
-    <span class="paper">Practice money only &middot; updated 30 Oct 2026, 09:04 UTC</span>
+    <span class="paper">Practice money only &middot; updated 30 Oct 2026, 09:35 UTC</span>
   </header>
 
   <div class="pots">
@@ -140,8 +140,8 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   </div>
     <div class="panel pot">
     <span class="eyebrow">Value pot</span>
-    <span class="value">&pound;100.74</span>
-    <span class="delta up">&#9650; +&pound;0.74 (+0.7%) since the start</span>
+    <span class="value">&pound;100.43</span>
+    <span class="delta up">&#9650; +&pound;0.43 (+0.4%) since the start</span>
     <div class="facts"><span><b>5</b> of 5 bets open</span>
       <span><b>&pound;87.49</b> cash</span><span><b>0</b> finished, none finished yet</span></div>
   </div>
@@ -152,8 +152,15 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
     <div class="facts"><span><b>1</b> of 5 trades open</span>
       <span><b>&pound;90.00</b> cash</span><span><b>0</b> finished, none finished yet</span></div>
   </div>
+    <div class="panel pot">
+    <span class="eyebrow">Crypto pot</span>
+    <span class="value">&pound;99.99</span>
+    <span class="delta down">&#9660; -&pound;0.01 (-0.0%) since the start</span>
+    <div class="facts"><span><b>2</b> of 5 trades open</span>
+      <span><b>&pound;80.00</b> cash</span><span><b>0</b> finished, none finished yet</span></div>
   </div>
-  <p class="small">Three separate &pound;100 pots, so you can see which approach actually works. Every hour five
+  </div>
+  <p class="small">Four separate &pound;100 pots, so you can see which approach actually works. Every hour five
     agents run for each prediction-market pot: scan all markets, research the best ones, estimate the real chance,
     check the risk and size the bet, then review any losses.</p>
 
@@ -162,11 +169,11 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
     <p class="muted">Buys only the favourite, priced 60&ndash;82p, aiming for a high win rate. Past data says favourites in this range have been slightly overpriced, so expect this pot to bet rarely.</p>
     <section>
       <h2>How the bot decided this hour</h2>
-      <div class="panel" style="display:grid;gap:14px"><div class="chips"><span class="chip off">Google News off</span><span class="chip off">BBC off</span><span class="chip off">Guardian off</span><span class="chip off">X off</span><span class="chip off">Claude analysis off</span><span class="chip off">XGBoost model: off (didn't beat market prices on 978 past markets)</span></div><div class="funnel"><div class="f-row"><span>Markets scanned</span><div class="track"><div class="fill" style="width:100.00%"></div></div><span class="val">1,000</span></div><div class="f-row"><span>Passed the filters</span><div class="track"><div class="fill" style="width:25.10%"></div></div><span class="val">251</span></div><div class="f-row"><span>In the price range</span><div class="track"><div class="fill" style="width:2.80%"></div></div><span class="val">28</span></div><div class="f-row"><span>Edge on past data</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Researched</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Cleared prediction</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Approved by risk</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Bets placed</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div></div><p class="small">121 markets were flagged and skipped for unusual price swings or very wide spreads.</p></div>
+      <div class="panel" style="display:grid;gap:14px"><div class="chips"><span class="chip off">Google News off</span><span class="chip off">BBC off</span><span class="chip off">Guardian off</span><span class="chip off">X off</span><span class="chip off">Claude analysis off</span><span class="chip off">XGBoost model: off (didn't beat market prices on 978 past markets)</span></div><div class="funnel"><div class="f-row"><span>Markets scanned</span><div class="track"><div class="fill" style="width:100.00%"></div></div><span class="val">1,000</span></div><div class="f-row"><span>Passed the filters</span><div class="track"><div class="fill" style="width:24.30%"></div></div><span class="val">243</span></div><div class="f-row"><span>In the price range</span><div class="track"><div class="fill" style="width:2.90%"></div></div><span class="val">29</span></div><div class="f-row"><span>Edge on past data</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Researched</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Cleared prediction</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Approved by risk</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div><div class="f-row"><span>Bets placed</span><div class="track"><div class="fill" style="width:0.00%"></div></div><span class="val">0</span></div></div><p class="small">134 markets were flagged and skipped for unusual price swings or very wide spreads.</p></div>
     </section>
     <section>
       <h2>Pot over time</h2>
-      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 58.0, &quot;label&quot;: &quot;29 Oct 16:48 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 54.2, &quot;y&quot;: 76.7, &quot;label&quot;: &quot;29 Oct 16:53 UTC  \u00a399.15&quot;}, {&quot;x&quot;: 59.4, &quot;y&quot;: 87.5, &quot;label&quot;: &quot;29 Oct 17:03 UTC  \u00a398.66&quot;}, {&quot;x&quot;: 74.8, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 17:34 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 77.3, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 90.1, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 18:04 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 97.8, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 97.9, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 121.2, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 151.1, &quot;y&quot;: 128.0, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a396.82&quot;}, {&quot;x&quot;: 180.9, &quot;y&quot;: 144.5, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a396.07&quot;}, {&quot;x&quot;: 211.1, &quot;y&quot;: 179.7, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a394.47&quot;}, {&quot;x&quot;: 241.4, &quot;y&quot;: 182.5, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a394.34&quot;}, {&quot;x&quot;: 271.6, &quot;y&quot;: 182.5, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a394.34&quot;}, {&quot;x&quot;: 302.0, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 332.0, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 362.4, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 392.6, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 422.8, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 453.7, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 484.9, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 514.1, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a394.59&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;94.59"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;94</text><line x1="52" x2="544" y1="146.0" y2="146.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="150.0" text-anchor="end">&#163;96</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;98</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="62.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;102</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="52.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 16:48</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:04</text><polygon points="52.0,190 52.0,58.0 54.2,76.7 59.4,87.5 74.8,74.1 77.3,74.1 90.1,74.1 97.8,122.7 97.9,122.7 121.2,122.7 151.1,128.0 180.9,144.5 211.1,179.7 241.4,182.5 271.6,182.5 302.0,177.0 332.0,177.0 362.4,177.0 392.6,177.0 422.8,177.0 453.7,177.0 484.9,177.0 514.1,177.0 544.0,177.0 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,58.0 54.2,76.7 59.4,87.5 74.8,74.1 77.3,74.1 90.1,74.1 97.8,122.7 97.9,122.7 121.2,122.7 151.1,128.0 180.9,144.5 211.1,179.7 241.4,182.5 271.6,182.5 302.0,177.0 332.0,177.0 362.4,177.0 392.6,177.0 422.8,177.0 453.7,177.0 484.9,177.0 514.1,177.0 544.0,177.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="177.0" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 58.0, &quot;label&quot;: &quot;29 Oct 16:48 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 54.2, &quot;y&quot;: 76.7, &quot;label&quot;: &quot;29 Oct 16:53 UTC  \u00a399.15&quot;}, {&quot;x&quot;: 59.2, &quot;y&quot;: 87.5, &quot;label&quot;: &quot;29 Oct 17:03 UTC  \u00a398.66&quot;}, {&quot;x&quot;: 74.1, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 17:34 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 76.5, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 88.9, &quot;y&quot;: 74.1, &quot;label&quot;: &quot;29 Oct 18:04 UTC  \u00a399.27&quot;}, {&quot;x&quot;: 96.4, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 96.5, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 119.0, &quot;y&quot;: 122.7, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a397.06&quot;}, {&quot;x&quot;: 148.0, &quot;y&quot;: 128.0, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a396.82&quot;}, {&quot;x&quot;: 177.0, &quot;y&quot;: 144.5, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a396.07&quot;}, {&quot;x&quot;: 206.2, &quot;y&quot;: 179.7, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a394.47&quot;}, {&quot;x&quot;: 235.6, &quot;y&quot;: 182.5, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a394.34&quot;}, {&quot;x&quot;: 264.8, &quot;y&quot;: 182.5, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a394.34&quot;}, {&quot;x&quot;: 294.3, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 323.4, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 352.8, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 382.2, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 411.5, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 441.3, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 471.6, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 499.9, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 528.9, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a394.59&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 177.0, &quot;label&quot;: &quot;30 Oct 09:35 UTC  \u00a394.59&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;94.59"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;94</text><line x1="52" x2="544" y1="146.0" y2="146.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="150.0" text-anchor="end">&#163;96</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;98</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="62.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;102</text><line x1="52" x2="544" y1="58.0" y2="58.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="52.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 16:48</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:35</text><polygon points="52.0,190 52.0,58.0 54.2,76.7 59.2,87.5 74.1,74.1 76.5,74.1 88.9,74.1 96.4,122.7 96.5,122.7 119.0,122.7 148.0,128.0 177.0,144.5 206.2,179.7 235.6,182.5 264.8,182.5 294.3,177.0 323.4,177.0 352.8,177.0 382.2,177.0 411.5,177.0 441.3,177.0 471.6,177.0 499.9,177.0 528.9,177.0 544.0,177.0 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,58.0 54.2,76.7 59.2,87.5 74.1,74.1 76.5,74.1 88.9,74.1 96.4,122.7 96.5,122.7 119.0,122.7 148.0,128.0 177.0,144.5 206.2,179.7 235.6,182.5 264.8,182.5 294.3,177.0 323.4,177.0 352.8,177.0 382.2,177.0 411.5,177.0 441.3,177.0 471.6,177.0 499.9,177.0 528.9,177.0 544.0,177.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="177.0" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
     </section>
     <section>
       <h2>Is it winning often enough?</h2>
@@ -188,7 +195,7 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
   </div>
   <div class="facts"><span>Bet on <b>Chiefs</b></span><span>Staked <b>&pound;9.99</b>
     at <b>81p</b></span>
-    <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 3 days</span></div>
+    <span>Pays <b>&pound;12.26</b> if right</span><span>settles in about 2 days</span></div>
   
   <div class="ptrack" role="img" aria-label="Price now 77p; paid 81p; stop-loss 65p">
     <div class="line"></div>
@@ -244,7 +251,7 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
     </section>
     <section>
       <h2>Pot over time</h2>
-      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 84.4, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 52.0, &quot;y&quot;: 138.6, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a399.23&quot;}, {&quot;x&quot;: 65.4, &quot;y&quot;: 147.8, &quot;label&quot;: &quot;29 Oct 18:04 UTC  \u00a399.10&quot;}, {&quot;x&quot;: 73.6, &quot;y&quot;: 180.8, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a398.63&quot;}, {&quot;x&quot;: 98.2, &quot;y&quot;: 149.2, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a399.08&quot;}, {&quot;x&quot;: 129.7, &quot;y&quot;: 121.0, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a399.48&quot;}, {&quot;x&quot;: 161.2, &quot;y&quot;: 51.3, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a3100.47&quot;}, {&quot;x&quot;: 193.0, &quot;y&quot;: 130.2, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a399.35&quot;}, {&quot;x&quot;: 224.9, &quot;y&quot;: 86.5, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a399.97&quot;}, {&quot;x&quot;: 256.8, &quot;y&quot;: 38.6, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a3100.65&quot;}, {&quot;x&quot;: 288.9, &quot;y&quot;: 29.5, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a3100.78&quot;}, {&quot;x&quot;: 320.5, &quot;y&quot;: 40.8, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a3100.62&quot;}, {&quot;x&quot;: 352.5, &quot;y&quot;: 33.7, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a3100.72&quot;}, {&quot;x&quot;: 384.4, &quot;y&quot;: 29.5, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a3100.78&quot;}, {&quot;x&quot;: 416.3, &quot;y&quot;: 30.9, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a3100.76&quot;}, {&quot;x&quot;: 448.8, &quot;y&quot;: 45.7, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a3100.55&quot;}, {&quot;x&quot;: 481.7, &quot;y&quot;: 42.2, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a3100.60&quot;}, {&quot;x&quot;: 512.4, &quot;y&quot;: 32.3, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a3100.74&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 32.3, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a3100.74&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;100.74"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;98.5</text><line x1="52" x2="544" y1="154.8" y2="154.8" stroke="var(--rule)" stroke-width="1"/><text x="44" y="158.8" text-anchor="end">&#163;99</text><line x1="52" x2="544" y1="119.6" y2="119.6" stroke="var(--rule)" stroke-width="1"/><text x="44" y="123.6" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="84.4" y2="84.4" stroke="var(--rule)" stroke-width="1"/><text x="44" y="88.4" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="49.2" y2="49.2" stroke="var(--rule)" stroke-width="1"/><text x="44" y="53.2" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;101</text><line x1="52" x2="544" y1="84.4" y2="84.4" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="78.4" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 17:39</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:04</text><polygon points="52.0,190 52.0,84.4 52.0,138.6 65.4,147.8 73.6,180.8 98.2,149.2 129.7,121.0 161.2,51.3 193.0,130.2 224.9,86.5 256.8,38.6 288.9,29.5 320.5,40.8 352.5,33.7 384.4,29.5 416.3,30.9 448.8,45.7 481.7,42.2 512.4,32.3 544.0,32.3 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,84.4 52.0,138.6 65.4,147.8 73.6,180.8 98.2,149.2 129.7,121.0 161.2,51.3 193.0,130.2 224.9,86.5 256.8,38.6 288.9,29.5 320.5,40.8 352.5,33.7 384.4,29.5 416.3,30.9 448.8,45.7 481.7,42.2 512.4,32.3 544.0,32.3" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="32.3" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 84.4, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 52.0, &quot;y&quot;: 138.6, &quot;label&quot;: &quot;29 Oct 17:39 UTC  \u00a399.23&quot;}, {&quot;x&quot;: 65.0, &quot;y&quot;: 147.8, &quot;label&quot;: &quot;29 Oct 18:04 UTC  \u00a399.10&quot;}, {&quot;x&quot;: 72.9, &quot;y&quot;: 180.8, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a398.63&quot;}, {&quot;x&quot;: 96.7, &quot;y&quot;: 149.2, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a399.08&quot;}, {&quot;x&quot;: 127.2, &quot;y&quot;: 121.0, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a399.48&quot;}, {&quot;x&quot;: 157.7, &quot;y&quot;: 51.3, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a3100.47&quot;}, {&quot;x&quot;: 188.5, &quot;y&quot;: 130.2, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a399.35&quot;}, {&quot;x&quot;: 219.3, &quot;y&quot;: 86.5, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a399.97&quot;}, {&quot;x&quot;: 250.2, &quot;y&quot;: 38.6, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a3100.65&quot;}, {&quot;x&quot;: 281.2, &quot;y&quot;: 29.5, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a3100.78&quot;}, {&quot;x&quot;: 311.8, &quot;y&quot;: 40.8, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a3100.62&quot;}, {&quot;x&quot;: 342.8, &quot;y&quot;: 33.7, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a3100.72&quot;}, {&quot;x&quot;: 373.7, &quot;y&quot;: 29.5, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a3100.78&quot;}, {&quot;x&quot;: 404.5, &quot;y&quot;: 30.9, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a3100.76&quot;}, {&quot;x&quot;: 435.9, &quot;y&quot;: 45.7, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a3100.55&quot;}, {&quot;x&quot;: 467.8, &quot;y&quot;: 42.2, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a3100.60&quot;}, {&quot;x&quot;: 497.5, &quot;y&quot;: 32.3, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a3100.74&quot;}, {&quot;x&quot;: 528.1, &quot;y&quot;: 32.3, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a3100.74&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 54.1, &quot;label&quot;: &quot;30 Oct 09:35 UTC  \u00a3100.43&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;100.43"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;98.5</text><line x1="52" x2="544" y1="154.8" y2="154.8" stroke="var(--rule)" stroke-width="1"/><text x="44" y="158.8" text-anchor="end">&#163;99</text><line x1="52" x2="544" y1="119.6" y2="119.6" stroke="var(--rule)" stroke-width="1"/><text x="44" y="123.6" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="84.4" y2="84.4" stroke="var(--rule)" stroke-width="1"/><text x="44" y="88.4" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="49.2" y2="49.2" stroke="var(--rule)" stroke-width="1"/><text x="44" y="53.2" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;101</text><line x1="52" x2="544" y1="84.4" y2="84.4" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="78.4" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 17:39</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:35</text><polygon points="52.0,190 52.0,84.4 52.0,138.6 65.0,147.8 72.9,180.8 96.7,149.2 127.2,121.0 157.7,51.3 188.5,130.2 219.3,86.5 250.2,38.6 281.2,29.5 311.8,40.8 342.8,33.7 373.7,29.5 404.5,30.9 435.9,45.7 467.8,42.2 497.5,32.3 528.1,32.3 544.0,54.1 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,84.4 52.0,138.6 65.0,147.8 72.9,180.8 96.7,149.2 127.2,121.0 157.7,51.3 188.5,130.2 219.3,86.5 250.2,38.6 281.2,29.5 311.8,40.8 342.8,33.7 373.7,29.5 404.5,30.9 435.9,45.7 467.8,42.2 497.5,32.3 528.1,32.3 544.0,54.1" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="54.1" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
     </section>
     <section>
       <h2>Is it winning often enough?</h2>
@@ -279,18 +286,18 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
 <article class="panel bet">
   <div class="bet-head">
     <a href="https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7" target="_blank" rel="noopener">Israel x Iran ceasefire continues through November 7?</a>
-    <span class="pill good">+&pound;0.63 so far</span>
+    <span class="pill good">+&pound;0.31 so far</span>
   </div>
   <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;3.13</b>
     at <b>20p</b></span>
     <span>Pays <b>&pound;15.65</b> if right</span><span>settles in about 9 days</span></div>
   <p class="small">Bot's estimate 30% vs market 20% (calibration table (124 past markets)), confidence 0.60</p>
-  <div class="ptrack" role="img" aria-label="Price now 24p; paid 20p; stop-loss 13p">
+  <div class="ptrack" role="img" aria-label="Price now 22p; paid 20p; stop-loss 13p">
     <div class="line"></div>
     <div class="zone stop" style="width:13.0%"></div><div class="zone win" style="width:calc(100% - 95.0%)"></div><div class="mk" style="left:95.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:13.0%"><span>stop 13p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:20.0%"><i class="dot"></i></div>
-    <div class="mk now below" style="left:24.0%"><i class="dot"></i><span>now 24p</span></div>
+    <div class="mk now below" style="left:22.0%"><i class="dot"></i><span>now 22p</span></div>
   </div>
 </article>
 <article class="panel bet">
@@ -313,35 +320,35 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
 <article class="panel bet">
   <div class="bet-head">
     <a href="https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026" target="_blank" rel="noopener">Will the Democrats win the Texas governor race in 2026?</a>
-    <span class="pill good">+&pound;0.10 so far</span>
+    <span class="pill good">+&pound;0.14 so far</span>
   </div>
   <div class="facts"><span>Bet on <b>Yes</b></span><span>Staked <b>&pound;1.69</b>
     at <b>35p</b></span>
     <span>Pays <b>&pound;4.83</b> if right</span><span>settles in about 5 days</span></div>
   <p class="small">Bot's estimate 39% vs market 34% (calibration table (206 past markets)), confidence 0.60</p>
-  <div class="ptrack" role="img" aria-label="Price now 37p; paid 35p; stop-loss 23p">
+  <div class="ptrack" role="img" aria-label="Price now 38p; paid 35p; stop-loss 23p">
     <div class="line"></div>
     <div class="zone stop" style="width:22.8%"></div><div class="zone win" style="width:calc(100% - 95.0%)"></div><div class="mk" style="left:95.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:22.8%"><span>stop 23p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:35.0%"><i class="dot"></i></div>
-    <div class="mk now below" style="left:37.0%"><i class="dot"></i><span>now 37p</span></div>
+    <div class="mk now below" style="left:38.0%"><i class="dot"></i><span>now 38p</span></div>
   </div>
 </article>
 <article class="panel bet">
   <div class="bet-head">
     <a href="https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949" target="_blank" rel="noopener">2026 Balance of Power: D Senate, D House</a>
-    <span class="pill bad">-&pound;0.15 so far</span>
+    <span class="pill bad">-&pound;0.20 so far</span>
   </div>
   <div class="facts"><span>Bet on <b>No</b></span><span>Staked <b>&pound;1.66</b>
     at <b>34p</b></span>
     <span>Pays <b>&pound;4.88</b> if right</span><span>settles in about 5 days</span></div>
   <p class="small">Bot's estimate 38% vs market 34% (calibration table (206 past markets)), confidence 0.60</p>
-  <div class="ptrack" role="img" aria-label="Price now 31p; paid 34p; stop-loss 22p">
+  <div class="ptrack" role="img" aria-label="Price now 30p; paid 34p; stop-loss 22p">
     <div class="line"></div>
     <div class="zone stop" style="width:22.1%"></div><div class="zone win" style="width:calc(100% - 95.0%)"></div><div class="mk" style="left:95.0%"><span>cash out 95p</span><i class="tick"></i></div>
     <div class="mk" style="left:22.1%"><span>stop 22p</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:34.0%"><i class="dot"></i></div>
-    <div class="mk now below" style="left:31.0%"><i class="dot"></i><span>now 31p</span></div>
+    <div class="mk now below" style="left:30.0%"><i class="dot"></i><span>now 30p</span></div>
   </div>
 </article></div>
     </section>
@@ -356,7 +363,7 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
       the pot counts &pound;1 as $1.</p>
     <section>
       <h2>Pot over time</h2>
-      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 52.0, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 77.8, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 110.8, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 143.7, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 176.9, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 210.3, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 243.6, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 277.1, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 310.3, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 343.7, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 377.1, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 410.4, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 444.4, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 478.9, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 511.0, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a399.57&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;99.57"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="96.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 18:19</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:04</text><polygon points="52.0,190 52.0,102.0 52.0,102.0 77.8,102.0 110.8,177.7 143.7,177.7 176.9,177.7 210.3,177.7 243.6,177.7 277.1,177.7 310.3,177.7 343.7,177.7 377.1,177.7 410.4,177.7 444.4,177.7 478.9,177.7 511.0,177.7 544.0,177.7 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,102.0 52.0,102.0 77.8,102.0 110.8,177.7 143.7,177.7 176.9,177.7 210.3,177.7 243.6,177.7 277.1,177.7 310.3,177.7 343.7,177.7 377.1,177.7 410.4,177.7 444.4,177.7 478.9,177.7 511.0,177.7 544.0,177.7" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="177.7" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 52.0, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 18:19 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 76.9, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;29 Oct 19:06 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 108.8, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 20:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 140.6, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 21:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 172.7, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 22:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 205.0, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;29 Oct 23:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 237.2, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 00:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 269.5, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 01:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 301.6, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 02:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 333.9, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 03:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 366.1, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 04:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 398.3, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 05:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 431.2, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 06:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 464.4, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 07:07 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 495.5, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 08:05 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 527.4, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 09:04 UTC  \u00a399.57&quot;}, {&quot;x&quot;: 544.0, &quot;y&quot;: 177.7, &quot;label&quot;: &quot;30 Oct 09:35 UTC  \u00a399.57&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;99.57"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="96.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">29 Oct 18:19</text><text x="544.0" y="212" text-anchor="end">30 Oct 09:35</text><polygon points="52.0,190 52.0,102.0 52.0,102.0 76.9,102.0 108.8,177.7 140.6,177.7 172.7,177.7 205.0,177.7 237.2,177.7 269.5,177.7 301.6,177.7 333.9,177.7 366.1,177.7 398.3,177.7 431.2,177.7 464.4,177.7 495.5,177.7 527.4,177.7 544.0,177.7 544.0,190" fill="var(--accent-wash)"/><polyline points="52.0,102.0 52.0,102.0 76.9,102.0 108.8,177.7 140.6,177.7 172.7,177.7 205.0,177.7 237.2,177.7 269.5,177.7 301.6,177.7 333.9,177.7 366.1,177.7 398.3,177.7 431.2,177.7 464.4,177.7 495.5,177.7 527.4,177.7 544.0,177.7" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="544.0" cy="177.7" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
     </section>
     <section>
       <h2>Is it winning often enough?</h2>
@@ -382,6 +389,62 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
     <div class="mk" style="left:14.5%"><span>stop $197.99</span><i class="tick"></i></div>
     <div class="mk paid below" style="left:68.8%"><i class="dot"></i></div>
     <div class="mk now below" style="left:35.0%"><i class="dot"></i><span>now $203.58</span></div>
+  </div>
+</article></div>
+    </section>
+  </section>
+
+  <section class="part">
+    <h2>Crypto</h2>
+    
+    <p class="muted">The crypto pot uses the same rule as the stocks pot on the biggest coins (Bitcoin, Ether, Solana
+      and others): buy a sharp two-day dip, but only while the coin is above its 200-day average. Coins trade every
+      day and swing about three times as much as big stocks, so stops sit 5&ndash;15% below the price paid and
+      trades last at most 10 days. It holds at most two of Bitcoin and Ether, and at most two smaller coins, because
+      coins tend to rise and fall together. Prices are in US dollars; the pot counts &pound;1 as $1.</p>
+    <section>
+      <h2>Pot over time</h2>
+      <div class="panel"><div class="chart" data-points='[{&quot;x&quot;: 52.0, &quot;y&quot;: 102.0, &quot;label&quot;: &quot;30 Oct 09:35 UTC  \u00a3100.00&quot;}, {&quot;x&quot;: 52.0, &quot;y&quot;: 103.8, &quot;label&quot;: &quot;30 Oct 09:35 UTC  \u00a399.99&quot;}]'><svg viewBox="0 0 560 220" role="img" aria-label="Pot value over time, from &pound;100.00 to &pound;99.99"><line x1="52" x2="544" y1="190.0" y2="190.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="194.0" text-anchor="end">&#163;99.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="106.0" text-anchor="end">&#163;100</text><line x1="52" x2="544" y1="14.0" y2="14.0" stroke="var(--rule)" stroke-width="1"/><text x="44" y="18.0" text-anchor="end">&#163;100.5</text><line x1="52" x2="544" y1="102.0" y2="102.0" stroke="var(--ink-3)" stroke-width="1"/><text x="544" y="96.0" text-anchor="end">started with &#163;100</text><text x="52.0" y="212" text-anchor="start">30 Oct 09:35</text><text x="52.0" y="212" text-anchor="start">30 Oct 09:35</text><polygon points="52.0,190 52.0,102.0 52.0,103.8 52.0,190" fill="var(--accent-wash)"/><polyline points="52.0,102.0 52.0,103.8" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="52.0" cy="103.8" r="5" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><line class="cross" x1="0" x2="0" y1="14" y2="190" stroke="var(--ink-3)" stroke-width="1" style="display:none"/><rect x="52" y="0" width="492" height="220" fill="transparent"/></svg><div class="tip" hidden></div></div></div>
+    </section>
+    <section>
+      <h2>Is it winning often enough?</h2>
+      <div class="panel"><div class="verdict wait">No trades have finished yet, so there is no win rate. Results appear here as each one closes.</div></div>
+    </section>
+    <section>
+      <h2>Open trades</h2>
+      <div class="bets">
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://www.google.com/finance/quote/BTC-USD" target="_blank" rel="noopener">Bitcoin (BTC/USD)</a>
+    <span class="pill bad">-&pound;0.01 so far</span>
+  </div>
+  <div class="facts"><span>Bought <b>&pound;10.00</b> at <b>$77,504.13</b></span>
+    <span>Group <b>major</b></span><span>held 0 days</span></div>
+  <p class="small">+6.0% above its 200-day average (uptrend); 2-day RSI 0.0 (sharp dip); stop 6.6% below. Sells when the price recovers above its
+    5-day average, at the stop, or after 10 days.</p>
+  <div class="ptrack" role="img" aria-label="Price now $77,480.07; paid $77,504.13; stop-loss $72,355.33">
+    <div class="line"></div>
+    <div class="zone stop" style="width:14.9%"></div>
+    <div class="mk" style="left:14.9%"><span>stop $72,355.33</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:68.0%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:67.8%"><i class="dot"></i><span>now $77,480.07</span></div>
+  </div>
+</article>
+<article class="panel bet">
+  <div class="bet-head">
+    <a href="https://www.google.com/finance/quote/ETH-USD" target="_blank" rel="noopener">Ether (ETH/USD)</a>
+    <span class="pill ">-&pound;0.00 so far</span>
+  </div>
+  <div class="facts"><span>Bought <b>&pound;10.00</b> at <b>$2,222.58</b></span>
+    <span>Group <b>major</b></span><span>held 0 days</span></div>
+  <p class="small">+3.0% above its 200-day average (uptrend); 2-day RSI 0.0 (sharp dip); stop 9.6% below. Sells when the price recovers above its
+    5-day average, at the stop, or after 10 days.</p>
+  <div class="ptrack" role="img" aria-label="Price now $2,221.84; paid $2,222.58; stop-loss $2,008.30">
+    <div class="line"></div>
+    <div class="zone stop" style="width:11.7%"></div>
+    <div class="mk" style="left:11.7%"><span>stop $2,008.30</span><i class="tick"></i></div>
+    <div class="mk paid below" style="left:74.1%"><i class="dot"></i></div>
+    <div class="mk now below" style="left:73.9%"><i class="dot"></i><span>now $2,221.84</span></div>
   </div>
 </article></div>
     </section>
@@ -427,7 +490,7 @@ dt { font-weight: 650; } dd { margin: 2px 0 0; color: var(--ink-2); max-width: 6
         what Kelly suggests, and never more than 10% of the pot, so small edges get small bets.</dd>
       <dt>Stop-loss</dt><dd>A safety exit: sell if the price falls a set amount below what was paid. Big news can make
         prices jump past it.</dd>
-      <dt>Dip in an uptrend</dt><dd>A stock that has risen over the past 200 days but fell sharply over the last two.
+      <dt>Dip in an uptrend</dt><dd>A stock or coin that has risen over the past 200 days but fell sharply over the last two.
         These often bounce back within days; sometimes they keep falling, which is what the stop is for.</dd>
       <dt>Break-even win rate</dt><dd>How often trades must win just to not lose money. Beating it is the real goal;
         a high win rate alone isn't enough.</dd>

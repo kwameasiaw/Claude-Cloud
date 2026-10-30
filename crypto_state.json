@@ -1,0 +1,107 @@
+{
+  "cash": 80.0,
+  "starting_bankroll": 100.0,
+  "positions": [
+    {
+      "market_id": "BTC/USD",
+      "event_id": "BTC/USD",
+      "question": "Bitcoin (BTC/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.000129,
+      "entry_price": 77504.132,
+      "stake": 10.0,
+      "stop_price": 72355.325301,
+      "opened_at": "2026-10-30T09:35:33+00:00",
+      "url": "https://www.google.com/finance/quote/BTC-USD",
+      "last_bid": 77480.07,
+      "tags": [
+        "major"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 72355.325301,
+        "signal": [
+          "+6.0% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 6.6% below"
+        ],
+        "risk": {
+          "stake": 10.0,
+          "reasons": [
+            "stop 6.6% away",
+            "risking 1.5% of pot -> \u00a322.58",
+            "cap 10% = \u00a310.00",
+            "stake \u00a310.00"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "ETH/USD",
+      "event_id": "ETH/USD",
+      "question": "Ether (ETH/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.004499,
+      "entry_price": 2222.583,
+      "stake": 10.0,
+      "stop_price": 2008.300768,
+      "opened_at": "2026-10-30T09:35:33+00:00",
+      "url": "https://www.google.com/finance/quote/ETH-USD",
+      "last_bid": 2221.84,
+      "tags": [
+        "major"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 2008.300768,
+        "signal": [
+          "+3.0% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 9.6% below"
+        ],
+        "risk": {
+          "stake": 10.0,
+          "reasons": [
+            "stop 9.6% away",
+            "risking 1.5% of pot -> \u00a315.56",
+            "cap 10% = \u00a310.00",
+            "stake \u00a310.00"
+          ]
+        }
+      }
+    }
+  ],
+  "closed": [],
+  "history": [
+    {
+      "t": "2026-10-30T09:35:33+00:00",
+      "equity": 100.0,
+      "cash": 100.0
+    },
+    {
+      "t": "2026-10-30T09:35:33+00:00",
+      "equity": 99.99,
+      "cash": 80.0
+    }
+  ],
+  "last_run": {
+    "at": "2026-10-30T09:35:32+00:00",
+    "scanned": 12,
+    "market_open": true,
+    "signals": 2,
+    "traded": 2,
+    "blocked_examples": []
+  }
+}
