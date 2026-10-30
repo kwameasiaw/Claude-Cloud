@@ -234,22 +234,27 @@
       "t": "2026-10-30T09:35:31+00:00",
       "equity": 94.59,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T10:04:54+00:00",
+      "equity": 94.59,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T09:35:27+00:00",
+    "at": "2026-10-30T10:04:52+00:00",
     "scanned": 1000,
-    "flagged": 134,
-    "passed_filters": 243,
+    "flagged": 127,
+    "passed_filters": 246,
     "candidates": 29,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Pan Pacific Open: Alexandra Eala vs Diana Shnaider: price swung +31c in 24h",
+      "Pan Pacific Open: Alexandra Eala vs Diana Shnaider: price swung +15c in 24h",
+      "India Tour of New Zealand T20s: New Zealand vs India: price swung +58c in 24h",
       "Will Bitcoin dip to $75,000 in October?: price swung +15c in 24h",
       "Will Bitcoin reach $82,500 in October?: price swung -16c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +43c in 24h",
-      "Will Predict.fun launch a token by October 31, 2026?: price swung -63c in 24h"
+      "Will Predict.fun launch a token by October 31, 2026?: price swung -79c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
