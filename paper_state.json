@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.78,
+      "last_bid": 0.76,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -294,22 +294,27 @@
       "t": "2026-10-30T21:04:22+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-30T22:04:26+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-30T21:04:20+00:00",
+    "at": "2026-10-30T22:04:23+00:00",
     "scanned": 1000,
-    "flagged": 192,
-    "passed_filters": 199,
-    "candidates": 24,
+    "flagged": 144,
+    "passed_filters": 200,
+    "candidates": 32,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Knicks vs. 76ers: price swung +12c in 24h",
-      "LoL: Team Liquid vs LOS (BO3) - Worlds Group Stage: price swung -30c in 24h",
-      "Will Villarreal CF win on 2026-10-30?: price swung -11c in 24h",
-      "Will 1. FSV Mainz 05 win on 2026-10-30?: price swung -44c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -20c in 24h"
+      "LoL: Team Liquid vs LOS - Game 2 Winner: price swung +28c in 24h",
+      "Will Lille OSC win on 2026-10-30?: price swung +62c in 24h",
+      "Will RCD Espanyol de Barcelona win on 2026-10-30?: price swung +87c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -20c in 24h",
+      "Rockets vs. Mavericks: O/U 223.5: price swung -14c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
