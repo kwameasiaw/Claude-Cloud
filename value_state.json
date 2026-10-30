@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.18,
+      "last_bid": 0.19,
       "tags": [
         "iran",
         "trump",
@@ -182,7 +182,7 @@
       "stop_price": 0.1352,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/fl1-hac-psg-2026-10-30-psg",
-      "last_bid": 0.2309,
+      "last_bid": 0.2114,
       "tags": [
         "sports",
         "games",
@@ -561,10 +561,15 @@
       "t": "2026-10-30T17:05:39+00:00",
       "equity": 99.7,
       "cash": 87.49
+    },
+    {
+      "t": "2026-10-30T18:04:24+00:00",
+      "equity": 99.59,
+      "cash": 87.49
     }
   ],
   "last_run": {
-    "at": "2026-10-30T17:05:39+00:00",
+    "at": "2026-10-30T18:04:24+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

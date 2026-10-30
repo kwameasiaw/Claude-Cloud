@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 203.9,
+      "last_bid": 202.36,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 690.36,
+      "last_bid": 686.69,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 755.94,
+      "last_bid": 753.14,
       "tags": [
         "index"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 367.36,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 398.27,
+      "last_bid": 394.5,
       "tags": [
         "consumer"
       ],
@@ -174,7 +174,7 @@
       "stop_price": 494.5,
       "opened_at": "2026-10-30T15:05:32+00:00",
       "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 521.24,
+      "last_bid": 519.4,
       "tags": [
         "tech"
       ],
@@ -334,18 +334,25 @@
       "t": "2026-10-30T17:05:44+00:00",
       "equity": 99.36,
       "cash": 50.1
+    },
+    {
+      "t": "2026-10-30T18:04:28+00:00",
+      "equity": 99.07,
+      "cash": 50.1
     }
   ],
   "last_run": {
-    "at": "2026-10-30T17:05:39+00:00",
+    "at": "2026-10-30T18:04:24+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 3,
+    "signals": 5,
     "traded": 0,
     "blocked_examples": [
-      "QQQ: already 5 open trades",
+      "MSFT: already 5 open trades",
+      "AMD: already 5 open trades",
+      "TSLA: already 5 open trades",
       "SPY: already 5 open trades",
-      "MSFT: already 5 open trades"
+      "QQQ: already 5 open trades"
     ]
   }
 }
