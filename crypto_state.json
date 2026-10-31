@@ -14,7 +14,7 @@
       "stop_price": 72355.325301,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77248.9,
+      "last_bid": 77261.84,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 2008.300768,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2240.35,
+      "last_bid": 2241.4,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 47.0645,
       "opened_at": "2026-10-30T10:04:56+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 54.63,
+      "last_bid": 54.66,
       "tags": [
         "altcoin"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 7.000422,
       "opened_at": "2026-10-30T13:08:03+00:00",
       "url": "https://www.google.com/finance/quote/AVAX-USD",
-      "last_bid": 8.3774,
+      "last_bid": 8.384,
       "tags": [
         "altcoin"
       ],
@@ -299,10 +299,15 @@
       "t": "2026-10-31T10:06:26+00:00",
       "equity": 100.09,
       "cash": 60.01
+    },
+    {
+      "t": "2026-10-31T11:05:01+00:00",
+      "equity": 100.11,
+      "cash": 60.01
     }
   ],
   "last_run": {
-    "at": "2026-10-31T10:06:26+00:00",
+    "at": "2026-10-31T11:05:01+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 1,
