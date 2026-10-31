@@ -319,22 +319,27 @@
       "t": "2026-10-31T02:04:12+00:00",
       "equity": 94.09,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T03:04:16+00:00",
+      "equity": 94.09,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T02:04:07+00:00",
+    "at": "2026-10-31T03:04:13+00:00",
     "scanned": 1000,
-    "flagged": 247,
-    "passed_filters": 199,
-    "candidates": 32,
+    "flagged": 140,
+    "passed_filters": 301,
+    "candidates": 33,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Knicks vs. 76ers: price swung -51c in 24h",
-      "Spread: Knicks (-3.5): price swung -41c in 24h",
-      "Spread: Raptors (-5.5): price swung -48c in 24h",
-      "Magic vs. Raptors: price swung +66c in 24h",
-      "Pacers vs. Heat: price swung -26c in 24h"
+      "Lakers vs. Warriors: price swung +19c in 24h",
+      "Spread: Lakers (-3.5): price swung +19c in 24h",
+      "Baylor vs. UCF: price swung +47c in 24h",
+      "Tulane vs. Charlotte: price swung +24c in 24h",
+      "Will Bitcoin dip to $75,000 in October?: price swung -21c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

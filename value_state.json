@@ -182,7 +182,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.36,
+      "last_bid": 0.35,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -356,7 +356,7 @@
       "stop_price": 0.2152,
       "opened_at": "2026-10-30T19:04:15+00:00",
       "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-      "last_bid": 0.303,
+      "last_bid": 0.299,
       "tags": [
         "taiwan",
         "politics",
@@ -692,10 +692,15 @@
       "t": "2026-10-31T02:04:13+00:00",
       "equity": 98.71,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-31T03:04:17+00:00",
+      "equity": 98.65,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-31T02:04:13+00:00",
+    "at": "2026-10-31T03:04:17+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
