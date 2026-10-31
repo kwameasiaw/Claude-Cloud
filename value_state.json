@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.25,
+      "last_bid": 0.23,
       "tags": [
         "iran",
         "trump",
@@ -727,10 +727,15 @@
       "t": "2026-10-31T09:04:22+00:00",
       "equity": 99.26,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-31T10:06:26+00:00",
+      "equity": 98.95,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-31T09:04:22+00:00",
+    "at": "2026-10-31T10:06:26+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
