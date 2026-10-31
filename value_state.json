@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.21,
+      "last_bid": 0.24,
       "tags": [
         "iran",
         "trump",
@@ -356,7 +356,7 @@
       "stop_price": 0.2152,
       "opened_at": "2026-10-30T19:04:15+00:00",
       "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-      "last_bid": 0.317,
+      "last_bid": 0.329,
       "tags": [
         "taiwan",
         "politics",
@@ -717,10 +717,15 @@
       "t": "2026-10-31T07:04:17+00:00",
       "equity": 98.68,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-31T08:04:16+00:00",
+      "equity": 99.21,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-31T07:04:17+00:00",
+    "at": "2026-10-31T08:04:16+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
