@@ -339,22 +339,27 @@
       "t": "2026-10-31T06:04:39+00:00",
       "equity": 94.34,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T07:04:16+00:00",
+      "equity": 94.34,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T06:04:36+00:00",
+    "at": "2026-10-31T07:04:12+00:00",
     "scanned": 1000,
-    "flagged": 113,
-    "passed_filters": 297,
-    "candidates": 30,
+    "flagged": 110,
+    "passed_filters": 295,
+    "candidates": 31,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -16c in 24h",
-      "Will Pumas de la UNAM win on 2026-10-30?: price swung +54c in 24h",
+      "Will Pumas de la UNAM win on 2026-10-30?: price swung +55c in 24h",
+      "Will Elon Musk post 115-139 tweets from October 29 to October 31, 2026: price swung -20c in 24h",
       "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung +16c in 24h",
-      "Will Apple be the largest company in the world by market cap on Octobe: price swung +35c in 24h",
-      "Kraken vs. Flames: O/U 6.5: price swung +52c in 24h"
+      "Will Apple be the largest company in the world by market cap on Octobe: price swung +30c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
