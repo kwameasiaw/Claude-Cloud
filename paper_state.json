@@ -329,22 +329,27 @@
       "t": "2026-10-31T04:04:08+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T05:04:09+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T04:04:05+00:00",
+    "at": "2026-10-31T05:04:06+00:00",
     "scanned": 1000,
-    "flagged": 137,
-    "passed_filters": 290,
-    "candidates": 32,
+    "flagged": 113,
+    "passed_filters": 291,
+    "candidates": 28,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Lakers vs. Warriors: price swung +12c in 24h",
-      "Nuggets vs. Suns: price swung +30c in 24h",
-      "Spread: Nuggets (-4.5): price swung +29c in 24h",
-      "Spread: Nuggets (-3.5): price swung +28c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung -10c in 24h"
+      "Kent State vs. Sacramento State: price swung -23c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -16c in 24h",
+      "Will Pumas de la UNAM win on 2026-10-30?: price swung -28c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung +16c in 24h",
+      "Will Apple be the largest company in the world by market cap on Octobe: price swung +36c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
