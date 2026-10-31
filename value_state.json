@@ -1,5 +1,5 @@
 {
-  "cash": 87.68302789,
+  "cash": 87.02403169,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.22,
+      "last_bid": 0.23,
       "tags": [
         "iran",
         "trump",
@@ -103,7 +103,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.21,
+      "last_bid": 0.2,
       "tags": [
         "iran",
         "israel",
@@ -182,7 +182,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.35,
+      "last_bid": 0.34,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -345,47 +345,53 @@
       }
     },
     {
-      "market_id": "3580933",
-      "event_id": "848341",
-      "question": "Will Puma Shen win the next Taipei Mayor election?",
-      "outcome": "Yes",
-      "token_id": "71621185653281721927174401118354054745399424014255544529977515442951477963801",
-      "shares": 4.6526,
-      "entry_price": 0.331,
-      "stake": 1.54,
-      "stop_price": 0.2152,
-      "opened_at": "2026-10-30T19:04:15+00:00",
-      "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-      "last_bid": 0.306,
+      "market_id": "1194643",
+      "event_id": "166780",
+      "question": "Will Iliana Iotova win the next Bulgarian presidential election?",
+      "outcome": "No",
+      "token_id": "99622103131434202105388039057766053299905201074786569487569345621536678411876",
+      "shares": 4.8529,
+      "entry_price": 0.34,
+      "stake": 1.65,
+      "stop_price": 0.221,
+      "opened_at": "2026-10-31T14:04:27+00:00",
+      "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
+      "last_bid": 0.33,
       "tags": [
-        "taiwan",
-        "politics",
+        "world-elections",
         "elections",
-        "main-election",
         "global-elections",
-        "taiwan-elections"
+        "politics",
+        "world",
+        "bulgaria",
+        "rewards-20-4pt5-50",
+        "main-election",
+        "bulgaria-election"
       ],
-      "closes_at": "2026-11-29T04:59:00+00:00",
+      "closes_at": "2026-11-02T04:59:00+00:00",
       "decision": {
         "pot": "value",
         "category": "other",
         "tags": [
-          "taiwan",
-          "politics",
+          "world-elections",
           "elections",
-          "main-election",
           "global-elections",
-          "taiwan-elections"
+          "politics",
+          "world",
+          "bulgaria",
+          "rewards-20-4pt5-50",
+          "main-election",
+          "bulgaria-election"
         ],
         "scan": [
-          "'Yes' at 0.33",
-          "liq $117,323",
-          "vol24h $28,152",
-          "closes in 29.4d"
+          "'No' at 0.34",
+          "liq $200,623",
+          "vol24h $118,748",
+          "closes in 1.6d"
         ],
-        "stop_price": 0.2152,
+        "stop_price": 0.221,
         "research": {
-          "items": 15,
+          "items": 20,
           "sources_ok": [
             "news",
             "bbc",
@@ -399,39 +405,39 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] DPP\u2019s Shen edges KMT\u2019s Chiang in Taipei survey - Taipei Times",
-            "[news] China Critic Tests Opposition\u2019s Decades-Old Grip in Taipei - Bloomberg.com",
-            "[news] What Explains the Rise of Puma Shen as a DPP Candidate in Taipei? - New Bloom Magazine",
-            "[news] How Taiwan\u2019s November Local Elections Could Change the World - The Wire China",
-            "[news] Shen leads Chiang 45% to 41% in Taipei mayoral poll - Taiwan News",
-            "[news] 2026 Elections: China trying to isolate Puma Shen: source - Taipei Times",
-            "[news] Taipei mayor takes veiled swipe at Puma Shen, says substance beats showmanship - \u8054\u5408\u65e9\u62a5",
-            "[bbc] Burnham rules out early general election in next 12 months"
+            "[news] Bulgaria\u2019s election heads to a run-off amid low voter turnout - Al Jazeera",
+            "[news] Yotova narrowly ahead in first round of Bulgarian presidential vote - Euronews.com",
+            "[news] Bulgaria heads to presidential runoff after low turnout - Le Monde.fr",
+            "[news] Bulgaria heads to presidential runoff after close vote - Reuters",
+            "[news] Bulgaria\u2019s Presidential Race Heads to Runoff as Russia Divides the Two Candidates - Balkan Insight",
+            "[news] Bulgaria heads to polls for presidential election amid regional security concerns - Anadolu Ajans\u0131",
+            "[news] Bulgarian Presidential Election Exposes Split Over Ukraine War - Kyiv Post",
+            "[news] Bulgarians vote for president in shadow of Russia\u2019s war on Ukraine - Al Jazeera"
           ]
         },
         "prediction": {
-          "p_market": 0.3225,
-          "p_base": 0.3717,
+          "p_market": 0.335,
+          "p_base": 0.3842,
           "method": "calibration table (206 past markets)",
           "p_llm": null,
-          "p_final": 0.3717,
-          "cost": 0.33,
-          "edge": 0.0417,
+          "p_final": 0.3842,
+          "cost": 0.34,
+          "edge": 0.0442,
           "confidence": 0.6,
           "reasons": [
-            "market says 32%",
-            "calibration table (206 past markets) says 37.2%",
-            "15 headlines found, not scored (no Claude API key)",
-            "edge +4.2c after fees, confidence 0.60"
+            "market says 34%",
+            "calibration table (206 past markets) says 38.4%",
+            "20 headlines found, not scored (no Claude API key)",
+            "edge +4.4c after fees, confidence 0.60"
           ]
         },
         "risk": {
-          "stake": 1.54,
-          "kelly": 0.0622,
+          "stake": 1.65,
+          "kelly": 0.0669,
           "reasons": [
-            "Kelly 6.2% of pot -> quarter-Kelly \u00a31.54",
-            "cap 10% = \u00a39.88",
-            "stake \u00a31.54"
+            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.65",
+            "cap 10% = \u00a39.85",
+            "stake \u00a31.65"
           ]
         }
       }
@@ -502,6 +508,89 @@
             "Kelly 11.6% of pot -> quarter-Kelly \u00a32.90",
             "cap 10% = \u00a39.97",
             "stake \u00a32.90"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "3580933",
+      "question": "Will Puma Shen win the next Taipei Mayor election?",
+      "outcome": "Yes",
+      "entry_price": 0.331,
+      "exit_price": 0.213,
+      "shares": 4.6526,
+      "stake": 1.54,
+      "proceeds": 0.991,
+      "pnl": -0.549,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-30T19:04:15+00:00",
+      "closed_at": "2026-10-31T14:04:19+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "taiwan",
+          "politics",
+          "elections",
+          "main-election",
+          "global-elections",
+          "taiwan-elections"
+        ],
+        "scan": [
+          "'Yes' at 0.33",
+          "liq $117,323",
+          "vol24h $28,152",
+          "closes in 29.4d"
+        ],
+        "stop_price": 0.2152,
+        "research": {
+          "items": 15,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] DPP\u2019s Shen edges KMT\u2019s Chiang in Taipei survey - Taipei Times",
+            "[news] China Critic Tests Opposition\u2019s Decades-Old Grip in Taipei - Bloomberg.com",
+            "[news] What Explains the Rise of Puma Shen as a DPP Candidate in Taipei? - New Bloom Magazine",
+            "[news] How Taiwan\u2019s November Local Elections Could Change the World - The Wire China",
+            "[news] Shen leads Chiang 45% to 41% in Taipei mayoral poll - Taiwan News",
+            "[news] 2026 Elections: China trying to isolate Puma Shen: source - Taipei Times",
+            "[news] Taipei mayor takes veiled swipe at Puma Shen, says substance beats showmanship - \u8054\u5408\u65e9\u62a5",
+            "[bbc] Burnham rules out early general election in next 12 months"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.3225,
+          "p_base": 0.3717,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3717,
+          "cost": 0.33,
+          "edge": 0.0417,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 32%",
+            "calibration table (206 past markets) says 37.2%",
+            "15 headlines found, not scored (no Claude API key)",
+            "edge +4.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.54,
+          "kelly": 0.0622,
+          "reasons": [
+            "Kelly 6.2% of pot -> quarter-Kelly \u00a31.54",
+            "cap 10% = \u00a39.88",
+            "stake \u00a31.54"
           ]
         }
       }
@@ -747,10 +836,40 @@
       "t": "2026-10-31T13:04:30+00:00",
       "equity": 98.94,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-31T14:04:27+00:00",
+      "equity": 98.41,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-10-31T13:04:30+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-10-31T14:04:19+00:00",
+    "scanned": 1000,
+    "flagged": 108,
+    "passed_filters": 283,
+    "candidates": 110,
+    "shortlisted": 32,
+    "researched": 12,
+    "flag_examples": [
+      "Will Chelsea FC win on 2026-10-31?: price swung +44c in 24h",
+      "Will Manchester United FC win on 2026-10-31?: price swung -22c in 24h",
+      "Dota 2: Team Yandex vs GamerLegion - Game 1 Winner: price swung +48c in 24h",
+      "Map Handicap: FURIA (-1.5) vs Nemiga (+1.5): spread 0.06 is unusually wide",
+      "Will Bitcoin dip to $75,000 in October?: price swung -24c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": [
+      "Will the Republicans win the Ohio governor race in 2026?: already 2 bets on 'midterms'",
+      "Will the Democratic Party win the AZ-01 House seat?: already 2 bets on 'midterms'"
+    ]
   }
 }

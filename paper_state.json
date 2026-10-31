@@ -374,22 +374,27 @@
       "t": "2026-10-31T13:04:30+00:00",
       "equity": 94.46,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T14:04:18+00:00",
+      "equity": 94.46,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T13:04:27+00:00",
+    "at": "2026-10-31T14:04:16+00:00",
     "scanned": 1000,
-    "flagged": 109,
+    "flagged": 108,
     "passed_filters": 283,
-    "candidates": 35,
+    "candidates": 36,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Chelsea FC win on 2026-10-31?: price swung -11c in 24h",
-      "Will the Republicans win the Nebraska Senate race in 2026?: price swung +12c in 24h",
-      "Map Handicap: FURIA (-1.5) vs Nemiga (+1.5): spread 0.15 is unusually wide",
-      "Will an independent win the Nebraska Senate race in 2026?: price swung -10c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung -18c in 24h"
+      "Will Chelsea FC win on 2026-10-31?: price swung +44c in 24h",
+      "Will Manchester United FC win on 2026-10-31?: price swung -22c in 24h",
+      "Dota 2: Team Yandex vs GamerLegion - Game 1 Winner: price swung +48c in 24h",
+      "Map Handicap: FURIA (-1.5) vs Nemiga (+1.5): spread 0.06 is unusually wide",
+      "Will Bitcoin dip to $75,000 in October?: price swung -24c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
