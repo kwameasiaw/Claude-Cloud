@@ -444,10 +444,15 @@
       "t": "2026-10-31T15:04:44+00:00",
       "equity": 98.43,
       "cash": 50.1
+    },
+    {
+      "t": "2026-10-31T16:04:37+00:00",
+      "equity": 98.43,
+      "cash": 50.1
     }
   ],
   "last_run": {
-    "at": "2026-10-31T15:04:43+00:00",
+    "at": "2026-10-31T16:04:37+00:00",
     "scanned": 19,
     "market_open": false,
     "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"

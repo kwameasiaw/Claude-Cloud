@@ -384,22 +384,27 @@
       "t": "2026-10-31T15:04:42+00:00",
       "equity": 94.34,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T16:04:36+00:00",
+      "equity": 94.34,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T15:04:40+00:00",
+    "at": "2026-10-31T16:04:34+00:00",
     "scanned": 1000,
-    "flagged": 98,
+    "flagged": 126,
     "passed_filters": 277,
-    "candidates": 33,
+    "candidates": 30,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Dota 2: Team Yandex vs GamerLegion - Game 2 Winner: price swung +36c in 24h",
-      "Will Club Atl\u00e9tico de Madrid win on 2026-10-31?: price swung +36c in 24h",
-      "Bologna FC 1909 vs. AC Monza: O/U 2.5: price swung +26c in 24h",
-      "Will Bitcoin dip to $75,000 in October?: price swung -11c in 24h",
-      "Will the Democratic Party win the NC-13 House seat?: price swung +11c in 24h"
+      "Will Manchester City FC win on 2026-10-31?: price swung -28c in 24h",
+      "Will Rayo Vallecano de Madrid win on 2026-10-31?: price swung +28c in 24h",
+      "Will Bologna FC 1909 win on 2026-10-31?: price swung +42c in 24h",
+      "Will Ipswich Town FC win on 2026-10-31?: price swung +35c in 24h",
+      "Will Borussia M\u00f6nchengladbach win on 2026-10-31?: price swung -24c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
