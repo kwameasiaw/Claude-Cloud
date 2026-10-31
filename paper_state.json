@@ -419,22 +419,27 @@
       "t": "2026-10-31T22:04:43+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T23:04:22+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T22:04:40+00:00",
+    "at": "2026-10-31T23:04:20+00:00",
     "scanned": 1000,
-    "flagged": 165,
-    "passed_filters": 264,
+    "flagged": 128,
+    "passed_filters": 266,
     "candidates": 29,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will FC Barcelona win on 2026-10-31?: price swung +11c in 24h",
-      "Spread: FC Barcelona (-2.5): price swung +47c in 24h",
-      "Will 1win launch a token by October 31, 2026?: price swung +87c in 24h",
-      "Minnesota vs. Indiana: price swung +18c in 24h",
-      "Florida vs. Georgia: price swung -19c in 24h"
+      "Will 1win launch a token by October 31, 2026?: price swung +88c in 24h",
+      "Minnesota vs. Indiana: price swung +30c in 24h",
+      "Spread: Utah (-7.5): price swung +52c in 24h",
+      "Arizona State vs. BYU: price swung -13c in 24h",
+      "Kansas vs. TCU: price swung -23c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
