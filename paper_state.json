@@ -399,22 +399,27 @@
       "t": "2026-10-31T18:04:54+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T19:04:13+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T18:04:51+00:00",
+    "at": "2026-10-31T19:04:11+00:00",
     "scanned": 1000,
-    "flagged": 152,
-    "passed_filters": 263,
-    "candidates": 26,
+    "flagged": 177,
+    "passed_filters": 248,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Rayo Vallecano de Madrid win on 2026-10-31?: price swung +60c in 24h",
-      "Will Tottenham Hotspur FC win on 2026-10-31?: price swung +31c in 24h",
+      "Will FC Bayern M\u00fcnchen win on 2026-10-31?: price swung +12c in 24h",
+      "Will Tottenham Hotspur FC win on 2026-10-31?: price swung +38c in 24h",
+      "Will 1win launch a token by October 31, 2026?: price swung +92c in 24h",
       "Will AS Roma win on 2026-10-31?: price swung +37c in 24h",
-      "England and Sri Lanka Tour of Pakistan ODIs: Pakistan vs Sri Lanka: price swung +37c in 24h",
-      "Will 1win launch a token by October 31, 2026?: price swung +88c in 24h"
+      "Will Real Betis Balompi\u00e9 win on 2026-10-31?: price swung +15c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
