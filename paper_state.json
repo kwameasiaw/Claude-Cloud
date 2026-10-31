@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.76,
+      "last_bid": 0.77,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -334,22 +334,27 @@
       "t": "2026-10-31T05:04:09+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T06:04:39+00:00",
+      "equity": 94.34,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T05:04:06+00:00",
+    "at": "2026-10-31T06:04:36+00:00",
     "scanned": 1000,
     "flagged": 113,
-    "passed_filters": 291,
-    "candidates": 28,
+    "passed_filters": 297,
+    "candidates": 30,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Kent State vs. Sacramento State: price swung -23c in 24h",
       "Will Iliana Iotova win the next Bulgarian presidential election?: price swung -16c in 24h",
-      "Will Pumas de la UNAM win on 2026-10-30?: price swung -28c in 24h",
+      "Will Pumas de la UNAM win on 2026-10-30?: price swung +54c in 24h",
       "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung +16c in 24h",
-      "Will Apple be the largest company in the world by market cap on Octobe: price swung +36c in 24h"
+      "Will Apple be the largest company in the world by market cap on Octobe: price swung +35c in 24h",
+      "Kraken vs. Flames: O/U 6.5: price swung +52c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
