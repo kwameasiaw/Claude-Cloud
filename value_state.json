@@ -103,7 +103,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.2,
+      "last_bid": 0.25,
       "tags": [
         "iran",
         "israel",
@@ -182,7 +182,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.34,
+      "last_bid": 0.31,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -841,35 +841,15 @@
       "t": "2026-10-31T14:04:27+00:00",
       "equity": 98.41,
       "cash": 87.02
+    },
+    {
+      "t": "2026-10-31T15:04:43+00:00",
+      "equity": 99.05,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-10-31T14:04:19+00:00",
-    "scanned": 1000,
-    "flagged": 108,
-    "passed_filters": 283,
-    "candidates": 110,
-    "shortlisted": 32,
-    "researched": 12,
-    "flag_examples": [
-      "Will Chelsea FC win on 2026-10-31?: price swung +44c in 24h",
-      "Will Manchester United FC win on 2026-10-31?: price swung -22c in 24h",
-      "Dota 2: Team Yandex vs GamerLegion - Game 1 Winner: price swung +48c in 24h",
-      "Map Handicap: FURIA (-1.5) vs Nemiga (+1.5): spread 0.06 is unusually wide",
-      "Will Bitcoin dip to $75,000 in October?: price swung -24c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": [
-      "Will the Republicans win the Ohio governor race in 2026?: already 2 bets on 'midterms'",
-      "Will the Democratic Party win the AZ-01 House seat?: already 2 bets on 'midterms'"
-    ]
+    "at": "2026-10-31T15:04:43+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
