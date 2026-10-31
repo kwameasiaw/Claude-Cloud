@@ -356,7 +356,7 @@
       "stop_price": 0.2152,
       "opened_at": "2026-10-30T19:04:15+00:00",
       "url": "https://polymarket.com/market/will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-      "last_bid": 0.299,
+      "last_bid": 0.303,
       "tags": [
         "taiwan",
         "politics",
@@ -682,10 +682,15 @@
       "t": "2026-10-31T00:04:33+00:00",
       "equity": 98.69,
       "cash": 87.68
+    },
+    {
+      "t": "2026-10-31T01:04:47+00:00",
+      "equity": 98.71,
+      "cash": 87.68
     }
   ],
   "last_run": {
-    "at": "2026-10-31T00:04:33+00:00",
+    "at": "2026-10-31T01:04:47+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

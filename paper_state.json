@@ -309,22 +309,27 @@
       "t": "2026-10-31T00:04:32+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T01:04:46+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T00:04:29+00:00",
+    "at": "2026-10-31T01:04:42+00:00",
     "scanned": 1000,
-    "flagged": 202,
-    "passed_filters": 194,
-    "candidates": 31,
+    "flagged": 234,
+    "passed_filters": 197,
+    "candidates": 33,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "LoL: Hanwha Life Esports vs G2 Esports - Game 1 Winner: price swung +28c in 24h",
-      "Hornets vs. Wizards: price swung -12c in 24h",
-      "Spread: Raptors (-5.5): price swung -12c in 24h",
-      "Devils vs. Golden Knights: price swung +41c in 24h",
-      "US x Iran ceasefire continues through October 31?: price swung +32c in 24h"
+      "LoL: Hanwha Life Esports vs G2 Esports - Game 2 Winner: price swung +27c in 24h",
+      "Knicks vs. 76ers: price swung -32c in 24h",
+      "LoL: Hanwha Life Esports vs G2 Esports - Game 1 Winner: price swung +29c in 24h",
+      "Hornets vs. Wizards: price swung -45c in 24h",
+      "Spread: Knicks (-3.5): price swung -30c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

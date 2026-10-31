@@ -14,7 +14,7 @@
       "stop_price": 72355.325301,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77143.95,
+      "last_bid": 77427.855,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 2008.300768,
       "opened_at": "2026-10-30T09:35:33+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2241.0,
+      "last_bid": 2246.9,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 47.0645,
       "opened_at": "2026-10-30T10:04:56+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 55.68,
+      "last_bid": 55.5425,
       "tags": [
         "altcoin"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 7.000422,
       "opened_at": "2026-10-30T13:08:03+00:00",
       "url": "https://www.google.com/finance/quote/AVAX-USD",
-      "last_bid": 8.537,
+      "last_bid": 8.588,
       "tags": [
         "altcoin"
       ],
@@ -249,17 +249,19 @@
       "t": "2026-10-31T00:04:34+00:00",
       "equity": 100.46,
       "cash": 60.01
+    },
+    {
+      "t": "2026-10-31T01:04:48+00:00",
+      "equity": 100.56,
+      "cash": 60.01
     }
   ],
   "last_run": {
-    "at": "2026-10-31T00:04:34+00:00",
+    "at": "2026-10-31T01:04:47+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 2,
+    "signals": 0,
     "traded": 0,
-    "blocked_examples": [
-      "BTC/USD: already holding BTC/USD",
-      "ETH/USD: already holding ETH/USD"
-    ]
+    "blocked_examples": []
   }
 }
