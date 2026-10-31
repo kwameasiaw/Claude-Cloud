@@ -64,7 +64,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.85,
+      "last_bid": 0.84,
       "tags": [
         "midterms",
         "house-elections",
@@ -389,22 +389,27 @@
       "t": "2026-10-31T16:04:36+00:00",
       "equity": 94.34,
       "cash": 65.06
+    },
+    {
+      "t": "2026-10-31T17:04:31+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T16:04:34+00:00",
+    "at": "2026-10-31T17:04:29+00:00",
     "scanned": 1000,
-    "flagged": 126,
-    "passed_filters": 277,
+    "flagged": 119,
+    "passed_filters": 272,
     "candidates": 30,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Manchester City FC win on 2026-10-31?: price swung -28c in 24h",
-      "Will Rayo Vallecano de Madrid win on 2026-10-31?: price swung +28c in 24h",
-      "Will Bologna FC 1909 win on 2026-10-31?: price swung +42c in 24h",
-      "Will Ipswich Town FC win on 2026-10-31?: price swung +35c in 24h",
-      "Will Borussia M\u00f6nchengladbach win on 2026-10-31?: price swung -24c in 24h"
+      "Will Rayo Vallecano de Madrid win on 2026-10-31?: price swung +60c in 24h",
+      "Will Brighton & Hove Albion FC win on 2026-10-31?: price swung +79c in 24h",
+      "England and Sri Lanka Tour of Pakistan ODIs: Pakistan vs Sri Lanka: price swung +36c in 24h",
+      "Will Bitcoin dip to $75,000 in October?: price swung -11c in 24h",
+      "Spread: Notre Dame (-30.5): price swung -28c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:12+00:00",
       "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.24,
+      "last_bid": 0.26,
       "tags": [
         "iran",
         "trump",
@@ -356,7 +356,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-31T14:04:27+00:00",
       "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
-      "last_bid": 0.32,
+      "last_bid": 0.31,
       "tags": [
         "world-elections",
         "elections",
@@ -851,10 +851,15 @@
       "t": "2026-10-31T16:04:37+00:00",
       "equity": 98.69,
       "cash": 87.02
+    },
+    {
+      "t": "2026-10-31T17:04:32+00:00",
+      "equity": 98.95,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-10-31T16:04:37+00:00",
+    "at": "2026-10-31T17:04:32+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
