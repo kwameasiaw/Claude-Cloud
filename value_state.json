@@ -182,7 +182,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.31,
+      "last_bid": 0.32,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -356,7 +356,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-31T14:04:27+00:00",
       "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
-      "last_bid": 0.31,
+      "last_bid": 0.32,
       "tags": [
         "world-elections",
         "elections",
@@ -856,10 +856,15 @@
       "t": "2026-10-31T17:04:32+00:00",
       "equity": 98.95,
       "cash": 87.02
+    },
+    {
+      "t": "2026-10-31T18:04:55+00:00",
+      "equity": 99.05,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-10-31T17:04:32+00:00",
+    "at": "2026-10-31T18:04:55+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
