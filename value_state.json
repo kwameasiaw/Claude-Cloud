@@ -1,96 +1,7 @@
 {
-  "cash": 87.02403169,
+  "cash": 86.36853169,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "6282802",
-      "event_id": "699735",
-      "question": "US announces end of Iranian blockade by November 15, 2026?",
-      "outcome": "Yes",
-      "token_id": "14546978402393561886763794016233348324197383968729459022246166822328488515646",
-      "shares": 15.65,
-      "entry_price": 0.2,
-      "stake": 3.13,
-      "stop_price": 0.13,
-      "opened_at": "2026-10-29T17:39:12+00:00",
-      "url": "https://polymarket.com/market/us-announces-end-of-iranian-blockade-by-november-15-2026",
-      "last_bid": 0.19,
-      "tags": [
-        "iran",
-        "trump",
-        "blockade",
-        "politics",
-        "shipping",
-        "peace-deal",
-        "geopolitics",
-        "trump-iran",
-        "strait-of-hormuz",
-        "oil",
-        "diplomacy-ceasefire"
-      ],
-      "closes_at": "2026-11-16T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "iran",
-          "trump",
-          "blockade",
-          "politics",
-          "shipping",
-          "peace-deal",
-          "geopolitics",
-          "trump-iran",
-          "strait-of-hormuz",
-          "oil",
-          "diplomacy-ceasefire"
-        ],
-        "scan": [
-          "'Yes' at 0.20",
-          "liq $43,257",
-          "vol24h $13,427",
-          "closes in 17.5d"
-        ],
-        "stop_price": 0.13,
-        "research": {
-          "items": 0,
-          "sources_ok": [],
-          "sources_failed": [
-            "news",
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": []
-        },
-        "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
-          "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.2,
-          "edge": 0.1002,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "edge +10.0c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 3.13,
-          "kelly": 0.1253,
-          "reasons": [
-            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
-            "cap 10% = \u00a310.00",
-            "stake \u00a33.13"
-          ]
-        }
-      }
-    },
     {
       "market_id": "6367378",
       "event_id": "711714",
@@ -356,7 +267,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-31T14:04:27+00:00",
       "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
-      "last_bid": 0.3212,
+      "last_bid": 0.2916,
       "tags": [
         "world-elections",
         "elections",
@@ -438,6 +349,88 @@
             "Kelly 6.7% of pot -> quarter-Kelly \u00a31.65",
             "cap 10% = \u00a39.85",
             "stake \u00a31.65"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6507383",
+      "event_id": "1292829",
+      "question": "Will Bitcoin dip to $67,500 in November?",
+      "outcome": "Yes",
+      "token_id": "15542710001866766202110323156169725417182779903002226439100570924289697216169",
+      "shares": 12.7367,
+      "entry_price": 0.2112,
+      "stake": 2.69,
+      "stop_price": 0.1373,
+      "opened_at": "2026-11-01T09:04:27+00:00",
+      "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
+      "last_bid": 0.1792,
+      "tags": [
+        "bitcoin",
+        "monthly",
+        "hit-price",
+        "crypto",
+        "crypto-prices",
+        "recurring"
+      ],
+      "closes_at": "2026-12-01T05:00:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "crypto",
+        "tags": [
+          "bitcoin",
+          "monthly",
+          "hit-price",
+          "crypto",
+          "crypto-prices",
+          "recurring"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $48,479",
+          "vol24h $6,251",
+          "closes in 29.8d"
+        ],
+        "stop_price": 0.1373,
+        "research": {
+          "items": 0,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2112,
+          "edge": 0.089,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +8.9c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.69,
+          "kelly": 0.1128,
+          "reasons": [
+            "Kelly 11.3% of pot -> quarter-Kelly \u00a32.69",
+            "cap 10% = \u00a39.55",
+            "stake \u00a32.69"
           ]
         }
       }
@@ -591,6 +584,81 @@
             "Kelly 6.2% of pot -> quarter-Kelly \u00a31.54",
             "cap 10% = \u00a39.88",
             "stake \u00a31.54"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6282802",
+      "question": "US announces end of Iranian blockade by November 15, 2026?",
+      "outcome": "Yes",
+      "entry_price": 0.2,
+      "exit_price": 0.13,
+      "shares": 15.65,
+      "stake": 3.13,
+      "proceeds": 2.0345,
+      "pnl": -1.0955,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-29T17:39:12+00:00",
+      "closed_at": "2026-11-01T09:04:19+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "trump",
+          "blockade",
+          "politics",
+          "shipping",
+          "peace-deal",
+          "geopolitics",
+          "trump-iran",
+          "strait-of-hormuz",
+          "oil",
+          "diplomacy-ceasefire"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $43,257",
+          "vol24h $13,427",
+          "closes in 17.5d"
+        ],
+        "stop_price": 0.13,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2,
+          "edge": 0.1002,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +10.0c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.13,
+          "kelly": 0.1253,
+          "reasons": [
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
+            "cap 10% = \u00a310.00",
+            "stake \u00a33.13"
           ]
         }
       }
@@ -931,10 +999,39 @@
       "t": "2026-11-01T08:04:18+00:00",
       "equity": 96.58,
       "cash": 87.02
+    },
+    {
+      "t": "2026-11-01T09:04:27+00:00",
+      "equity": 95.09,
+      "cash": 86.37
     }
   ],
   "last_run": {
-    "at": "2026-11-01T08:04:18+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-01T09:04:20+00:00",
+    "scanned": 1000,
+    "flagged": 79,
+    "passed_filters": 322,
+    "candidates": 138,
+    "shortlisted": 24,
+    "researched": 12,
+    "flag_examples": [
+      "Will 1win launch a token by October 31, 2026?: price swung +85c in 24h",
+      "US announces end of Iranian blockade by November 2, 2026?: price swung -10c in 24h",
+      "India Tour of New Zealand T20s: New Zealand vs India: price swung +17c in 24h",
+      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +81c in 24h",
+      "Ethereum Up or Down on November 1?: price swung +41c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": [
+      "Will the Republican Party hold between 190 and 194 House sea: already 2 bets on 'midterms'"
+    ]
   }
 }
