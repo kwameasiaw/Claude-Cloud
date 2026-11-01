@@ -349,7 +349,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.3212,
+      "last_bid": 0.331,
       "tags": [
         "taiwan",
         "politics",
@@ -1299,10 +1299,15 @@
       "t": "2026-11-01T20:04:15+00:00",
       "equity": 102.98,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-01T21:04:57+00:00",
+      "equity": 103.02,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-01T20:04:15+00:00",
+    "at": "2026-11-01T21:04:57+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
