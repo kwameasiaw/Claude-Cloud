@@ -14,7 +14,7 @@
       "stop_price": 0.6517,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
-      "last_bid": 0.7647,
+      "last_bid": 0.836,
       "tags": [
         "sports",
         "nfl",
@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7731,
+      "last_bid": 0.7629,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -64,7 +64,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8552,
+      "last_bid": 0.8758,
       "tags": [
         "midterms",
         "house-elections",
@@ -534,22 +534,27 @@
       "t": "2026-11-01T21:04:56+00:00",
       "equity": 94.31,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T22:04:31+00:00",
+      "equity": 95.31,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T21:04:54+00:00",
+    "at": "2026-11-01T22:04:29+00:00",
     "scanned": 1000,
-    "flagged": 216,
-    "passed_filters": 295,
-    "candidates": 38,
+    "flagged": 136,
+    "passed_filters": 325,
+    "candidates": 46,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Raiders vs. Jets: price swung +53c in 24h",
-      "Ravens vs. Bills: price swung -38c in 24h",
-      "Vikings vs. Lions: price swung -33c in 24h",
-      "Cardinals vs. Cowboys: price swung -17c in 24h",
-      "Titans vs. Bengals: price swung +23c in 24h"
+      "Cardinals vs. Cowboys: price swung +74c in 24h",
+      "Will Athletic Club win on 2026-11-01?: price swung +55c in 24h",
+      "Celtics vs. Magic: price swung +21c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h",
+      "Chargers vs. Rams: price swung +11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
