@@ -14,7 +14,7 @@
       "stop_price": 0.6517,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
-      "last_bid": 0.836,
+      "last_bid": 0.8973,
       "tags": [
         "sports",
         "nfl",
@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7629,
+      "last_bid": 0.7731,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -539,22 +539,27 @@
       "t": "2026-11-01T22:04:31+00:00",
       "equity": 95.31,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T23:04:21+00:00",
+      "equity": 96.19,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T22:04:29+00:00",
+    "at": "2026-11-01T23:04:19+00:00",
     "scanned": 1000,
-    "flagged": 136,
-    "passed_filters": 325,
-    "candidates": 46,
+    "flagged": 165,
+    "passed_filters": 328,
+    "candidates": 43,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Cardinals vs. Cowboys: price swung +74c in 24h",
-      "Will Athletic Club win on 2026-11-01?: price swung +55c in 24h",
-      "Celtics vs. Magic: price swung +21c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h",
-      "Chargers vs. Rams: price swung +11c in 24h"
+      "Chiefs vs. Broncos: price swung +10c in 24h",
+      "Chargers vs. Rams: price swung -15c in 24h",
+      "Celtics vs. Magic: price swung +32c in 24h",
+      "Patriots vs. Dolphins: price swung -39c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
