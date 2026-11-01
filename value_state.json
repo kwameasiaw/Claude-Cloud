@@ -1,5 +1,5 @@
 {
-  "cash": 86.36853169,
+  "cash": 84.37879003,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -256,104 +256,6 @@
       }
     },
     {
-      "market_id": "1194643",
-      "event_id": "166780",
-      "question": "Will Iliana Iotova win the next Bulgarian presidential election?",
-      "outcome": "No",
-      "token_id": "99622103131434202105388039057766053299905201074786569487569345621536678411876",
-      "shares": 4.8529,
-      "entry_price": 0.34,
-      "stake": 1.65,
-      "stop_price": 0.221,
-      "opened_at": "2026-10-31T14:04:27+00:00",
-      "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
-      "last_bid": 0.2916,
-      "tags": [
-        "world-elections",
-        "elections",
-        "global-elections",
-        "politics",
-        "world",
-        "bulgaria",
-        "rewards-20-4pt5-50",
-        "main-election",
-        "bulgaria-election"
-      ],
-      "closes_at": "2026-11-02T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "world-elections",
-          "elections",
-          "global-elections",
-          "politics",
-          "world",
-          "bulgaria",
-          "rewards-20-4pt5-50",
-          "main-election",
-          "bulgaria-election"
-        ],
-        "scan": [
-          "'No' at 0.34",
-          "liq $200,623",
-          "vol24h $118,748",
-          "closes in 1.6d"
-        ],
-        "stop_price": 0.221,
-        "research": {
-          "items": 20,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": [
-            "[news] Bulgaria\u2019s election heads to a run-off amid low voter turnout - Al Jazeera",
-            "[news] Yotova narrowly ahead in first round of Bulgarian presidential vote - Euronews.com",
-            "[news] Bulgaria heads to presidential runoff after low turnout - Le Monde.fr",
-            "[news] Bulgaria heads to presidential runoff after close vote - Reuters",
-            "[news] Bulgaria\u2019s Presidential Race Heads to Runoff as Russia Divides the Two Candidates - Balkan Insight",
-            "[news] Bulgaria heads to polls for presidential election amid regional security concerns - Anadolu Ajans\u0131",
-            "[news] Bulgarian Presidential Election Exposes Split Over Ukraine War - Kyiv Post",
-            "[news] Bulgarians vote for president in shadow of Russia\u2019s war on Ukraine - Al Jazeera"
-          ]
-        },
-        "prediction": {
-          "p_market": 0.335,
-          "p_base": 0.3842,
-          "method": "calibration table (206 past markets)",
-          "p_llm": null,
-          "p_final": 0.3842,
-          "cost": 0.34,
-          "edge": 0.0442,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 34%",
-            "calibration table (206 past markets) says 38.4%",
-            "20 headlines found, not scored (no Claude API key)",
-            "edge +4.4c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 1.65,
-          "kelly": 0.0669,
-          "reasons": [
-            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.65",
-            "cap 10% = \u00a39.85",
-            "stake \u00a31.65"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "6507383",
       "event_id": "1292829",
       "question": "Will Bitcoin dip to $67,500 in November?",
@@ -365,7 +267,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1792,
+      "last_bid": 0.1697,
       "tags": [
         "bitcoin",
         "monthly",
@@ -431,6 +333,92 @@
             "Kelly 11.3% of pot -> quarter-Kelly \u00a32.69",
             "cap 10% = \u00a39.55",
             "stake \u00a32.69"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6476741",
+      "event_id": "1289258",
+      "question": "Guangzhou Open: Lilli Tagger vs Harriet Dart",
+      "outcome": "Harriet Dart",
+      "token_id": "21959830497809485944334977358669130062319795504817158952553573627659682689075",
+      "shares": 12.5518,
+      "entry_price": 0.2183,
+      "stake": 2.74,
+      "stop_price": 0.1419,
+      "opened_at": "2026-11-01T10:05:01+00:00",
+      "url": "https://polymarket.com/market/wta-tagger-dart-2026-11-01",
+      "last_bid": 0.1823,
+      "tags": [
+        "tennis",
+        "sports",
+        "games"
+      ],
+      "closes_at": "2026-11-08T08:30:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "tennis",
+          "sports",
+          "games"
+        ],
+        "scan": [
+          "'Harriet Dart' at 0.20",
+          "liq $355,963",
+          "vol24h $240,944",
+          "closes in 6.9d"
+        ],
+        "stop_price": 0.1419,
+        "research": {
+          "items": 12,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Guangzhou Open: Harriet Dart reaches first WTA Tour final after dramatic comeback against Chinese teenager Sun Xinran - Sky Sports",
+            "[news] Guangzhou Open: Harriet Dart secures maiden WTA Tour final - BBC",
+            "[news] Qualifier Harriet Dart meets teenager Lilli Tagger for the Guangzhou title - Tennis Majors",
+            "[news] Lilli Tagger vs Harriet Dart \u00b7 Final \u00b7 WTA Guangzhou - Tennis.com",
+            "[news] (LIVESTREAMs!PPV) Harriet Dart vs Lilli Tagger Live Free Guangzhou Open Final 1st November 2026 - Pierce Manufacturing",
+            "[news] How to watch the women\u2019s Galaxy Holding Group Guangzhou Open: Streaming options for the Final - The New York Times",
+            "[news] Harriet Dart reaches her first WTA Tour singles final in Guangzhou \u2014 BBC Sport - UA.NEWS",
+            "[news] WTA roundup: Finals set in Tokyo, Guangzhou - Bradenton Herald"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.74,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.74",
+            "cap 10% = \u00a39.43",
+            "stake \u00a32.74"
           ]
         }
       }
@@ -659,6 +647,92 @@
             "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
             "cap 10% = \u00a310.00",
             "stake \u00a33.13"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "1194643",
+      "question": "Will Iliana Iotova win the next Bulgarian presidential election?",
+      "outcome": "No",
+      "entry_price": 0.34,
+      "exit_price": 0.1546,
+      "shares": 4.8529,
+      "stake": 1.65,
+      "proceeds": 0.7503,
+      "pnl": -0.8997,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-31T14:04:27+00:00",
+      "closed_at": "2026-11-01T10:04:54+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "world-elections",
+          "elections",
+          "global-elections",
+          "politics",
+          "world",
+          "bulgaria",
+          "rewards-20-4pt5-50",
+          "main-election",
+          "bulgaria-election"
+        ],
+        "scan": [
+          "'No' at 0.34",
+          "liq $200,623",
+          "vol24h $118,748",
+          "closes in 1.6d"
+        ],
+        "stop_price": 0.221,
+        "research": {
+          "items": 20,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Bulgaria\u2019s election heads to a run-off amid low voter turnout - Al Jazeera",
+            "[news] Yotova narrowly ahead in first round of Bulgarian presidential vote - Euronews.com",
+            "[news] Bulgaria heads to presidential runoff after low turnout - Le Monde.fr",
+            "[news] Bulgaria heads to presidential runoff after close vote - Reuters",
+            "[news] Bulgaria\u2019s Presidential Race Heads to Runoff as Russia Divides the Two Candidates - Balkan Insight",
+            "[news] Bulgaria heads to polls for presidential election amid regional security concerns - Anadolu Ajans\u0131",
+            "[news] Bulgarian Presidential Election Exposes Split Over Ukraine War - Kyiv Post",
+            "[news] Bulgarians vote for president in shadow of Russia\u2019s war on Ukraine - Al Jazeera"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.335,
+          "p_base": 0.3842,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3842,
+          "cost": 0.34,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 38.4%",
+            "20 headlines found, not scored (no Claude API key)",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.65,
+          "kelly": 0.0669,
+          "reasons": [
+            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.65",
+            "cap 10% = \u00a39.85",
+            "stake \u00a31.65"
           ]
         }
       }
@@ -1004,22 +1078,27 @@
       "t": "2026-11-01T09:04:27+00:00",
       "equity": 95.09,
       "cash": 86.37
+    },
+    {
+      "t": "2026-11-01T10:05:01+00:00",
+      "equity": 93.85,
+      "cash": 84.38
     }
   ],
   "last_run": {
-    "at": "2026-11-01T09:04:20+00:00",
+    "at": "2026-11-01T10:04:55+00:00",
     "scanned": 1000,
-    "flagged": 79,
-    "passed_filters": 322,
-    "candidates": 138,
-    "shortlisted": 24,
+    "flagged": 78,
+    "passed_filters": 323,
+    "candidates": 150,
+    "shortlisted": 27,
     "researched": 12,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +85c in 24h",
-      "US announces end of Iranian blockade by November 2, 2026?: price swung -10c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +17c in 24h",
-      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +81c in 24h",
-      "Ethereum Up or Down on November 1?: price swung +41c in 24h"
+      "Will 1win launch a token by October 31, 2026?: price swung +87c in 24h",
+      "India Tour of New Zealand T20s: New Zealand vs India: price swung +41c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +18c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -16c in 24h",
+      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +83c in 24h"
     ],
     "sources": [
       "bbc",
