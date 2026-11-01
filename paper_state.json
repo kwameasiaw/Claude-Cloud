@@ -479,22 +479,27 @@
       "t": "2026-11-01T10:04:54+00:00",
       "equity": 94.06,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T11:04:40+00:00",
+      "equity": 94.06,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T10:04:52+00:00",
+    "at": "2026-11-01T11:04:38+00:00",
     "scanned": 1000,
-    "flagged": 78,
-    "passed_filters": 323,
-    "candidates": 47,
+    "flagged": 81,
+    "passed_filters": 321,
+    "candidates": 45,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +87c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +41c in 24h",
+      "Will 1win launch a token by October 31, 2026?: price swung +94c in 24h",
+      "India Tour of New Zealand T20s: New Zealand vs India: price swung +57c in 24h",
       "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +18c in 24h",
-      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -16c in 24h",
-      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +83c in 24h"
+      "US announces end of Iranian blockade by November 2, 2026?: price swung -10c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
