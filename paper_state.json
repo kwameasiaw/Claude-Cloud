@@ -439,22 +439,27 @@
       "t": "2026-11-01T02:04:28+00:00",
       "equity": 94.09,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T03:04:27+00:00",
+      "equity": 94.09,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T02:04:26+00:00",
+    "at": "2026-11-01T03:04:24+00:00",
     "scanned": 1000,
-    "flagged": 183,
-    "passed_filters": 276,
-    "candidates": 31,
+    "flagged": 127,
+    "passed_filters": 300,
+    "candidates": 34,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Thunder vs. Rockets: price swung -22c in 24h",
-      "Will 1win launch a token by October 31, 2026?: price swung +81c in 24h",
-      "Spread: Rockets (-2.5): spread 0.04 is unusually wide",
-      "Spread: Cavaliers (-9.5): price swung +51c in 24h",
-      "Cavaliers vs. Bucks: price swung +25c in 24h"
+      "Will 1win launch a token by October 31, 2026?: price swung +82c in 24h",
+      "Texas State vs. Boise State: O/U 63.5: price swung -14c in 24h",
+      "Will the Democratic Party win the NC-13 House seat?: price swung +10c in 24h",
+      "Miami (FL) vs. North Carolina: price swung +15c in 24h",
+      "Washington vs. Nebraska: spread 0.06 is unusually wide"
     ],
     "predicted_fire": 0,
     "approved": 0,
