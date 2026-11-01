@@ -1,0 +1,2 @@
+market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reason,opened_at,closed_at
+AVAX/USD,Avalanche (AVAX/USD),Long,8.23029,8.7987,1.213809,9.99,10.6799,0.6899,take-profit,2026-10-30T13:08:03+00:00,2026-11-01T05:04:12+00:00
