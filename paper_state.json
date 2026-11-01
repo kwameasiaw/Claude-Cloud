@@ -444,22 +444,27 @@
       "t": "2026-11-01T03:04:27+00:00",
       "equity": 94.09,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T04:04:41+00:00",
+      "equity": 94.09,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T03:04:24+00:00",
+    "at": "2026-11-01T04:04:39+00:00",
     "scanned": 1000,
-    "flagged": 127,
-    "passed_filters": 300,
-    "candidates": 34,
+    "flagged": 109,
+    "passed_filters": 310,
+    "candidates": 33,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +82c in 24h",
-      "Texas State vs. Boise State: O/U 63.5: price swung -14c in 24h",
-      "Will the Democratic Party win the NC-13 House seat?: price swung +10c in 24h",
-      "Miami (FL) vs. North Carolina: price swung +15c in 24h",
-      "Washington vs. Nebraska: spread 0.06 is unusually wide"
+      "Will 1win launch a token by October 31, 2026?: price swung +83c in 24h",
+      "Texas State vs. Boise State: O/U 63.5: price swung -17c in 24h",
+      "Spread: Oregon State (-6.5): price swung -20c in 24h",
+      "Will CF Am\u00e9rica win on 2026-10-31?: price swung -20c in 24h",
+      "Will the Democratic Party win the NC-13 House seat?: price swung +10c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
