@@ -64,7 +64,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8861,
+      "last_bid": 0.8552,
       "tags": [
         "midterms",
         "house-elections",
@@ -509,22 +509,27 @@
       "t": "2026-11-01T16:04:34+00:00",
       "equity": 94.56,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T17:04:41+00:00",
+      "equity": 94.19,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T16:04:33+00:00",
+    "at": "2026-11-01T17:04:38+00:00",
     "scanned": 1000,
-    "flagged": 126,
-    "passed_filters": 291,
-    "candidates": 37,
+    "flagged": 132,
+    "passed_filters": 289,
+    "candidates": 38,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +87c in 24h",
-      "Will SS Lazio win on 2026-11-01?: price swung +32c in 24h",
+      "Will 1win launch a token by October 31, 2026?: price swung +13c in 24h",
       "Will Real Madrid CF win on 2026-11-01?: price swung +20c in 24h",
-      "SS Lazio vs. Cagliari Calcio: O/U 2.5: price swung +46c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +15c in 24h"
+      "Liverpool FC vs. Arsenal FC: O/U 2.5: price swung +20c in 24h",
+      "Will Arsenal FC win on 2026-11-01?: price swung +15c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +16c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
