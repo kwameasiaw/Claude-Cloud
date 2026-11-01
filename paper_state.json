@@ -424,22 +424,27 @@
       "t": "2026-10-31T23:04:22+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T00:04:33+00:00",
+      "equity": 94.22,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-10-31T23:04:20+00:00",
+    "at": "2026-11-01T00:04:31+00:00",
     "scanned": 1000,
-    "flagged": 128,
-    "passed_filters": 266,
-    "candidates": 29,
+    "flagged": 129,
+    "passed_filters": 274,
+    "candidates": 32,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "76ers vs. Hornets: price swung -24c in 24h",
+      "Hawks vs. Pelicans: price swung -30c in 24h",
       "Will 1win launch a token by October 31, 2026?: price swung +88c in 24h",
-      "Minnesota vs. Indiana: price swung +30c in 24h",
-      "Spread: Utah (-7.5): price swung +52c in 24h",
-      "Arizona State vs. BYU: price swung -13c in 24h",
-      "Kansas vs. TCU: price swung -23c in 24h"
+      "Spread: 76ers (-1.5): spread 0.09 is unusually wide",
+      "Spread: Hawks (-4.5): spread 0.04 is unusually wide"
     ],
     "predicted_fire": 0,
     "approved": 0,
