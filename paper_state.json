@@ -35,7 +35,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7629,
+      "last_bid": 0.7731,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -519,22 +519,27 @@
       "t": "2026-11-01T18:04:17+00:00",
       "equity": 94.19,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T19:04:23+00:00",
+      "equity": 94.31,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T18:04:14+00:00",
+    "at": "2026-11-01T19:04:21+00:00",
     "scanned": 1000,
-    "flagged": 120,
-    "passed_filters": 285,
-    "candidates": 38,
+    "flagged": 174,
+    "passed_filters": 288,
+    "candidates": 39,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Liverpool FC vs. Arsenal FC: O/U 2.5: price swung -27c in 24h",
-      "Will Arsenal FC win on 2026-11-01?: price swung +32c in 24h",
-      "Will Benjamin Netanyahu be the next Prime Minister of Israel?: price swung -10c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +30c in 24h",
-      "Will the Democrats win the Michigan Senate race in 2026?: price swung -11c in 24h"
+      "Browns vs. Steelers: price swung -22c in 24h",
+      "Ravens vs. Bills: price swung -24c in 24h",
+      "Raiders vs. Jets: price swung -10c in 24h",
+      "Vikings vs. Lions: price swung +12c in 24h",
+      "Spread: Steelers (-3.5): price swung +29c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
