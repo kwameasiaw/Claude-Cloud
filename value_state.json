@@ -1,5 +1,5 @@
 {
-  "cash": 84.37879003,
+  "cash": 93.89059003,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -338,24 +338,24 @@
       }
     },
     {
-      "market_id": "6476741",
-      "event_id": "1289258",
-      "question": "Guangzhou Open: Lilli Tagger vs Harriet Dart",
-      "outcome": "Harriet Dart",
-      "token_id": "21959830497809485944334977358669130062319795504817158952553573627659682689075",
-      "shares": 12.5518,
-      "entry_price": 0.2183,
-      "stake": 2.74,
-      "stop_price": 0.1419,
-      "opened_at": "2026-11-01T10:05:01+00:00",
-      "url": "https://polymarket.com/market/wta-tagger-dart-2026-11-01",
+      "market_id": "6499353",
+      "event_id": "1291388",
+      "question": "Erste Bank Open: Alex de Minaur vs Carlos Alcaraz",
+      "outcome": "Alex de Minaur",
+      "token_id": "68025609285865854654962198774392572634826897404703158149866579025872864028611",
+      "shares": 14.6154,
+      "entry_price": 0.208,
+      "stake": 3.04,
+      "stop_price": 0.1352,
+      "opened_at": "2026-11-01T12:05:12+00:00",
+      "url": "https://polymarket.com/market/atp-minaur-alcaraz-2026-11-01",
       "last_bid": 0.1823,
       "tags": [
         "tennis",
         "sports",
         "games"
       ],
-      "closes_at": "2026-11-08T08:30:00+00:00",
+      "closes_at": "2026-11-08T13:00:00+00:00",
       "decision": {
         "pot": "value",
         "category": "sports",
@@ -365,12 +365,12 @@
           "games"
         ],
         "scan": [
-          "'Harriet Dart' at 0.20",
-          "liq $355,963",
-          "vol24h $240,944",
-          "closes in 6.9d"
+          "'Alex de Minaur' at 0.20",
+          "liq $125,341",
+          "vol24h $55,347",
+          "closes in 7.0d"
         ],
-        "stop_price": 0.1419,
+        "stop_price": 0.1352,
         "research": {
           "items": 12,
           "sources_ok": [
@@ -386,14 +386,14 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] Guangzhou Open: Harriet Dart reaches first WTA Tour final after dramatic comeback against Chinese teenager Sun Xinran - Sky Sports",
-            "[news] Guangzhou Open: Harriet Dart secures maiden WTA Tour final - BBC",
-            "[news] Qualifier Harriet Dart meets teenager Lilli Tagger for the Guangzhou title - Tennis Majors",
-            "[news] Lilli Tagger vs Harriet Dart \u00b7 Final \u00b7 WTA Guangzhou - Tennis.com",
-            "[news] (LIVESTREAMs!PPV) Harriet Dart vs Lilli Tagger Live Free Guangzhou Open Final 1st November 2026 - Pierce Manufacturing",
-            "[news] How to watch the women\u2019s Galaxy Holding Group Guangzhou Open: Streaming options for the Final - The New York Times",
-            "[news] Harriet Dart reaches her first WTA Tour singles final in Guangzhou \u2014 BBC Sport - UA.NEWS",
-            "[news] WTA roundup: Finals set in Tokyo, Guangzhou - Bradenton Herald"
+            "[news] Alex de Minaur vs Carlos Alcaraz - Match ATP - Erste Bank Open 2026 - Final - tennismajors.com",
+            "[news] What is the Vienna tennis schedule? - ATP Tour",
+            "[news] How to watch the men\u2019s Erste Bank Open: Streaming options for the Semifinal - The New York Times",
+            "[news] Zverev upset in Vienna semifinals ahead of taking No. 1 ranking - FOX Sports",
+            "[news] Alcaraz marches past Medvedev in Vienna, reaches fifth final of 2026 - ATP Tour",
+            "[news] de Minaur vs. Alcaraz Prediction at the Erste Bank Open \u2013 Sunday, November 1 - Bleacher Nation",
+            "[news] What were the Vienna tennis results? - ATP Tour",
+            "[news] Vienna final preview and prediction: Alcaraz vs. De Minaur - The Grandstand"
           ]
         },
         "prediction": {
@@ -413,12 +413,12 @@
           ]
         },
         "risk": {
-          "stake": 2.74,
+          "stake": 3.04,
           "kelly": 0.1164,
           "reasons": [
-            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.74",
-            "cap 10% = \u00a39.43",
-            "stake \u00a32.74"
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a33.04",
+            "cap 10% = \u00a310.46",
+            "stake \u00a33.04"
           ]
         }
       }
@@ -733,6 +733,86 @@
             "Kelly 6.7% of pot -> quarter-Kelly \u00a31.65",
             "cap 10% = \u00a39.85",
             "stake \u00a31.65"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6476741",
+      "question": "Guangzhou Open: Lilli Tagger vs Harriet Dart",
+      "outcome": "Harriet Dart",
+      "entry_price": 0.2183,
+      "exit_price": 1.0,
+      "shares": 12.5518,
+      "stake": 2.74,
+      "proceeds": 12.5518,
+      "pnl": 9.8118,
+      "reason": "resolved WIN",
+      "opened_at": "2026-11-01T10:05:01+00:00",
+      "closed_at": "2026-11-01T12:05:06+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "tennis",
+          "sports",
+          "games"
+        ],
+        "scan": [
+          "'Harriet Dart' at 0.20",
+          "liq $355,963",
+          "vol24h $240,944",
+          "closes in 6.9d"
+        ],
+        "stop_price": 0.1419,
+        "research": {
+          "items": 12,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Guangzhou Open: Harriet Dart reaches first WTA Tour final after dramatic comeback against Chinese teenager Sun Xinran - Sky Sports",
+            "[news] Guangzhou Open: Harriet Dart secures maiden WTA Tour final - BBC",
+            "[news] Qualifier Harriet Dart meets teenager Lilli Tagger for the Guangzhou title - Tennis Majors",
+            "[news] Lilli Tagger vs Harriet Dart \u00b7 Final \u00b7 WTA Guangzhou - Tennis.com",
+            "[news] (LIVESTREAMs!PPV) Harriet Dart vs Lilli Tagger Live Free Guangzhou Open Final 1st November 2026 - Pierce Manufacturing",
+            "[news] How to watch the women\u2019s Galaxy Holding Group Guangzhou Open: Streaming options for the Final - The New York Times",
+            "[news] Harriet Dart reaches her first WTA Tour singles final in Guangzhou \u2014 BBC Sport - UA.NEWS",
+            "[news] WTA roundup: Finals set in Tokyo, Guangzhou - Bradenton Herald"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.74,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.74",
+            "cap 10% = \u00a39.43",
+            "stake \u00a32.74"
           ]
         }
       }
@@ -1088,10 +1168,39 @@
       "t": "2026-11-01T11:04:41+00:00",
       "equity": 94.32,
       "cash": 84.38
+    },
+    {
+      "t": "2026-11-01T12:05:12+00:00",
+      "equity": 104.21,
+      "cash": 93.89
     }
   ],
   "last_run": {
-    "at": "2026-11-01T11:04:41+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-01T12:05:06+00:00",
+    "scanned": 1000,
+    "flagged": 75,
+    "passed_filters": 325,
+    "candidates": 143,
+    "shortlisted": 27,
+    "researched": 12,
+    "flag_examples": [
+      "Will 1win launch a token by October 31, 2026?: price swung +94c in 24h",
+      "India Tour of New Zealand T20s: New Zealand vs India: price swung +57c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +23c in 24h",
+      "Will PEC Zwolle win on 2026-11-01?: price swung +24c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -20c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": [
+      "Will the Republican Party hold between 190 and 194 House sea: already 2 bets on 'midterms'"
+    ]
   }
 }
