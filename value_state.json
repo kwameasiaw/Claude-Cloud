@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.17,
+      "last_bid": 0.16,
       "tags": [
         "iran",
         "israel",
@@ -349,7 +349,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.3014,
+      "last_bid": 0.2621,
       "tags": [
         "taiwan",
         "politics",
@@ -1269,34 +1269,15 @@
       "t": "2026-11-01T14:06:03+00:00",
       "equity": 102.13,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-01T15:04:56+00:00",
+      "equity": 101.81,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-01T14:05:56+00:00",
-    "scanned": 1000,
-    "flagged": 102,
-    "passed_filters": 309,
-    "candidates": 124,
-    "shortlisted": 20,
-    "researched": 12,
-    "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +81c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +13c in 24h",
-      "Will PEC Zwolle win on 2026-11-01?: price swung +57c in 24h",
-      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -12c in 24h",
-      "Will Cercle Brugge win on 2026-11-01?: price swung +48c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": [
-      "Will the Democrats win the Ohio governor race in 2026?: already 2 bets on 'midterms'"
-    ]
+    "at": "2026-11-01T15:04:56+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

@@ -499,22 +499,27 @@
       "t": "2026-11-01T14:05:55+00:00",
       "equity": 93.94,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T15:04:56+00:00",
+      "equity": 93.94,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T14:05:51+00:00",
+    "at": "2026-11-01T15:04:52+00:00",
     "scanned": 1000,
-    "flagged": 102,
-    "passed_filters": 309,
-    "candidates": 38,
+    "flagged": 132,
+    "passed_filters": 302,
+    "candidates": 36,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +81c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +13c in 24h",
+      "Will 1win launch a token by October 31, 2026?: price swung +76c in 24h",
+      "Will SS Lazio win on 2026-11-01?: price swung -15c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +10c in 24h",
       "Will PEC Zwolle win on 2026-11-01?: price swung +57c in 24h",
-      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -12c in 24h",
-      "Will Cercle Brugge win on 2026-11-01?: price swung +48c in 24h"
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -10c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
