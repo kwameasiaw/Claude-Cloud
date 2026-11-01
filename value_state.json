@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.17,
+      "last_bid": 0.18,
       "tags": [
         "iran",
         "israel",
@@ -349,7 +349,7 @@
       "stop_price": 0.1352,
       "opened_at": "2026-11-01T12:05:12+00:00",
       "url": "https://polymarket.com/market/atp-minaur-alcaraz-2026-11-01",
-      "last_bid": 0.1823,
+      "last_bid": 0.1726,
       "tags": [
         "tennis",
         "sports",
@@ -1173,34 +1173,15 @@
       "t": "2026-11-01T12:05:12+00:00",
       "equity": 104.21,
       "cash": 93.89
+    },
+    {
+      "t": "2026-11-01T13:06:32+00:00",
+      "equity": 104.22,
+      "cash": 93.89
     }
   ],
   "last_run": {
-    "at": "2026-11-01T12:05:06+00:00",
-    "scanned": 1000,
-    "flagged": 75,
-    "passed_filters": 325,
-    "candidates": 143,
-    "shortlisted": 27,
-    "researched": 12,
-    "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +94c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +57c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +23c in 24h",
-      "Will PEC Zwolle win on 2026-11-01?: price swung +24c in 24h",
-      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -20c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": [
-      "Will the Republican Party hold between 190 and 194 House sea: already 2 bets on 'midterms'"
-    ]
+    "at": "2026-11-01T13:06:32+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

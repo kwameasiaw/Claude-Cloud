@@ -489,22 +489,27 @@
       "t": "2026-11-01T12:05:05+00:00",
       "equity": 94.06,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T13:06:31+00:00",
+      "equity": 94.06,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T12:05:02+00:00",
+    "at": "2026-11-01T13:06:27+00:00",
     "scanned": 1000,
-    "flagged": 75,
-    "passed_filters": 325,
-    "candidates": 42,
+    "flagged": 86,
+    "passed_filters": 311,
+    "candidates": 41,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will 1win launch a token by October 31, 2026?: price swung +94c in 24h",
-      "India Tour of New Zealand T20s: New Zealand vs India: price swung +57c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +23c in 24h",
-      "Will PEC Zwolle win on 2026-11-01?: price swung +24c in 24h",
-      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -20c in 24h"
+      "Will 1win launch a token by October 31, 2026?: price swung +74c in 24h",
+      "Will Como 1907 win on 2026-11-01?: spread 0.05 is unusually wide",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +10c in 24h",
+      "Will PEC Zwolle win on 2026-11-01?: price swung +44c in 24h",
+      "Spread: Como 1907 (-1.5): price swung -16c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
