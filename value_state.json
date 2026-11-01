@@ -182,7 +182,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.33,
+      "last_bid": 0.34,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -267,7 +267,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.29,
+      "last_bid": 0.28,
       "tags": [
         "united-states",
         "rewards-20-4pt5-50",
@@ -896,10 +896,15 @@
       "t": "2026-11-01T01:04:33+00:00",
       "equity": 97.74,
       "cash": 87.02
+    },
+    {
+      "t": "2026-11-01T02:04:29+00:00",
+      "equity": 97.74,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-11-01T01:04:33+00:00",
+    "at": "2026-11-01T02:04:29+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
