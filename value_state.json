@@ -356,7 +356,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-31T14:04:27+00:00",
       "url": "https://polymarket.com/market/will-iliana-iotova-win-the-next-bulgarian-presidential-election",
-      "last_bid": 0.3113,
+      "last_bid": 0.3212,
       "tags": [
         "world-elections",
         "elections",
@@ -926,10 +926,15 @@
       "t": "2026-11-01T07:04:22+00:00",
       "equity": 96.53,
       "cash": 87.02
+    },
+    {
+      "t": "2026-11-01T08:04:18+00:00",
+      "equity": 96.58,
+      "cash": 87.02
     }
   ],
   "last_run": {
-    "at": "2026-11-01T07:04:22+00:00",
+    "at": "2026-11-01T08:04:18+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

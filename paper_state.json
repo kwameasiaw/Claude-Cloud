@@ -464,22 +464,27 @@
       "t": "2026-11-01T07:04:21+00:00",
       "equity": 93.94,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T08:04:17+00:00",
+      "equity": 93.94,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T07:04:15+00:00",
+    "at": "2026-11-01T08:04:14+00:00",
     "scanned": 1000,
-    "flagged": 88,
-    "passed_filters": 318,
-    "candidates": 42,
+    "flagged": 84,
+    "passed_filters": 320,
+    "candidates": 41,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will 1win launch a token by October 31, 2026?: price swung +82c in 24h",
-      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +82c in 24h",
-      "Will Vivek Ramaswamy pull the Amy Acton mother ad?: price swung +15c in 24h",
-      "CF Am\u00e9rica vs. Deportivo Toluca FC: O/U 2.5: price swung +33c in 24h",
-      "Ethereum Up or Down on November 1?: price swung +26c in 24h"
+      "Will FC Machida Zelvia win on 2026-11-01?: price swung -10c in 24h",
+      "U.S. anti-cartel operation outside of the U.S. by October 31?: price swung +80c in 24h",
+      "Will Vivek Ramaswamy pull the Amy Acton mother ad?: price swung +19c in 24h",
+      "Ethereum Up or Down on November 1?: price swung +36c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
