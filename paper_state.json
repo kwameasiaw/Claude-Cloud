@@ -14,7 +14,7 @@
       "stop_price": 0.6517,
       "opened_at": "2026-10-29T16:48:54+00:00",
       "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
-      "last_bid": 0.7749,
+      "last_bid": 0.785,
       "tags": [
         "sports",
         "nfl",
@@ -429,22 +429,27 @@
       "t": "2026-11-01T00:04:33+00:00",
       "equity": 94.22,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-01T01:04:33+00:00",
+      "equity": 94.34,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T00:04:31+00:00",
+    "at": "2026-11-01T01:04:31+00:00",
     "scanned": 1000,
-    "flagged": 129,
-    "passed_filters": 274,
-    "candidates": 32,
+    "flagged": 155,
+    "passed_filters": 279,
+    "candidates": 34,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "76ers vs. Hornets: price swung -24c in 24h",
-      "Hawks vs. Pelicans: price swung -30c in 24h",
-      "Will 1win launch a token by October 31, 2026?: price swung +88c in 24h",
-      "Spread: 76ers (-1.5): spread 0.09 is unusually wide",
-      "Spread: Hawks (-4.5): spread 0.04 is unusually wide"
+      "Thunder vs. Rockets: price swung -14c in 24h",
+      "Hawks vs. Pelicans: price swung -55c in 24h",
+      "Will 1win launch a token by October 31, 2026?: price swung +81c in 24h",
+      "Spread: Cavaliers (-9.5): price swung +34c in 24h",
+      "Kings vs. Grizzlies: O/U 228.5: price swung -22c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
