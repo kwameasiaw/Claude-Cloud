@@ -1,5 +1,5 @@
 {
-  "cash": 93.89059003,
+  "cash": 93.23628307,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.18,
+      "last_bid": 0.17,
       "tags": [
         "iran",
         "israel",
@@ -338,41 +338,47 @@
       }
     },
     {
-      "market_id": "6499353",
-      "event_id": "1291388",
-      "question": "Erste Bank Open: Alex de Minaur vs Carlos Alcaraz",
-      "outcome": "Alex de Minaur",
-      "token_id": "68025609285865854654962198774392572634826897404703158149866579025872864028611",
-      "shares": 14.6154,
-      "entry_price": 0.208,
-      "stake": 3.04,
-      "stop_price": 0.1352,
-      "opened_at": "2026-11-01T12:05:12+00:00",
-      "url": "https://polymarket.com/market/atp-minaur-alcaraz-2026-11-01",
-      "last_bid": 0.1726,
+      "market_id": "3580932",
+      "event_id": "848341",
+      "question": "Will Chiang Wan-an win the next Taipei Mayor election?",
+      "outcome": "No",
+      "token_id": "28042880819135054236705112210866715426402068267079731308218252509537644025901",
+      "shares": 4.107,
+      "entry_price": 0.3287,
+      "stake": 1.35,
+      "stop_price": 0.2137,
+      "opened_at": "2026-11-01T14:06:03+00:00",
+      "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
+      "last_bid": 0.3014,
       "tags": [
-        "tennis",
-        "sports",
-        "games"
+        "taiwan",
+        "politics",
+        "elections",
+        "main-election",
+        "global-elections",
+        "taiwan-elections"
       ],
-      "closes_at": "2026-11-08T13:00:00+00:00",
+      "closes_at": "2026-11-29T04:59:00+00:00",
       "decision": {
         "pot": "value",
-        "category": "sports",
+        "category": "politics",
         "tags": [
-          "tennis",
-          "sports",
-          "games"
+          "taiwan",
+          "politics",
+          "elections",
+          "main-election",
+          "global-elections",
+          "taiwan-elections"
         ],
         "scan": [
-          "'Alex de Minaur' at 0.20",
-          "liq $125,341",
-          "vol24h $55,347",
-          "closes in 7.0d"
+          "'No' at 0.32",
+          "liq $57,131",
+          "vol24h $36,477",
+          "closes in 27.6d"
         ],
-        "stop_price": 0.1352,
+        "stop_price": 0.2137,
         "research": {
-          "items": 12,
+          "items": 16,
           "sources_ok": [
             "news",
             "bbc",
@@ -386,39 +392,39 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] Alex de Minaur vs Carlos Alcaraz - Match ATP - Erste Bank Open 2026 - Final - tennismajors.com",
-            "[news] What is the Vienna tennis schedule? - ATP Tour",
-            "[news] How to watch the men\u2019s Erste Bank Open: Streaming options for the Semifinal - The New York Times",
-            "[news] Zverev upset in Vienna semifinals ahead of taking No. 1 ranking - FOX Sports",
-            "[news] Alcaraz marches past Medvedev in Vienna, reaches fifth final of 2026 - ATP Tour",
-            "[news] de Minaur vs. Alcaraz Prediction at the Erste Bank Open \u2013 Sunday, November 1 - Bleacher Nation",
-            "[news] What were the Vienna tennis results? - ATP Tour",
-            "[news] Vienna final preview and prediction: Alcaraz vs. De Minaur - The Grandstand"
+            "[news] Battle for the Capital: Inside the 2026 Taipei Mayoral Race, Part 1 - Global Taiwan Institute",
+            "[news] DPP\u2019s Shen edges KMT\u2019s Chiang in Taipei survey - Taipei Times",
+            "[news] China Critic Tests Opposition\u2019s Decades-Old Grip in Taipei - Bloomberg.com",
+            "[news] 2026 Elections: Chiang, Shen clash in first televised mayoral debate - Taipei Times",
+            "[news] Shen leads Chiang 45% to 41% in Taipei mayoral poll - Taiwan News",
+            "[news] A trader just placed a $11K bet on Puma Shen winning the next Taipei Mayor election - Quiver Quantitative",
+            "[news] 2026 Elections: Chiang touts mayoral record at campaign HQ opening - Taipei Times",
+            "[news] Huang Kuo-chang pledges support for Chiang Wan-an\u2019s Taipei reelection bid - Taiwan News"
           ]
         },
         "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
+          "p_market": 0.315,
+          "p_base": 0.3642,
+          "method": "calibration table (206 past markets)",
           "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.208,
-          "edge": 0.0922,
+          "p_final": 0.3642,
+          "cost": 0.3287,
+          "edge": 0.0354,
           "confidence": 0.6,
           "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "12 headlines found, not scored (no Claude API key)",
-            "edge +9.2c after fees, confidence 0.60"
+            "market says 32%",
+            "calibration table (206 past markets) says 36.4%",
+            "16 headlines found, not scored (no Claude API key)",
+            "edge +3.5c after fees, confidence 0.60"
           ]
         },
         "risk": {
-          "stake": 3.04,
-          "kelly": 0.1164,
+          "stake": 1.35,
+          "kelly": 0.0528,
           "reasons": [
-            "Kelly 11.6% of pot -> quarter-Kelly \u00a33.04",
-            "cap 10% = \u00a310.46",
-            "stake \u00a33.04"
+            "Kelly 5.3% of pot -> quarter-Kelly \u00a31.35",
+            "cap 10% = \u00a310.22",
+            "stake \u00a31.35"
           ]
         }
       }
@@ -816,6 +822,86 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "6499353",
+      "question": "Erste Bank Open: Alex de Minaur vs Carlos Alcaraz",
+      "outcome": "Alex de Minaur",
+      "entry_price": 0.208,
+      "exit_price": 0.0476,
+      "shares": 14.6154,
+      "stake": 3.04,
+      "proceeds": 0.6957,
+      "pnl": -2.3443,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-01T12:05:12+00:00",
+      "closed_at": "2026-11-01T14:05:56+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "tennis",
+          "sports",
+          "games"
+        ],
+        "scan": [
+          "'Alex de Minaur' at 0.20",
+          "liq $125,341",
+          "vol24h $55,347",
+          "closes in 7.0d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 12,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Alex de Minaur vs Carlos Alcaraz - Match ATP - Erste Bank Open 2026 - Final - tennismajors.com",
+            "[news] What is the Vienna tennis schedule? - ATP Tour",
+            "[news] How to watch the men\u2019s Erste Bank Open: Streaming options for the Semifinal - The New York Times",
+            "[news] Zverev upset in Vienna semifinals ahead of taking No. 1 ranking - FOX Sports",
+            "[news] Alcaraz marches past Medvedev in Vienna, reaches fifth final of 2026 - ATP Tour",
+            "[news] de Minaur vs. Alcaraz Prediction at the Erste Bank Open \u2013 Sunday, November 1 - Bleacher Nation",
+            "[news] What were the Vienna tennis results? - ATP Tour",
+            "[news] Vienna final preview and prediction: Alcaraz vs. De Minaur - The Grandstand"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.04,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a33.04",
+            "cap 10% = \u00a310.46",
+            "stake \u00a33.04"
+          ]
+        }
+      }
     }
   ],
   "history": [
@@ -1178,10 +1264,39 @@
       "t": "2026-11-01T13:06:32+00:00",
       "equity": 104.22,
       "cash": 93.89
+    },
+    {
+      "t": "2026-11-01T14:06:03+00:00",
+      "equity": 102.13,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-01T13:06:32+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-01T14:05:56+00:00",
+    "scanned": 1000,
+    "flagged": 102,
+    "passed_filters": 309,
+    "candidates": 124,
+    "shortlisted": 20,
+    "researched": 12,
+    "flag_examples": [
+      "Will 1win launch a token by October 31, 2026?: price swung +81c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +13c in 24h",
+      "Will PEC Zwolle win on 2026-11-01?: price swung +57c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -12c in 24h",
+      "Will Cercle Brugge win on 2026-11-01?: price swung +48c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": [
+      "Will the Democrats win the Ohio governor race in 2026?: already 2 bets on 'midterms'"
+    ]
   }
 }
