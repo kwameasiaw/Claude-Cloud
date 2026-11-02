@@ -178,7 +178,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.2621,
+      "last_bid": 0.2523,
       "tags": [
         "united-states",
         "rewards-20-4pt5-50",
@@ -267,7 +267,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.2272,
+      "last_bid": 0.2562,
       "tags": [
         "bitcoin",
         "monthly",
@@ -1399,10 +1399,15 @@
       "t": "2026-11-02T16:04:24+00:00",
       "equity": 103.02,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-02T23:21:27+00:00",
+      "equity": 103.34,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-02T16:04:24+00:00",
+    "at": "2026-11-02T23:21:27+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7527,
+      "last_bid": 0.7425,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8655,
+      "last_bid": 0.8552,
       "tags": [
         "midterms",
         "house-elections",
@@ -623,22 +623,27 @@
       "t": "2026-11-02T16:04:23+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T23:21:26+00:00",
+      "equity": 96.82,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T16:04:22+00:00",
+    "at": "2026-11-02T23:21:25+00:00",
     "scanned": 1000,
-    "flagged": 88,
-    "passed_filters": 371,
-    "candidates": 47,
+    "flagged": 115,
+    "passed_filters": 357,
+    "candidates": 45,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Rolex Paris Masters: Cameron Norrie vs Matteo Arnaldi: price swung +32c in 24h",
-      "Pakhtakor vs. Al Nassr Club: O/U 1.5: price swung +14c in 24h",
-      "Will Al Nassr Club win on 2026-11-02?: price swung +34c in 24h",
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +10c in 24h",
-      "Will the Republicans win the Kansas Senate race in 2026?: price swung -11c in 24h"
+      "Hawks vs. Pacers: price swung +13c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +50c in 24h",
+      "Rolex Paris Masters: Ugo Humbert vs Botic van de Zandschulp: price swung +27c in 24h",
+      "Will Sport Lisboa e Benfica win on 2026-11-02?: price swung +15c in 24h",
+      "Charlottesville: Jack Kennedy vs Hynek Barton: price swung +61c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

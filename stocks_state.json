@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 207.76,
+      "last_bid": 202.43,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 696.08,
+      "last_bid": 682.77,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 761.47,
+      "last_bid": 752.97,
       "tags": [
         "index"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 494.5,
       "opened_at": "2026-10-30T15:05:32+00:00",
       "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 521.91,
+      "last_bid": 487.07,
       "tags": [
         "tech"
       ],
@@ -686,16 +686,17 @@
       "t": "2026-11-02T16:04:27+00:00",
       "equity": 100.08,
       "cash": 60.42
+    },
+    {
+      "t": "2026-11-02T23:21:29+00:00",
+      "equity": 98.87,
+      "cash": 60.42
     }
   ],
   "last_run": {
-    "at": "2026-11-02T16:04:24+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 1,
-    "traded": 0,
-    "blocked_examples": [
-      "AAPL: already 2 trades in tech"
-    ]
+    "at": "2026-11-02T23:21:27+00:00",
+    "scanned": 20,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
