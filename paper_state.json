@@ -603,22 +603,27 @@
       "t": "2026-11-02T12:16:31+00:00",
       "equity": 97.2,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T13:16:10+00:00",
+      "equity": 97.2,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T12:16:28+00:00",
+    "at": "2026-11-02T13:16:06+00:00",
     "scanned": 1000,
-    "flagged": 85,
-    "passed_filters": 393,
-    "candidates": 54,
+    "flagged": 80,
+    "passed_filters": 384,
+    "candidates": 55,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Rolex Paris Masters: Lorenzo Musetti vs Hubert Hurkacz: price swung +51c in 24h",
-      "Counter-Strike: MOUZ vs TYLOO (BO3) - IEM Beijing Group B: price swung +12c in 24h",
-      "Map Handicap: FAL (-1.5) vs Natus Vincere (+1.5): price swung -12c in 24h",
-      "Counter-Strike: MOUZ vs TYLOO - Map 2 Winner: price swung +20c in 24h",
-      "Counter-Strike: Natus Vincere vs Team Falcons - Map 1 Winner: price swung +27c in 24h"
+      "Counter-Strike: Natus Vincere vs Team Falcons (BO3) - IEM Beijing Grou: price swung +11c in 24h",
+      "Counter-Strike: Natus Vincere vs Team Falcons - Map 2 Winner: price swung -16c in 24h",
+      "Rolex Paris Masters: Luca Van Assche vs Mariano Navone: price swung +28c in 24h",
+      "Rolex Paris Masters: Alejandro Tabilo vs Rafael Jodar: price swung -22c in 24h",
+      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
