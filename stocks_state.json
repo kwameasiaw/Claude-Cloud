@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 202.32,
+      "last_bid": 209.2,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 696.25,
+      "last_bid": 697.85,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 760.04,
+      "last_bid": 763.29,
       "tags": [
         "index"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 367.36,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 381.37,
+      "last_bid": 400.0,
       "tags": [
         "consumer"
       ],
@@ -174,7 +174,7 @@
       "stop_price": 494.5,
       "opened_at": "2026-10-30T15:05:32+00:00",
       "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 497.9,
+      "last_bid": 525.8,
       "tags": [
         "tech"
       ],
@@ -679,12 +679,24 @@
       "t": "2026-11-02T14:12:14+00:00",
       "equity": 98.56,
       "cash": 50.1
+    },
+    {
+      "t": "2026-11-02T15:26:12+00:00",
+      "equity": 99.95,
+      "cash": 50.1
     }
   ],
   "last_run": {
-    "at": "2026-11-02T14:12:13+00:00",
-    "scanned": 19,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-02T15:26:09+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 4,
+    "traded": 0,
+    "blocked_examples": [
+      "JNJ: already 5 open trades",
+      "AAPL: already 5 open trades",
+      "UNH: already 5 open trades",
+      "AMD: already 5 open trades"
+    ]
   }
 }

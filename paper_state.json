@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7629,
+      "last_bid": 0.7527,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -613,22 +613,27 @@
       "t": "2026-11-02T14:12:13+00:00",
       "equity": 97.2,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T15:26:09+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T14:12:11+00:00",
+    "at": "2026-11-02T15:26:05+00:00",
     "scanned": 1000,
-    "flagged": 81,
-    "passed_filters": 381,
-    "candidates": 55,
+    "flagged": 78,
+    "passed_filters": 376,
+    "candidates": 46,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h",
+      "Rolex Paris Masters: Cameron Norrie vs Matteo Arnaldi: price swung +24c in 24h",
       "Pakhtakor vs. Al Nassr Club: O/U 1.5: price swung +15c in 24h",
-      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +12c in 24h",
-      "Will Al Nassr Club win on 2026-11-02?: price swung +26c in 24h",
-      "Will there be at least 6500 measles cases in the U.S. in 2026?: spread 0.08 is unusually wide"
+      "Will Al Nassr Club win on 2026-11-02?: price swung +32c in 24h",
+      "Will the Republicans win the Kansas Senate race in 2026?: price swung -11c in 24h",
+      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +12c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
