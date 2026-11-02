@@ -593,22 +593,27 @@
       "t": "2026-11-02T10:04:58+00:00",
       "equity": 97.2,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T11:12:43+00:00",
+      "equity": 97.2,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T10:04:53+00:00",
+    "at": "2026-11-02T11:12:41+00:00",
     "scanned": 1000,
-    "flagged": 69,
-    "passed_filters": 394,
-    "candidates": 57,
+    "flagged": 72,
+    "passed_filters": 397,
+    "candidates": 59,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h",
-      "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h",
-      "Taipei: Joel Schwaerzler vs Jan Kumstat: price swung +10c in 24h",
-      "Big Bash League, Women: Melbourne Stars vs Perth Scorchers: price swung +42c in 24h",
-      "Will Vivek Ramaswamy pull the Amy Acton mother ad?: price swung +12c in 24h"
+      "Counter-Strike: FURIA vs FaZe (BO3) - IEM Beijing Group A: price swung +20c in 24h",
+      "Rolex Paris Masters: Lorenzo Musetti vs Hubert Hurkacz: price swung +24c in 24h",
+      "Rolex Paris Masters: Ignacio Buse vs Zizou Bergs: price swung +64c in 24h",
+      "Prudential Hong Kong Tennis Open: Venus Williams vs Mary Stoiana: price swung -15c in 24h",
+      "Counter-Strike: MOUZ vs TYLOO - Map 1 Winner: price swung +17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
