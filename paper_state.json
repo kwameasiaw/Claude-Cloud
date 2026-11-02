@@ -1,28 +1,7 @@
 {
-  "cash": 65.06386500000002,
+  "cash": 77.32726500000003,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "5657803",
-      "event_id": "1176737",
-      "question": "Spread: Broncos (-7.5)",
-      "outcome": "Chiefs",
-      "token_id": "112683473321212523767425696071078550544504989715534911537088095276828712806785",
-      "shares": 12.2634,
-      "entry_price": 0.8146,
-      "stake": 9.99,
-      "stop_price": 0.6517,
-      "opened_at": "2026-10-29T16:48:54+00:00",
-      "url": "https://polymarket.com/market/nfl-kc-den-2026-11-01-spread-home-7pt5",
-      "last_bid": 0.8973,
-      "tags": [
-        "sports",
-        "nfl",
-        "games"
-      ],
-      "closes_at": "2026-11-01T21:25:00+00:00",
-      "decision": {}
-    },
     {
       "market_id": "629506",
       "event_id": "57181",
@@ -111,6 +90,21 @@
       "reason": "stop-loss",
       "opened_at": "2026-10-29T16:48:54+00:00",
       "closed_at": "2026-10-29T22:04:23+00:00",
+      "decision": {}
+    },
+    {
+      "market_id": "5657803",
+      "question": "Spread: Broncos (-7.5)",
+      "outcome": "Chiefs",
+      "entry_price": 0.8146,
+      "exit_price": 1.0,
+      "shares": 12.2634,
+      "stake": 9.99,
+      "proceeds": 12.2634,
+      "pnl": 2.2734,
+      "reason": "resolved WIN",
+      "opened_at": "2026-10-29T16:48:54+00:00",
+      "closed_at": "2026-11-02T01:04:18+00:00",
       "decision": {}
     }
   ],
@@ -549,22 +543,27 @@
       "t": "2026-11-02T00:05:29+00:00",
       "equity": 96.19,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-02T01:04:21+00:00",
+      "equity": 97.45,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T00:05:24+00:00",
+    "at": "2026-11-02T01:04:18+00:00",
     "scanned": 1000,
-    "flagged": 136,
-    "passed_filters": 333,
-    "candidates": 45,
+    "flagged": 84,
+    "passed_filters": 342,
+    "candidates": 44,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Chiefs vs. Broncos: price swung +32c in 24h",
-      "Patriots vs. Dolphins: price swung +18c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h",
-      "Spread: Chiefs (-1.5): price swung +37c in 24h",
-      "Nets vs. Pacers: price swung +31c in 24h"
+      "Nets vs. Pacers: price swung +61c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +34c in 24h",
+      "Will Bitcoin dip to $76,000 October 26-November 1?: price swung -14c in 24h",
+      "Will Max Verstappen win the 2026 F1 Mexican Grand Prix?: price swung +85c in 24h",
+      "Oilers vs. Rangers: price swung +43c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
