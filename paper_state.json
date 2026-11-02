@@ -618,22 +618,27 @@
       "t": "2026-11-02T15:26:09+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T16:04:23+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T15:26:05+00:00",
+    "at": "2026-11-02T16:04:22+00:00",
     "scanned": 1000,
-    "flagged": 78,
-    "passed_filters": 376,
-    "candidates": 46,
+    "flagged": 88,
+    "passed_filters": 371,
+    "candidates": 47,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Rolex Paris Masters: Cameron Norrie vs Matteo Arnaldi: price swung +24c in 24h",
-      "Pakhtakor vs. Al Nassr Club: O/U 1.5: price swung +15c in 24h",
-      "Will Al Nassr Club win on 2026-11-02?: price swung +32c in 24h",
-      "Will the Republicans win the Kansas Senate race in 2026?: price swung -11c in 24h",
-      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +12c in 24h"
+      "Rolex Paris Masters: Cameron Norrie vs Matteo Arnaldi: price swung +32c in 24h",
+      "Pakhtakor vs. Al Nassr Club: O/U 1.5: price swung +14c in 24h",
+      "Will Al Nassr Club win on 2026-11-02?: price swung +34c in 24h",
+      "Will the Democrats win the Kansas Senate race in 2026?: price swung +10c in 24h",
+      "Will the Republicans win the Kansas Senate race in 2026?: price swung -11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

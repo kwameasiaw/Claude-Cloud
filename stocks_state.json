@@ -1,5 +1,5 @@
 {
-  "cash": 50.09999999999999,
+  "cash": 60.42377169999999,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 209.2,
+      "last_bid": 207.76,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 697.85,
+      "last_bid": 696.08,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 763.29,
+      "last_bid": 761.47,
       "tags": [
         "index"
       ],
@@ -123,46 +123,6 @@
       }
     },
     {
-      "market_id": "TSLA",
-      "event_id": "TSLA",
-      "question": "Tesla (TSLA)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.024994,
-      "entry_price": 399.3,
-      "stake": 9.98,
-      "stop_price": 367.36,
-      "opened_at": "2026-10-30T14:08:02+00:00",
-      "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 400.0,
-      "tags": [
-        "consumer"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "consumer",
-        "tags": [
-          "consumer"
-        ],
-        "stop_price": 367.36,
-        "signal": [
-          "+3.2% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 8.0% below"
-        ],
-        "risk": {
-          "stake": 9.98,
-          "reasons": [
-            "stop 8.0% away",
-            "risking 1.5% of pot -> \u00a318.71",
-            "cap 10% = \u00a39.98",
-            "stake \u00a39.98"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "MSFT",
       "event_id": "MSFT",
       "question": "Microsoft (MSFT)",
@@ -174,7 +134,7 @@
       "stop_price": 494.5,
       "opened_at": "2026-10-30T15:05:32+00:00",
       "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 525.8,
+      "last_bid": 521.91,
       "tags": [
         "tech"
       ],
@@ -203,7 +163,44 @@
       }
     }
   ],
-  "closed": [],
+  "closed": [
+    {
+      "market_id": "TSLA",
+      "question": "Tesla (TSLA)",
+      "outcome": "Long",
+      "entry_price": 399.3,
+      "exit_price": 413.05,
+      "shares": 0.024994,
+      "stake": 9.98,
+      "proceeds": 10.3238,
+      "pnl": 0.3438,
+      "reason": "take-profit",
+      "opened_at": "2026-10-30T14:08:02+00:00",
+      "closed_at": "2026-11-02T16:04:27+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "consumer",
+        "tags": [
+          "consumer"
+        ],
+        "stop_price": 367.36,
+        "signal": [
+          "+3.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.71",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
+          ]
+        }
+      }
+    }
+  ],
   "history": [
     {
       "t": "2026-10-29T18:19:47+00:00",
@@ -684,19 +681,21 @@
       "t": "2026-11-02T15:26:12+00:00",
       "equity": 99.95,
       "cash": 50.1
+    },
+    {
+      "t": "2026-11-02T16:04:27+00:00",
+      "equity": 100.08,
+      "cash": 60.42
     }
   ],
   "last_run": {
-    "at": "2026-11-02T15:26:09+00:00",
+    "at": "2026-11-02T16:04:24+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 4,
+    "signals": 1,
     "traded": 0,
     "blocked_examples": [
-      "JNJ: already 5 open trades",
-      "AAPL: already 5 open trades",
-      "UNH: already 5 open trades",
-      "AMD: already 5 open trades"
+      "AAPL: already 2 trades in tech"
     ]
   }
 }

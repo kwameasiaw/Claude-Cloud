@@ -1,0 +1,2 @@
+market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reason,opened_at,closed_at
+TSLA,Tesla (TSLA),Long,399.3,413.05,0.024994,9.98,10.3238,0.3438,take-profit,2026-10-30T14:08:02+00:00,2026-11-02T16:04:27+00:00
