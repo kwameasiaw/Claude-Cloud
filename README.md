@@ -68,3 +68,15 @@ Without a key, that part is skipped and the dashboard shows it as off.
 * Polymarket quotes USD and US stocks and coins trade in USD; every pot counts £1 as $1.
 * Real-money trading is deliberately not built in. Polymarket and US brokers have their
   own rules on who can trade from where; check them before ever going live.
+
+## Running on a Mac
+
+```
+git clone -b claude/vigilant-johnson-33m81q https://github.com/kwameasiaw/Claude-Cloud ~/Documents/Claude/trade_paper_pot
+cd ~/Documents/Claude/trade_paper_pot && bash scripts/mac/install.sh
+```
+
+`install.sh` makes a virtualenv, installs the packages, creates `.env` for the Alpaca keys and
+registers a launchd job that runs `scripts/mac/hourly.sh` at :03 every hour while the Mac is awake.
+Each run pulls, runs all four pots, then commits and pushes the results. Logs: `logs/run.log`.
+No Claude usage is needed; open `dashboard.html` locally to see the pots.
