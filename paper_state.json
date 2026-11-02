@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7731,
+      "last_bid": 0.7629,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -588,22 +588,27 @@
       "t": "2026-11-02T09:08:04+00:00",
       "equity": 97.33,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T10:04:58+00:00",
+      "equity": 97.2,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T09:08:01+00:00",
+    "at": "2026-11-02T10:04:53+00:00",
     "scanned": 1000,
-    "flagged": 78,
-    "passed_filters": 385,
-    "candidates": 54,
+    "flagged": 69,
+    "passed_filters": 394,
+    "candidates": 57,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: FURIA vs FaZe (BO3) - IEM Beijing Group A: price swung +18c in 24h",
-      "Map Handicap: FURIA (-1.5) vs FaZe (+1.5): price swung +27c in 24h",
-      "High Point Panthers vs. Liberty Flames: price swung +25c in 24h",
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +10c in 24h",
-      "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h"
+      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h",
+      "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h",
+      "Taipei: Joel Schwaerzler vs Jan Kumstat: price swung +10c in 24h",
+      "Big Bash League, Women: Melbourne Stars vs Perth Scorchers: price swung +42c in 24h",
+      "Will Vivek Ramaswamy pull the Amy Acton mother ad?: price swung +12c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
