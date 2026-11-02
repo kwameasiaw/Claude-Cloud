@@ -55,5 +55,5 @@ launchctl bootstrap "gui/$(id -u)" "$PLIST"
 echo
 echo "Installed. Paper Pot will run every hour at :03 while this Mac is awake."
 echo "Run one now:     bash scripts/mac/hourly.sh && tail -30 logs/run.log"
-echo "See dashboard:   open dashboard.html"
+echo "See dashboard:   open dashboard.html   (tables: open report.html)"
 echo "Stop it:         launchctl bootout gui/\$(id -u)/$LABEL"

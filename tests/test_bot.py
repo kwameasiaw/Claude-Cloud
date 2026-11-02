@@ -9,6 +9,7 @@ from predbot import calibration, llm, strategy
 from predbot.agents import postmortem, research, risk, scan
 from predbot.config import Config
 from predbot.dashboard import render
+from predbot.report_page import render_report
 from predbot.engine import run_cycle
 from predbot.polymarket import parse_market
 from predbot.portfolio import Portfolio
@@ -69,7 +70,7 @@ def temp_cfg(d: str, favourite_estimate: float = 0.80) -> Config:
     j = lambda name: os.path.join(d, name)
     return replace(Config(), state_path=j("s.json"), journal_path=j("j.csv"),
                    value_state_path=j("v.json"), value_journal_path=j("vj.csv"),
-                   dashboard_path=j("d.html"), stocks_state_path=j("ss.json"),
+                   dashboard_path=j("d.html"), report_path=j("r.html"), stocks_state_path=j("ss.json"),
                    stocks_journal_path=j("sj.csv"), crypto_state_path=j("cs.json"),
                    crypto_journal_path=j("cj.csv"), postmortem_path=j("pm.jsonl"),
                    lessons_path=j("lessons.json"), calibration_path=cal, llm_usage_path=j("u.jsonl"),
@@ -311,6 +312,9 @@ class EngineTest(unittest.TestCase):
         self.assertIn("Stocks pot", page)
         self.assertIn("Value pot", page)
         self.assertIn("Crypto pot", page)
+        report = render_report(self.cfg)
+        self.assertIn("<title>Paper Pot Report</title>", report)
+        self.assertIn("Still open", report)
         self.assertIn("Markets scanned", page)
 
 

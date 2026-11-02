@@ -15,7 +15,7 @@ git pull -q --rebase origin "$BRANCH" || echo "pull failed (offline?), running o
 
 for f in paper_state.json value_state.json stocks_state.json crypto_state.json \
          trade_journal.csv value_journal.csv stocks_journal.csv crypto_journal.csv \
-         postmortems.jsonl lessons.json llm_usage.jsonl dashboard.html; do
+         postmortems.jsonl lessons.json llm_usage.jsonl dashboard.html report.html; do
   [ -f "$f" ] && git add "$f"
 done
 git commit -q -m "Paper run $(date -u +%H:%MZ) (Mac)" || echo "nothing to commit"

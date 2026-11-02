@@ -79,4 +79,5 @@ cd ~/Documents/Claude/trade_paper_pot && bash scripts/mac/install.sh
 `install.sh` makes a virtualenv, installs the packages, creates `.env` for the Alpaca keys and
 registers a launchd job that runs `scripts/mac/hourly.sh` at :03 every hour while the Mac is awake.
 Each run pulls, runs all four pots, then commits and pushes the results. Logs: `logs/run.log`.
-No Claude usage is needed; open `dashboard.html` locally to see the pots.
+No Claude usage is needed; open `dashboard.html` locally to see the pots, or `report.html`
+for every pot's won, lost and open trades in tables (`python -m predbot dashboard` rebuilds both).

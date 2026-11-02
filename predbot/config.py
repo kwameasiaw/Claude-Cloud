@@ -85,3 +85,4 @@ class Config:
     state_path: str = "paper_state.json"
     journal_path: str = "trade_journal.csv"
     dashboard_path: str = "dashboard.html"
+    report_path: str = "report.html"          # won / lost / open tables for every pot

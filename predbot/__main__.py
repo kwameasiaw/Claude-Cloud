@@ -8,6 +8,7 @@ from . import engine
 from .agents import scan
 from .config import Config
 from .dashboard import write_dashboard
+from .report_page import write_report
 from .polymarket import PolymarketClient
 from .portfolio import Portfolio
 from .stocks import engine as stock_engine
@@ -56,6 +57,7 @@ def run_all(cfg: Config) -> None:
         except Exception as e:   # one pot failing must not stop the others
             print(f"{name} cycle failed: {e}", flush=True)
     write_dashboard(cfg)
+    write_report(cfg)
 
 
 def main() -> None:
@@ -66,7 +68,7 @@ def main() -> None:
     lp = sub.add_parser("loop", help="run cycles forever")
     lp.add_argument("--minutes", type=float, default=60, help="minutes between cycles")
     sub.add_parser("report", help="show all four pots")
-    sub.add_parser("dashboard", help="rebuild dashboard.html from saved state")
+    sub.add_parser("dashboard", help="rebuild dashboard.html and report.html from saved state")
     sub.add_parser("train", help="retrain the XGBoost calibration model on resolved markets")
     rp = sub.add_parser("reset", help="delete a pot's state and start again at £100")
     rp.add_argument("pot", choices=["favourites", "value", "stocks", "crypto"])
@@ -86,7 +88,8 @@ def main() -> None:
         cmd_report(cfg)
     elif args.cmd == "dashboard":
         write_dashboard(cfg)
-        print(f"Wrote {cfg.dashboard_path}")
+        write_report(cfg)
+        print(f"Wrote {cfg.dashboard_path} and {cfg.report_path}")
     elif args.cmd == "train":
         from .train import train
         print(json.dumps(train(cfg), indent=2))
