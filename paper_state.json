@@ -544,22 +544,27 @@
       "t": "2026-11-01T23:04:21+00:00",
       "equity": 96.19,
       "cash": 65.06
+    },
+    {
+      "t": "2026-11-02T00:05:29+00:00",
+      "equity": 96.19,
+      "cash": 65.06
     }
   ],
   "last_run": {
-    "at": "2026-11-01T23:04:19+00:00",
+    "at": "2026-11-02T00:05:24+00:00",
     "scanned": 1000,
-    "flagged": 165,
-    "passed_filters": 328,
-    "candidates": 43,
+    "flagged": 136,
+    "passed_filters": 333,
+    "candidates": 45,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Chiefs vs. Broncos: price swung +10c in 24h",
-      "Chargers vs. Rams: price swung -15c in 24h",
-      "Celtics vs. Magic: price swung +32c in 24h",
-      "Patriots vs. Dolphins: price swung -39c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h"
+      "Chiefs vs. Broncos: price swung +32c in 24h",
+      "Patriots vs. Dolphins: price swung +18c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h",
+      "Spread: Chiefs (-1.5): price swung +37c in 24h",
+      "Nets vs. Pacers: price swung +31c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
