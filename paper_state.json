@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7731,
+      "last_bid": 0.7834,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -568,22 +568,27 @@
       "t": "2026-11-02T05:04:30+00:00",
       "equity": 97.45,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T06:04:58+00:00",
+      "equity": 97.58,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T05:04:27+00:00",
+    "at": "2026-11-02T06:04:56+00:00",
     "scanned": 1000,
-    "flagged": 78,
-    "passed_filters": 377,
-    "candidates": 56,
+    "flagged": 74,
+    "passed_filters": 381,
+    "candidates": 58,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: Legacy vs TheMongolz (BO3) - IEM Beijing Group A: price swung -46c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +32c in 24h",
-      "Counter-Strike: Aurora Gaming vs Liquid (BO3) - IEM Beijing Group B: price swung -26c in 24h",
-      "Will CF Cruz Azul win on 2026-11-01?: price swung +42c in 24h",
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +10c in 24h"
+      "Counter-Strike: PARIVISION vs G2 (BO3) - IEM Beijing Group B: price swung -16c in 24h",
+      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h",
+      "Will the price of Ethereum be above $2,300 on November 2?: price swung +10c in 24h",
+      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +11c in 24h",
+      "Counter-Strike: PARIVISION vs G2 - Map 1 Winner: price swung -35c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
