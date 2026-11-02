@@ -583,20 +583,25 @@
       "t": "2026-11-02T08:06:02+00:00",
       "equity": 97.33,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T09:08:04+00:00",
+      "equity": 97.33,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T08:05:58+00:00",
+    "at": "2026-11-02T09:08:01+00:00",
     "scanned": 1000,
-    "flagged": 73,
-    "passed_filters": 387,
-    "candidates": 55,
+    "flagged": 78,
+    "passed_filters": 385,
+    "candidates": 54,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: PARIVISION vs G2 (BO3) - IEM Beijing Group B: price swung +32c in 24h",
+      "Counter-Strike: FURIA vs FaZe (BO3) - IEM Beijing Group A: price swung +18c in 24h",
+      "Map Handicap: FURIA (-1.5) vs FaZe (+1.5): price swung +27c in 24h",
       "High Point Panthers vs. Liberty Flames: price swung +25c in 24h",
-      "Counter-Strike: 9z vs BetBoom Team (BO3) - IEM Beijing Group B: price swung +24c in 24h",
       "Will the Democrats win the Kansas Senate race in 2026?: price swung +10c in 24h",
       "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h"
     ],
