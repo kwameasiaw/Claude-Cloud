@@ -14,7 +14,7 @@
       "stop_price": 241.61165,
       "opened_at": "2026-11-02T05:04:32+00:00",
       "url": "https://www.google.com/finance/quote/BCH-USD",
-      "last_bid": 276.15,
+      "last_bid": 277.655,
       "tags": [
         "altcoin"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 46.97355,
       "opened_at": "2026-11-02T08:06:03+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 54.7225,
+      "last_bid": 54.8299,
       "tags": [
         "altcoin"
       ],
@@ -825,17 +825,22 @@
       "t": "2026-11-02T11:12:44+00:00",
       "equity": 100.63,
       "cash": 80.84
+    },
+    {
+      "t": "2026-11-02T12:16:32+00:00",
+      "equity": 100.7,
+      "cash": 80.84
     }
   ],
   "last_run": {
-    "at": "2026-11-02T11:12:44+00:00",
+    "at": "2026-11-02T12:16:32+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 3,
     "traded": 0,
     "blocked_examples": [
-      "LINK/USD: already 2 trades in altcoin",
       "LTC/USD: already holding LTC/USD",
+      "LINK/USD: already 2 trades in altcoin",
       "SOL/USD: already 2 trades in altcoin"
     ]
   }

@@ -598,22 +598,27 @@
       "t": "2026-11-02T11:12:43+00:00",
       "equity": 97.2,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T12:16:31+00:00",
+      "equity": 97.2,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T11:12:41+00:00",
+    "at": "2026-11-02T12:16:28+00:00",
     "scanned": 1000,
-    "flagged": 72,
-    "passed_filters": 397,
-    "candidates": 59,
+    "flagged": 85,
+    "passed_filters": 393,
+    "candidates": 54,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: FURIA vs FaZe (BO3) - IEM Beijing Group A: price swung +20c in 24h",
-      "Rolex Paris Masters: Lorenzo Musetti vs Hubert Hurkacz: price swung +24c in 24h",
-      "Rolex Paris Masters: Ignacio Buse vs Zizou Bergs: price swung +64c in 24h",
-      "Prudential Hong Kong Tennis Open: Venus Williams vs Mary Stoiana: price swung -15c in 24h",
-      "Counter-Strike: MOUZ vs TYLOO - Map 1 Winner: price swung +17c in 24h"
+      "Rolex Paris Masters: Lorenzo Musetti vs Hubert Hurkacz: price swung +51c in 24h",
+      "Counter-Strike: MOUZ vs TYLOO (BO3) - IEM Beijing Group B: price swung +12c in 24h",
+      "Map Handicap: FAL (-1.5) vs Natus Vincere (+1.5): price swung -12c in 24h",
+      "Counter-Strike: MOUZ vs TYLOO - Map 2 Winner: price swung +20c in 24h",
+      "Counter-Strike: Natus Vincere vs Team Falcons - Map 1 Winner: price swung +27c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
