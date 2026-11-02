@@ -608,22 +608,27 @@
       "t": "2026-11-02T13:16:10+00:00",
       "equity": 97.2,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T14:12:13+00:00",
+      "equity": 97.2,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T13:16:06+00:00",
+    "at": "2026-11-02T14:12:11+00:00",
     "scanned": 1000,
-    "flagged": 80,
-    "passed_filters": 384,
+    "flagged": 81,
+    "passed_filters": 381,
     "candidates": 55,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: Natus Vincere vs Team Falcons (BO3) - IEM Beijing Grou: price swung +11c in 24h",
-      "Counter-Strike: Natus Vincere vs Team Falcons - Map 2 Winner: price swung -16c in 24h",
-      "Rolex Paris Masters: Luca Van Assche vs Mariano Navone: price swung +28c in 24h",
-      "Rolex Paris Masters: Alejandro Tabilo vs Rafael Jodar: price swung -22c in 24h",
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h"
+      "Will the Republicans win the Kansas Senate race in 2026?: price swung -10c in 24h",
+      "Pakhtakor vs. Al Nassr Club: O/U 1.5: price swung +15c in 24h",
+      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +12c in 24h",
+      "Will Al Nassr Club win on 2026-11-02?: price swung +26c in 24h",
+      "Will there be at least 6500 measles cases in the U.S. in 2026?: spread 0.08 is unusually wide"
     ],
     "predicted_fire": 0,
     "approved": 0,

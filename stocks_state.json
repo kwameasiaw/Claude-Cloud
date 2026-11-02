@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 690.46,
+      "last_bid": 696.25,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 758.78,
+      "last_bid": 760.04,
       "tags": [
         "index"
       ],
@@ -674,10 +674,15 @@
       "t": "2026-11-02T13:16:11+00:00",
       "equity": 98.46,
       "cash": 50.1
+    },
+    {
+      "t": "2026-11-02T14:12:14+00:00",
+      "equity": 98.56,
+      "cash": 50.1
     }
   ],
   "last_run": {
-    "at": "2026-11-02T13:16:11+00:00",
+    "at": "2026-11-02T14:12:13+00:00",
     "scanned": 19,
     "market_open": false,
     "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
