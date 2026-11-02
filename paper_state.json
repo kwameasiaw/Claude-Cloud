@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7731,
+      "last_bid": 0.7629,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -548,22 +548,27 @@
       "t": "2026-11-02T01:04:21+00:00",
       "equity": 97.45,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T02:04:14+00:00",
+      "equity": 97.32,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T01:04:18+00:00",
+    "at": "2026-11-02T02:04:11+00:00",
     "scanned": 1000,
-    "flagged": 84,
+    "flagged": 109,
     "passed_filters": 342,
-    "candidates": 44,
+    "candidates": 48,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Nets vs. Pacers: price swung +61c in 24h",
-      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +34c in 24h",
-      "Will Bitcoin dip to $76,000 October 26-November 1?: price swung -14c in 24h",
-      "Will Max Verstappen win the 2026 F1 Mexican Grand Prix?: price swung +85c in 24h",
-      "Oilers vs. Rangers: price swung +43c in 24h"
+      "Eagles vs. Commanders: price swung +30c in 24h",
+      "Spread: Commanders (-6.5): price swung -31c in 24h",
+      "Eagles vs. Commanders: O/U 40.5: price swung +16c in 24h",
+      "Will Iliana Iotova win the next Bulgarian presidential election?: price swung +33c in 24h",
+      "Will \u0410ndrey Gyurov win the next Bulgarian presidential election?: price swung -33c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

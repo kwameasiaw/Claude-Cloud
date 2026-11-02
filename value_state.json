@@ -93,7 +93,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.3212,
+      "last_bid": 0.3607,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -267,7 +267,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1697,
+      "last_bid": 0.1792,
       "tags": [
         "bitcoin",
         "monthly",
@@ -349,7 +349,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.331,
+      "last_bid": 0.3409,
       "tags": [
         "taiwan",
         "politics",
@@ -1324,10 +1324,15 @@
       "t": "2026-11-02T01:04:22+00:00",
       "equity": 102.5,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-02T02:04:15+00:00",
+      "equity": 102.85,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-02T01:04:22+00:00",
+    "at": "2026-11-02T02:04:15+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
