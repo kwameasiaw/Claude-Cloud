@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8758,
+      "last_bid": 0.8655,
       "tags": [
         "midterms",
         "house-elections",
@@ -573,22 +573,27 @@
       "t": "2026-11-02T06:04:58+00:00",
       "equity": 97.58,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-02T07:18:07+00:00",
+      "equity": 97.45,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T06:04:56+00:00",
+    "at": "2026-11-02T07:18:04+00:00",
     "scanned": 1000,
-    "flagged": 74,
-    "passed_filters": 381,
-    "candidates": 58,
+    "flagged": 66,
+    "passed_filters": 393,
+    "candidates": 54,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: PARIVISION vs G2 (BO3) - IEM Beijing Group B: price swung -16c in 24h",
-      "Will the Democrats win the Kansas Senate race in 2026?: price swung +11c in 24h",
-      "Will the price of Ethereum be above $2,300 on November 2?: price swung +10c in 24h",
-      "Guayaquil: Joaquin Aguilar vs Hugo Dellien: price swung +11c in 24h",
-      "Counter-Strike: PARIVISION vs G2 - Map 1 Winner: price swung -35c in 24h"
+      "Counter-Strike: PARIVISION vs G2 (BO3) - IEM Beijing Group B: price swung -12c in 24h",
+      "Prudential Hong Kong Tennis Open: Viktorija Golubic vs Katie Boulter: price swung -37c in 24h",
+      "Counter-Strike: PARIVISION vs G2 - Map 2 Winner: price swung +24c in 24h",
+      "High Point Panthers vs. Liberty Flames: price swung +25c in 24h",
+      "Will Trump speak to Ursula von der Leyen by November 30?: price swung -10c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

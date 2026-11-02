@@ -1,5 +1,5 @@
 {
-  "cash": 80.84200731230003,
+  "cash": 80.81017505230002,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 241.61165,
       "opened_at": "2026-11-02T05:04:32+00:00",
       "url": "https://www.google.com/finance/quote/BCH-USD",
-      "last_bid": 281.12,
+      "last_bid": 279.39,
       "tags": [
         "altcoin"
       ],
@@ -48,13 +48,13 @@
       "question": "Chainlink (LINK/USD)",
       "outcome": "Long",
       "token_id": "",
-      "shares": 0.890006,
-      "entry_price": 11.337,
-      "stake": 10.09,
-      "stop_price": 9.719759,
-      "opened_at": "2026-11-02T06:04:59+00:00",
+      "shares": 0.891783,
+      "entry_price": 11.3032,
+      "stake": 10.08,
+      "stop_price": 9.683549,
+      "opened_at": "2026-11-02T07:18:08+00:00",
       "url": "https://www.google.com/finance/quote/LINK-USD",
-      "last_bid": 11.315,
+      "last_bid": 11.29,
       "tags": [
         "altcoin"
       ],
@@ -65,19 +65,19 @@
         "tags": [
           "altcoin"
         ],
-        "stop_price": 9.719759,
+        "stop_price": 9.683549,
         "signal": [
-          "+12.9% above its 200-day average (uptrend)",
+          "+12.6% above its 200-day average (uptrend)",
           "2-day RSI 0.0 (sharp dip)",
           "stop 14.3% below"
         ],
         "risk": {
-          "stake": 10.09,
+          "stake": 10.08,
           "reasons": [
             "stop 14.3% away",
-            "risking 1.5% of pot -> \u00a310.61",
-            "cap 10% = \u00a310.09",
-            "stake \u00a310.09"
+            "risking 1.5% of pot -> \u00a310.55",
+            "cap 10% = \u00a310.08",
+            "stake \u00a310.08"
           ]
         }
       }
@@ -368,6 +368,42 @@
             "risking 1.5% of pot -> \u00a310.61",
             "cap 10% = \u00a310.10",
             "stake \u00a310.10"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "LINK/USD",
+      "question": "Chainlink (LINK/USD)",
+      "outcome": "Long",
+      "entry_price": 11.337,
+      "exit_price": 11.29,
+      "shares": 0.890006,
+      "stake": 10.09,
+      "proceeds": 10.0482,
+      "pnl": -0.0418,
+      "reason": "take-profit",
+      "opened_at": "2026-11-02T06:04:59+00:00",
+      "closed_at": "2026-11-02T07:18:08+00:00",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 9.719759,
+        "signal": [
+          "+12.9% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 14.3% below"
+        ],
+        "risk": {
+          "stake": 10.09,
+          "reasons": [
+            "stop 14.3% away",
+            "risking 1.5% of pot -> \u00a310.61",
+            "cap 10% = \u00a310.09",
+            "stake \u00a310.09"
           ]
         }
       }
@@ -728,16 +764,22 @@
       "t": "2026-11-02T06:04:59+00:00",
       "equity": 100.9,
       "cash": 80.84
+    },
+    {
+      "t": "2026-11-02T07:18:08+00:00",
+      "equity": 100.81,
+      "cash": 80.81
     }
   ],
   "last_run": {
-    "at": "2026-11-02T06:04:59+00:00",
+    "at": "2026-11-02T07:18:08+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 2,
+    "signals": 3,
     "traded": 1,
     "blocked_examples": [
-      "LTC/USD: already 2 trades in altcoin"
+      "LTC/USD: already 2 trades in altcoin",
+      "SOL/USD: already 2 trades in altcoin"
     ]
   }
 }
