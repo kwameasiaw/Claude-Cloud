@@ -427,6 +427,18 @@ class CryptoTest(unittest.TestCase):
             self.assertEqual([t.reason for t in pf.closed], ["take-profit"])
             self.assertIn("$0.0", render(cfg))     # sub-dollar coins keep their decimals
 
+    def test_no_buy_when_price_already_above_exit_line(self):
+        # Two small down days after a crash day: RSI is low, but the crash drags the
+        # 5-day average below the price, so it would sell next cycle and buy again.
+        bars = bars_with_dip()[:-2]
+        p = bars[-1]["c"]
+        for c in (p * 0.90, p * 0.99, p * 1.01, p * 1.005, p * 1.0):
+            bars.append({"t": len(bars), "o": c, "h": c * 1.01, "l": c * 0.99, "c": c, "v": 1})
+        ask = bars[-1]["c"]
+        self.assertLess(stock_strategy.rsi([b["c"] for b in bars]), 10)
+        self.assertIsNone(stock_strategy.evaluate("LINK/USD", bars, ask, stock_strategy.CRYPTO_RULES))
+        self.assertEqual(stock_strategy.exit_reason(bars, ask, 0, 0, stock_strategy.CRYPTO_RULES), "take-profit")
+
     def test_stocks_ignore_coins(self):
         self.assertNotIn("BTC/USD", stock_strategy.UNIVERSE)
         self.assertIn("BTC/USD", stock_strategy.CRYPTO_RULES.universe)

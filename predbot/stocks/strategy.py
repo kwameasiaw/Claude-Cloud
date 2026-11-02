@@ -96,6 +96,9 @@ def evaluate(symbol: str, bars: list[dict], ask: float, rules: Rules = STOCK_RUL
         return None
     if ask > closes[-1] * 1.01:          # already bounced today; the dip is gone
         return None
+    s5 = sma(closes, 5)
+    if s5 is None or ask >= s5:          # already above the exit line: it would sell next cycle
+        return None
     dist = min(rules.max_stop, max(rules.min_stop, rules.atr_stop_mult * a14 / ask))
     name, sector = rules.universe.get(symbol, (symbol, "other"))
     return StockSignal(symbol, name, sector, ask, round(ask * (1 - dist), rules.decimals), r2, s200, [
