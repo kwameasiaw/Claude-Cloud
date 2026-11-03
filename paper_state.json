@@ -743,22 +743,27 @@
       "t": "2026-11-03T21:03:08+00:00",
       "equity": 97.45,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T22:03:06+00:00",
+      "equity": 97.45,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T21:03:07+00:00",
+    "at": "2026-11-03T22:03:04+00:00",
     "scanned": 1000,
-    "flagged": 198,
-    "passed_filters": 71,
-    "candidates": 13,
+    "flagged": 160,
+    "passed_filters": 74,
+    "candidates": 14,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Manchester United FC win on 2026-11-03?: price swung -36c in 24h",
-      "Spread: Paris Saint-Germain FC (-1.5): price swung +60c in 24h",
-      "Will AS Roma win on 2026-11-03?: price swung +47c in 24h",
-      "Will Paris Saint-Germain FC win on 2026-11-03?: price swung +39c in 24h",
-      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +87c in 24h"
+      "Will Manchester United FC win on 2026-11-03?: price swung +57c in 24h",
+      "Will FC Barcelona win on 2026-11-03?: price swung +21c in 24h",
+      "Spread: Paris Saint-Germain FC (-1.5): price swung +62c in 24h",
+      "Will FC Bayern M\u00fcnchen win on 2026-11-03?: price swung +59c in 24h",
+      "Will Paris Saint-Germain FC win on 2026-11-03?: price swung +39c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
