@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7425,
+      "last_bid": 0.7527,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -703,22 +703,27 @@
       "t": "2026-11-03T13:03:07+00:00",
       "equity": 96.7,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T14:03:07+00:00",
+      "equity": 96.82,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T13:03:05+00:00",
+    "at": "2026-11-03T14:03:05+00:00",
     "scanned": 1000,
-    "flagged": 140,
-    "passed_filters": 124,
-    "candidates": 24,
+    "flagged": 144,
+    "passed_filters": 115,
+    "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Dota 2: potn9ki vs HellNight- (BO3) - Esports Pro Circuit  Group C: price swung -24c in 24h",
       "US x Iran ceasefire continues through October 31?: price swung -11c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -16c in 24h",
-      "Prudential Hong Kong Tennis Open: Alexandra Shubladze vs Liudmila Sams: price swung +56c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +30c in 24h"
+      "US x Iran ceasefire continues through November 2?: price swung -10c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +23c in 24h",
+      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +88c in 24h",
+      "Rolex Paris Masters: Brandon Nakashima vs Matteo Berrettini: price swung -26c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
