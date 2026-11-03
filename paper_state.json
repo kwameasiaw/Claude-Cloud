@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8346,
+      "last_bid": 0.8244,
       "tags": [
         "midterms",
         "house-elections",
@@ -748,22 +748,27 @@
       "t": "2026-11-03T22:03:06+00:00",
       "equity": 97.45,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T23:03:04+00:00",
+      "equity": 97.33,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T22:03:04+00:00",
+    "at": "2026-11-03T23:03:02+00:00",
     "scanned": 1000,
-    "flagged": 160,
-    "passed_filters": 74,
-    "candidates": 14,
+    "flagged": 159,
+    "passed_filters": 89,
+    "candidates": 21,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Manchester United FC win on 2026-11-03?: price swung +57c in 24h",
-      "Will FC Barcelona win on 2026-11-03?: price swung +21c in 24h",
-      "Spread: Paris Saint-Germain FC (-1.5): price swung +62c in 24h",
-      "Will FC Bayern M\u00fcnchen win on 2026-11-03?: price swung +59c in 24h",
-      "Will Paris Saint-Germain FC win on 2026-11-03?: price swung +39c in 24h"
+      "LoL: Top Esports vs Invictus Gaming (BO5) - Worlds Playoffs: price swung -21c in 24h",
+      "Dota 2: Natus Vincere vs GamerLegion - Game 1 Winner: price swung +50c in 24h",
+      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +87c in 24h",
+      "Will Republicans win Alaska, Iowa, Kansas, and Texas, and lose Maine, : spread 0.04 is unusually wide",
+      "Cali: Julia Grabher vs Laura Pigossi: price swung +19c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
