@@ -9,7 +9,12 @@ echo "=== $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
 
 [ -f .env ] && { set -a; . ./.env; set +a; }
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-git pull -q --rebase origin "$BRANCH" || echo "pull failed (offline?), running on local state"
+# Generated pages are rebuilt every run; an untracked copy would block the pull.
+for f in dashboard.html report.html; do git ls-files --error-unmatch "$f" >/dev/null 2>&1 || rm -f "$f"; done
+# This Mac is the only runner, so on a clash keep its own results (-X theirs keeps the
+# local commits being replayed); --autostash carries local edits such as .gitignore.
+git pull -q --rebase --autostash -X theirs origin "$BRANCH" \
+  || { git rebase --abort 2>/dev/null; echo "pull failed (offline?), running on local state"; }
 
 .venv/bin/python -m predbot run || { echo "run failed"; exit 1; }
 
