@@ -693,22 +693,27 @@
       "t": "2026-11-03T11:03:05+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T12:03:05+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T11:03:03+00:00",
+    "at": "2026-11-03T12:03:03+00:00",
     "scanned": 1000,
-    "flagged": 128,
+    "flagged": 139,
     "passed_filters": 120,
-    "candidates": 21,
+    "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through October 31?: price swung -14c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -19c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +28c in 24h",
-      "Prudential Hong Kong Tennis Open: Sorana Cirstea vs Maria Timofeeva: price swung -16c in 24h",
-      "Chennai Open: Jeline Vandromme vs Kyoka Okamura: price swung +26c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung -13c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -17c in 24h",
+      "Counter-Strike: Legacy vs B8 (BO3) - IEM Beijing Group A: price swung -27c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +19c in 24h",
+      "Prudential Hong Kong Tennis Open: Alexandra Shubladze vs Liudmila Sams: price swung +39c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
