@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7936,
+      "last_bid": 0.8141,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8244,
+      "last_bid": 0.8346,
       "tags": [
         "midterms",
         "house-elections",
@@ -733,22 +733,27 @@
       "t": "2026-11-03T19:03:05+00:00",
       "equity": 97.08,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T20:03:08+00:00",
+      "equity": 97.45,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T19:03:03+00:00",
+    "at": "2026-11-03T20:03:06+00:00",
     "scanned": 1000,
-    "flagged": 142,
-    "passed_filters": 88,
-    "candidates": 12,
+    "flagged": 138,
+    "passed_filters": 89,
+    "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through November 2?: price swung -13c in 24h",
-      "Will Galatasaray SK win on 2026-11-03?: price swung +47c in 24h",
+      "US x Iran ceasefire continues through October 31?: spread 0.04 is unusually wide",
+      "US x Iran ceasefire continues through November 2?: price swung -10c in 24h",
+      "Rolex Paris Masters: Jan-Lennard Struff vs Arthur Gea: price swung +51c in 24h",
       "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +87c in 24h",
-      "Will VfB Stuttgart win on 2026-11-03?: price swung -30c in 24h",
-      "Will FK Shakhtar Donetsk win on 2026-11-03?: price swung -21c in 24h"
+      "Will Al Hazem SC vs. Al Nassr Saudi Club end in a draw?: price swung +87c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
