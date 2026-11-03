@@ -1,7 +1,7 @@
 """Builds dashboard.html: a plain-English, self-contained view of the paper pot."""
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html import escape
 
 from . import llm
@@ -247,6 +247,79 @@ def _days_left(pos: Position, now: datetime) -> str:
     if days < 1:
         return "settles within a day"
     return f"settles in about {days:.0f} day{'s' if round(days) != 1 else ''}"
+
+
+def _end_of(pos: Position, hold_days: float | None) -> tuple[datetime | None, str]:
+    """When an open position is due to end, and what that end means."""
+    if hold_days is None:
+        return _when(pos.closes_at), "settles"
+    opened = _when(pos.opened_at)
+    return (opened + timedelta(days=hold_days) if opened else None), "time limit"
+
+
+def open_bets_table(pots: list[tuple[str, Portfolio, float | None]], now: datetime) -> str:
+    """Every open position across the pots, soonest ending first."""
+    rows = []
+    for name, pf, hold in pots:
+        for p in pf.positions:
+            end, kind = _end_of(p, hold)
+            now_p = p.last_bid if p.last_bid is not None else p.entry_price
+            rows.append((end or datetime.max.replace(tzinfo=timezone.utc), name, p, kind,
+                         p.shares * now_p - p.stake))
+    if not rows:
+        return '<p class="empty">No open bets right now.</p>'
+    body = ""
+    for end, name, p, kind, pnl in sorted(rows, key=lambda r: r[0]):
+        if end.year == 9999:
+            when, left = "unknown", ""
+        else:
+            days = (end.date() - now.date()).days
+            when = f"{end:%a %d %b}"
+            left = {0: "today", 1: "tomorrow"}.get(days, f"in {days} days")
+        cls = "good" if pnl > 0.005 else "bad" if pnl < -0.005 else ""
+        body += (f'<tr><td>{escape(p.question)}<div class="small">{name} &middot; {escape(p.outcome)}</div></td>'
+                 f'<td class="r">{_gbp(p.stake)}</td><td class="r"><span class="pill {cls}">{_gbp(pnl, True)}</span></td>'
+                 f'<td class="r">{when}<div class="small">{kind} {left}</div></td></tr>')
+    return ('<div class="table-wrap"><table><thead><tr><th>Open bet</th><th class="r">Staked</th>'
+            f'<th class="r">So far</th><th class="r">Ends</th></tr></thead><tbody>{body}</tbody></table></div>')
+
+
+def review_panel(pots: list[tuple[str, Portfolio, float | None]], cfg: Config, now: datetime) -> str:
+    """When the experiment will have enough results to judge, from each pot's actual pace."""
+    starts = [_when(pf.history[0]["t"]) for _, pf, _ in pots if pf.history]
+    starts = [s for s in starts if s]
+    if not starts:
+        return '<div class="panel"><p class="empty">The review date appears once the pots have started trading.</p></div>'
+    start = min(starts)
+    weeks = max((now - start).total_seconds() / 604800, 1 / 7)
+    last_end = max((e for _, pf, hold in pots for p in pf.positions
+                    for e in [_end_of(p, hold)[0]] if e), default=now)
+    review = max(start + timedelta(days=cfg.review_min_days), last_end)
+    rows, ready = "", []
+    for name, pf, _ in pots:
+        n = len(pf.closed)
+        pace = n / weeks
+        if n >= cfg.review_min_trades:
+            eta, ready_at = "enough now", now
+        elif pace > 0:
+            ready_at = now + timedelta(weeks=(cfg.review_min_trades - n) / pace)
+            eta = f"about {ready_at:%d %b %Y}"
+        else:
+            ready_at, eta = None, "no trades yet"
+        if ready_at:
+            ready.append(ready_at)
+        fill = min(n / cfg.review_min_trades * 100, 100)
+        rows += (f'<div class="f-row"><span>{name}</span><div class="track"><div class="fill" style="width:{fill:.0f}%">'
+                 f'</div></div><span class="val">{n}/{cfg.review_min_trades}</span></div>'
+                 f'<p class="small" style="margin:-4px 0 4px">{pace:.1f} finished a week &middot; enough results {eta}</p>')
+    return f"""<div class="panel" style="display:grid;gap:14px">
+    <div class="verdict wait"><b>First proper review: {review:%A %d %B %Y}.</b> By then the pots have run at least
+      {cfg.review_min_days // 7} weeks and every bet open today has finished. Before that, ups and downs are mostly luck.</div>
+    <div class="funnel">{rows}</div>
+    <p class="small">A pot's win rate only starts to mean something after about {cfg.review_min_trades} finished trades;
+      even then it is rough, give or take 15 points. Judge each pot against its own break-even rate, not against the
+      others, and only drop or change one once it has reached {cfg.review_min_trades}. Started {start:%d %b %Y}.</p>
+  </div>"""
 
 
 def track_floor(pf: Portfolio) -> float:
@@ -498,6 +571,9 @@ def render(cfg: Config, now: datetime | None = None) -> str:
     coins = "".join(stock_card(p, now, "after 10 days", "Group") for p in cp.positions) or \
         '<p class="empty">No open crypto trades right now.</p>'
     crypto_status = cp.last_run.get("skipped", "")
+    from .stocks.strategy import CRYPTO_RULES, STOCK_RULES
+    all_pots = [("Favourites", pm, None), ("Value", vp, None),
+                ("Stocks", sk, STOCK_RULES.max_hold_days), ("Crypto", cp, CRYPTO_RULES.max_hold_days)]
     return f"""<title>Paper Pot</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -519,6 +595,18 @@ def render(cfg: Config, now: datetime | None = None) -> str:
   <p class="small">Four separate &pound;100 pots, so you can see which approach actually works. Every hour five
     agents run for each prediction-market pot: scan all markets, research the best ones, estimate the real chance,
     check the risk and size the bet, then review any losses.</p>
+
+  <section>
+    <h2>All open bets</h2>
+    <p class="muted">Soonest ending first. Prediction bets end when the market settles; stock and coin trades are sold
+      by their time limit at the latest. Any of them can end sooner, at the stop-loss or once the price recovers.</p>
+    <div class="panel">{open_bets_table(all_pots, now)}</div>
+  </section>
+
+  <section>
+    <h2>When to judge it</h2>
+    {review_panel(all_pots, cfg, now)}
+  </section>
 
   {prediction_section(pm, fav_cfg, "Favourites pot",
       f"Buys only the favourite, priced {fav_cfg.min_entry_price*100:.0f}&ndash;{fav_cfg.max_entry_price*100:.0f}p, "

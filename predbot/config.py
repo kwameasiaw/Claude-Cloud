@@ -86,3 +86,7 @@ class Config:
     journal_path: str = "trade_journal.csv"
     dashboard_path: str = "dashboard.html"
     report_path: str = "report.html"          # won / lost / open tables for every pot
+
+    # --- When to judge the experiment (shown on the dashboard) ---------------
+    review_min_trades: int = 30           # finished trades a pot needs before its win rate means much
+    review_min_days: int = 28             # and at least four weeks, so one lucky week can't decide it
