@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8449,
+      "last_bid": 0.8552,
       "tags": [
         "midterms",
         "house-elections",
@@ -708,22 +708,27 @@
       "t": "2026-11-03T14:03:07+00:00",
       "equity": 96.82,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T15:03:05+00:00",
+      "equity": 96.95,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T14:03:05+00:00",
+    "at": "2026-11-03T15:03:03+00:00",
     "scanned": 1000,
-    "flagged": 144,
-    "passed_filters": 115,
-    "candidates": 17,
+    "flagged": 132,
+    "passed_filters": 120,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "Dota 2: potn9ki vs HellNight- (BO3) - Esports Pro Circuit  Group C: price swung +42c in 24h",
       "US x Iran ceasefire continues through October 31?: price swung -11c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -10c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +23c in 24h",
-      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +88c in 24h",
-      "Rolex Paris Masters: Brandon Nakashima vs Matteo Berrettini: price swung -26c in 24h"
+      "US x Iran ceasefire continues through November 2?: price swung -11c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +11c in 24h",
+      "Rolex Paris Masters: Novak Djokovic vs Valentin Vacherot: price swung -25c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
