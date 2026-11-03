@@ -678,22 +678,27 @@
       "t": "2026-11-03T08:03:04+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T09:03:03+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T08:03:02+00:00",
+    "at": "2026-11-03T09:03:01+00:00",
     "scanned": 1000,
-    "flagged": 97,
-    "passed_filters": 124,
-    "candidates": 24,
+    "flagged": 119,
+    "passed_filters": 114,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through October 31?: price swung -23c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -22c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +24c in 24h",
-      "Prudential Hong Kong Tennis Open: Talia Gibson vs Oleksandra Oliynykov: price swung +21c in 24h",
-      "Will FK Radnicki Nis vs. FK Zeleznicar Pancevo end in a draw?: price swung +70c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung -14c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -16c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +22c in 24h",
+      "Counter-Strike: TheMongolz vs Heroic (BO3) - IEM Beijing Group A: price swung +24c in 24h",
+      "Counter-Strike: TheMongolz vs Heroic - Map 1 Winner: price swung +48c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
