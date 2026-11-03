@@ -658,22 +658,27 @@
       "t": "2026-11-03T04:03:02+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T05:03:03+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T04:03:01+00:00",
+    "at": "2026-11-03T05:03:01+00:00",
     "scanned": 1000,
-    "flagged": 175,
-    "passed_filters": 219,
-    "candidates": 44,
+    "flagged": 157,
+    "passed_filters": 98,
+    "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Bears vs. Seahawks: price swung +52c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -49c in 24h",
-      "Raptors vs. Clippers: price swung -21c in 24h",
-      "Pelicans vs. Grizzlies: price swung +65c in 24h",
-      "US x Iran ceasefire continues through October 31?: price swung -41c in 24h"
+      "Suns vs. Warriors: price swung +14c in 24h",
+      "Raptors vs. Clippers: price swung -49c in 24h",
+      "US x Iran ceasefire continues through October 31?: price swung -16c in 24h",
+      "Heat vs. Lakers: price swung -44c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
