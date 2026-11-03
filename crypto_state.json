@@ -1,5 +1,5 @@
 {
-  "cash": 70.88001999460005,
+  "cash": 81.03556207660004,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 241.61165,
       "opened_at": "2026-11-02T05:04:32+00:00",
       "url": "https://www.google.com/finance/quote/BCH-USD",
-      "last_bid": 276.56,
+      "last_bid": 276.1,
       "tags": [
         "altcoin"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 46.97355,
       "opened_at": "2026-11-02T08:06:03+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 54.26,
+      "last_bid": 54.046,
       "tags": [
         "altcoin"
       ],
@@ -78,46 +78,6 @@
             "risking 1.5% of pot -> \u00a310.08",
             "cap 10% = \u00a310.08",
             "stake \u00a310.08"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "BTC/USD",
-      "event_id": "BTC/USD",
-      "question": "Bitcoin (BTC/USD)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.000131,
-      "entry_price": 76676.65,
-      "stake": 10.04,
-      "stop_price": 71956.180979,
-      "opened_at": "2026-11-03T00:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77218.83,
-      "tags": [
-        "major"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "crypto",
-        "category": "major",
-        "tags": [
-          "major"
-        ],
-        "stop_price": 71956.180979,
-        "signal": [
-          "+4.8% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 6.2% below"
-        ],
-        "risk": {
-          "stake": 10.04,
-          "reasons": [
-            "stop 6.2% away",
-            "risking 1.5% of pot -> \u00a324.47",
-            "cap 10% = \u00a310.04",
-            "stake \u00a310.04"
           ]
         }
       }
@@ -552,6 +512,42 @@
             "risking 1.5% of pot -> \u00a318.87",
             "cap 10% = \u00a310.05",
             "stake \u00a310.05"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "BTC/USD",
+      "question": "Bitcoin (BTC/USD)",
+      "outcome": "Long",
+      "entry_price": 76676.65,
+      "exit_price": 77523.222,
+      "shares": 0.000131,
+      "stake": 10.04,
+      "proceeds": 10.1555,
+      "pnl": 0.1155,
+      "reason": "take-profit",
+      "opened_at": "2026-11-03T00:03:11+00:00",
+      "closed_at": "2026-11-03T16:03:13+00:00",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 71956.180979,
+        "signal": [
+          "+4.8% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 6.2% below"
+        ],
+        "risk": {
+          "stake": 10.04,
+          "reasons": [
+            "stop 6.2% away",
+            "risking 1.5% of pot -> \u00a324.47",
+            "cap 10% = \u00a310.04",
+            "stake \u00a310.04"
           ]
         }
       }
@@ -1052,14 +1048,21 @@
       "t": "2026-11-03T15:03:12+00:00",
       "equity": 100.72,
       "cash": 70.88
+    },
+    {
+      "t": "2026-11-03T16:03:13+00:00",
+      "equity": 100.7,
+      "cash": 81.04
     }
   ],
   "last_run": {
-    "at": "2026-11-03T15:03:11+00:00",
+    "at": "2026-11-03T16:03:12+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 0,
+    "signals": 1,
     "traded": 0,
-    "blocked_examples": []
+    "blocked_examples": [
+      "LINK/USD: already 2 trades in altcoin"
+    ]
   }
 }
