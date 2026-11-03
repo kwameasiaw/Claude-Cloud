@@ -633,22 +633,27 @@
       "t": "2026-11-02T23:24:35+00:00",
       "equity": 96.82,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T00:03:07+00:00",
+      "equity": 96.82,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-02T23:24:34+00:00",
+    "at": "2026-11-03T00:03:06+00:00",
     "scanned": 1000,
-    "flagged": 115,
-    "passed_filters": 357,
-    "candidates": 45,
+    "flagged": 105,
+    "passed_filters": 226,
+    "candidates": 49,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Hawks vs. Pacers: price swung +13c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +50c in 24h",
-      "Rolex Paris Masters: Ugo Humbert vs Botic van de Zandschulp: price swung +27c in 24h",
-      "Will Sport Lisboa e Benfica win on 2026-11-02?: price swung +15c in 24h",
-      "Charlottesville: Jack Kennedy vs Hynek Barton: price swung +61c in 24h"
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +11c in 24h",
+      "Rolex Paris Masters: Ugo Humbert vs Botic van de Zandschulp: price swung +39c in 24h",
+      "Hawks vs. Pacers: price swung +14c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +41c in 24h",
+      "Will Sport Lisboa e Benfica win on 2026-11-02?: price swung +15c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
