@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 684.22,
+      "last_bid": 685.38,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 753.85,
+      "last_bid": 730.06,
       "tags": [
         "index"
       ],
@@ -174,7 +174,7 @@
       "stop_price": 253.58,
       "opened_at": "2026-11-03T16:03:12+00:00",
       "url": "https://www.google.com/finance/quote/JNJ",
-      "last_bid": 267.03,
+      "last_bid": 254.03,
       "tags": [
         "health"
       ],
@@ -841,18 +841,17 @@
       "t": "2026-11-03T20:03:12+00:00",
       "equity": 99.67,
       "cash": 50.44
+    },
+    {
+      "t": "2026-11-03T21:03:11+00:00",
+      "equity": 98.89,
+      "cash": 50.44
     }
   ],
   "last_run": {
-    "at": "2026-11-03T20:03:08+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 3,
-    "traded": 0,
-    "blocked_examples": [
-      "JNJ: already 5 open trades",
-      "AAPL: already 5 open trades",
-      "ABBV: already 5 open trades"
-    ]
+    "at": "2026-11-03T21:03:09+00:00",
+    "scanned": 22,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
