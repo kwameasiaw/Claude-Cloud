@@ -648,22 +648,27 @@
       "t": "2026-11-03T02:03:03+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T03:03:02+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T02:03:01+00:00",
+    "at": "2026-11-03T03:03:01+00:00",
     "scanned": 1000,
-    "flagged": 216,
-    "passed_filters": 212,
+    "flagged": 192,
+    "passed_filters": 213,
     "candidates": 44,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Bears vs. Seahawks: price swung +12c in 24h",
-      "Spread: Cavaliers (-4.5): price swung -12c in 24h",
-      "Hawks vs. Pacers: price swung +32c in 24h",
-      "Spread: Rockets (-4.5): price swung +14c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +22c in 24h"
+      "Bears vs. Seahawks: price swung +14c in 24h",
+      "Hawks vs. Pacers: price swung +36c in 24h",
+      "Kings vs. Mavericks: price swung +46c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -56c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +15c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
