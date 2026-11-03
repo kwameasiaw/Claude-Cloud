@@ -1,5 +1,5 @@
 {
-  "cash": 70.83303158660004,
+  "cash": 60.783031586600046,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 241.61165,
       "opened_at": "2026-11-02T05:04:32+00:00",
       "url": "https://www.google.com/finance/quote/BCH-USD",
-      "last_bid": 276.48,
+      "last_bid": 276.0079,
       "tags": [
         "altcoin"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 46.97355,
       "opened_at": "2026-11-02T08:06:03+00:00",
       "url": "https://www.google.com/finance/quote/LTC-USD",
-      "last_bid": 53.8358,
+      "last_bid": 53.7419,
       "tags": [
         "altcoin"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 71956.180979,
       "opened_at": "2026-11-03T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 77055.9,
+      "last_bid": 76934.89,
       "tags": [
         "major"
       ],
@@ -118,6 +118,46 @@
             "risking 1.5% of pot -> \u00a324.47",
             "cap 10% = \u00a310.04",
             "stake \u00a310.04"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "ETH/USD",
+      "event_id": "ETH/USD",
+      "question": "Ether (ETH/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.004462,
+      "entry_price": 2252.58,
+      "stake": 10.05,
+      "stop_price": 2072.556518,
+      "opened_at": "2026-11-03T02:03:06+00:00",
+      "url": "https://www.google.com/finance/quote/ETH-USD",
+      "last_bid": 2252.01,
+      "tags": [
+        "major"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 2072.556518,
+        "signal": [
+          "+4.4% above its 200-day average (uptrend)",
+          "2-day RSI 9.6 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 10.05,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.87",
+            "cap 10% = \u00a310.05",
+            "stake \u00a310.05"
           ]
         }
       }
@@ -946,19 +986,25 @@
       "t": "2026-11-03T01:03:11+00:00",
       "equity": 100.57,
       "cash": 70.83
+    },
+    {
+      "t": "2026-11-03T02:03:06+00:00",
+      "equity": 100.52,
+      "cash": 60.78
     }
   ],
   "last_run": {
-    "at": "2026-11-03T01:03:09+00:00",
+    "at": "2026-11-03T02:03:05+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 4,
-    "traded": 0,
+    "signals": 6,
+    "traded": 1,
     "blocked_examples": [
       "UNI/USD: already 2 trades in altcoin",
+      "LINK/USD: already 2 trades in altcoin",
       "AAVE/USD: already 2 trades in altcoin",
       "AVAX/USD: already 2 trades in altcoin",
-      "LINK/USD: already 2 trades in altcoin"
+      "SOL/USD: already 2 trades in altcoin"
     ]
   }
 }
