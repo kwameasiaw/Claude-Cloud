@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 208.24,
+      "last_bid": 208.31,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 663.1,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/QQQ",
-      "last_bid": 688.18,
+      "last_bid": 686.32,
       "tags": [
         "index"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 737.31,
       "opened_at": "2026-10-30T14:08:02+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 756.0,
+      "last_bid": 754.77,
       "tags": [
         "index"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 494.5,
       "opened_at": "2026-10-30T15:05:32+00:00",
       "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 516.13,
+      "last_bid": 516.07,
       "tags": [
         "tech"
       ],
@@ -174,7 +174,7 @@
       "stop_price": 253.58,
       "opened_at": "2026-11-03T16:03:12+00:00",
       "url": "https://www.google.com/finance/quote/JNJ",
-      "last_bid": 269.35,
+      "last_bid": 267.9,
       "tags": [
         "health"
       ],
@@ -821,16 +821,23 @@
       "t": "2026-11-03T16:03:12+00:00",
       "equity": 99.79,
       "cash": 50.44
+    },
+    {
+      "t": "2026-11-03T17:03:10+00:00",
+      "equity": 99.7,
+      "cash": 50.44
     }
   ],
   "last_run": {
-    "at": "2026-11-03T16:03:07+00:00",
+    "at": "2026-11-03T17:03:05+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 2,
-    "traded": 1,
+    "signals": 3,
+    "traded": 0,
     "blocked_examples": [
-      "ABBV: already 5 open trades"
+      "XOM: already 5 open trades",
+      "JNJ: already 5 open trades",
+      "AAPL: already 5 open trades"
     ]
   }
 }
