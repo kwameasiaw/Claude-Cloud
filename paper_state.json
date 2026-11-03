@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7323,
+      "last_bid": 0.7425,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -668,22 +668,27 @@
       "t": "2026-11-03T06:03:04+00:00",
       "equity": 96.95,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T07:03:02+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T06:03:02+00:00",
+    "at": "2026-11-03T07:03:01+00:00",
     "scanned": 1000,
-    "flagged": 129,
-    "passed_filters": 107,
-    "candidates": 19,
+    "flagged": 116,
+    "passed_filters": 112,
+    "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Raptors vs. Clippers: price swung +35c in 24h",
       "US x Iran ceasefire continues through October 31?: price swung -23c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -20c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -24c in 24h",
       "Ethereum Up or Down on November 2?: price swung +32c in 24h",
-      "Counter-Strike: TYLOO vs 9z (BO3) - IEM Beijing Group B: spread 0.05 is unusually wide"
+      "Chennai Open: Jil Teichmann vs Joanna Garland: price swung -40c in 24h",
+      "Will Bitcoin dip to $75,000 in November?: price swung +12c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
