@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7425,
+      "last_bid": 0.7323,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -638,22 +638,27 @@
       "t": "2026-11-03T00:03:07+00:00",
       "equity": 96.82,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T01:03:07+00:00",
+      "equity": 96.7,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T00:03:06+00:00",
+    "at": "2026-11-03T01:03:05+00:00",
     "scanned": 1000,
-    "flagged": 105,
-    "passed_filters": 226,
-    "candidates": 49,
+    "flagged": 157,
+    "passed_filters": 216,
+    "candidates": 44,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +11c in 24h",
-      "Rolex Paris Masters: Ugo Humbert vs Botic van de Zandschulp: price swung +39c in 24h",
-      "Hawks vs. Pacers: price swung +14c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +41c in 24h",
-      "Will Sport Lisboa e Benfica win on 2026-11-02?: price swung +15c in 24h"
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +12c in 24h",
+      "Spread: Cavaliers (-4.5): price swung -22c in 24h",
+      "Hawks vs. Pacers: price swung +23c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +27c in 24h",
+      "Thunder vs. Cavaliers: price swung +20c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
