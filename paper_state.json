@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.7629,
+      "last_bid": 0.7834,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -723,22 +723,27 @@
       "t": "2026-11-03T17:03:05+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T18:03:05+00:00",
+      "equity": 97.33,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T17:03:03+00:00",
+    "at": "2026-11-03T18:03:03+00:00",
     "scanned": 1000,
-    "flagged": 125,
-    "passed_filters": 91,
+    "flagged": 129,
+    "passed_filters": 98,
     "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through October 31?: price swung -14c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -12c in 24h",
-      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +89c in 24h",
-      "Chennai Open: Maaya Rajeshwaran Revathi vs Katarzyna Kawa: price swung +18c in 24h",
-      "Rolex Paris Masters: Alex Michelsen vs Jiri Lehecka: price swung -23c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung -12c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -13c in 24h",
+      "Will Galatasaray SK win on 2026-11-03?: price swung +37c in 24h",
+      "Rolex Paris Masters: Benjamin Bonzi vs Taylor Fritz: price swung -16c in 24h",
+      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +87c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
