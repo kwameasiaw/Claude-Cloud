@@ -683,22 +683,27 @@
       "t": "2026-11-03T09:03:03+00:00",
       "equity": 97.07,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-03T10:03:04+00:00",
+      "equity": 97.07,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T09:03:01+00:00",
+    "at": "2026-11-03T10:03:02+00:00",
     "scanned": 1000,
-    "flagged": 119,
-    "passed_filters": 114,
-    "candidates": 23,
+    "flagged": 127,
+    "passed_filters": 125,
+    "candidates": 22,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "US x Iran ceasefire continues through October 31?: price swung -14c in 24h",
-      "US x Iran ceasefire continues through November 2?: price swung -16c in 24h",
-      "Ethereum Up or Down on November 2?: price swung +22c in 24h",
-      "Counter-Strike: TheMongolz vs Heroic (BO3) - IEM Beijing Group A: price swung +24c in 24h",
-      "Counter-Strike: TheMongolz vs Heroic - Map 1 Winner: price swung +48c in 24h"
+      "US x Iran ceasefire continues through October 31?: price swung -10c in 24h",
+      "US x Iran ceasefire continues through November 2?: price swung -19c in 24h",
+      "Ethereum Up or Down on November 2?: price swung +28c in 24h",
+      "Counter-Strike: TheMongolz vs Heroic (BO3) - IEM Beijing Group A: price swung +26c in 24h",
+      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +42c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

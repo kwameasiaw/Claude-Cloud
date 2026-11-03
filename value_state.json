@@ -178,7 +178,7 @@
       "stop_price": 0.221,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.2229,
+      "last_bid": 0.2327,
       "tags": [
         "united-states",
         "rewards-20-4pt5-50",
@@ -1459,10 +1459,15 @@
       "t": "2026-11-03T09:03:03+00:00",
       "equity": 102.95,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-03T10:03:04+00:00",
+      "equity": 102.99,
+      "cash": 93.24
     }
   ],
   "last_run": {
-    "at": "2026-11-03T09:03:03+00:00",
+    "at": "2026-11-03T10:03:04+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
