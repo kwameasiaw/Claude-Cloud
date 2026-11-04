@@ -93,7 +93,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.2272,
+      "last_bid": 0.2562,
       "tags": [
         "bitcoin",
         "monthly",
@@ -175,7 +175,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.3014,
+      "last_bid": 0.3212,
       "tags": [
         "taiwan",
         "politics",
@@ -359,7 +359,7 @@
       "stop_price": 0.208,
       "opened_at": "2026-11-04T03:03:10+00:00",
       "url": "https://polymarket.com/market/iran-full-airspace-closure-by-november-30-2026",
-      "last_bid": 0.31,
+      "last_bid": 0.27,
       "tags": [
         "iran",
         "close",
@@ -1707,32 +1707,15 @@
       "t": "2026-11-04T03:03:10+00:00",
       "equity": 104.55,
       "cash": 93.8
+    },
+    {
+      "t": "2026-11-04T04:03:05+00:00",
+      "equity": 104.79,
+      "cash": 93.8
     }
   ],
   "last_run": {
-    "at": "2026-11-04T03:03:06+00:00",
-    "scanned": 1000,
-    "flagged": 260,
-    "passed_filters": 72,
-    "candidates": 48,
-    "shortlisted": 13,
-    "researched": 12,
-    "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +23c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -24c in 24h",
-      "Will the Democrats win the Texas Senate race in 2026?: price swung +25c in 24h",
-      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +43c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 10,
-    "model": "calibration table (206 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-04T04:03:05+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
