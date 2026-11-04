@@ -1,37 +1,7 @@
 {
-  "cash": 88.98538703000003,
+  "cash": 100.91828383000002,
   "starting_bankroll": 100.0,
-  "positions": [
-    {
-      "market_id": "943476",
-      "event_id": "106174",
-      "question": "Will the Republican Party win the NC-01 House seat?",
-      "outcome": "No",
-      "token_id": "54560170355459704184898143385353650333050618305218101329552280696552769656385",
-      "shares": 12.122,
-      "entry_price": 0.82,
-      "stake": 9.94,
-      "stop_price": 0.656,
-      "opened_at": "2026-10-29T16:48:55+00:00",
-      "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.9398,
-      "tags": [
-        "midterms",
-        "house-elections",
-        "north-carolina-midterm",
-        "us-presidential-election",
-        "house-tossups",
-        "politics",
-        "elections",
-        "nov-4-elections",
-        "tossup-house-races",
-        "midterm-tossups",
-        "north-carolina-house"
-      ],
-      "closes_at": "2026-11-04T04:59:00+00:00",
-      "decision": {}
-    }
-  ],
+  "positions": [],
   "closed": [
     {
       "market_id": "6367378",
@@ -91,6 +61,21 @@
       "reason": "take-profit",
       "opened_at": "2026-10-29T16:48:55+00:00",
       "closed_at": "2026-11-04T02:03:01+00:00",
+      "decision": {}
+    },
+    {
+      "market_id": "943476",
+      "question": "Will the Republican Party win the NC-01 House seat?",
+      "outcome": "No",
+      "entry_price": 0.82,
+      "exit_price": 0.9844,
+      "shares": 12.122,
+      "stake": 9.94,
+      "proceeds": 11.9329,
+      "pnl": 1.9929,
+      "reason": "take-profit",
+      "opened_at": "2026-10-29T16:48:55+00:00",
+      "closed_at": "2026-11-04T05:03:05+00:00",
       "decision": {}
     }
   ],
@@ -764,22 +749,27 @@
       "t": "2026-11-04T04:03:05+00:00",
       "equity": 100.38,
       "cash": 88.99
+    },
+    {
+      "t": "2026-11-04T05:03:07+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-04T04:03:03+00:00",
+    "at": "2026-11-04T05:03:05+00:00",
     "scanned": 1000,
-    "flagged": 269,
-    "passed_filters": 72,
-    "candidates": 15,
+    "flagged": 253,
+    "passed_filters": 83,
+    "candidates": 20,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +24c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -23c in 24h",
+      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +23c in 24h",
       "Will the Democrats win the Texas Senate race in 2026?: price swung +25c in 24h",
-      "Will the Republicans win the Texas Senate race in 2026?: price swung -25c in 24h",
-      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h"
+      "2026 Balance of Power: D Senate, D House: price swung +23c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +53c in 24h",
+      "Will the Republicans win the Florida governor race in 2026?: price swung +35c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

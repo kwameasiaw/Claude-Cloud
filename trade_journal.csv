@@ -3,3 +3,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 5686980,US x Iran ceasefire continues through November 8?,Yes,0.81,0.58,12.3457,10.0,7.1605,-2.8395,stop-loss,2026-10-29T16:48:54+00:00,2026-10-29T22:04:23+00:00
 5657803,Spread: Broncos (-7.5),Chiefs,0.8146,1.0,12.2634,9.99,12.2634,2.2734,resolved WIN,2026-10-29T16:48:54+00:00,2026-11-02T01:04:18+00:00
 629506,Will the Republicans win the Nevada governor race in 2026?,No,0.81,0.9481,12.2963,9.96,11.6581,1.6981,take-profit,2026-10-29T16:48:55+00:00,2026-11-04T02:03:01+00:00
+943476,Will the Republican Party win the NC-01 House seat?,No,0.82,0.9844,12.122,9.94,11.9329,1.9929,take-profit,2026-10-29T16:48:55+00:00,2026-11-04T05:03:05+00:00
