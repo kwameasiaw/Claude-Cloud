@@ -359,7 +359,7 @@
       "stop_price": 0.208,
       "opened_at": "2026-11-04T03:03:10+00:00",
       "url": "https://polymarket.com/market/iran-full-airspace-closure-by-november-30-2026",
-      "last_bid": 0.31,
+      "last_bid": 0.26,
       "tags": [
         "iran",
         "close",
@@ -1732,10 +1732,15 @@
       "t": "2026-11-04T08:03:08+00:00",
       "equity": 103.66,
       "cash": 93.8
+    },
+    {
+      "t": "2026-11-04T09:03:07+00:00",
+      "equity": 103.4,
+      "cash": 93.8
     }
   ],
   "last_run": {
-    "at": "2026-11-04T08:03:08+00:00",
+    "at": "2026-11-04T09:03:07+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
