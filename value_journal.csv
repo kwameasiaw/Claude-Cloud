@@ -7,3 +7,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 6499353,Erste Bank Open: Alex de Minaur vs Carlos Alcaraz,Alex de Minaur,0.208,0.0476,14.6154,3.04,0.6957,-2.3443,stop-loss,2026-11-01T12:05:12+00:00,2026-11-01T14:05:56+00:00
 562828,"2026 Balance of Power: D Senate, D House",No,0.34,0.1158,4.8824,1.66,0.5654,-1.0946,stop-loss,2026-10-29T17:39:14+00:00,2026-11-04T00:03:03+00:00
 629690,Will the Democrats win the Texas governor race in 2026?,Yes,0.35,0.9719,4.8286,1.69,4.6929,3.0029,take-profit,2026-10-29T17:39:14+00:00,2026-11-04T03:03:05+00:00
+6367378,Israel x Iran ceasefire continues through November 7?,No,0.2,0.13,15.65,3.13,2.0345,-1.0955,stop-loss,2026-10-29T17:39:13+00:00,2026-11-04T10:03:06+00:00
