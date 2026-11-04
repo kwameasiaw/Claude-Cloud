@@ -14,7 +14,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1601,
+      "last_bid": 0.1506,
       "tags": [
         "bitcoin",
         "monthly",
@@ -1830,10 +1830,15 @@
       "t": "2026-11-04T11:03:03+00:00",
       "equity": 102.93,
       "cash": 94.17
+    },
+    {
+      "t": "2026-11-04T12:03:06+00:00",
+      "equity": 102.81,
+      "cash": 94.17
     }
   ],
   "last_run": {
-    "at": "2026-11-04T11:03:03+00:00",
+    "at": "2026-11-04T12:03:06+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
