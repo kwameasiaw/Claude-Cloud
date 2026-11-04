@@ -93,7 +93,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.4501,
+      "last_bid": 0.4103,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -260,7 +260,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.331,
+      "last_bid": 0.3113,
       "tags": [
         "taiwan",
         "politics",
@@ -1612,32 +1612,15 @@
       "t": "2026-11-04T00:03:07+00:00",
       "equity": 102.4,
       "cash": 90.81
+    },
+    {
+      "t": "2026-11-04T01:03:07+00:00",
+      "equity": 102.12,
+      "cash": 90.81
     }
   ],
   "last_run": {
-    "at": "2026-11-04T00:03:03+00:00",
-    "scanned": 1000,
-    "flagged": 191,
-    "passed_filters": 86,
-    "candidates": 57,
-    "shortlisted": 15,
-    "researched": 12,
-    "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +13c in 24h",
-      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +51c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +19c in 24h",
-      "Will the Democrats win the Texas Senate race in 2026?: price swung +11c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -13c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-04T01:03:07+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

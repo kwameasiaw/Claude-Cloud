@@ -43,7 +43,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.8244,
+      "last_bid": 0.9377,
       "tags": [
         "midterms",
         "house-elections",
@@ -758,22 +758,27 @@
       "t": "2026-11-04T00:03:02+00:00",
       "equity": 97.96,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-04T01:03:07+00:00",
+      "equity": 99.34,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-04T00:03:01+00:00",
+    "at": "2026-11-04T01:03:05+00:00",
     "scanned": 1000,
-    "flagged": 191,
-    "passed_filters": 86,
-    "candidates": 16,
+    "flagged": 226,
+    "passed_filters": 80,
+    "candidates": 18,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +13c in 24h",
-      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +51c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +19c in 24h",
-      "Will the Democrats win the Texas Senate race in 2026?: price swung +11c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -13c in 24h"
+      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +15c in 24h",
+      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +52c in 24h",
+      "Will the Democrats win the Texas Senate race in 2026?: price swung +15c in 24h",
+      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -15c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +28c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
