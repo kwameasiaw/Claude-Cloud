@@ -14,7 +14,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1697,
+      "last_bid": 0.1601,
       "tags": [
         "bitcoin",
         "monthly",
@@ -96,7 +96,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.2621,
+      "last_bid": 0.2818,
       "tags": [
         "taiwan",
         "politics",
@@ -1825,32 +1825,15 @@
       "t": "2026-11-04T10:03:11+00:00",
       "equity": 102.97,
       "cash": 94.17
+    },
+    {
+      "t": "2026-11-04T11:03:03+00:00",
+      "equity": 102.93,
+      "cash": 94.17
     }
   ],
   "last_run": {
-    "at": "2026-11-04T10:03:06+00:00",
-    "scanned": 1000,
-    "flagged": 263,
-    "passed_filters": 115,
-    "candidates": 67,
-    "shortlisted": 20,
-    "researched": 12,
-    "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +23c in 24h",
-      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +55c in 24h",
-      "Will the Democrats win the Michigan Senate race in 2026?: price swung +19c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -69c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (206 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-04T11:03:03+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
