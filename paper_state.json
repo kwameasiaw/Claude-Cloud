@@ -14,7 +14,7 @@
       "stop_price": 0.656,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republican-party-win-the-nc-01-house-seat",
-      "last_bid": 0.9377,
+      "last_bid": 0.9408,
       "tags": [
         "midterms",
         "house-elections",
@@ -754,22 +754,27 @@
       "t": "2026-11-04T02:03:03+00:00",
       "equity": 100.35,
       "cash": 88.99
+    },
+    {
+      "t": "2026-11-04T03:03:05+00:00",
+      "equity": 100.39,
+      "cash": 88.99
     }
   ],
   "last_run": {
-    "at": "2026-11-04T02:03:01+00:00",
+    "at": "2026-11-04T03:03:03+00:00",
     "scanned": 1000,
-    "flagged": 292,
-    "passed_filters": 67,
+    "flagged": 260,
+    "passed_filters": 72,
     "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +23c in 24h",
-      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +52c in 24h",
-      "Will the Democrats win the Texas Senate race in 2026?: price swung +26c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -23c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +48c in 24h"
+      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -24c in 24h",
+      "Will the Democrats win the Texas Senate race in 2026?: price swung +25c in 24h",
+      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +43c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
