@@ -1162,11 +1162,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-04T15:03:09+00:00",
-    "scanned": 12,
-    "market_open": true,
-    "signals": 0,
-    "traded": 0,
-    "blocked_examples": []
+    "at": "2026-11-04T16:13:53+00:00",
+    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
   }
 }
