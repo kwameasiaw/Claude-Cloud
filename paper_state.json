@@ -759,21 +759,26 @@
       "t": "2026-11-04T06:03:04+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-04T07:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-04T06:03:02+00:00",
+    "at": "2026-11-04T07:03:03+00:00",
     "scanned": 1000,
-    "flagged": 283,
-    "passed_filters": 82,
-    "candidates": 15,
+    "flagged": 286,
+    "passed_filters": 86,
+    "candidates": 14,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +22c in 24h",
       "Will the Democrats win the Texas Senate race in 2026?: price swung +25c in 24h",
       "2026 Balance of Power: D Senate, D House: price swung +23c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +56c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +51c in 24h",
       "Will the Democrats win the Michigan Senate race in 2026?: price swung +19c in 24h"
     ],
     "predicted_fire": 0,
