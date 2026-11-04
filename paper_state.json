@@ -1,36 +1,7 @@
 {
-  "cash": 77.32726500000003,
+  "cash": 88.98538703000003,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "629506",
-      "event_id": "57181",
-      "question": "Will the Republicans win the Nevada governor race in 2026?",
-      "outcome": "No",
-      "token_id": "76313209944639250426806286965492886883353059598478633315707597639545615999446",
-      "shares": 12.2963,
-      "entry_price": 0.81,
-      "stake": 9.96,
-      "stop_price": 0.648,
-      "opened_at": "2026-10-29T16:48:55+00:00",
-      "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.8655,
-      "tags": [
-        "nevada-midterm",
-        "governor-midterms",
-        "midterms",
-        "us-presidential-election",
-        "politics",
-        "elections",
-        "aaron-ford",
-        "joe-lombardo",
-        "governor-tossups",
-        "midterm-tossups",
-        "nevada-governor"
-      ],
-      "closes_at": "2026-11-04T04:59:00+00:00",
-      "decision": {}
-    },
     {
       "market_id": "943476",
       "event_id": "106174",
@@ -105,6 +76,21 @@
       "reason": "resolved WIN",
       "opened_at": "2026-10-29T16:48:54+00:00",
       "closed_at": "2026-11-02T01:04:18+00:00",
+      "decision": {}
+    },
+    {
+      "market_id": "629506",
+      "question": "Will the Republicans win the Nevada governor race in 2026?",
+      "outcome": "No",
+      "entry_price": 0.81,
+      "exit_price": 0.9481,
+      "shares": 12.2963,
+      "stake": 9.96,
+      "proceeds": 11.6581,
+      "pnl": 1.6981,
+      "reason": "take-profit",
+      "opened_at": "2026-10-29T16:48:55+00:00",
+      "closed_at": "2026-11-04T02:03:01+00:00",
       "decision": {}
     }
   ],
@@ -763,22 +749,27 @@
       "t": "2026-11-04T01:03:07+00:00",
       "equity": 99.34,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-04T02:03:03+00:00",
+      "equity": 100.35,
+      "cash": 88.99
     }
   ],
   "last_run": {
-    "at": "2026-11-04T01:03:05+00:00",
+    "at": "2026-11-04T02:03:01+00:00",
     "scanned": 1000,
-    "flagged": 226,
-    "passed_filters": 80,
-    "candidates": 18,
+    "flagged": 292,
+    "passed_filters": 67,
+    "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +15c in 24h",
+      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +23c in 24h",
       "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +52c in 24h",
-      "Will the Democrats win the Texas Senate race in 2026?: price swung +15c in 24h",
-      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -15c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +28c in 24h"
+      "Will the Democrats win the Texas Senate race in 2026?: price swung +26c in 24h",
+      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -23c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +48c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
