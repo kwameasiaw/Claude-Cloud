@@ -1,5 +1,5 @@
 {
-  "cash": 71.04048963999998,
+  "cash": 81.13279831999998,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 205.3,
+      "last_bid": 203.38,
       "tags": [
         "tech"
       ],
@@ -43,46 +43,6 @@
       }
     },
     {
-      "market_id": "JNJ",
-      "event_id": "JNJ",
-      "question": "Johnson & Johnson (JNJ)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.036979,
-      "entry_price": 269.88,
-      "stake": 9.98,
-      "stop_price": 253.58,
-      "opened_at": "2026-11-03T16:03:12+00:00",
-      "url": "https://www.google.com/finance/quote/JNJ",
-      "last_bid": 269.7,
-      "tags": [
-        "health"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "health",
-        "tags": [
-          "health"
-        ],
-        "stop_price": 253.58,
-        "signal": [
-          "+8.9% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 6.0% below"
-        ],
-        "risk": {
-          "stake": 9.98,
-          "reasons": [
-            "stop 6.0% away",
-            "risking 1.5% of pot -> \u00a324.79",
-            "cap 10% = \u00a39.98",
-            "stake \u00a39.98"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "ABBV",
       "event_id": "ABBV",
       "question": "AbbVie (ABBV)",
@@ -94,7 +54,7 @@
       "stop_price": 270.94,
       "opened_at": "2026-11-04T15:03:09+00:00",
       "url": "https://www.google.com/finance/quote/ABBV",
-      "last_bid": 285.25,
+      "last_bid": 289.39,
       "tags": [
         "health"
       ],
@@ -264,6 +224,42 @@
             "risking 1.5% of pot -> \u00a327.15",
             "cap 10% = \u00a39.96",
             "stake \u00a39.96"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "JNJ",
+      "question": "Johnson & Johnson (JNJ)",
+      "outcome": "Long",
+      "entry_price": 269.88,
+      "exit_price": 272.92,
+      "shares": 0.036979,
+      "stake": 9.98,
+      "proceeds": 10.0923,
+      "pnl": 0.1123,
+      "reason": "take-profit",
+      "opened_at": "2026-11-03T16:03:12+00:00",
+      "closed_at": "2026-11-04T17:03:18+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "health",
+        "tags": [
+          "health"
+        ],
+        "stop_price": 253.58,
+        "signal": [
+          "+8.9% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 6.0% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 6.0% away",
+            "risking 1.5% of pot -> \u00a324.79",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
           ]
         }
       }
@@ -964,10 +960,19 @@
       "t": "2026-11-04T15:03:09+00:00",
       "equity": 100.7,
       "cash": 71.04
+    },
+    {
+      "t": "2026-11-04T17:03:18+00:00",
+      "equity": 100.87,
+      "cash": 81.13
     }
   ],
   "last_run": {
-    "at": "2026-11-04T16:13:53+00:00",
-    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    "at": "2026-11-04T17:03:13+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 0,
+    "traded": 0,
+    "blocked_examples": []
   }
 }

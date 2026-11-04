@@ -1,89 +1,7 @@
 {
-  "cash": 94.16908132999998,
+  "cash": 93.78635874999999,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "6507383",
-      "event_id": "1292829",
-      "question": "Will Bitcoin dip to $67,500 in November?",
-      "outcome": "Yes",
-      "token_id": "15542710001866766202110323156169725417182779903002226439100570924289697216169",
-      "shares": 12.7367,
-      "entry_price": 0.2112,
-      "stake": 2.69,
-      "stop_price": 0.1373,
-      "opened_at": "2026-11-01T09:04:27+00:00",
-      "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1316,
-      "tags": [
-        "bitcoin",
-        "monthly",
-        "hit-price",
-        "crypto",
-        "crypto-prices",
-        "recurring"
-      ],
-      "closes_at": "2026-12-01T05:00:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "crypto",
-        "tags": [
-          "bitcoin",
-          "monthly",
-          "hit-price",
-          "crypto",
-          "crypto-prices",
-          "recurring"
-        ],
-        "scan": [
-          "'Yes' at 0.20",
-          "liq $48,479",
-          "vol24h $6,251",
-          "closes in 29.8d"
-        ],
-        "stop_price": 0.1373,
-        "research": {
-          "items": 0,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": []
-        },
-        "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
-          "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.2112,
-          "edge": 0.089,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "edge +8.9c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 2.69,
-          "kelly": 0.1128,
-          "reasons": [
-            "Kelly 11.3% of pot -> quarter-Kelly \u00a32.69",
-            "cap 10% = \u00a39.55",
-            "stake \u00a32.69"
-          ]
-        }
-      }
-    },
     {
       "market_id": "3580932",
       "event_id": "848341",
@@ -269,98 +187,6 @@
       }
     },
     {
-      "market_id": "6281141",
-      "event_id": "634802",
-      "question": "Iran full airspace closure by November 30, 2026?",
-      "outcome": "Yes",
-      "token_id": "50029219048173511525470774213755104216155123891079276379163862905560931347714",
-      "shares": 5.3125,
-      "entry_price": 0.32,
-      "stake": 1.7,
-      "stop_price": 0.208,
-      "opened_at": "2026-11-04T03:03:10+00:00",
-      "url": "https://polymarket.com/market/iran-full-airspace-closure-by-november-30-2026",
-      "last_bid": 0.25,
-      "tags": [
-        "iran",
-        "close",
-        "trump-iran",
-        "israel-x-iran",
-        "diplomacy-ceasefire",
-        "geopolitics"
-      ],
-      "closes_at": "2026-12-01T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "iran",
-          "close",
-          "trump-iran",
-          "israel-x-iran",
-          "diplomacy-ceasefire",
-          "geopolitics"
-        ],
-        "scan": [
-          "'Yes' at 0.32",
-          "liq $37,737",
-          "vol24h $43,666",
-          "closes in 27.1d"
-        ],
-        "stop_price": 0.208,
-        "research": {
-          "items": 15,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": [
-            "[news] Dubai and Middle East flight disruption: international airlines extend route cancellations as Saudi continues to intercept attacks - Cond\u00e9 Nast Traveller Middle East",
-            "[news] Amid fears of renewed war with Iran, how long could Ben Gurion Airport remain closed? - www.israelhayom.com",
-            "[news] US and Israel launch strikes on Iran targeting its leadership; Iran fires missiles at Israel and Gulf states report intercepts - Avi-Go",
-            "[news] UAE flights update at a glance: Airport delays, airline cancellations and Saudi route changes on Oct 30 - Gulf News",
-            "[news] Middle East flights: KLM, Singapore Airlines and Air France extend suspensions - The National",
-            "[news] US orders non-emergency staff to leave Saudi Arabia over security risks - Reuters",
-            "[news] The latest flight advice for Abu Dhabi airport travellers: Etihad, Air Arabia & more - Time Out Abu Dhabi",
-            "[news] Gulf Airspace Restrictions and Forecast Record El Nino Set Two-Front Planning Season for Private Aviation Through Q1 2027 - Avi-Go"
-          ]
-        },
-        "prediction": {
-          "p_market": 0.315,
-          "p_base": 0.3642,
-          "method": "calibration table (206 past markets)",
-          "p_llm": null,
-          "p_final": 0.3642,
-          "cost": 0.32,
-          "edge": 0.0442,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 32%",
-            "calibration table (206 past markets) says 36.4%",
-            "15 headlines found, not scored (no Claude API key)",
-            "edge +4.4c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 1.7,
-          "kelly": 0.0649,
-          "reasons": [
-            "Kelly 6.5% of pot -> quarter-Kelly \u00a31.70",
-            "cap 10% = \u00a310.46",
-            "stake \u00a31.70"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "5339986",
       "event_id": "711714",
       "question": "Israel x Iran ceasefire continues through November 15?",
@@ -372,7 +198,7 @@
       "stop_price": 0.208,
       "opened_at": "2026-11-04T10:03:11+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-15",
-      "last_bid": 0.28,
+      "last_bid": 0.23,
       "tags": [
         "iran",
         "israel",
@@ -448,6 +274,190 @@
             "Kelly 6.5% of pot -> quarter-Kelly \u00a31.67",
             "cap 10% = \u00a310.30",
             "stake \u00a31.67"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "4664662",
+      "event_id": "1040632",
+      "question": "Will Google have the best AI model at the end of November 2026?",
+      "outcome": "No",
+      "token_id": "89770126580031834013198624982067658403222467359747686065071738211043626186661",
+      "shares": 4.1751,
+      "entry_price": 0.3186,
+      "stake": 1.33,
+      "stop_price": 0.2071,
+      "opened_at": "2026-11-04T17:03:12+00:00",
+      "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
+      "last_bid": 0.2916,
+      "tags": [
+        "ai",
+        "tech",
+        "ai-rankings",
+        "recurring",
+        "gpt-releases"
+      ],
+      "closes_at": "2026-12-01T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "ai",
+          "tech",
+          "ai-rankings",
+          "recurring",
+          "gpt-releases"
+        ],
+        "scan": [
+          "'No' at 0.31",
+          "liq $26,323",
+          "vol24h $12,848",
+          "closes in 26.5d"
+        ],
+        "stop_price": 0.2071,
+        "research": {
+          "items": 25,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] What Google Cloud announced in AI this month \u2013 and how it helps you - Google Cloud",
+            "[news] Google announces Gemini 4 Carbon, its new frontier AI model - Mashable",
+            "[news] Google runs AI model on satellite chip, advancing orbital data center ambitions - SpaceNews",
+            "[news] Who's suing AI and who's signing latest: US newspapers sue Brave Software and Canadian publishers sue Anthropic - Press Gazette",
+            "[news] Why AI is boosting Meta's ad business while hurting Google search - CNBC",
+            "[news] November 2026 Google Webmaster Report: Spam Update Done, AI Overviews, Help Docs, Local & Earnings - Search Engine Roundtable",
+            "[news] What's happening to UK interest rates and what does it mean for mortgages? - BBC",
+            "[news] AI Executive Appointments in November 2026 - AI Magazine"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.305,
+          "p_base": 0.3542,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3542,
+          "cost": 0.3186,
+          "edge": 0.0356,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 30%",
+            "calibration table (206 past markets) says 35.4%",
+            "25 headlines found, not scored (no Claude API key)",
+            "edge +3.6c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.33,
+          "kelly": 0.0522,
+          "reasons": [
+            "Kelly 5.2% of pot -> quarter-Kelly \u00a31.33",
+            "cap 10% = \u00a310.16",
+            "stake \u00a31.33"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "2116493",
+      "event_id": "431450",
+      "question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "outcome": "No",
+      "token_id": "109528281960787366259167519549419015523883006138549082473738768120949458572608",
+      "shares": 3.8708,
+      "entry_price": 0.3591,
+      "stake": 1.39,
+      "stop_price": 0.2334,
+      "opened_at": "2026-11-04T17:03:13+00:00",
+      "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
+      "last_bid": 0.331,
+      "tags": [
+        "politics",
+        "global-elections",
+        "elections",
+        "main-election",
+        "new-zealand-election",
+        "nz",
+        "world-elections"
+      ],
+      "closes_at": "2026-11-08T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "politics",
+        "tags": [
+          "politics",
+          "global-elections",
+          "elections",
+          "main-election",
+          "new-zealand-election",
+          "nz",
+          "world-elections"
+        ],
+        "scan": [
+          "'No' at 0.35",
+          "liq $58,396",
+          "vol24h $9,558",
+          "closes in 3.5d"
+        ],
+        "stop_price": 0.2334,
+        "research": {
+          "items": 26,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] A Month of Referendums on Power: November 2026\u2019s Elections to Watch - Diplomatic Courier",
+            "[news] Democrats likely to gain control of Congress in US midterm elections as Senate lead expands - The Conversation",
+            "[news] 2026 midterm election results: Who won the key House and Senate races? - Northeastern Global News",
+            "[news] Could Trump interfere in the US midterms \u2013 and what checks and balances could stop him? - The Conversation",
+            "[news] Republicans nervous as US midterms results trickle in: Key races, Indian-Americans in fray & states to wa - The Times of India",
+            "[news] The midterms will change US politics, but NZ will keep feeling the Trump effect - RNZ",
+            "[news] Midterms 2026: Will Republicans or Democrats win control of the House? These are the key races to watch. - Yahoo",
+            "[news] New Zealand votes with economy, cost of living in focus - Kuwait Times"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.345,
+          "p_base": 0.3942,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3942,
+          "cost": 0.3591,
+          "edge": 0.0351,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 39.4%",
+            "26 headlines found, not scored (no Claude API key)",
+            "edge +3.5c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.39,
+          "kelly": 0.0547,
+          "reasons": [
+            "Kelly 5.5% of pot -> quarter-Kelly \u00a31.39",
+            "cap 10% = \u00a310.15",
+            "stake \u00a31.39"
           ]
         }
       }
@@ -1140,6 +1150,162 @@
             "Kelly 12.5% of pot -> quarter-Kelly \u00a33.13",
             "cap 10% = \u00a39.98",
             "stake \u00a33.13"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6507383",
+      "question": "Will Bitcoin dip to $67,500 in November?",
+      "outcome": "Yes",
+      "entry_price": 0.2112,
+      "exit_price": 0.1126,
+      "shares": 12.7367,
+      "stake": 2.69,
+      "proceeds": 1.4342,
+      "pnl": -1.2558,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-01T09:04:27+00:00",
+      "closed_at": "2026-11-04T17:03:08+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "crypto",
+        "tags": [
+          "bitcoin",
+          "monthly",
+          "hit-price",
+          "crypto",
+          "crypto-prices",
+          "recurring"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $48,479",
+          "vol24h $6,251",
+          "closes in 29.8d"
+        ],
+        "stop_price": 0.1373,
+        "research": {
+          "items": 0,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2112,
+          "edge": 0.089,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "edge +8.9c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.69,
+          "kelly": 0.1128,
+          "reasons": [
+            "Kelly 11.3% of pot -> quarter-Kelly \u00a32.69",
+            "cap 10% = \u00a39.55",
+            "stake \u00a32.69"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "6281141",
+      "question": "Iran full airspace closure by November 30, 2026?",
+      "outcome": "Yes",
+      "entry_price": 0.32,
+      "exit_price": 0.17,
+      "shares": 5.3125,
+      "stake": 1.7,
+      "proceeds": 0.9031,
+      "pnl": -0.7969,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-04T03:03:10+00:00",
+      "closed_at": "2026-11-04T17:03:08+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "close",
+          "trump-iran",
+          "israel-x-iran",
+          "diplomacy-ceasefire",
+          "geopolitics"
+        ],
+        "scan": [
+          "'Yes' at 0.32",
+          "liq $37,737",
+          "vol24h $43,666",
+          "closes in 27.1d"
+        ],
+        "stop_price": 0.208,
+        "research": {
+          "items": 15,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Dubai and Middle East flight disruption: international airlines extend route cancellations as Saudi continues to intercept attacks - Cond\u00e9 Nast Traveller Middle East",
+            "[news] Amid fears of renewed war with Iran, how long could Ben Gurion Airport remain closed? - www.israelhayom.com",
+            "[news] US and Israel launch strikes on Iran targeting its leadership; Iran fires missiles at Israel and Gulf states report intercepts - Avi-Go",
+            "[news] UAE flights update at a glance: Airport delays, airline cancellations and Saudi route changes on Oct 30 - Gulf News",
+            "[news] Middle East flights: KLM, Singapore Airlines and Air France extend suspensions - The National",
+            "[news] US orders non-emergency staff to leave Saudi Arabia over security risks - Reuters",
+            "[news] The latest flight advice for Abu Dhabi airport travellers: Etihad, Air Arabia & more - Time Out Abu Dhabi",
+            "[news] Gulf Airspace Restrictions and Forecast Record El Nino Set Two-Front Planning Season for Private Aviation Through Q1 2027 - Avi-Go"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.315,
+          "p_base": 0.3642,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3642,
+          "cost": 0.32,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 32%",
+            "calibration table (206 past markets) says 36.4%",
+            "15 headlines found, not scored (no Claude API key)",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.7,
+          "kelly": 0.0649,
+          "reasons": [
+            "Kelly 6.5% of pot -> quarter-Kelly \u00a31.70",
+            "cap 10% = \u00a310.46",
+            "stake \u00a31.70"
           ]
         }
       }
@@ -1855,10 +2021,37 @@
       "t": "2026-11-04T16:13:53+00:00",
       "equity": 102.53,
       "cash": 94.17
+    },
+    {
+      "t": "2026-11-04T17:03:13+00:00",
+      "equity": 101.38,
+      "cash": 93.79
     }
   ],
   "last_run": {
-    "at": "2026-11-04T16:13:53+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-04T17:03:08+00:00",
+    "scanned": 1000,
+    "flagged": 239,
+    "passed_filters": 98,
+    "candidates": 58,
+    "shortlisted": 17,
+    "researched": 12,
+    "flag_examples": [
+      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +62c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -80c in 24h",
+      "Will Mary Peltola win the Alaska Senate race in 2026?: price swung +25c in 24h",
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +80c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (206 past markets)",
+    "approved": 2,
+    "traded": 2,
+    "blocked_examples": []
   }
 }

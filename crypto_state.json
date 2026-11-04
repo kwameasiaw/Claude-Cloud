@@ -1159,10 +1159,19 @@
       "t": "2026-11-04T15:03:12+00:00",
       "equity": 101.2,
       "cash": 101.2
+    },
+    {
+      "t": "2026-11-04T17:03:21+00:00",
+      "equity": 101.2,
+      "cash": 101.2
     }
   ],
   "last_run": {
-    "at": "2026-11-04T16:13:53+00:00",
-    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    "at": "2026-11-04T17:03:18+00:00",
+    "scanned": 12,
+    "market_open": true,
+    "signals": 0,
+    "traded": 0,
+    "blocked_examples": []
   }
 }
