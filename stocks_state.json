@@ -1,5 +1,5 @@
 {
-  "cash": 81.26700725999997,
+  "cash": 71.17700725999997,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 203.24,
+      "last_bid": 203.07,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 359.48,
       "opened_at": "2026-11-04T18:03:12+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 390.44,
+      "last_bid": 388.91,
       "tags": [
         "consumer"
       ],
@@ -76,6 +76,46 @@
           "reasons": [
             "stop 8.0% away",
             "risking 1.5% of pot -> \u00a318.92",
+            "cap 10% = \u00a310.09",
+            "stake \u00a310.09"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "XOM",
+      "event_id": "XOM",
+      "question": "ExxonMobil (XOM)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.059553,
+      "entry_price": 169.43,
+      "stake": 10.09,
+      "stop_price": 157.52,
+      "opened_at": "2026-11-04T19:03:14+00:00",
+      "url": "https://www.google.com/finance/quote/XOM",
+      "last_bid": 168.62,
+      "tags": [
+        "energy"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "energy",
+        "tags": [
+          "energy"
+        ],
+        "stop_price": 157.52,
+        "signal": [
+          "+8.6% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.0% below"
+        ],
+        "risk": {
+          "stake": 10.09,
+          "reasons": [
+            "stop 7.0% away",
+            "risking 1.5% of pot -> \u00a321.52",
             "cap 10% = \u00a310.09",
             "stake \u00a310.09"
           ]
@@ -1006,14 +1046,21 @@
       "t": "2026-11-04T18:03:12+00:00",
       "equity": 100.9,
       "cash": 81.27
+    },
+    {
+      "t": "2026-11-04T19:03:14+00:00",
+      "equity": 100.8,
+      "cash": 71.18
     }
   ],
   "last_run": {
-    "at": "2026-11-04T18:03:06+00:00",
+    "at": "2026-11-04T19:03:08+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 1,
+    "signals": 2,
     "traded": 1,
-    "blocked_examples": []
+    "blocked_examples": [
+      "TSLA: already holding TSLA"
+    ]
   }
 }

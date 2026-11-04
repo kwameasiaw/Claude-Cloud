@@ -819,22 +819,27 @@
       "t": "2026-11-04T18:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-04T19:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-04T18:03:04+00:00",
+    "at": "2026-11-04T19:03:06+00:00",
     "scanned": 1000,
-    "flagged": 241,
-    "passed_filters": 97,
-    "candidates": 18,
+    "flagged": 235,
+    "passed_filters": 107,
+    "candidates": 20,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +60c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -78c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +61c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -81c in 24h",
       "Will Mary Peltola win the Alaska Senate race in 2026?: price swung +23c in 24h",
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +78c in 24h",
-      "Will Dan Sullivan win the Alaska Senate race in 2026?: price swung -23c in 24h"
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +81c in 24h",
+      "Will Dan Sullivan win the Alaska Senate race in 2026?: price swung -24c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
