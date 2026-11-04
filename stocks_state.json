@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 202.52,
+      "last_bid": 193.24,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 359.48,
       "opened_at": "2026-11-04T18:03:12+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 387.51,
+      "last_bid": 368.29,
       "tags": [
         "consumer"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 157.52,
       "opened_at": "2026-11-04T19:03:14+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 168.7,
+      "last_bid": 158.65,
       "tags": [
         "energy"
       ],
@@ -1056,16 +1056,17 @@
       "t": "2026-11-04T20:03:11+00:00",
       "equity": 100.75,
       "cash": 71.18
+    },
+    {
+      "t": "2026-11-04T21:03:07+00:00",
+      "equity": 99.22,
+      "cash": 71.18
     }
   ],
   "last_run": {
-    "at": "2026-11-04T20:03:06+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 1,
-    "traded": 0,
-    "blocked_examples": [
-      "TSLA: already holding TSLA"
-    ]
+    "at": "2026-11-04T21:03:05+00:00",
+    "scanned": 21,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
