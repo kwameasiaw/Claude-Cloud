@@ -14,7 +14,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.3113,
+      "last_bid": 0.3014,
       "tags": [
         "taiwan",
         "politics",
@@ -290,7 +290,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2916,
+      "last_bid": 0.2818,
       "tags": [
         "ai",
         "tech",
@@ -380,7 +380,7 @@
       "stop_price": 0.2334,
       "opened_at": "2026-11-04T17:03:13+00:00",
       "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
-      "last_bid": 0.331,
+      "last_bid": 0.3113,
       "tags": [
         "politics",
         "global-elections",
@@ -2026,32 +2026,15 @@
       "t": "2026-11-04T17:03:13+00:00",
       "equity": 101.38,
       "cash": 93.79
+    },
+    {
+      "t": "2026-11-04T18:03:06+00:00",
+      "equity": 101.23,
+      "cash": 93.79
     }
   ],
   "last_run": {
-    "at": "2026-11-04T17:03:08+00:00",
-    "scanned": 1000,
-    "flagged": 239,
-    "passed_filters": 98,
-    "candidates": 58,
-    "shortlisted": 17,
-    "researched": 12,
-    "flag_examples": [
-      "2026 Balance of Power: D Senate, D House: price swung +24c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +62c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -80c in 24h",
-      "Will Mary Peltola win the Alaska Senate race in 2026?: price swung +25c in 24h",
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +80c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (206 past markets)",
-    "approved": 2,
-    "traded": 2,
-    "blocked_examples": []
+    "at": "2026-11-04T18:03:06+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

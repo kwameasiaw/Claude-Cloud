@@ -1,5 +1,5 @@
 {
-  "cash": 81.13279831999998,
+  "cash": 81.26700725999997,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 197.99,
       "opened_at": "2026-10-29T18:19:47+00:00",
       "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 203.38,
+      "last_bid": 203.24,
       "tags": [
         "tech"
       ],
@@ -43,41 +43,41 @@
       }
     },
     {
-      "market_id": "ABBV",
-      "event_id": "ABBV",
-      "question": "AbbVie (ABBV)",
+      "market_id": "TSLA",
+      "event_id": "TSLA",
+      "question": "Tesla (TSLA)",
       "outcome": "Long",
       "token_id": "",
-      "shares": 0.035194,
-      "entry_price": 286.13,
-      "stake": 10.07,
-      "stop_price": 270.94,
-      "opened_at": "2026-11-04T15:03:09+00:00",
-      "url": "https://www.google.com/finance/quote/ABBV",
-      "last_bid": 289.39,
+      "shares": 0.025823,
+      "entry_price": 390.74,
+      "stake": 10.09,
+      "stop_price": 359.48,
+      "opened_at": "2026-11-04T18:03:12+00:00",
+      "url": "https://www.google.com/finance/quote/TSLA",
+      "last_bid": 390.44,
       "tags": [
-        "health"
+        "consumer"
       ],
       "closes_at": "",
       "decision": {
         "kind": "stock",
-        "category": "health",
+        "category": "consumer",
         "tags": [
-          "health"
+          "consumer"
         ],
-        "stop_price": 270.94,
+        "stop_price": 359.48,
         "signal": [
-          "+20.0% above its 200-day average (uptrend)",
+          "+1.6% above its 200-day average (uptrend)",
           "2-day RSI 0.0 (sharp dip)",
-          "stop 5.3% below"
+          "stop 8.0% below"
         ],
         "risk": {
-          "stake": 10.07,
+          "stake": 10.09,
           "reasons": [
-            "stop 5.3% away",
-            "risking 1.5% of pot -> \u00a328.46",
-            "cap 10% = \u00a310.07",
-            "stake \u00a310.07"
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.92",
+            "cap 10% = \u00a310.09",
+            "stake \u00a310.09"
           ]
         }
       }
@@ -260,6 +260,42 @@
             "risking 1.5% of pot -> \u00a324.79",
             "cap 10% = \u00a39.98",
             "stake \u00a39.98"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "ABBV",
+      "question": "AbbVie (ABBV)",
+      "outcome": "Long",
+      "entry_price": 286.13,
+      "exit_price": 290.51,
+      "shares": 0.035194,
+      "stake": 10.07,
+      "proceeds": 10.2242,
+      "pnl": 0.1542,
+      "reason": "take-profit",
+      "opened_at": "2026-11-04T15:03:09+00:00",
+      "closed_at": "2026-11-04T18:03:12+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "health",
+        "tags": [
+          "health"
+        ],
+        "stop_price": 270.94,
+        "signal": [
+          "+20.0% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 5.3% below"
+        ],
+        "risk": {
+          "stake": 10.07,
+          "reasons": [
+            "stop 5.3% away",
+            "risking 1.5% of pot -> \u00a328.46",
+            "cap 10% = \u00a310.07",
+            "stake \u00a310.07"
           ]
         }
       }
@@ -965,14 +1001,19 @@
       "t": "2026-11-04T17:03:18+00:00",
       "equity": 100.87,
       "cash": 81.13
+    },
+    {
+      "t": "2026-11-04T18:03:12+00:00",
+      "equity": 100.9,
+      "cash": 81.27
     }
   ],
   "last_run": {
-    "at": "2026-11-04T17:03:13+00:00",
+    "at": "2026-11-04T18:03:06+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 0,
-    "traded": 0,
+    "signals": 1,
+    "traded": 1,
     "blocked_examples": []
   }
 }
