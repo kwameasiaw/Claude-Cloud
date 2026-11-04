@@ -5,3 +5,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 1194643,Will Iliana Iotova win the next Bulgarian presidential election?,No,0.34,0.1546,4.8529,1.65,0.7503,-0.8997,stop-loss,2026-10-31T14:04:27+00:00,2026-11-01T10:04:54+00:00
 6476741,Guangzhou Open: Lilli Tagger vs Harriet Dart,Harriet Dart,0.2183,1.0,12.5518,2.74,12.5518,9.8118,resolved WIN,2026-11-01T10:05:01+00:00,2026-11-01T12:05:06+00:00
 6499353,Erste Bank Open: Alex de Minaur vs Carlos Alcaraz,Alex de Minaur,0.208,0.0476,14.6154,3.04,0.6957,-2.3443,stop-loss,2026-11-01T12:05:12+00:00,2026-11-01T14:05:56+00:00
+562828,"2026 Balance of Power: D Senate, D House",No,0.34,0.1158,4.8824,1.66,0.5654,-1.0946,stop-loss,2026-10-29T17:39:14+00:00,2026-11-04T00:03:03+00:00

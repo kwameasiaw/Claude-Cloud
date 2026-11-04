@@ -14,7 +14,7 @@
       "stop_price": 0.648,
       "opened_at": "2026-10-29T16:48:55+00:00",
       "url": "https://polymarket.com/market/will-the-republicans-win-the-nevada-governor-race-in-2026",
-      "last_bid": 0.8141,
+      "last_bid": 0.8655,
       "tags": [
         "nevada-midterm",
         "governor-midterms",
@@ -753,22 +753,27 @@
       "t": "2026-11-03T23:03:04+00:00",
       "equity": 97.33,
       "cash": 77.33
+    },
+    {
+      "t": "2026-11-04T00:03:02+00:00",
+      "equity": 97.96,
+      "cash": 77.33
     }
   ],
   "last_run": {
-    "at": "2026-11-03T23:03:02+00:00",
+    "at": "2026-11-04T00:03:01+00:00",
     "scanned": 1000,
-    "flagged": 159,
-    "passed_filters": 89,
-    "candidates": 21,
+    "flagged": 191,
+    "passed_filters": 86,
+    "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "LoL: Top Esports vs Invictus Gaming (BO5) - Worlds Playoffs: price swung -21c in 24h",
-      "Dota 2: Natus Vincere vs GamerLegion - Game 1 Winner: price swung +50c in 24h",
-      "Will Al Qadisiyah Saudi Club vs. Al Fayha Saudi Club end in a draw?: price swung +87c in 24h",
-      "Will Republicans win Alaska, Iowa, Kansas, and Texas, and lose Maine, : spread 0.04 is unusually wide",
-      "Cali: Julia Grabher vs Laura Pigossi: price swung +19c in 24h"
+      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +13c in 24h",
+      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +51c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +19c in 24h",
+      "Will the Democrats win the Texas Senate race in 2026?: price swung +11c in 24h",
+      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -13c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

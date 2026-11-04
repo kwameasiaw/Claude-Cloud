@@ -1,5 +1,5 @@
 {
-  "cash": 93.23628307,
+  "cash": 90.81166499,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-10-29T17:39:13+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-7",
-      "last_bid": 0.22,
+      "last_bid": 0.17,
       "tags": [
         "iran",
         "israel",
@@ -93,7 +93,7 @@
       "stop_price": 0.2275,
       "opened_at": "2026-10-29T17:39:14+00:00",
       "url": "https://polymarket.com/market/will-the-democrats-win-the-texas-governor-race-in-2026",
-      "last_bid": 0.3409,
+      "last_bid": 0.4501,
       "tags": [
         "texas-midterm",
         "governor-midterms",
@@ -167,95 +167,6 @@
       }
     },
     {
-      "market_id": "562828",
-      "event_id": "32228",
-      "question": "2026 Balance of Power: D Senate, D House",
-      "outcome": "No",
-      "token_id": "24483563228660028121020430722896740519524131851526579619586176931221901842798",
-      "shares": 4.8824,
-      "entry_price": 0.34,
-      "stake": 1.66,
-      "stop_price": 0.221,
-      "opened_at": "2026-10-29T17:39:14+00:00",
-      "url": "https://polymarket.com/market/2026-balance-of-power-d-senate-d-house-949",
-      "last_bid": 0.2425,
-      "tags": [
-        "united-states",
-        "rewards-20-4pt5-50",
-        "politics",
-        "us-presidential-election",
-        "elections",
-        "midterms",
-        "earn-4",
-        "main-election",
-        "global-elections",
-        "midterms-control",
-        "midterm-combos"
-      ],
-      "closes_at": "2026-11-04T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "united-states",
-          "rewards-20-4pt5-50",
-          "politics",
-          "us-presidential-election",
-          "elections",
-          "midterms",
-          "earn-4",
-          "main-election",
-          "global-elections",
-          "midterms-control",
-          "midterm-combos"
-        ],
-        "scan": [
-          "'No' at 0.34",
-          "liq $5,727,709",
-          "vol24h $621,951",
-          "closes in 5.5d"
-        ],
-        "stop_price": 0.221,
-        "research": {
-          "items": 0,
-          "sources_ok": [],
-          "sources_failed": [
-            "news",
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": []
-        },
-        "prediction": {
-          "p_market": 0.335,
-          "p_base": 0.3842,
-          "method": "calibration table (206 past markets)",
-          "p_llm": null,
-          "p_final": 0.3842,
-          "cost": 0.34,
-          "edge": 0.0442,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 34%",
-            "calibration table (206 past markets) says 38.4%",
-            "edge +4.4c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 1.66,
-          "kelly": 0.0669,
-          "reasons": [
-            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.66",
-            "cap 10% = \u00a39.93",
-            "stake \u00a31.66"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "6507383",
       "event_id": "1292829",
       "question": "Will Bitcoin dip to $67,500 in November?",
@@ -267,7 +178,7 @@
       "stop_price": 0.1373,
       "opened_at": "2026-11-01T09:04:27+00:00",
       "url": "https://polymarket.com/market/will-bitcoin-dip-to-67pt5k-in-november-2026",
-      "last_bid": 0.1984,
+      "last_bid": 0.2176,
       "tags": [
         "bitcoin",
         "monthly",
@@ -425,6 +336,98 @@
             "Kelly 5.3% of pot -> quarter-Kelly \u00a31.35",
             "cap 10% = \u00a310.22",
             "stake \u00a31.35"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "4397025",
+      "event_id": "991810",
+      "question": "Will T1 win Worlds 2026?",
+      "outcome": "Yes",
+      "token_id": "56360910151195441905859355697297471571491885496299657191480344412119595418796",
+      "shares": 14.375,
+      "entry_price": 0.208,
+      "stake": 2.99,
+      "stop_price": 0.1352,
+      "opened_at": "2026-11-04T00:03:07+00:00",
+      "url": "https://polymarket.com/market/will-t1-win-worlds-2026",
+      "last_bid": 0.1823,
+      "tags": [
+        "lol",
+        "sports",
+        "esports",
+        "league-of-legends",
+        "lol-worlds-2026",
+        "props"
+      ],
+      "closes_at": "2026-11-29T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "lol",
+          "sports",
+          "esports",
+          "league-of-legends",
+          "lol-worlds-2026",
+          "props"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $147,193",
+          "vol24h $38,302",
+          "closes in 25.2d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 14,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Worlds 2026: T1, IG, and TES Qualify for Knockouts, CFO, TLAW, and G2 Eliminated - Yahoo Sports",
+            "[news] T1 qualified for 2026 LoL Worlds playoffs after KOI win, which peaked at 1.73M viewers - Esports Charts",
+            "[news] T1 and Invictus Gaming qualify for Worlds 2026 playoffs; MKOI and LYON get one more life - Sheep Esports",
+            "[news] T1 sweep Movistar KOI to secure Worlds 2026 Knockout Stage spot - GosuGamers",
+            "[news] Worlds 2026 quarterfinals odds: Who the markets favor - Esports.gg",
+            "[news] Worlds 2026 Quarterfinals Set: LYON vs. Gen.G, T1 vs. KC - RG.org",
+            "[news] Reigning Champions Advance: T1 Stomp MKOI to Reach Worlds 2026 Playoffs - EGamersWorld",
+            "[news] LoL Worlds 2026 Swiss Stage Bracket - Sheep Esports"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "14 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.99,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.99",
+            "cap 10% = \u00a310.28",
+            "stake \u00a32.99"
           ]
         }
       }
@@ -899,6 +902,81 @@
             "Kelly 11.6% of pot -> quarter-Kelly \u00a33.04",
             "cap 10% = \u00a310.46",
             "stake \u00a33.04"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "562828",
+      "question": "2026 Balance of Power: D Senate, D House",
+      "outcome": "No",
+      "entry_price": 0.34,
+      "exit_price": 0.1158,
+      "shares": 4.8824,
+      "stake": 1.66,
+      "proceeds": 0.5654,
+      "pnl": -1.0946,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-29T17:39:14+00:00",
+      "closed_at": "2026-11-04T00:03:03+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "united-states",
+          "rewards-20-4pt5-50",
+          "politics",
+          "us-presidential-election",
+          "elections",
+          "midterms",
+          "earn-4",
+          "main-election",
+          "global-elections",
+          "midterms-control",
+          "midterm-combos"
+        ],
+        "scan": [
+          "'No' at 0.34",
+          "liq $5,727,709",
+          "vol24h $621,951",
+          "closes in 5.5d"
+        ],
+        "stop_price": 0.221,
+        "research": {
+          "items": 0,
+          "sources_ok": [],
+          "sources_failed": [
+            "news",
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": []
+        },
+        "prediction": {
+          "p_market": 0.335,
+          "p_base": 0.3842,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3842,
+          "cost": 0.34,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 38.4%",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.66,
+          "kelly": 0.0669,
+          "reasons": [
+            "Kelly 6.7% of pot -> quarter-Kelly \u00a31.66",
+            "cap 10% = \u00a39.93",
+            "stake \u00a31.66"
           ]
         }
       }
@@ -1529,10 +1607,37 @@
       "t": "2026-11-03T23:03:04+00:00",
       "equity": 103.4,
       "cash": 93.24
+    },
+    {
+      "t": "2026-11-04T00:03:07+00:00",
+      "equity": 102.4,
+      "cash": 90.81
     }
   ],
   "last_run": {
-    "at": "2026-11-03T23:03:04+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-04T00:03:03+00:00",
+    "scanned": 1000,
+    "flagged": 191,
+    "passed_filters": 86,
+    "candidates": 57,
+    "shortlisted": 15,
+    "researched": 12,
+    "flag_examples": [
+      "Will the Democratic Party control the Senate after the 2026 Midterm el: price swung +13c in 24h",
+      "LoL: Top Esports vs Invictus Gaming - Game 2 Winner: price swung +51c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +19c in 24h",
+      "Will the Democrats win the Texas Senate race in 2026?: price swung +11c in 24h",
+      "Will the Republican Party control the Senate after the 2026 Midterm el: price swung -13c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }
