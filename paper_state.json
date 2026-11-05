@@ -914,22 +914,27 @@
       "t": "2026-11-05T14:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T15:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T14:03:05+00:00",
+    "at": "2026-11-05T15:03:03+00:00",
     "scanned": 1000,
-    "flagged": 221,
-    "passed_filters": 178,
-    "candidates": 31,
+    "flagged": 233,
+    "passed_filters": 155,
+    "candidates": 26,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +14c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -14c in 24h",
-      "Will the Republican Party hold exactly 44 Senate seats after the 2026 : price swung +17c in 24h",
-      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -15c in 24h",
-      "Will the price of Ethereum be above $2,400 on November 5?: price swung +18c in 24h"
+      "Prudential Hong Kong Tennis Open: Sorana Cirstea vs Mary Stoiana: price swung +20c in 24h",
+      "Chennai Open: Anastasia Zakharova vs Vaishnavi Adkar: price swung +14c in 24h",
+      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -16c in 24h",
+      "Will the price of Bitcoin be above $82,000 on November 5?: price swung -21c in 24h",
+      "Will the price of Ethereum be above $2,400 on November 5?: price swung -73c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

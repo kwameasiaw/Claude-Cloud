@@ -1,87 +1,7 @@
 {
-  "cash": 71.17700725999997,
+  "cash": 89.09748668999997,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "NVDA",
-      "event_id": "NVDA",
-      "question": "Nvidia (NVDA)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.046992,
-      "entry_price": 212.8,
-      "stake": 10.0,
-      "stop_price": 197.99,
-      "opened_at": "2026-10-29T18:19:47+00:00",
-      "url": "https://www.google.com/finance/quote/NVDA",
-      "last_bid": 193.24,
-      "tags": [
-        "tech"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "tech",
-        "tags": [
-          "tech"
-        ],
-        "stop_price": 197.99,
-        "signal": [
-          "+4.2% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 7.0% below"
-        ],
-        "risk": {
-          "stake": 10.0,
-          "reasons": [
-            "stop 7.0% away",
-            "risking 1.5% of pot -> \u00a321.55",
-            "cap 10% = \u00a310.00",
-            "stake \u00a310.00"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "TSLA",
-      "event_id": "TSLA",
-      "question": "Tesla (TSLA)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.025823,
-      "entry_price": 390.74,
-      "stake": 10.09,
-      "stop_price": 359.48,
-      "opened_at": "2026-11-04T18:03:12+00:00",
-      "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 375.02,
-      "tags": [
-        "consumer"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "consumer",
-        "tags": [
-          "consumer"
-        ],
-        "stop_price": 359.48,
-        "signal": [
-          "+1.6% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 8.0% below"
-        ],
-        "risk": {
-          "stake": 10.09,
-          "reasons": [
-            "stop 8.0% away",
-            "risking 1.5% of pot -> \u00a318.92",
-            "cap 10% = \u00a310.09",
-            "stake \u00a310.09"
-          ]
-        }
-      }
-    },
     {
       "market_id": "XOM",
       "event_id": "XOM",
@@ -94,7 +14,7 @@
       "stop_price": 157.52,
       "opened_at": "2026-11-04T19:03:14+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 158.65,
+      "last_bid": 164.16,
       "tags": [
         "energy"
       ],
@@ -336,6 +256,78 @@
             "risking 1.5% of pot -> \u00a328.46",
             "cap 10% = \u00a310.07",
             "stake \u00a310.07"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "NVDA",
+      "question": "Nvidia (NVDA)",
+      "outcome": "Long",
+      "entry_price": 212.8,
+      "exit_price": 189.63,
+      "shares": 0.046992,
+      "stake": 10.0,
+      "proceeds": 8.9111,
+      "pnl": -1.0889,
+      "reason": "stop-loss",
+      "opened_at": "2026-10-29T18:19:47+00:00",
+      "closed_at": "2026-11-05T15:03:19+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 197.99,
+        "signal": [
+          "+4.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.0% below"
+        ],
+        "risk": {
+          "stake": 10.0,
+          "reasons": [
+            "stop 7.0% away",
+            "risking 1.5% of pot -> \u00a321.55",
+            "cap 10% = \u00a310.00",
+            "stake \u00a310.00"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "TSLA",
+      "question": "Tesla (TSLA)",
+      "outcome": "Long",
+      "entry_price": 390.74,
+      "exit_price": 348.89,
+      "shares": 0.025823,
+      "stake": 10.09,
+      "proceeds": 9.0094,
+      "pnl": -1.0806,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-04T18:03:12+00:00",
+      "closed_at": "2026-11-05T15:03:19+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "consumer",
+        "tags": [
+          "consumer"
+        ],
+        "stop_price": 359.48,
+        "signal": [
+          "+1.6% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 10.09,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.92",
+            "cap 10% = \u00a310.09",
+            "stake \u00a310.09"
           ]
         }
       }
@@ -1111,12 +1103,19 @@
       "t": "2026-11-05T14:03:12+00:00",
       "equity": 99.39,
       "cash": 71.18
+    },
+    {
+      "t": "2026-11-05T15:03:19+00:00",
+      "equity": 98.87,
+      "cash": 89.1
     }
   ],
   "last_run": {
-    "at": "2026-11-05T14:03:08+00:00",
-    "scanned": 21,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-05T15:03:06+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 0,
+    "traded": 0,
+    "blocked_examples": []
   }
 }
