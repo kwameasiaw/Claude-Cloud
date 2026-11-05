@@ -939,22 +939,27 @@
       "t": "2026-11-05T19:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T20:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T19:03:05+00:00",
+    "at": "2026-11-05T20:03:06+00:00",
     "scanned": 1000,
-    "flagged": 257,
-    "passed_filters": 134,
-    "candidates": 28,
+    "flagged": 207,
+    "passed_filters": 130,
+    "candidates": 25,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -13c in 24h",
-      "Will AFC Ajax win on 2026-11-05?: price swung +32c in 24h",
-      "Will Crystal Palace FC win on 2026-11-05?: price swung -32c in 24h",
-      "Will AC Milan win on 2026-11-05?: price swung -50c in 24h",
-      "Will there be no change in Fed interest rates after the December 2026 : price swung +11c in 24h"
+      "Will AFC Bournemouth win on 2026-11-05?: price swung +35c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -10c in 24h",
+      "Will Ferencv\u00e1rosi TC win on 2026-11-05?: price swung +89c in 24h",
+      "Will AFC Ajax win on 2026-11-05?: price swung +61c in 24h",
+      "Will there be no change in Fed interest rates after the December 2026 : price swung +10c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
