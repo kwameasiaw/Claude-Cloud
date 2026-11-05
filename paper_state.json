@@ -944,22 +944,27 @@
       "t": "2026-11-05T20:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T21:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T20:03:06+00:00",
+    "at": "2026-11-05T21:03:02+00:00",
     "scanned": 1000,
-    "flagged": 207,
-    "passed_filters": 130,
-    "candidates": 25,
+    "flagged": 256,
+    "passed_filters": 122,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will AFC Bournemouth win on 2026-11-05?: price swung +35c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -10c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -12c in 24h",
       "Will Ferencv\u00e1rosi TC win on 2026-11-05?: price swung +89c in 24h",
-      "Will AFC Ajax win on 2026-11-05?: price swung +61c in 24h",
-      "Will there be no change in Fed interest rates after the December 2026 : price swung +10c in 24h"
+      "Will Sunderland AFC win on 2026-11-05?: price swung -55c in 24h",
+      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +97c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

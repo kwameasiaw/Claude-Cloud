@@ -14,7 +14,7 @@
       "stop_price": 157.52,
       "opened_at": "2026-11-04T19:03:14+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 167.98,
+      "last_bid": 158.73,
       "tags": [
         "energy"
       ],
@@ -1173,17 +1173,17 @@
       "t": "2026-11-05T20:03:12+00:00",
       "equity": 99.15,
       "cash": 79.19
+    },
+    {
+      "t": "2026-11-05T21:03:07+00:00",
+      "equity": 98.59,
+      "cash": 79.19
     }
   ],
   "last_run": {
-    "at": "2026-11-05T20:03:08+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 2,
-    "traded": 0,
-    "blocked_examples": [
-      "XOM: already holding XOM",
-      "AMD: already holding AMD"
-    ]
+    "at": "2026-11-05T21:03:05+00:00",
+    "scanned": 19,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
