@@ -924,22 +924,27 @@
       "t": "2026-11-05T16:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T17:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T16:03:05+00:00",
+    "at": "2026-11-05T17:03:06+00:00",
     "scanned": 1000,
-    "flagged": 243,
-    "passed_filters": 150,
-    "candidates": 25,
+    "flagged": 222,
+    "passed_filters": 143,
+    "candidates": 26,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -15c in 24h",
-      "Will there be no change in Fed interest rates after the December 2026 : price swung +14c in 24h",
-      "Will the price of Bitcoin be above $78,000 on November 5?: price swung -92c in 24h",
-      "Will Bitcoin dip to $70,000 by December 31, 2026?: price swung +21c in 24h",
-      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -13c in 24h"
+      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -11c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -18c in 24h",
+      "Will there be no change in Fed interest rates after the December 2026 : price swung +10c in 24h",
+      "Pete Hegseth out as Secretary of Defense by November 30?: price swung -26c in 24h",
+      "Will Bitcoin dip to $70,000 by December 31, 2026?: price swung +22c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

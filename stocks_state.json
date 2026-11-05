@@ -1,5 +1,5 @@
 {
-  "cash": 89.09748668999997,
+  "cash": 79.18748668999997,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 157.52,
       "opened_at": "2026-11-04T19:03:14+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 172.84,
+      "last_bid": 167.54,
       "tags": [
         "energy"
       ],
@@ -38,6 +38,46 @@
             "risking 1.5% of pot -> \u00a321.52",
             "cap 10% = \u00a310.09",
             "stake \u00a310.09"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "AMD",
+      "event_id": "AMD",
+      "question": "AMD (AMD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.023759,
+      "entry_price": 417.1,
+      "stake": 9.91,
+      "stop_price": 383.73,
+      "opened_at": "2026-11-05T17:03:13+00:00",
+      "url": "https://www.google.com/finance/quote/AMD",
+      "last_bid": 416.0,
+      "tags": [
+        "tech"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 383.73,
+        "signal": [
+          "+0.4% above its 200-day average (uptrend)",
+          "2-day RSI 6.1 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.91,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.58",
+            "cap 10% = \u00a39.91",
+            "stake \u00a39.91"
           ]
         }
       }
@@ -1113,14 +1153,19 @@
       "t": "2026-11-05T16:03:13+00:00",
       "equity": 99.39,
       "cash": 89.1
+    },
+    {
+      "t": "2026-11-05T17:03:13+00:00",
+      "equity": 99.05,
+      "cash": 79.19
     }
   ],
   "last_run": {
-    "at": "2026-11-05T16:03:07+00:00",
+    "at": "2026-11-05T17:03:08+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 0,
-    "traded": 0,
+    "signals": 1,
+    "traded": 1,
     "blocked_examples": []
   }
 }
