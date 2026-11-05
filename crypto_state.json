@@ -1212,11 +1212,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-05T02:30:34+00:00",
-    "scanned": 12,
-    "market_open": true,
-    "signals": 0,
-    "traded": 0,
-    "blocked_examples": []
+    "at": "2026-11-05T04:15:10+00:00",
+    "skipped": "Alpaca unavailable: [Errno 54] Connection reset by peer"
   }
 }
