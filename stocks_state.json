@@ -1079,7 +1079,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-05T03:08:22+00:00",
-    "skipped": "Alpaca unavailable: The read operation timed out"
+    "at": "2026-11-05T05:05:18+00:00",
+    "skipped": "Alpaca unavailable: <urlopen error [Errno 54] Connection reset by peer>"
   }
 }
