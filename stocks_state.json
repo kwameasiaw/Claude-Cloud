@@ -1084,9 +1084,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-05T07:05:51+00:00",
-    "scanned": 21,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-05T08:12:26+00:00",
+    "skipped": "Alpaca unavailable: [Errno 54] Connection reset by peer"
   }
 }
