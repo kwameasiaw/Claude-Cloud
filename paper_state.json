@@ -954,21 +954,26 @@
       "t": "2026-11-05T22:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T23:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T22:03:06+00:00",
+    "at": "2026-11-05T23:03:01+00:00",
     "scanned": 1000,
-    "flagged": 228,
-    "passed_filters": 127,
-    "candidates": 26,
+    "flagged": 236,
+    "passed_filters": 126,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "LoL: Dplus KIA vs Bilibili Gaming (BO5) - Worlds Playoffs: price swung -15c in 24h",
       "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -14c in 24h",
       "Will Sport Lisboa e Benfica win on 2026-11-05?: price swung +15c in 24h",
       "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +97c in 24h",
-      "Spread: Warriors (-6.5): price swung -12c in 24h",
       "Will Juventus FC win on 2026-11-05?: price swung +53c in 24h"
     ],
     "predicted_fire": 0,
