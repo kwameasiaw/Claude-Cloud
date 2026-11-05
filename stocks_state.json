@@ -54,7 +54,7 @@
       "stop_price": 359.48,
       "opened_at": "2026-11-04T18:03:12+00:00",
       "url": "https://www.google.com/finance/quote/TSLA",
-      "last_bid": 368.29,
+      "last_bid": 375.02,
       "tags": [
         "consumer"
       ],
@@ -1106,10 +1106,15 @@
       "t": "2026-11-05T13:03:09+00:00",
       "equity": 99.22,
       "cash": 71.18
+    },
+    {
+      "t": "2026-11-05T14:03:12+00:00",
+      "equity": 99.39,
+      "cash": 71.18
     }
   ],
   "last_run": {
-    "at": "2026-11-05T13:03:06+00:00",
+    "at": "2026-11-05T14:03:08+00:00",
     "scanned": 21,
     "market_open": false,
     "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
