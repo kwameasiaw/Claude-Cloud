@@ -198,7 +198,7 @@
       "stop_price": 0.208,
       "opened_at": "2026-11-04T10:03:11+00:00",
       "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-15",
-      "last_bid": 0.25,
+      "last_bid": 0.24,
       "tags": [
         "iran",
         "israel",
@@ -290,7 +290,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2621,
+      "last_bid": 0.2719,
       "tags": [
         "ai",
         "tech",
@@ -2066,10 +2066,15 @@
       "t": "2026-11-05T01:06:00+00:00",
       "equity": 101.29,
       "cash": 93.79
+    },
+    {
+      "t": "2026-11-05T02:13:13+00:00",
+      "equity": 101.28,
+      "cash": 93.79
     }
   ],
   "last_run": {
-    "at": "2026-11-05T01:06:00+00:00",
+    "at": "2026-11-05T02:13:13+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

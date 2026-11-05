@@ -854,22 +854,27 @@
       "t": "2026-11-05T01:05:59+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T02:13:12+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T01:05:57+00:00",
+    "at": "2026-11-05T02:13:10+00:00",
     "scanned": 1000,
-    "flagged": 309,
-    "passed_filters": 120,
-    "candidates": 19,
+    "flagged": 350,
+    "passed_filters": 125,
+    "candidates": 20,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "LoL: Gen.G vs LYON - Game 1 Winner: price swung +18c in 24h",
-      "LoL: Gen.G vs LYON - Game 3 Winner: price swung +18c in 24h",
-      "LoL: Gen.G vs LYON - Game 2 Winner: price swung +18c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -70c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +12c in 24h"
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -94c in 24h",
+      "76ers vs. Pistons: price swung +46c in 24h",
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +94c in 24h",
+      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +12c in 24h",
+      "Hawks vs. Wizards: price swung +40c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
