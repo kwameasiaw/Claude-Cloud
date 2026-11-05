@@ -889,22 +889,27 @@
       "t": "2026-11-05T09:03:04+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T10:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T09:03:02+00:00",
+    "at": "2026-11-05T10:03:04+00:00",
     "scanned": 1000,
-    "flagged": 222,
-    "passed_filters": 171,
-    "candidates": 31,
+    "flagged": 219,
+    "passed_filters": 183,
+    "candidates": 32,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +13c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -13c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung +12c in 24h",
-      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -14c in 24h",
-      "Will the Republican Party hold exactly 44 Senate seats after the 2026 : price swung +23c in 24h"
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +15c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -16c in 24h",
+      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -17c in 24h",
+      "Will the Republican Party hold exactly 44 Senate seats after the 2026 : price swung +20c in 24h",
+      "Will the price of Ethereum be above $2,400 on November 5?: price swung +59c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

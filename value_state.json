@@ -1,5 +1,5 @@
 {
-  "cash": 93.78635874999999,
+  "cash": 91.67011875,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.2523,
+      "last_bid": 0.2621,
       "tags": [
         "taiwan",
         "politics",
@@ -187,98 +187,6 @@
       }
     },
     {
-      "market_id": "5339986",
-      "event_id": "711714",
-      "question": "Israel x Iran ceasefire continues through November 15?",
-      "outcome": "No",
-      "token_id": "81617860044825696470427602276776404152917680737920734100709251051324236143390",
-      "shares": 5.2188,
-      "entry_price": 0.32,
-      "stake": 1.67,
-      "stop_price": 0.208,
-      "opened_at": "2026-11-04T10:03:11+00:00",
-      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-november-15",
-      "last_bid": 0.21,
-      "tags": [
-        "iran",
-        "israel",
-        "geopolitics",
-        "israel-x-iran",
-        "israel-election",
-        "diplomacy-ceasefire"
-      ],
-      "closes_at": "2026-11-16T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "iran",
-          "israel",
-          "geopolitics",
-          "israel-x-iran",
-          "israel-election",
-          "diplomacy-ceasefire"
-        ],
-        "scan": [
-          "'No' at 0.32",
-          "liq $65,518",
-          "vol24h $117,180",
-          "closes in 11.8d"
-        ],
-        "stop_price": 0.208,
-        "research": {
-          "items": 17,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": [
-            "[news] Arab states warn Iran of individual, collective retaliation over attacks - WSJ - Iran International",
-            "[news] Iran braces for possible new conflict with US and Israel despite diplomatic talks - Le Monde.fr",
-            "[news] Iran Update: October 31, 2026 - Critical Threats",
-            "[news] Trump says war in Iran will be put away very soon \"one way or the other\" - CBS News",
-            "[news] Polymarket Odds Today: Senate Control, Bitcoin, NBA Title - RG.org",
-            "[news] Israel denies pressing Trump for Iran strikes amid diplomatic push - Iran International",
-            "[news] U.S. bombs Iranian island; Israel blocks aid through Rafah; Turkey strikes Al-Shabaab in Somalia - Drop Site News",
-            "[news] Qatari mediators hand Iran new proposal to end the war - Yahoo"
-          ]
-        },
-        "prediction": {
-          "p_market": 0.315,
-          "p_base": 0.3642,
-          "method": "calibration table (206 past markets)",
-          "p_llm": null,
-          "p_final": 0.3642,
-          "cost": 0.32,
-          "edge": 0.0442,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 32%",
-            "calibration table (206 past markets) says 36.4%",
-            "17 headlines found, not scored (no Claude API key)",
-            "edge +4.4c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 1.67,
-          "kelly": 0.0649,
-          "reasons": [
-            "Kelly 6.5% of pot -> quarter-Kelly \u00a31.67",
-            "cap 10% = \u00a310.30",
-            "stake \u00a31.67"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "4664662",
       "event_id": "1040632",
       "question": "Will Google have the best AI model at the end of November 2026?",
@@ -290,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2621,
+      "last_bid": 0.2719,
       "tags": [
         "ai",
         "tech",
@@ -458,6 +366,100 @@
             "Kelly 5.5% of pot -> quarter-Kelly \u00a31.39",
             "cap 10% = \u00a310.15",
             "stake \u00a31.39"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "5087226",
+      "event_id": "794064",
+      "question": "US-Iran Hormuz Agreement by November 30?",
+      "outcome": "Yes",
+      "token_id": "115493632799264792730434819071535743213979554073329435975177567583389396615289",
+      "shares": 15.8,
+      "entry_price": 0.2,
+      "stake": 3.16,
+      "stop_price": 0.13,
+      "opened_at": "2026-11-05T10:03:10+00:00",
+      "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-november-30",
+      "last_bid": 0.19,
+      "tags": [
+        "iran",
+        "trump",
+        "peace-deal",
+        "geopolitics",
+        "strait-of-hormuz",
+        "oil",
+        "trump-iran"
+      ],
+      "closes_at": "2026-12-01T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "trump",
+          "peace-deal",
+          "geopolitics",
+          "strait-of-hormuz",
+          "oil",
+          "trump-iran"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $105,697",
+          "vol24h $95,307",
+          "closes in 25.8d"
+        ],
+        "stop_price": 0.13,
+        "research": {
+          "items": 15,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Trump Says Iran Wants A Deal 'And It Could Happen' - Radio Free Europe/Radio Liberty",
+            "[news] Live - Trump weighs Iran strikes, deal or economic pressure after election defeat - Iran International",
+            "[news] US Iran strike: Iranian Qeshm Island for Strait of Hormuz attacked bifor midterm elections - BBC",
+            "[news] Can a New US-Iran Deal Reopen the Strait of Hormuz as Tehran Leaves Doha Talks? - Modern Diplomacy",
+            "[news] Trump says war in Iran will be put away very soon \"one way or the other\" - CBS News",
+            "[news] 2026 Iran war | Oil, Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+            "[news] Iran Says It Would Reopen Strait of Hormuz in 2 Days as Part of U.S. Deal - The New York Times",
+            "[news] Trump\u2019s Iran Moratorium Expires With 2-Day Hormuz Deal Unanswered - https://houseofsaud.com/"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2,
+          "edge": 0.1002,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "15 headlines found, not scored (no Claude API key)",
+            "edge +10.0c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.16,
+          "kelly": 0.1253,
+          "reasons": [
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.16",
+            "cap 10% = \u00a310.09",
+            "stake \u00a33.16"
           ]
         }
       }
@@ -1309,6 +1311,89 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "5339986",
+      "question": "Israel x Iran ceasefire continues through November 15?",
+      "outcome": "No",
+      "entry_price": 0.32,
+      "exit_price": 0.2,
+      "shares": 5.2188,
+      "stake": 1.67,
+      "proceeds": 1.0438,
+      "pnl": -0.6262,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-04T10:03:11+00:00",
+      "closed_at": "2026-11-05T10:03:06+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "israel",
+          "geopolitics",
+          "israel-x-iran",
+          "israel-election",
+          "diplomacy-ceasefire"
+        ],
+        "scan": [
+          "'No' at 0.32",
+          "liq $65,518",
+          "vol24h $117,180",
+          "closes in 11.8d"
+        ],
+        "stop_price": 0.208,
+        "research": {
+          "items": 17,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Arab states warn Iran of individual, collective retaliation over attacks - WSJ - Iran International",
+            "[news] Iran braces for possible new conflict with US and Israel despite diplomatic talks - Le Monde.fr",
+            "[news] Iran Update: October 31, 2026 - Critical Threats",
+            "[news] Trump says war in Iran will be put away very soon \"one way or the other\" - CBS News",
+            "[news] Polymarket Odds Today: Senate Control, Bitcoin, NBA Title - RG.org",
+            "[news] Israel denies pressing Trump for Iran strikes amid diplomatic push - Iran International",
+            "[news] U.S. bombs Iranian island; Israel blocks aid through Rafah; Turkey strikes Al-Shabaab in Somalia - Drop Site News",
+            "[news] Qatari mediators hand Iran new proposal to end the war - Yahoo"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.315,
+          "p_base": 0.3642,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3642,
+          "cost": 0.32,
+          "edge": 0.0442,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 32%",
+            "calibration table (206 past markets) says 36.4%",
+            "17 headlines found, not scored (no Claude API key)",
+            "edge +4.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.67,
+          "kelly": 0.0649,
+          "reasons": [
+            "Kelly 6.5% of pot -> quarter-Kelly \u00a31.67",
+            "cap 10% = \u00a310.30",
+            "stake \u00a31.67"
+          ]
+        }
+      }
     }
   ],
   "history": [
@@ -2101,10 +2186,37 @@
       "t": "2026-11-05T09:03:04+00:00",
       "equity": 100.88,
       "cash": 93.79
+    },
+    {
+      "t": "2026-11-05T10:03:10+00:00",
+      "equity": 100.75,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-05T09:03:04+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-05T10:03:07+00:00",
+    "scanned": 1000,
+    "flagged": 219,
+    "passed_filters": 183,
+    "candidates": 102,
+    "shortlisted": 29,
+    "researched": 12,
+    "flag_examples": [
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +15c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -16c in 24h",
+      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -17c in 24h",
+      "Will the Republican Party hold exactly 44 Senate seats after the 2026 : price swung +20c in 24h",
+      "Will the price of Ethereum be above $2,400 on November 5?: price swung +59c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }
