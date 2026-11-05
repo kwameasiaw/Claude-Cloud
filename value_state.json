@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2719,
+      "last_bid": 0.2621,
       "tags": [
         "ai",
         "tech",
@@ -382,7 +382,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-11-05T10:03:10+00:00",
       "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-november-30",
-      "last_bid": 0.19,
+      "last_bid": 0.18,
       "tags": [
         "iran",
         "trump",
@@ -2191,32 +2191,15 @@
       "t": "2026-11-05T10:03:10+00:00",
       "equity": 100.75,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-05T11:03:09+00:00",
+      "equity": 100.55,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-05T10:03:07+00:00",
-    "scanned": 1000,
-    "flagged": 219,
-    "passed_filters": 183,
-    "candidates": 102,
-    "shortlisted": 29,
-    "researched": 12,
-    "flag_examples": [
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +15c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -16c in 24h",
-      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -17c in 24h",
-      "Will the Republican Party hold exactly 44 Senate seats after the 2026 : price swung +20c in 24h",
-      "Will the price of Ethereum be above $2,400 on November 5?: price swung +59c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-05T11:03:09+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
