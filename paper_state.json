@@ -899,22 +899,27 @@
       "t": "2026-11-05T11:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T12:03:09+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T11:03:06+00:00",
+    "at": "2026-11-05T12:03:07+00:00",
     "scanned": 1000,
-    "flagged": 223,
-    "passed_filters": 176,
+    "flagged": 229,
+    "passed_filters": 169,
     "candidates": 29,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Mary Peltola win the Alaska Senate race in 2026?: price swung +10c in 24h",
-      "Will Republicans lose the Alaska, Iowa, Kansas, Maine, Michigan, Ohio,: price swung +12c in 24h",
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +21c in 24h",
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -21c in 24h",
-      "Will Dan Sullivan win the Alaska Senate race in 2026?: price swung -11c in 24h"
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +17c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -17c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung +10c in 24h",
+      "Prudential Hong Kong Tennis Open: Tereza Valentova vs Alexandra Eala: price swung -17c in 24h",
+      "Will Samuel Alito announce his retirement by December 31, 2026?: price swung -18c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
