@@ -869,22 +869,27 @@
       "t": "2026-11-05T05:05:17+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-05T06:12:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-05T05:05:15+00:00",
+    "at": "2026-11-05T06:12:04+00:00",
     "scanned": 1000,
-    "flagged": 265,
-    "passed_filters": 155,
-    "candidates": 30,
+    "flagged": 255,
+    "passed_filters": 148,
+    "candidates": 29,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -84c in 24h",
-      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +84c in 24h",
-      "Heat vs. Clippers: price swung -21c in 24h",
-      "Lakers vs. Kings: price swung +14c in 24h",
-      "Spread: Heat (-5.5): price swung -24c in 24h"
+      "Heat vs. Clippers: price swung -10c in 24h",
+      "Will the Democrats win the Mississippi Senate race in 2026?: price swung +19c in 24h",
+      "Will the Republicans win the Mississippi Senate race in 2026?: price swung -20c in 24h",
+      "Spread: Heat (-5.5): price swung -27c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung +13c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

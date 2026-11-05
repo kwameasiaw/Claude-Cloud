@@ -1079,7 +1079,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-05T05:05:18+00:00",
+    "at": "2026-11-05T06:12:07+00:00",
     "skipped": "Alpaca unavailable: <urlopen error [Errno 54] Connection reset by peer>"
   }
 }
