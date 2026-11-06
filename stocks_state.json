@@ -1,47 +1,7 @@
 {
-  "cash": 79.18748668999997,
+  "cash": 58.67844970999997,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "XOM",
-      "event_id": "XOM",
-      "question": "ExxonMobil (XOM)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.059553,
-      "entry_price": 169.43,
-      "stake": 10.09,
-      "stop_price": 157.52,
-      "opened_at": "2026-11-04T19:03:14+00:00",
-      "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 158.73,
-      "tags": [
-        "energy"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "energy",
-        "tags": [
-          "energy"
-        ],
-        "stop_price": 157.52,
-        "signal": [
-          "+8.6% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 7.0% below"
-        ],
-        "risk": {
-          "stake": 10.09,
-          "reasons": [
-            "stop 7.0% away",
-            "risking 1.5% of pot -> \u00a321.52",
-            "cap 10% = \u00a310.09",
-            "stake \u00a310.09"
-          ]
-        }
-      }
-    },
     {
       "market_id": "AMD",
       "event_id": "AMD",
@@ -54,7 +14,7 @@
       "stop_price": 383.73,
       "opened_at": "2026-11-05T17:03:13+00:00",
       "url": "https://www.google.com/finance/quote/AMD",
-      "last_bid": 418.98,
+      "last_bid": 452.79,
       "tags": [
         "tech"
       ],
@@ -78,6 +38,126 @@
             "risking 1.5% of pot -> \u00a318.58",
             "cap 10% = \u00a39.91",
             "stake \u00a39.91"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "MSFT",
+      "event_id": "MSFT",
+      "question": "Microsoft (MSFT)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.018735,
+      "entry_price": 529.5,
+      "stake": 9.92,
+      "stop_price": 490.66,
+      "opened_at": "2026-11-06T15:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/MSFT",
+      "last_bid": 529.13,
+      "tags": [
+        "tech"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 490.66,
+        "signal": [
+          "+20.4% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.3% below"
+        ],
+        "risk": {
+          "stake": 9.92,
+          "reasons": [
+            "stop 7.3% away",
+            "risking 1.5% of pot -> \u00a320.28",
+            "cap 10% = \u00a39.92",
+            "stake \u00a39.92"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "WMT",
+      "event_id": "WMT",
+      "question": "Walmart (WMT)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.079227,
+      "entry_price": 125.21,
+      "stake": 9.92,
+      "stop_price": 117.24,
+      "opened_at": "2026-11-06T15:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/WMT",
+      "last_bid": 125.11,
+      "tags": [
+        "consumer"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "consumer",
+        "tags": [
+          "consumer"
+        ],
+        "stop_price": 117.24,
+        "signal": [
+          "+5.3% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 6.4% below"
+        ],
+        "risk": {
+          "stake": 9.92,
+          "reasons": [
+            "stop 6.4% away",
+            "risking 1.5% of pot -> \u00a323.37",
+            "cap 10% = \u00a39.92",
+            "stake \u00a39.92"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "LLY",
+      "event_id": "LLY",
+      "question": "Eli Lilly (LLY)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.007253,
+      "entry_price": 1367.76,
+      "stake": 9.92,
+      "stop_price": 1258.34,
+      "opened_at": "2026-11-06T15:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/LLY",
+      "last_bid": 1366.0,
+      "tags": [
+        "health"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "health",
+        "tags": [
+          "health"
+        ],
+        "stop_price": 1258.34,
+        "signal": [
+          "+24.7% above its 200-day average (uptrend)",
+          "2-day RSI 7.9 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.92,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.60",
+            "cap 10% = \u00a39.92",
+            "stake \u00a39.92"
           ]
         }
       }
@@ -366,6 +446,42 @@
           "reasons": [
             "stop 8.0% away",
             "risking 1.5% of pot -> \u00a318.92",
+            "cap 10% = \u00a310.09",
+            "stake \u00a310.09"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "XOM",
+      "question": "ExxonMobil (XOM)",
+      "outcome": "Long",
+      "entry_price": 169.43,
+      "exit_price": 155.34,
+      "shares": 0.059553,
+      "stake": 10.09,
+      "proceeds": 9.251,
+      "pnl": -0.839,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-04T19:03:14+00:00",
+      "closed_at": "2026-11-06T15:03:11+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "energy",
+        "tags": [
+          "energy"
+        ],
+        "stop_price": 157.52,
+        "signal": [
+          "+8.6% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.0% below"
+        ],
+        "risk": {
+          "stake": 10.09,
+          "reasons": [
+            "stop 7.0% away",
+            "risking 1.5% of pot -> \u00a321.52",
             "cap 10% = \u00a310.09",
             "stake \u00a310.09"
           ]
@@ -1263,12 +1379,19 @@
       "t": "2026-11-06T14:03:11+00:00",
       "equity": 98.59,
       "cash": 79.19
+    },
+    {
+      "t": "2026-11-06T15:03:11+00:00",
+      "equity": 99.17,
+      "cash": 58.68
     }
   ],
   "last_run": {
-    "at": "2026-11-06T14:03:06+00:00",
-    "scanned": 20,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-06T15:03:06+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 3,
+    "traded": 3,
+    "blocked_examples": []
   }
 }
