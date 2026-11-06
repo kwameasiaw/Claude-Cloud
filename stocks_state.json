@@ -1,5 +1,5 @@
 {
-  "cash": 68.70448495999997,
+  "cash": 48.984484959999975,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 383.73,
       "opened_at": "2026-11-05T17:03:13+00:00",
       "url": "https://www.google.com/finance/quote/AMD",
-      "last_bid": 443.38,
+      "last_bid": 433.29,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 125.86,
+      "last_bid": 125.01,
       "tags": [
         "consumer"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 1258.34,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/LLY",
-      "last_bid": 1359.15,
+      "last_bid": 1335.0,
       "tags": [
         "health"
       ],
@@ -118,6 +118,86 @@
             "risking 1.5% of pot -> \u00a318.60",
             "cap 10% = \u00a39.92",
             "stake \u00a39.92"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "V",
+      "event_id": "V",
+      "question": "Visa (V)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.023306,
+      "entry_price": 423.07,
+      "stake": 9.86,
+      "stop_price": 399.57,
+      "opened_at": "2026-11-06T18:03:14+00:00",
+      "url": "https://www.google.com/finance/quote/V",
+      "last_bid": 423.0,
+      "tags": [
+        "finance"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "finance",
+        "tags": [
+          "finance"
+        ],
+        "stop_price": 399.57,
+        "signal": [
+          "+22.7% above its 200-day average (uptrend)",
+          "2-day RSI 4.3 (sharp dip)",
+          "stop 5.6% below"
+        ],
+        "risk": {
+          "stake": 9.86,
+          "reasons": [
+            "stop 5.6% away",
+            "risking 1.5% of pot -> \u00a326.62",
+            "cap 10% = \u00a39.86",
+            "stake \u00a39.86"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "SPY",
+      "event_id": "SPY",
+      "question": "S&P 500 index fund (SPY)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.013394,
+      "entry_price": 736.13,
+      "stake": 9.86,
+      "stop_price": 709.59,
+      "opened_at": "2026-11-06T18:03:14+00:00",
+      "url": "https://www.google.com/finance/quote/SPY",
+      "last_bid": 736.08,
+      "tags": [
+        "index"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "index",
+        "tags": [
+          "index"
+        ],
+        "stop_price": 709.59,
+        "signal": [
+          "+0.8% above its 200-day average (uptrend)",
+          "2-day RSI 8.0 (sharp dip)",
+          "stop 3.6% below"
+        ],
+        "risk": {
+          "stake": 9.86,
+          "reasons": [
+            "stop 3.6% away",
+            "risking 1.5% of pot -> \u00a341.02",
+            "cap 10% = \u00a39.86",
+            "stake \u00a39.86"
           ]
         }
       }
@@ -1390,16 +1470,19 @@
       "t": "2026-11-06T17:03:13+00:00",
       "equity": 99.07,
       "cash": 68.7
+    },
+    {
+      "t": "2026-11-06T18:03:14+00:00",
+      "equity": 98.58,
+      "cash": 48.98
     }
   ],
   "last_run": {
-    "at": "2026-11-06T17:03:07+00:00",
+    "at": "2026-11-06T18:03:09+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 1,
-    "traded": 0,
-    "blocked_examples": [
-      "WMT: already holding WMT"
-    ]
+    "signals": 2,
+    "traded": 2,
+    "blocked_examples": []
   }
 }
