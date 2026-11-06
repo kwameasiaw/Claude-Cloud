@@ -14,7 +14,7 @@
       "stop_price": 383.73,
       "opened_at": "2026-11-05T17:03:13+00:00",
       "url": "https://www.google.com/finance/quote/AMD",
-      "last_bid": 444.33,
+      "last_bid": 446.06,
       "tags": [
         "tech"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 125.0,
+      "last_bid": 125.46,
       "tags": [
         "consumer"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 1258.34,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/LLY",
-      "last_bid": 1340.0,
+      "last_bid": 1361.79,
       "tags": [
         "health"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 423.1,
+      "last_bid": 422.62,
       "tags": [
         "finance"
       ],
@@ -174,7 +174,7 @@
       "stop_price": 709.59,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 738.29,
+      "last_bid": 737.71,
       "tags": [
         "index"
       ],
@@ -1480,15 +1480,22 @@
       "t": "2026-11-06T19:03:11+00:00",
       "equity": 98.91,
       "cash": 48.98
+    },
+    {
+      "t": "2026-11-06T20:03:09+00:00",
+      "equity": 99.13,
+      "cash": 48.98
     }
   ],
   "last_run": {
-    "at": "2026-11-06T19:03:04+00:00",
+    "at": "2026-11-06T20:03:05+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 1,
+    "signals": 3,
     "traded": 0,
     "blocked_examples": [
+      "LLY: already 5 open trades",
+      "HD: already 5 open trades",
       "V: already 5 open trades"
     ]
   }

@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2226.19,
+      "last_bid": 2231.336,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 75643.7,
+      "last_bid": 75766.48,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 5.82675,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/UNI-USD",
-      "last_bid": 6.881,
+      "last_bid": 6.886,
       "tags": [
         "altcoin"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 90.0441,
+      "last_bid": 90.1,
       "tags": [
         "altcoin"
       ],
@@ -1565,18 +1565,22 @@
       "t": "2026-11-06T19:03:14+00:00",
       "equity": 101.14,
       "cash": 60.72
+    },
+    {
+      "t": "2026-11-06T20:03:13+00:00",
+      "equity": 101.2,
+      "cash": 60.72
     }
   ],
   "last_run": {
-    "at": "2026-11-06T19:03:11+00:00",
+    "at": "2026-11-06T20:03:09+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 3,
+    "signals": 2,
     "traded": 0,
     "blocked_examples": [
-      "BTC/USD: already holding BTC/USD",
       "ETH/USD: already holding ETH/USD",
-      "UNI/USD: already holding UNI/USD"
+      "BTC/USD: already holding BTC/USD"
     ]
   }
 }

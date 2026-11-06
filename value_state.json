@@ -288,7 +288,7 @@
       "stop_price": 0.2334,
       "opened_at": "2026-11-04T17:03:13+00:00",
       "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
-      "last_bid": 0.3508,
+      "last_bid": 0.3607,
       "tags": [
         "politics",
         "global-elections",
@@ -2356,10 +2356,15 @@
       "t": "2026-11-06T19:03:04+00:00",
       "equity": 100.25,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-06T20:03:05+00:00",
+      "equity": 100.29,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-06T19:03:04+00:00",
+    "at": "2026-11-06T20:03:05+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
