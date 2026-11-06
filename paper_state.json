@@ -1024,22 +1024,27 @@
       "t": "2026-11-06T12:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-06T13:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-06T12:03:06+00:00",
+    "at": "2026-11-06T13:03:03+00:00",
     "scanned": 1000,
-    "flagged": 239,
-    "passed_filters": 162,
-    "candidates": 33,
+    "flagged": 225,
+    "passed_filters": 176,
+    "candidates": 34,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: FURIA vs BetBoom Team (BO3) - IEM Beijing Playoffs: price swung -25c in 24h",
-      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +78c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -12c in 24h",
-      "Chennai Open: Janice Tjen vs Polina Kudermetova: price swung +33c in 24h",
-      "Will Bitcoin dip to $75,000 in November?: price swung +39c in 24h"
+      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +61c in 24h",
+      "Counter-Strike: FURIA vs BetBoom Team - Map 2 Winner: price swung +37c in 24h",
+      "Will Gadi Eizenkot be the next Prime Minister of Israel?: price swung +10c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -13c in 24h",
+      "Will Bitcoin dip to $75,000 in November?: price swung +35c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
