@@ -1054,22 +1054,27 @@
       "t": "2026-11-06T18:03:09+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-06T19:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-06T18:03:06+00:00",
+    "at": "2026-11-06T19:03:01+00:00",
     "scanned": 1000,
-    "flagged": 140,
-    "passed_filters": 166,
-    "candidates": 34,
+    "flagged": 133,
+    "passed_filters": 161,
+    "candidates": 29,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +14c in 24h",
-      "Rolex Paris Masters: Luca Van Assche vs Rinky Hijikata: price swung +14c in 24h",
-      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +45c in 24h",
+      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +58c in 24h",
       "Will there be no change in Fed interest rates after the December 2026 : price swung -12c in 24h",
-      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -24c in 24h"
+      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -20c in 24h",
+      "Chennai Open: Anastasia Zakharova vs Lucrezia Stefanini: price swung +53c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
