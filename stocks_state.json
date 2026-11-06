@@ -1,5 +1,5 @@
 {
-  "cash": 58.67844970999997,
+  "cash": 68.70448495999997,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 383.73,
       "opened_at": "2026-11-05T17:03:13+00:00",
       "url": "https://www.google.com/finance/quote/AMD",
-      "last_bid": 441.26,
+      "last_bid": 443.38,
       "tags": [
         "tech"
       ],
@@ -43,46 +43,6 @@
       }
     },
     {
-      "market_id": "MSFT",
-      "event_id": "MSFT",
-      "question": "Microsoft (MSFT)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.018735,
-      "entry_price": 529.5,
-      "stake": 9.92,
-      "stop_price": 490.66,
-      "opened_at": "2026-11-06T15:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/MSFT",
-      "last_bid": 525.0,
-      "tags": [
-        "tech"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "tech",
-        "tags": [
-          "tech"
-        ],
-        "stop_price": 490.66,
-        "signal": [
-          "+20.4% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 7.3% below"
-        ],
-        "risk": {
-          "stake": 9.92,
-          "reasons": [
-            "stop 7.3% away",
-            "risking 1.5% of pot -> \u00a320.28",
-            "cap 10% = \u00a39.92",
-            "stake \u00a39.92"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "WMT",
       "event_id": "WMT",
       "question": "Walmart (WMT)",
@@ -94,7 +54,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 126.08,
+      "last_bid": 125.86,
       "tags": [
         "consumer"
       ],
@@ -134,7 +94,7 @@
       "stop_price": 1258.34,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/LLY",
-      "last_bid": 1358.67,
+      "last_bid": 1359.15,
       "tags": [
         "health"
       ],
@@ -484,6 +444,42 @@
             "risking 1.5% of pot -> \u00a321.52",
             "cap 10% = \u00a310.09",
             "stake \u00a310.09"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "MSFT",
+      "question": "Microsoft (MSFT)",
+      "outcome": "Long",
+      "entry_price": 529.5,
+      "exit_price": 535.15,
+      "shares": 0.018735,
+      "stake": 9.92,
+      "proceeds": 10.026,
+      "pnl": 0.106,
+      "reason": "take-profit",
+      "opened_at": "2026-11-06T15:03:11+00:00",
+      "closed_at": "2026-11-06T17:03:13+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 490.66,
+        "signal": [
+          "+20.4% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.3% below"
+        ],
+        "risk": {
+          "stake": 9.92,
+          "reasons": [
+            "stop 7.3% away",
+            "risking 1.5% of pot -> \u00a320.28",
+            "cap 10% = \u00a39.92",
+            "stake \u00a39.92"
           ]
         }
       }
@@ -1389,16 +1385,21 @@
       "t": "2026-11-06T16:03:13+00:00",
       "equity": 98.84,
       "cash": 58.68
+    },
+    {
+      "t": "2026-11-06T17:03:13+00:00",
+      "equity": 99.07,
+      "cash": 68.7
     }
   ],
   "last_run": {
-    "at": "2026-11-06T16:03:07+00:00",
+    "at": "2026-11-06T17:03:07+00:00",
     "scanned": 28,
     "market_open": true,
     "signals": 1,
     "traded": 0,
     "blocked_examples": [
-      "LLY: already holding LLY"
+      "WMT: already holding WMT"
     ]
   }
 }
