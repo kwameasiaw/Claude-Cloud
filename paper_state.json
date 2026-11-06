@@ -984,22 +984,27 @@
       "t": "2026-11-06T04:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-06T05:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-06T04:03:03+00:00",
+    "at": "2026-11-06T05:03:01+00:00",
     "scanned": 1000,
-    "flagged": 285,
-    "passed_filters": 146,
-    "candidates": 26,
+    "flagged": 248,
+    "passed_filters": 154,
+    "candidates": 31,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Jaguars vs. Ravens: price swung +18c in 24h",
-      "Heat vs. Warriors: price swung +18c in 24h",
+      "Heat vs. Warriors: price swung -26c in 24h",
       "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -12c in 24h",
-      "Spread: Jaguars (-9.5): price swung +46c in 24h",
-      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +98c in 24h"
+      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +98c in 24h",
+      "Spread: Warriors (-6.5): price swung +26c in 24h",
+      "Will there be no change in Fed interest rates after the December 2026 : price swung +13c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
