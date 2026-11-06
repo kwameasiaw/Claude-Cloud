@@ -1004,22 +1004,27 @@
       "t": "2026-11-06T08:03:03+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-06T09:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-06T08:03:01+00:00",
+    "at": "2026-11-06T09:03:01+00:00",
     "scanned": 1000,
-    "flagged": 223,
-    "passed_filters": 171,
-    "candidates": 31,
+    "flagged": 228,
+    "passed_filters": 177,
+    "candidates": 33,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Counter-Strike: PARIVISION vs Natus Vincere (BO3) - IEM Beijing Playof: price swung +36c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -11c in 24h",
-      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +91c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung -10c in 24h",
+      "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?: price swung +90c in 24h",
       "Will there be no change in Fed interest rates after the December 2026 : price swung +10c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -11c in 24h"
+      "Will Bitcoin dip to $75,000 in November?: price swung +43c in 24h",
+      "Will Bitcoin dip to $70,000 by December 31, 2026?: price swung +22c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
