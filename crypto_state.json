@@ -1,7 +1,168 @@
 {
-  "cash": 101.19544832660004,
+  "cash": 60.71544832660003,
   "starting_bankroll": 100.0,
-  "positions": [],
+  "positions": [
+    {
+      "market_id": "ETH/USD",
+      "event_id": "ETH/USD",
+      "question": "Ether (ETH/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.004515,
+      "entry_price": 2241.6,
+      "stake": 10.12,
+      "stop_price": 2019.451696,
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/ETH-USD",
+      "last_bid": 2241.2,
+      "tags": [
+        "major"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 2019.451696,
+        "signal": [
+          "+3.9% above its 200-day average (uptrend)",
+          "2-day RSI 2.9 (sharp dip)",
+          "stop 9.9% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 9.9% away",
+            "risking 1.5% of pot -> \u00a315.32",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "BTC/USD",
+      "event_id": "BTC/USD",
+      "question": "Bitcoin (BTC/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.000133,
+      "entry_price": 76168.9,
+      "stake": 10.12,
+      "stop_price": 70463.741997,
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/BTC-USD",
+      "last_bid": 76142.169,
+      "tags": [
+        "major"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 70463.741997,
+        "signal": [
+          "+4.0% above its 200-day average (uptrend)",
+          "2-day RSI 3.6 (sharp dip)",
+          "stop 7.5% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 7.5% away",
+            "risking 1.5% of pot -> \u00a320.27",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "UNI/USD",
+      "event_id": "UNI/USD",
+      "question": "Uniswap (UNI/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 1.476295,
+      "entry_price": 6.855,
+      "stake": 10.12,
+      "stop_price": 5.82675,
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/UNI-USD",
+      "last_bid": 6.84437,
+      "tags": [
+        "altcoin"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 5.82675,
+        "signal": [
+          "+41.9% above its 200-day average (uptrend)",
+          "2-day RSI 4.8 (sharp dip)",
+          "stop 15.0% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 15.0% away",
+            "risking 1.5% of pot -> \u00a310.12",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "SOL/USD",
+      "event_id": "SOL/USD",
+      "question": "Solana (SOL/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.112821,
+      "entry_price": 89.7,
+      "stake": 10.12,
+      "stop_price": 78.976758,
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/SOL-USD",
+      "last_bid": 89.61,
+      "tags": [
+        "altcoin"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 78.976758,
+        "signal": [
+          "+0.7% above its 200-day average (uptrend)",
+          "2-day RSI 5.7 (sharp dip)",
+          "stop 12.0% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 12.0% away",
+            "risking 1.5% of pot -> \u00a312.70",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
+          ]
+        }
+      }
+    }
+  ],
   "closed": [
     {
       "market_id": "AVAX/USD",
@@ -1304,14 +1465,22 @@
       "t": "2026-11-05T23:03:08+00:00",
       "equity": 101.2,
       "cash": 101.2
+    },
+    {
+      "t": "2026-11-06T00:03:11+00:00",
+      "equity": 101.18,
+      "cash": 60.72
     }
   ],
   "last_run": {
-    "at": "2026-11-05T23:03:06+00:00",
+    "at": "2026-11-06T00:03:10+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 0,
-    "traded": 0,
-    "blocked_examples": []
+    "signals": 6,
+    "traded": 4,
+    "blocked_examples": [
+      "AVAX/USD: already 2 trades in altcoin",
+      "LINK/USD: already 2 trades in altcoin"
+    ]
   }
 }
