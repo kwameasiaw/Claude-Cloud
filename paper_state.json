@@ -1104,22 +1104,27 @@
       "t": "2026-11-07T04:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T05:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T04:03:06+00:00",
+    "at": "2026-11-07T05:03:02+00:00",
     "scanned": 1000,
-    "flagged": 187,
-    "passed_filters": 131,
-    "candidates": 21,
+    "flagged": 191,
+    "passed_filters": 125,
+    "candidates": 20,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Nebraska vs. Illinois: price swung -48c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +12c in 24h",
-      "Trail Blazers vs. Lakers: price swung +24c in 24h",
-      "Spread: Spurs (-17.5): price swung +12c in 24h",
-      "New Mexico vs. Nevada: price swung +16c in 24h"
+      "Trail Blazers vs. Lakers: price swung -17c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +11c in 24h",
+      "New Mexico vs. Nevada: price swung +22c in 24h",
+      "TCU vs. Arizona: price swung +25c in 24h",
+      "Spurs vs. Kings: O/U 230.5: price swung +24c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
