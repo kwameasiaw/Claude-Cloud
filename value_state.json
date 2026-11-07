@@ -14,7 +14,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.3014,
+      "last_bid": 0.3113,
       "tags": [
         "taiwan",
         "politics",
@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2327,
+      "last_bid": 0.2229,
       "tags": [
         "ai",
         "tech",
@@ -2537,10 +2537,15 @@
       "t": "2026-11-07T16:03:04+00:00",
       "equity": 98.48,
       "cash": 88.85
+    },
+    {
+      "t": "2026-11-07T17:03:04+00:00",
+      "equity": 98.48,
+      "cash": 88.85
     }
   ],
   "last_run": {
-    "at": "2026-11-07T16:03:04+00:00",
+    "at": "2026-11-07T17:03:04+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
