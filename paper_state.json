@@ -1169,22 +1169,27 @@
       "t": "2026-11-07T17:03:03+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T18:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T17:03:01+00:00",
+    "at": "2026-11-07T18:03:03+00:00",
     "scanned": 1000,
-    "flagged": 169,
-    "passed_filters": 97,
-    "candidates": 17,
+    "flagged": 233,
+    "passed_filters": 78,
+    "candidates": 9,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Arsenal FC win on 2026-11-07?: price swung +15c in 24h",
+      "Will Manchester City FC win on 2026-11-07?: price swung -40c in 24h",
+      "Will Bologna FC 1909 win on 2026-11-07?: price swung +16c in 24h",
       "Will National Party win the most seats in the New Zealand House of Rep: price swung +36c in 24h",
-      "Israel x Iran ceasefire continues through December 31?: price swung +10c in 24h",
-      "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -36c in 24h",
-      "Parma Calcio 1913 vs. Bologna FC 1909: O/U 2.5: spread 0.08 is unusually wide"
+      "Will VfB Stuttgart win on 2026-11-07?: price swung +19c in 24h",
+      "Israel x Iran ceasefire continues through December 31?: price swung +11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
