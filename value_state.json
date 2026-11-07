@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2523,
+      "last_bid": 0.2425,
       "tags": [
         "ai",
         "tech",
@@ -288,7 +288,7 @@
       "stop_price": 0.2334,
       "opened_at": "2026-11-04T17:03:13+00:00",
       "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
-      "last_bid": 0.3508,
+      "last_bid": 0.3409,
       "tags": [
         "politics",
         "global-elections",
@@ -2406,10 +2406,15 @@
       "t": "2026-11-07T05:03:05+00:00",
       "equity": 100.33,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-07T06:03:06+00:00",
+      "equity": 100.25,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-07T05:03:05+00:00",
+    "at": "2026-11-07T06:03:06+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
