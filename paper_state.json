@@ -1154,22 +1154,27 @@
       "t": "2026-11-07T14:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T15:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T14:03:05+00:00",
+    "at": "2026-11-07T15:03:06+00:00",
     "scanned": 1000,
-    "flagged": 147,
-    "passed_filters": 118,
-    "candidates": 19,
+    "flagged": 165,
+    "passed_filters": 115,
+    "candidates": 18,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Tottenham Hotspur FC win on 2026-11-07?: price swung -17c in 24h",
-      "Will Leeds United FC win on 2026-11-07?: price swung -10c in 24h",
-      "Leeds United FC vs. Tottenham Hotspur FC: O/U 2.5: price swung -42c in 24h",
-      "Will National Party win the most seats in the New Zealand House of Rep: price swung +37c in 24h",
-      "Will Elon Musk post 65-89 tweets from November 5 to November 7, 2026?: price swung -52c in 24h"
+      "Will Frosinone Calcio win on 2026-11-07?: price swung -17c in 24h",
+      "Will Real Racing Club win on 2026-11-07?: price swung +66c in 24h",
+      "Will FC Bayern M\u00fcnchen win on 2026-11-07?: price swung +14c in 24h",
+      "Will Elon Musk post 65-89 tweets from November 5 to November 7, 2026?: price swung -56c in 24h",
+      "Will National Party win the most seats in the New Zealand House of Rep: price swung +36c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
