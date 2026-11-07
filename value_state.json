@@ -288,7 +288,7 @@
       "stop_price": 0.2334,
       "opened_at": "2026-11-04T17:03:13+00:00",
       "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
-      "last_bid": 0.3706,
+      "last_bid": 0.331,
       "tags": [
         "politics",
         "global-elections",
@@ -382,7 +382,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-11-05T10:03:10+00:00",
       "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-november-30",
-      "last_bid": 0.17,
+      "last_bid": 0.16,
       "tags": [
         "iran",
         "trump",
@@ -2416,10 +2416,15 @@
       "t": "2026-11-07T07:03:04+00:00",
       "equity": 100.2,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-07T08:03:07+00:00",
+      "equity": 99.89,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-07T07:03:04+00:00",
+    "at": "2026-11-07T08:03:07+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

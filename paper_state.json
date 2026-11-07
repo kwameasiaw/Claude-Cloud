@@ -1119,22 +1119,27 @@
       "t": "2026-11-07T07:03:04+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T08:03:07+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T07:03:01+00:00",
+    "at": "2026-11-07T08:03:04+00:00",
     "scanned": 1000,
-    "flagged": 165,
-    "passed_filters": 128,
-    "candidates": 24,
+    "flagged": 152,
+    "passed_filters": 125,
+    "candidates": 22,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +10c in 24h",
-      "Spread: Arizona (-6.5): price swung -54c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -10c in 24h",
-      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -25c in 24h",
-      "Will Club Santos Laguna win on 2026-11-06?: price swung +68c in 24h"
+      "Wonju DB Promy vs. Seoul Thunders: price swung +50c in 24h",
+      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -23c in 24h",
+      "India Tour of New Zealand ODIs: New Zealand vs India: price swung -28c in 24h",
+      "Will there be no change in Fed interest rates after the December 2026 : price swung -11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
