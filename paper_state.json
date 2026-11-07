@@ -1194,22 +1194,27 @@
       "t": "2026-11-07T22:03:03+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T23:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T22:03:01+00:00",
+    "at": "2026-11-07T23:03:05+00:00",
     "scanned": 1000,
-    "flagged": 252,
-    "passed_filters": 65,
-    "candidates": 8,
+    "flagged": 241,
+    "passed_filters": 75,
+    "candidates": 11,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "LoL: Invictus Gaming vs Gen.G (BO5) - Worlds Playoffs: price swung -10c in 24h",
       "Will Real Madrid CF win on 2026-11-07?: price swung +21c in 24h",
-      "Will Paris Saint-Germain FC win on 2026-11-07?: price swung +13c in 24h",
-      "Alabama vs. LSU: price swung +14c in 24h",
-      "Western Kentucky vs. Middle Tennessee: price swung -31c in 24h",
-      "Will National Party win the most seats in the New Zealand House of Rep: price swung +40c in 24h"
+      "Will Paris Saint-Germain FC win on 2026-11-07?: price swung +12c in 24h",
+      "Game Handicap: GEN (-2.5) vs Invictus Gaming (+2.5): price swung +15c in 24h",
+      "Oregon vs. Ohio State: price swung +46c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
