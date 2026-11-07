@@ -1,5 +1,5 @@
 {
-  "cash": 91.67011875,
+  "cash": 88.84914455,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2425,
+      "last_bid": 0.2229,
       "tags": [
         "ai",
         "tech",
@@ -277,100 +277,6 @@
       }
     },
     {
-      "market_id": "2116493",
-      "event_id": "431450",
-      "question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
-      "outcome": "No",
-      "token_id": "109528281960787366259167519549419015523883006138549082473738768120949458572608",
-      "shares": 3.8708,
-      "entry_price": 0.3591,
-      "stake": 1.39,
-      "stop_price": 0.2334,
-      "opened_at": "2026-11-04T17:03:13+00:00",
-      "url": "https://polymarket.com/market/will-national-party-win-the-most-seats-in-the-new-zealand-house-of-representatives-in-the-2026-new-zealand-legislative-election",
-      "last_bid": 0.331,
-      "tags": [
-        "politics",
-        "global-elections",
-        "elections",
-        "main-election",
-        "new-zealand-election",
-        "nz",
-        "world-elections"
-      ],
-      "closes_at": "2026-11-08T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "politics",
-        "tags": [
-          "politics",
-          "global-elections",
-          "elections",
-          "main-election",
-          "new-zealand-election",
-          "nz",
-          "world-elections"
-        ],
-        "scan": [
-          "'No' at 0.35",
-          "liq $58,396",
-          "vol24h $9,558",
-          "closes in 3.5d"
-        ],
-        "stop_price": 0.2334,
-        "research": {
-          "items": 26,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": [
-            "[news] A Month of Referendums on Power: November 2026\u2019s Elections to Watch - Diplomatic Courier",
-            "[news] Democrats likely to gain control of Congress in US midterm elections as Senate lead expands - The Conversation",
-            "[news] 2026 midterm election results: Who won the key House and Senate races? - Northeastern Global News",
-            "[news] Could Trump interfere in the US midterms \u2013 and what checks and balances could stop him? - The Conversation",
-            "[news] Republicans nervous as US midterms results trickle in: Key races, Indian-Americans in fray & states to wa - The Times of India",
-            "[news] The midterms will change US politics, but NZ will keep feeling the Trump effect - RNZ",
-            "[news] Midterms 2026: Will Republicans or Democrats win control of the House? These are the key races to watch. - Yahoo",
-            "[news] New Zealand votes with economy, cost of living in focus - Kuwait Times"
-          ]
-        },
-        "prediction": {
-          "p_market": 0.345,
-          "p_base": 0.3942,
-          "method": "calibration table (206 past markets)",
-          "p_llm": null,
-          "p_final": 0.3942,
-          "cost": 0.3591,
-          "edge": 0.0351,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 34%",
-            "calibration table (206 past markets) says 39.4%",
-            "26 headlines found, not scored (no Claude API key)",
-            "edge +3.5c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 1.39,
-          "kelly": 0.0547,
-          "reasons": [
-            "Kelly 5.5% of pot -> quarter-Kelly \u00a31.39",
-            "cap 10% = \u00a310.15",
-            "stake \u00a31.39"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "5087226",
       "event_id": "794064",
       "question": "US-Iran Hormuz Agreement by November 30?",
@@ -382,7 +288,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-11-05T10:03:10+00:00",
       "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-november-30",
-      "last_bid": 0.16,
+      "last_bid": 0.18,
       "tags": [
         "iran",
         "trump",
@@ -460,6 +366,92 @@
             "Kelly 12.5% of pot -> quarter-Kelly \u00a33.16",
             "cap 10% = \u00a310.09",
             "stake \u00a33.16"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "5920623",
+      "event_id": "1217415",
+      "question": "Jets vs. Chiefs",
+      "outcome": "Jets",
+      "token_id": "41493797291848620693592503937233352315293075119747138929440973426839666633626",
+      "shares": 14.502,
+      "entry_price": 0.2048,
+      "stake": 2.97,
+      "stop_price": 0.1331,
+      "opened_at": "2026-11-07T09:03:13+00:00",
+      "url": "https://polymarket.com/market/nfl-nyj-kc-2026-11-08",
+      "last_bid": 0.1854,
+      "tags": [
+        "sports",
+        "nfl",
+        "games"
+      ],
+      "closes_at": "2026-11-08T18:00:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "sports",
+          "nfl",
+          "games"
+        ],
+        "scan": [
+          "'Jets' at 0.20",
+          "liq $332,970",
+          "vol24h $24,166",
+          "closes in 1.4d"
+        ],
+        "stop_price": 0.1331,
+        "research": {
+          "items": 12,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Week 9 Injury Report | Jets vs. Chiefs - Kansas City Chiefs",
+            "[news] Jets vs Chiefs Prediction & Tips: Week 9 - Squawka",
+            "[news] Jets-Chiefs Game Preview | Geno Smith and Patrick Mahomes Take the Spotlight - New York Jets",
+            "[news] Jets vs. Chiefs prediction: Odds, expert picks, QB matchup, injury update, betting trends, and stats - NBC Sports",
+            "[news] NY Jets vs Chiefs predictions and expert picks for Week 9 game - Yahoo Sports",
+            "[news] Jets vs Chiefs Prediction & Odds | NFL Week 9 - Compare.bet",
+            "[news] Jets vs. Chiefs Prediction, Odds, Spread, Injuries, Trends for NFL Week 9 - Sports Illustrated",
+            "[news] Jets vs. Chiefs Preview: Do The Jets Have ANY Chance? | Gang\u2019s All Here (Video) - New York Post"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2048,
+          "edge": 0.0954,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +9.5c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.97,
+          "kelly": 0.12,
+          "reasons": [
+            "Kelly 12.0% of pot -> quarter-Kelly \u00a32.97",
+            "cap 10% = \u00a39.90",
+            "stake \u00a32.97"
           ]
         }
       }
@@ -1391,6 +1383,90 @@
             "Kelly 6.5% of pot -> quarter-Kelly \u00a31.67",
             "cap 10% = \u00a310.30",
             "stake \u00a31.67"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "2116493",
+      "question": "Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?",
+      "outcome": "No",
+      "entry_price": 0.3591,
+      "exit_price": 0.0385,
+      "shares": 3.8708,
+      "stake": 1.39,
+      "proceeds": 0.149,
+      "pnl": -1.241,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-04T17:03:13+00:00",
+      "closed_at": "2026-11-07T09:03:09+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "politics",
+        "tags": [
+          "politics",
+          "global-elections",
+          "elections",
+          "main-election",
+          "new-zealand-election",
+          "nz",
+          "world-elections"
+        ],
+        "scan": [
+          "'No' at 0.35",
+          "liq $58,396",
+          "vol24h $9,558",
+          "closes in 3.5d"
+        ],
+        "stop_price": 0.2334,
+        "research": {
+          "items": 26,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] A Month of Referendums on Power: November 2026\u2019s Elections to Watch - Diplomatic Courier",
+            "[news] Democrats likely to gain control of Congress in US midterm elections as Senate lead expands - The Conversation",
+            "[news] 2026 midterm election results: Who won the key House and Senate races? - Northeastern Global News",
+            "[news] Could Trump interfere in the US midterms \u2013 and what checks and balances could stop him? - The Conversation",
+            "[news] Republicans nervous as US midterms results trickle in: Key races, Indian-Americans in fray & states to wa - The Times of India",
+            "[news] The midterms will change US politics, but NZ will keep feeling the Trump effect - RNZ",
+            "[news] Midterms 2026: Will Republicans or Democrats win control of the House? These are the key races to watch. - Yahoo",
+            "[news] New Zealand votes with economy, cost of living in focus - Kuwait Times"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.345,
+          "p_base": 0.3942,
+          "method": "calibration table (206 past markets)",
+          "p_llm": null,
+          "p_final": 0.3942,
+          "cost": 0.3591,
+          "edge": 0.0351,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 34%",
+            "calibration table (206 past markets) says 39.4%",
+            "26 headlines found, not scored (no Claude API key)",
+            "edge +3.5c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 1.39,
+          "kelly": 0.0547,
+          "reasons": [
+            "Kelly 5.5% of pot -> quarter-Kelly \u00a31.39",
+            "cap 10% = \u00a310.15",
+            "stake \u00a31.39"
           ]
         }
       }
@@ -2421,10 +2497,37 @@
       "t": "2026-11-07T08:03:07+00:00",
       "equity": 99.89,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-07T09:03:13+00:00",
+      "equity": 98.71,
+      "cash": 88.85
     }
   ],
   "last_run": {
-    "at": "2026-11-07T08:03:07+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-07T09:03:09+00:00",
+    "scanned": 1000,
+    "flagged": 145,
+    "passed_filters": 129,
+    "candidates": 74,
+    "shortlisted": 18,
+    "researched": 12,
+    "flag_examples": [
+      "Wonju DB Promy vs. Seoul Thunders: price swung +50c in 24h",
+      "Will National Party win the most seats in the New Zealand House of Rep: price swung +34c in 24h",
+      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -23c in 24h",
+      "India Tour of New Zealand ODIs: New Zealand vs India: price swung -37c in 24h",
+      "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -34c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }

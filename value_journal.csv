@@ -11,3 +11,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 6507383,"Will Bitcoin dip to $67,500 in November?",Yes,0.2112,0.1126,12.7367,2.69,1.4342,-1.2558,stop-loss,2026-11-01T09:04:27+00:00,2026-11-04T17:03:08+00:00
 6281141,"Iran full airspace closure by November 30, 2026?",Yes,0.32,0.17,5.3125,1.7,0.9031,-0.7969,stop-loss,2026-11-04T03:03:10+00:00,2026-11-04T17:03:08+00:00
 5339986,Israel x Iran ceasefire continues through November 15?,No,0.32,0.2,5.2188,1.67,1.0438,-0.6262,stop-loss,2026-11-04T10:03:11+00:00,2026-11-05T10:03:06+00:00
+2116493,Will National Party win the most seats in the New Zealand House of Representatives in the 2026 New Zealand legislative election?,No,0.3591,0.0385,3.8708,1.39,0.149,-1.241,stop-loss,2026-11-04T17:03:13+00:00,2026-11-07T09:03:09+00:00
