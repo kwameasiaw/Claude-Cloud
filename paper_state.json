@@ -1089,22 +1089,27 @@
       "t": "2026-11-07T01:03:03+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T02:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T01:03:01+00:00",
+    "at": "2026-11-07T02:03:01+00:00",
     "scanned": 1000,
-    "flagged": 171,
-    "passed_filters": 126,
-    "candidates": 17,
+    "flagged": 222,
+    "passed_filters": 120,
+    "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "LoL: Karmine Corp vs T1 - Game 3 Winner: price swung +69c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +10c in 24h",
-      "US x Iran effective ceasefire continues through November 8, 2026?: price swung -68c in 24h",
-      "76ers vs. Cavaliers: price swung -15c in 24h",
-      "Raptors vs. Bucks: price swung -13c in 24h"
+      "Raptors vs. Bucks: price swung -36c in 24h",
+      "Thunder vs. Grizzlies: price swung +27c in 24h",
+      "76ers vs. Cavaliers: price swung -17c in 24h",
+      "US x Iran effective ceasefire continues through November 8, 2026?: price swung -79c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
