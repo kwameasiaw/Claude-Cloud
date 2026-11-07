@@ -1,5 +1,5 @@
 {
-  "cash": 60.71544832660003,
+  "cash": 71.32248027210004,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2232.4,
+      "last_bid": 2232.85,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 75730.1,
+      "last_bid": 75688.06,
       "tags": [
         "major"
       ],
@@ -83,46 +83,6 @@
       }
     },
     {
-      "market_id": "UNI/USD",
-      "event_id": "UNI/USD",
-      "question": "Uniswap (UNI/USD)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 1.476295,
-      "entry_price": 6.855,
-      "stake": 10.12,
-      "stop_price": 5.82675,
-      "opened_at": "2026-11-06T00:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/UNI-USD",
-      "last_bid": 7.0991,
-      "tags": [
-        "altcoin"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "crypto",
-        "category": "altcoin",
-        "tags": [
-          "altcoin"
-        ],
-        "stop_price": 5.82675,
-        "signal": [
-          "+41.9% above its 200-day average (uptrend)",
-          "2-day RSI 4.8 (sharp dip)",
-          "stop 15.0% below"
-        ],
-        "risk": {
-          "stake": 10.12,
-          "reasons": [
-            "stop 15.0% away",
-            "risking 1.5% of pot -> \u00a310.12",
-            "cap 10% = \u00a310.12",
-            "stake \u00a310.12"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "SOL/USD",
       "event_id": "SOL/USD",
       "question": "Solana (SOL/USD)",
@@ -134,7 +94,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 89.6459,
+      "last_bid": 89.596,
       "tags": [
         "altcoin"
       ],
@@ -700,6 +660,42 @@
             "risking 1.5% of pot -> \u00a310.08",
             "cap 10% = \u00a310.08",
             "stake \u00a310.08"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "UNI/USD",
+      "question": "Uniswap (UNI/USD)",
+      "outcome": "Long",
+      "entry_price": 6.855,
+      "exit_price": 7.1849,
+      "shares": 1.476295,
+      "stake": 10.12,
+      "proceeds": 10.607,
+      "pnl": 0.487,
+      "reason": "take-profit",
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "closed_at": "2026-11-07T19:03:11+00:00",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 5.82675,
+        "signal": [
+          "+41.9% above its 200-day average (uptrend)",
+          "2-day RSI 4.8 (sharp dip)",
+          "stop 15.0% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 15.0% away",
+            "risking 1.5% of pot -> \u00a310.12",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
           ]
         }
       }
@@ -1680,10 +1676,15 @@
       "t": "2026-11-07T18:03:09+00:00",
       "equity": 101.46,
       "cash": 60.72
+    },
+    {
+      "t": "2026-11-07T19:03:11+00:00",
+      "equity": 101.58,
+      "cash": 71.32
     }
   ],
   "last_run": {
-    "at": "2026-11-07T18:03:08+00:00",
+    "at": "2026-11-07T19:03:10+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 1,
