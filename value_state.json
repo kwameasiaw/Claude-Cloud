@@ -14,7 +14,7 @@
       "stop_price": 0.2137,
       "opened_at": "2026-11-01T14:06:03+00:00",
       "url": "https://polymarket.com/market/will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-      "last_bid": 0.2916,
+      "last_bid": 0.3014,
       "tags": [
         "taiwan",
         "politics",
@@ -106,7 +106,7 @@
       "stop_price": 0.1352,
       "opened_at": "2026-11-04T00:03:07+00:00",
       "url": "https://polymarket.com/market/will-t1-win-worlds-2026",
-      "last_bid": 0.1533,
+      "last_bid": 0.1629,
       "tags": [
         "lol",
         "sports",
@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2229,
+      "last_bid": 0.2327,
       "tags": [
         "ai",
         "tech",
@@ -288,7 +288,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-11-05T10:03:10+00:00",
       "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-november-30",
-      "last_bid": 0.18,
+      "last_bid": 0.19,
       "tags": [
         "iran",
         "trump",
@@ -2502,32 +2502,15 @@
       "t": "2026-11-07T09:03:13+00:00",
       "equity": 98.71,
       "cash": 88.85
+    },
+    {
+      "t": "2026-11-07T10:03:07+00:00",
+      "equity": 99.09,
+      "cash": 88.85
     }
   ],
   "last_run": {
-    "at": "2026-11-07T09:03:09+00:00",
-    "scanned": 1000,
-    "flagged": 145,
-    "passed_filters": 129,
-    "candidates": 74,
-    "shortlisted": 18,
-    "researched": 12,
-    "flag_examples": [
-      "Wonju DB Promy vs. Seoul Thunders: price swung +50c in 24h",
-      "Will National Party win the most seats in the New Zealand House of Rep: price swung +34c in 24h",
-      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -23c in 24h",
-      "India Tour of New Zealand ODIs: New Zealand vs India: price swung -37c in 24h",
-      "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -34c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-07T10:03:07+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

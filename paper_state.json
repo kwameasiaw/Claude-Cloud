@@ -1129,22 +1129,27 @@
       "t": "2026-11-07T09:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T10:03:07+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T09:03:06+00:00",
+    "at": "2026-11-07T10:03:04+00:00",
     "scanned": 1000,
-    "flagged": 145,
-    "passed_filters": 129,
-    "candidates": 21,
+    "flagged": 144,
+    "passed_filters": 130,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Wonju DB Promy vs. Seoul Thunders: price swung +50c in 24h",
-      "Will National Party win the most seats in the New Zealand House of Rep: price swung +34c in 24h",
-      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -23c in 24h",
-      "India Tour of New Zealand ODIs: New Zealand vs India: price swung -37c in 24h",
-      "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -34c in 24h"
+      "Will National Party win the most seats in the New Zealand House of Rep: price swung +36c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -11c in 24h",
+      "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -36c in 24h",
+      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -24c in 24h",
+      "Will Ulf Kristersson be the next Prime Minister of Sweden?: price swung +17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
