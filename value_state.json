@@ -106,7 +106,7 @@
       "stop_price": 0.1352,
       "opened_at": "2026-11-04T00:03:07+00:00",
       "url": "https://polymarket.com/market/will-t1-win-worlds-2026",
-      "last_bid": 0.1629,
+      "last_bid": 0.1533,
       "tags": [
         "lol",
         "sports",
@@ -2391,10 +2391,15 @@
       "t": "2026-11-07T02:03:04+00:00",
       "equity": 100.39,
       "cash": 91.67
+    },
+    {
+      "t": "2026-11-07T03:03:06+00:00",
+      "equity": 100.25,
+      "cash": 91.67
     }
   ],
   "last_run": {
-    "at": "2026-11-07T02:03:04+00:00",
+    "at": "2026-11-07T03:03:06+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
