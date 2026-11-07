@@ -1189,22 +1189,27 @@
       "t": "2026-11-07T21:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T22:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T21:03:03+00:00",
+    "at": "2026-11-07T22:03:01+00:00",
     "scanned": 1000,
-    "flagged": 238,
-    "passed_filters": 77,
-    "candidates": 13,
+    "flagged": 252,
+    "passed_filters": 65,
+    "candidates": 8,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Real Madrid CF win on 2026-11-07?: price swung +19c in 24h",
-      "Will AS Roma win on 2026-11-07?: price swung +24c in 24h",
-      "Western Kentucky vs. Middle Tennessee: price swung -36c in 24h",
-      "Will National Party win the most seats in the New Zealand House of Rep: price swung +37c in 24h",
-      "UCLA vs. Minnesota: price swung +36c in 24h"
+      "Will Real Madrid CF win on 2026-11-07?: price swung +21c in 24h",
+      "Will Paris Saint-Germain FC win on 2026-11-07?: price swung +13c in 24h",
+      "Alabama vs. LSU: price swung +14c in 24h",
+      "Western Kentucky vs. Middle Tennessee: price swung -31c in 24h",
+      "Will National Party win the most seats in the New Zealand House of Rep: price swung +40c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
