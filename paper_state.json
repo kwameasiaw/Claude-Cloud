@@ -1139,22 +1139,27 @@
       "t": "2026-11-07T11:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-07T12:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-07T11:03:04+00:00",
+    "at": "2026-11-07T12:03:05+00:00",
     "scanned": 1000,
-    "flagged": 148,
-    "passed_filters": 120,
+    "flagged": 143,
+    "passed_filters": 125,
     "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will National Party win the most seats in the New Zealand House of Rep: price swung +36c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -11c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -10c in 24h",
       "Will Labour Party win the most seats in the New Zealand House of Repre: price swung -37c in 24h",
-      "Will Magdalena Andersson be the next Prime Minister of Sweden?: price swung -24c in 24h",
-      "Will Elon Musk post 65-89 tweets from November 5 to November 7, 2026?: price swung -51c in 24h"
+      "Luanda: Anna Blinkova vs Yasmine Kabbaj: price swung +11c in 24h",
+      "Dota 2: Xipto Esports vs Power Rangers - Game 2 Winner: spread 0.05 is unusually wide"
     ],
     "predicted_fire": 0,
     "approved": 0,
