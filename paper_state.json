@@ -1309,22 +1309,27 @@
       "t": "2026-11-08T21:03:04+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T22:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T21:03:02+00:00",
+    "at": "2026-11-08T22:03:05+00:00",
     "scanned": 1000,
-    "flagged": 277,
+    "flagged": 210,
     "passed_filters": 75,
-    "candidates": 17,
+    "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Giants vs. Eagles: price swung +38c in 24h",
-      "Browns vs. Saints: price swung -24c in 24h",
-      "Lions vs. Dolphins: price swung +26c in 24h",
-      "Rams vs. Commanders: price swung +30c in 24h",
-      "Giants vs. Eagles: O/U 38.5: price swung -46c in 24h"
+      "Will FC Barcelona win on 2026-11-08?: price swung +46c in 24h",
+      "Spread: Texans (-5.5): price swung -11c in 24h",
+      "Packers vs. Patriots: price swung +47c in 24h",
+      "Raiders vs. 49ers: price swung -11c in 24h",
+      "Spread: Patriots (-3.5): price swung -39c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
