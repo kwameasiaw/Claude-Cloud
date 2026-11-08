@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2621,
+      "last_bid": 0.2818,
       "tags": [
         "ai",
         "tech",
@@ -382,7 +382,7 @@
       "stop_price": 0.1331,
       "opened_at": "2026-11-07T09:03:13+00:00",
       "url": "https://polymarket.com/market/nfl-nyj-kc-2026-11-08",
-      "last_bid": 0.1756,
+      "last_bid": 0.2641,
       "tags": [
         "sports",
         "nfl",
@@ -2667,10 +2667,15 @@
       "t": "2026-11-08T18:03:08+00:00",
       "equity": 98.22,
       "cash": 88.85
+    },
+    {
+      "t": "2026-11-08T19:03:04+00:00",
+      "equity": 99.59,
+      "cash": 88.85
     }
   ],
   "last_run": {
-    "at": "2026-11-08T18:03:08+00:00",
+    "at": "2026-11-08T19:03:04+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

@@ -1294,22 +1294,27 @@
       "t": "2026-11-08T18:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T19:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T18:03:06+00:00",
+    "at": "2026-11-08T19:03:02+00:00",
     "scanned": 1000,
-    "flagged": 212,
-    "passed_filters": 75,
-    "candidates": 16,
+    "flagged": 232,
+    "passed_filters": 71,
+    "candidates": 15,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Manchester United FC win on 2026-11-08?: price swung -42c in 24h",
-      "Will Aston Villa FC win on 2026-11-08?: price swung +58c in 24h",
-      "Will FC Internazionale Milano win on 2026-11-08?: price swung +40c in 24h",
-      "Manchester United FC vs. Aston Villa FC: O/U 3.5: price swung +60c in 24h",
-      "Will Como 1907 win on 2026-11-08?: price swung -24c in 24h"
+      "Giants vs. Eagles: O/U 38.5: price swung +12c in 24h",
+      "Will FC Internazionale Milano win on 2026-11-08?: price swung +49c in 24h",
+      "Will Villarreal CF win on 2026-11-08?: price swung -30c in 24h",
+      "Rams vs. Commanders: price swung -23c in 24h",
+      "Lakers vs. Pistons: price swung -17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
