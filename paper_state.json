@@ -1259,22 +1259,27 @@
       "t": "2026-11-08T11:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T12:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T11:03:05+00:00",
+    "at": "2026-11-08T12:03:01+00:00",
     "scanned": 1000,
-    "flagged": 129,
+    "flagged": 167,
     "passed_filters": 82,
     "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Shandong Taishan FC win on 2026-11-08?: price swung +62c in 24h",
+      "Will SSC Napoli win on 2026-11-08?: price swung -22c in 24h",
+      "Will SS Lazio win on 2026-11-08?: price swung +25c in 24h",
       "Will Gen.G win Worlds 2026?: price swung +12c in 24h",
-      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h",
-      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +10c in 24h",
-      "Dota 2: Power Rangers vs PlayTime - Game 1 Winner: spread 0.12 is unusually wide"
+      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
