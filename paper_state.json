@@ -1244,22 +1244,27 @@
       "t": "2026-11-08T08:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T09:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T08:03:05+00:00",
+    "at": "2026-11-08T09:03:03+00:00",
     "scanned": 1000,
-    "flagged": 162,
-    "passed_filters": 73,
-    "candidates": 14,
+    "flagged": 155,
+    "passed_filters": 64,
+    "candidates": 10,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Shandong Taishan FC win on 2026-11-08?: price swung +39c in 24h",
+      "Will Shandong Taishan FC win on 2026-11-08?: price swung +52c in 24h",
       "Will Gen.G win Worlds 2026?: price swung +12c in 24h",
-      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h",
-      "Israel x Iran ceasefire continues through December 31?: price swung +12c in 24h",
-      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +10c in 24h"
+      "Israel x Iran ceasefire continues through November 15?: price swung +10c in 24h",
+      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -18c in 24h",
+      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +12c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
