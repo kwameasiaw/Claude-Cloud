@@ -1269,22 +1269,27 @@
       "t": "2026-11-08T13:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T14:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T13:03:05+00:00",
+    "at": "2026-11-08T14:03:01+00:00",
     "scanned": 1000,
-    "flagged": 156,
-    "passed_filters": 81,
-    "candidates": 13,
+    "flagged": 157,
+    "passed_filters": 85,
+    "candidates": 15,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will SSC Napoli win on 2026-11-08?: price swung -10c in 24h",
-      "Will SS Lazio win on 2026-11-08?: price swung -12c in 24h",
       "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h",
-      "Will Gen.G win Worlds 2026?: price swung +13c in 24h",
-      "Dota 2: Power Rangers vs PlayTime - Game 2 Winner: spread 0.11 is unusually wide"
+      "Will Gen.G win Worlds 2026?: price swung +14c in 24h",
+      "Will Fenerbah\u00e7e SK win on 2026-11-08?: price swung +34c in 24h",
+      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +12c in 24h",
+      "Will Vitesse Arnhem vs. De Graafschap end in a draw?: price swung +70c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
