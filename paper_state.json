@@ -1304,22 +1304,27 @@
       "t": "2026-11-08T20:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T21:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T20:03:06+00:00",
+    "at": "2026-11-08T21:03:02+00:00",
     "scanned": 1000,
-    "flagged": 260,
+    "flagged": 277,
     "passed_filters": 75,
     "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Giants vs. Eagles: price swung -16c in 24h",
-      "Jets vs. Chiefs: price swung -12c in 24h",
-      "Lions vs. Dolphins: price swung +14c in 24h",
-      "Giants vs. Eagles: O/U 38.5: price swung -35c in 24h",
-      "Cowboys vs. Colts: price swung +20c in 24h"
+      "Giants vs. Eagles: price swung +38c in 24h",
+      "Browns vs. Saints: price swung -24c in 24h",
+      "Lions vs. Dolphins: price swung +26c in 24h",
+      "Rams vs. Commanders: price swung +30c in 24h",
+      "Giants vs. Eagles: O/U 38.5: price swung -46c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -382,7 +382,7 @@
       "stop_price": 0.13,
       "opened_at": "2026-11-08T20:03:13+00:00",
       "url": "https://polymarket.com/market/israeli-airspace-closed-by-november-30-2026",
-      "last_bid": 0.19,
+      "last_bid": 0.16,
       "tags": [
         "iran",
         "israel",
@@ -2763,32 +2763,15 @@
       "t": "2026-11-08T20:03:13+00:00",
       "equity": 97.12,
       "cash": 87.35
+    },
+    {
+      "t": "2026-11-08T21:03:04+00:00",
+      "equity": 96.66,
+      "cash": 87.35
     }
   ],
   "last_run": {
-    "at": "2026-11-08T20:03:09+00:00",
-    "scanned": 1000,
-    "flagged": 260,
-    "passed_filters": 75,
-    "candidates": 51,
-    "shortlisted": 10,
-    "researched": 10,
-    "flag_examples": [
-      "Giants vs. Eagles: price swung -16c in 24h",
-      "Jets vs. Chiefs: price swung -12c in 24h",
-      "Lions vs. Dolphins: price swung +14c in 24h",
-      "Giants vs. Eagles: O/U 38.5: price swung -35c in 24h",
-      "Cowboys vs. Colts: price swung +20c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 9,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-08T21:03:04+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
