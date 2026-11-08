@@ -1279,22 +1279,27 @@
       "t": "2026-11-08T15:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T16:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T15:03:04+00:00",
+    "at": "2026-11-08T16:03:04+00:00",
     "scanned": 1000,
-    "flagged": 210,
-    "passed_filters": 79,
-    "candidates": 14,
+    "flagged": 215,
+    "passed_filters": 76,
+    "candidates": 13,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Chelsea FC win on 2026-11-08?: price swung -31c in 24h",
-      "Will Brighton & Hove Albion FC win on 2026-11-08?: price swung +45c in 24h",
-      "Will Liverpool FC win on 2026-11-08?: price swung +14c in 24h",
-      "Will Real Betis Balompi\u00e9 win on 2026-11-08?: price swung +51c in 24h",
-      "Will Sunderland AFC win on 2026-11-08?: price swung +29c in 24h"
+      "Will Brighton & Hove Albion FC win on 2026-11-08?: price swung +47c in 24h",
+      "Will Liverpool FC win on 2026-11-08?: price swung +37c in 24h",
+      "Spread: Bengals (-3.5): price swung +41c in 24h",
+      "Bengals vs. Falcons: price swung +32c in 24h",
+      "Will Sunderland AFC win on 2026-11-08?: price swung +75c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
