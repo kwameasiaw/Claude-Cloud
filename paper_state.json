@@ -1249,22 +1249,27 @@
       "t": "2026-11-08T09:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T10:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T09:03:03+00:00",
+    "at": "2026-11-08T10:03:03+00:00",
     "scanned": 1000,
-    "flagged": 155,
-    "passed_filters": 64,
-    "candidates": 10,
+    "flagged": 135,
+    "passed_filters": 76,
+    "candidates": 12,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Shandong Taishan FC win on 2026-11-08?: price swung +52c in 24h",
+      "Will Shandong Taishan FC win on 2026-11-08?: price swung +62c in 24h",
       "Will Gen.G win Worlds 2026?: price swung +12c in 24h",
-      "Israel x Iran ceasefire continues through November 15?: price swung +10c in 24h",
-      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -18c in 24h",
-      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +12c in 24h"
+      "Map Handicap: MOUZ (-1.5) vs TheMongolz (+1.5): spread 0.05 is unusually wide",
+      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h",
+      "Will Dalian Yingbo FC win on 2026-11-08?: price swung +27c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
