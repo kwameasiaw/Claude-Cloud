@@ -1274,22 +1274,27 @@
       "t": "2026-11-08T14:03:03+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T15:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T14:03:01+00:00",
+    "at": "2026-11-08T15:03:04+00:00",
     "scanned": 1000,
-    "flagged": 157,
-    "passed_filters": 85,
-    "candidates": 15,
+    "flagged": 210,
+    "passed_filters": 79,
+    "candidates": 14,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Jeremiah Smith win the 2026 Heisman Trophy?: price swung -17c in 24h",
-      "Will Gen.G win Worlds 2026?: price swung +14c in 24h",
-      "Will Fenerbah\u00e7e SK win on 2026-11-08?: price swung +34c in 24h",
-      "Pete Hegseth out as Secretary of Defense by November 30?: price swung +12c in 24h",
-      "Will Vitesse Arnhem vs. De Graafschap end in a draw?: price swung +70c in 24h"
+      "Will Chelsea FC win on 2026-11-08?: price swung -31c in 24h",
+      "Will Brighton & Hove Albion FC win on 2026-11-08?: price swung +45c in 24h",
+      "Will Liverpool FC win on 2026-11-08?: price swung +14c in 24h",
+      "Will Real Betis Balompi\u00e9 win on 2026-11-08?: price swung +51c in 24h",
+      "Will Sunderland AFC win on 2026-11-08?: price swung +29c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
