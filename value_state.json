@@ -1,5 +1,5 @@
 {
-  "cash": 88.84914455,
+  "cash": 87.35230875,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -198,7 +198,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2818,
+      "last_bid": 0.2719,
       "tags": [
         "ai",
         "tech",
@@ -371,41 +371,47 @@
       }
     },
     {
-      "market_id": "5920623",
-      "event_id": "1217415",
-      "question": "Jets vs. Chiefs",
-      "outcome": "Jets",
-      "token_id": "41493797291848620693592503937233352315293075119747138929440973426839666633626",
-      "shares": 14.502,
-      "entry_price": 0.2048,
-      "stake": 2.97,
-      "stop_price": 0.1331,
-      "opened_at": "2026-11-07T09:03:13+00:00",
-      "url": "https://polymarket.com/market/nfl-nyj-kc-2026-11-08",
-      "last_bid": 0.2641,
+      "market_id": "6617851",
+      "event_id": "1030155",
+      "question": "Israeli airspace closed by November 30, 2026?",
+      "outcome": "Yes",
+      "token_id": "6433676448992092658631536097711321462999221927468402273896418298625478337992",
+      "shares": 15.25,
+      "entry_price": 0.2,
+      "stake": 3.05,
+      "stop_price": 0.13,
+      "opened_at": "2026-11-08T20:03:13+00:00",
+      "url": "https://polymarket.com/market/israeli-airspace-closed-by-november-30-2026",
+      "last_bid": 0.19,
       "tags": [
-        "sports",
-        "nfl",
-        "games"
+        "iran",
+        "israel",
+        "politics",
+        "geopolitics",
+        "israel-x-iran",
+        "diplomacy-ceasefire"
       ],
-      "closes_at": "2026-11-08T18:00:00+00:00",
+      "closes_at": "2026-12-01T04:59:00+00:00",
       "decision": {
         "pot": "value",
-        "category": "sports",
+        "category": "other",
         "tags": [
-          "sports",
-          "nfl",
-          "games"
+          "iran",
+          "israel",
+          "politics",
+          "geopolitics",
+          "israel-x-iran",
+          "diplomacy-ceasefire"
         ],
         "scan": [
-          "'Jets' at 0.20",
-          "liq $332,970",
-          "vol24h $24,166",
-          "closes in 1.4d"
+          "'Yes' at 0.20",
+          "liq $40,450",
+          "vol24h $12,380",
+          "closes in 22.4d"
         ],
-        "stop_price": 0.1331,
+        "stop_price": 0.13,
         "research": {
-          "items": 12,
+          "items": 11,
           "sources_ok": [
             "news",
             "bbc",
@@ -419,14 +425,14 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] Week 9 Injury Report | Jets vs. Chiefs - Kansas City Chiefs",
-            "[news] Jets vs Chiefs Prediction & Tips: Week 9 - Squawka",
-            "[news] Jets-Chiefs Game Preview | Geno Smith and Patrick Mahomes Take the Spotlight - New York Jets",
-            "[news] Jets vs. Chiefs prediction: Odds, expert picks, QB matchup, injury update, betting trends, and stats - NBC Sports",
-            "[news] NY Jets vs Chiefs predictions and expert picks for Week 9 game - Yahoo Sports",
-            "[news] Jets vs Chiefs Prediction & Odds | NFL Week 9 - Compare.bet",
-            "[news] Jets vs. Chiefs Prediction, Odds, Spread, Injuries, Trends for NFL Week 9 - Sports Illustrated",
-            "[news] Jets vs. Chiefs Preview: Do The Jets Have ANY Chance? | Gang\u2019s All Here (Video) - New York Post"
+            "[news] Lufthansa Group will not allow crews to stay overnight in Israel until November 30 \u2014 Jerusalem Post - UA.NEWS",
+            "[news] Dubai and Middle East flight disruption: British Airways resumes Dubai route while airlines continue Saudi suspensions - Cond\u00e9 Nast Traveller Middle East",
+            "[news] Polymarket Odds of Iranian General Airspace Closure by 30 November Fall to 18% - Avi-Go",
+            "[news] Tel Aviv flight drops thousands of feet after pilot stabbed in alleged terror attack - ABC News - Breaking News, Latest News and Videos",
+            "[news] US Forces Disable Ship Seeking To Break Iran Blockade - Radio Free Europe/Radio Liberty",
+            "[news] Lufthansa Group crews to avoid overnight stays in Israel amid Iranian threat - The Jerusalem Post",
+            "[news] UAE flights status update: Emirates, Etihad, Air Arabia, flydubai delays, cancellations \u2013 what travellers need to know this weekend - Gulf News",
+            "[news] Israel Requires Airlines to Report Crew Details 48 Hours Before Flights - Avi-Go"
           ]
         },
         "prediction": {
@@ -435,23 +441,23 @@
           "method": "calibration table (124 past markets)",
           "p_llm": null,
           "p_final": 0.3002,
-          "cost": 0.2048,
-          "edge": 0.0954,
+          "cost": 0.2,
+          "edge": 0.1002,
           "confidence": 0.6,
           "reasons": [
             "market says 20%",
             "calibration table (124 past markets) says 30.0%",
-            "12 headlines found, not scored (no Claude API key)",
-            "edge +9.5c after fees, confidence 0.60"
+            "11 headlines found, not scored (no Claude API key)",
+            "edge +10.0c after fees, confidence 0.60"
           ]
         },
         "risk": {
-          "stake": 2.97,
-          "kelly": 0.12,
+          "stake": 3.05,
+          "kelly": 0.1253,
           "reasons": [
-            "Kelly 12.0% of pot -> quarter-Kelly \u00a32.97",
-            "cap 10% = \u00a39.90",
-            "stake \u00a32.97"
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.05",
+            "cap 10% = \u00a39.73",
+            "stake \u00a33.05"
           ]
         }
       }
@@ -1467,6 +1473,86 @@
             "Kelly 5.5% of pot -> quarter-Kelly \u00a31.39",
             "cap 10% = \u00a310.15",
             "stake \u00a31.39"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "5920623",
+      "question": "Jets vs. Chiefs",
+      "outcome": "Jets",
+      "entry_price": 0.2048,
+      "exit_price": 0.1071,
+      "shares": 14.502,
+      "stake": 2.97,
+      "proceeds": 1.5532,
+      "pnl": -1.4168,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-07T09:03:13+00:00",
+      "closed_at": "2026-11-08T20:03:09+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "sports",
+          "nfl",
+          "games"
+        ],
+        "scan": [
+          "'Jets' at 0.20",
+          "liq $332,970",
+          "vol24h $24,166",
+          "closes in 1.4d"
+        ],
+        "stop_price": 0.1331,
+        "research": {
+          "items": 12,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Week 9 Injury Report | Jets vs. Chiefs - Kansas City Chiefs",
+            "[news] Jets vs Chiefs Prediction & Tips: Week 9 - Squawka",
+            "[news] Jets-Chiefs Game Preview | Geno Smith and Patrick Mahomes Take the Spotlight - New York Jets",
+            "[news] Jets vs. Chiefs prediction: Odds, expert picks, QB matchup, injury update, betting trends, and stats - NBC Sports",
+            "[news] NY Jets vs Chiefs predictions and expert picks for Week 9 game - Yahoo Sports",
+            "[news] Jets vs Chiefs Prediction & Odds | NFL Week 9 - Compare.bet",
+            "[news] Jets vs. Chiefs Prediction, Odds, Spread, Injuries, Trends for NFL Week 9 - Sports Illustrated",
+            "[news] Jets vs. Chiefs Preview: Do The Jets Have ANY Chance? | Gang\u2019s All Here (Video) - New York Post"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2048,
+          "edge": 0.0954,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +9.5c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.97,
+          "kelly": 0.12,
+          "reasons": [
+            "Kelly 12.0% of pot -> quarter-Kelly \u00a32.97",
+            "cap 10% = \u00a39.90",
+            "stake \u00a32.97"
           ]
         }
       }
@@ -2672,10 +2758,37 @@
       "t": "2026-11-08T19:03:04+00:00",
       "equity": 99.59,
       "cash": 88.85
+    },
+    {
+      "t": "2026-11-08T20:03:13+00:00",
+      "equity": 97.12,
+      "cash": 87.35
     }
   ],
   "last_run": {
-    "at": "2026-11-08T19:03:04+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-08T20:03:09+00:00",
+    "scanned": 1000,
+    "flagged": 260,
+    "passed_filters": 75,
+    "candidates": 51,
+    "shortlisted": 10,
+    "researched": 10,
+    "flag_examples": [
+      "Giants vs. Eagles: price swung -16c in 24h",
+      "Jets vs. Chiefs: price swung -12c in 24h",
+      "Lions vs. Dolphins: price swung +14c in 24h",
+      "Giants vs. Eagles: O/U 38.5: price swung -35c in 24h",
+      "Cowboys vs. Colts: price swung +20c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 9,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }
