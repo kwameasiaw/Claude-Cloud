@@ -1314,22 +1314,27 @@
       "t": "2026-11-08T22:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T23:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T22:03:05+00:00",
+    "at": "2026-11-08T23:03:02+00:00",
     "scanned": 1000,
-    "flagged": 210,
-    "passed_filters": 75,
-    "candidates": 16,
+    "flagged": 236,
+    "passed_filters": 88,
+    "candidates": 17,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will FC Barcelona win on 2026-11-08?: price swung +46c in 24h",
-      "Spread: Texans (-5.5): price swung -11c in 24h",
-      "Packers vs. Patriots: price swung +47c in 24h",
-      "Raiders vs. 49ers: price swung -11c in 24h",
-      "Spread: Patriots (-3.5): price swung -39c in 24h"
+      "LoL: Bilibili Gaming vs T1 - Game 1 Winner: price swung +46c in 24h",
+      "LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs: price swung +15c in 24h",
+      "Texans vs. Chargers: price swung +24c in 24h",
+      "Cardinals vs. Seahawks: price swung -13c in 24h",
+      "Raiders vs. 49ers: price swung -15c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

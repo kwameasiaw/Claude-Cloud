@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2135.23,
+      "last_bid": 2133.8,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 74603.8,
+      "last_bid": 74613.3,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 86.8,
+      "last_bid": 86.6422,
       "tags": [
         "altcoin"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 7.092462,
       "opened_at": "2026-11-08T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/AVAX-USD",
-      "last_bid": 7.925,
+      "last_bid": 7.9288,
       "tags": [
         "altcoin"
       ],
@@ -1856,10 +1856,15 @@
       "t": "2026-11-08T22:03:11+00:00",
       "equity": 100.29,
       "cash": 61.16
+    },
+    {
+      "t": "2026-11-08T23:03:11+00:00",
+      "equity": 100.27,
+      "cash": 61.16
     }
   ],
   "last_run": {
-    "at": "2026-11-08T22:03:10+00:00",
+    "at": "2026-11-08T23:03:10+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 2,
