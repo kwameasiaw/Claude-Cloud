@@ -1214,22 +1214,27 @@
       "t": "2026-11-08T02:03:04+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-08T03:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-08T02:03:03+00:00",
+    "at": "2026-11-08T03:03:04+00:00",
     "scanned": 1000,
-    "flagged": 279,
-    "passed_filters": 87,
+    "flagged": 299,
+    "passed_filters": 83,
     "candidates": 14,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Miami (FL) vs. Notre Dame: price swung -18c in 24h",
-      "Iowa vs. Northwestern: price swung +35c in 24h",
-      "Nets vs. Hawks: price swung +18c in 24h",
-      "Boise State vs. Colorado State: price swung +12c in 24h",
-      "Spread: Warriors (-7.5): price swung +38c in 24h"
+      "Nets vs. Hawks: price swung -29c in 24h",
+      "Iowa vs. Northwestern: price swung +44c in 24h",
+      "Knicks vs. Cavaliers: price swung +33c in 24h",
+      "Magic vs. Warriors: price swung -21c in 24h",
+      "Spread: Warriors (-7.5): price swung +24c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
