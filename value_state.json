@@ -1,5 +1,5 @@
 {
-  "cash": 87.19762125,
+  "cash": 86.35180469,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -279,7 +279,7 @@
       "stop_price": 0.2217,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/ufc-jos52-cir-2026-11-14",
-      "last_bid": 0.3091,
+      "last_bid": 0.3189,
       "tags": [
         "sports",
         "ufc",
@@ -354,53 +354,55 @@
       }
     },
     {
-      "market_id": "4397025",
-      "event_id": "991810",
-      "question": "Will T1 win Worlds 2026?",
+      "market_id": "6831495",
+      "event_id": "1337182",
+      "question": "US x Iran Effective Ceasefire by November 22?",
       "outcome": "Yes",
-      "token_id": "56360910151195441905859355697297471571491885496299657191480344412119595418796",
-      "shares": 13.2212,
-      "entry_price": 0.208,
-      "stake": 2.75,
-      "stop_price": 0.1352,
-      "opened_at": "2026-11-09T00:03:13+00:00",
-      "url": "https://polymarket.com/market/will-t1-win-worlds-2026",
-      "last_bid": 0.1823,
+      "token_id": "34627102538755532489941179589572165314877427108812536479353490053118265661852",
+      "shares": 2.0784,
+      "entry_price": 0.51,
+      "stake": 1.06,
+      "stop_price": 0.3315,
+      "opened_at": "2026-11-09T02:07:35+00:00",
+      "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
+      "last_bid": 0.51,
       "tags": [
-        "lol",
-        "sports",
-        "esports",
-        "league-of-legends",
-        "lol-worlds-2026",
-        "props"
+        "iran",
+        "politics",
+        "ceasefire",
+        "peace-deal",
+        "geopolitics",
+        "trump-iran",
+        "diplomacy-ceasefire"
       ],
-      "closes_at": "2026-11-29T04:59:00+00:00",
+      "closes_at": "2026-11-22T20:29:00+00:00",
       "decision": {
         "pot": "value",
-        "category": "sports",
+        "category": "other",
         "tags": [
-          "lol",
-          "sports",
-          "esports",
-          "league-of-legends",
-          "lol-worlds-2026",
-          "props"
+          "iran",
+          "politics",
+          "ceasefire",
+          "peace-deal",
+          "geopolitics",
+          "trump-iran",
+          "diplomacy-ceasefire"
         ],
         "scan": [
-          "'Yes' at 0.20",
-          "liq $82,728",
-          "vol24h $284,933",
-          "closes in 20.2d"
+          "'Yes' at 0.52",
+          "liq $69,451",
+          "vol24h $52,805",
+          "closes in 13.8d"
         ],
-        "stop_price": 0.1352,
+        "stop_price": 0.3315,
         "research": {
-          "items": 16,
+          "items": 17,
           "sources_ok": [
-            "news",
             "bbc",
             "guardian"
           ],
           "sources_failed": [
+            "news",
             "reddit",
             "x"
           ],
@@ -408,39 +410,39 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] T1 becomes the final Worlds 2026 semifinalist after beating Karmine Corp - Sheep Esports",
-            "[news] Worlds 2026: T1 versus Karmine Corp hits 2.8M viewers - Esports Charts",
-            "[news] T1 defeat Karmine Corp to advance to Worlds 2026 semifinals - GosuGamers",
-            "[news] Karmine Corp vs T1: Why T1 Will Crush KC at Worlds 2026 - The Loadout",
-            "[news] T1 vs Karmine Corp: Worlds 2026 Quarterfinal Preview - November 6, 22:00 UTC - EGamersWorld",
-            "[news] T1 Eliminate Karmine Corp, Face BLG in Worlds 2026 Semifinal - RG.org",
-            "[news] Worlds 2026: T1 vs. Bilibili Gaming \u2014 The LPL Slayer vs. BLG's Quest to Become the LCK Slayer - Sheep Esports",
-            "[news] Chovy Reaches the League of Legends Worlds 2026 final - games.gg"
+            "[bbc] Time to focus on cost of living, says PM after US election results",
+            "[bbc] US offers $20m reward for information about Iran's nuclear programme",
+            "[bbc] Could Democrats in Congress end the war in Iran?",
+            "[bbc] Major construction ongoing near Iran missile bases, satellite images suggest",
+            "[bbc] Melania Trump calls for lasting Ukraine truce as she hosts Russian and Ukrainian officials",
+            "[guardian] Strait of Hormuz could reopen as part of Qatari plan for Iran nuclear inspections",
+            "[guardian] \u2018Seismic shift\u2019: Native American women made significant gains in US midterms",
+            "[guardian] Donald Trump\u2019s power is on the wane. What next for Russia, Israel \u2013 and the rest of us?  | Simon Tisdall"
           ]
         },
         "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
+          "p_market": 0.515,
+          "p_base": 0.5421,
+          "method": "calibration table (391 past markets)",
           "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.208,
-          "edge": 0.0922,
+          "p_final": 0.5421,
+          "cost": 0.52,
+          "edge": 0.0221,
           "confidence": 0.6,
           "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "16 headlines found, not scored (no Claude API key)",
-            "edge +9.2c after fees, confidence 0.60"
+            "market says 52%",
+            "calibration table (391 past markets) says 54.2%",
+            "17 headlines found, not scored (no Claude API key)",
+            "edge +2.2c after fees, confidence 0.60"
           ]
         },
         "risk": {
-          "stake": 2.75,
-          "kelly": 0.1164,
+          "stake": 1.06,
+          "kelly": 0.046,
           "reasons": [
-            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.75",
-            "cap 10% = \u00a39.44",
-            "stake \u00a32.75"
+            "Kelly 4.6% of pot -> quarter-Kelly \u00a31.06",
+            "cap 10% = \u00a39.19",
+            "stake \u00a31.06"
           ]
         }
       }
@@ -1789,6 +1791,89 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "4397025",
+      "question": "Will T1 win Worlds 2026?",
+      "outcome": "Yes",
+      "entry_price": 0.208,
+      "exit_price": 0.0162,
+      "shares": 13.2212,
+      "stake": 2.75,
+      "proceeds": 0.2142,
+      "pnl": -2.5358,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-09T00:03:13+00:00",
+      "closed_at": "2026-11-09T01:19:37+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "lol",
+          "sports",
+          "esports",
+          "league-of-legends",
+          "lol-worlds-2026",
+          "props"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $82,728",
+          "vol24h $284,933",
+          "closes in 20.2d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 16,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] T1 becomes the final Worlds 2026 semifinalist after beating Karmine Corp - Sheep Esports",
+            "[news] Worlds 2026: T1 versus Karmine Corp hits 2.8M viewers - Esports Charts",
+            "[news] T1 defeat Karmine Corp to advance to Worlds 2026 semifinals - GosuGamers",
+            "[news] Karmine Corp vs T1: Why T1 Will Crush KC at Worlds 2026 - The Loadout",
+            "[news] T1 vs Karmine Corp: Worlds 2026 Quarterfinal Preview - November 6, 22:00 UTC - EGamersWorld",
+            "[news] T1 Eliminate Karmine Corp, Face BLG in Worlds 2026 Semifinal - RG.org",
+            "[news] Worlds 2026: T1 vs. Bilibili Gaming \u2014 The LPL Slayer vs. BLG's Quest to Become the LCK Slayer - Sheep Esports",
+            "[news] Chovy Reaches the League of Legends Worlds 2026 final - games.gg"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "16 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.75,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.75",
+            "cap 10% = \u00a39.44",
+            "stake \u00a32.75"
+          ]
+        }
+      }
     }
   ],
   "history": [
@@ -3016,30 +3101,35 @@
       "t": "2026-11-09T00:03:13+00:00",
       "equity": 94.09,
       "cash": 87.2
+    },
+    {
+      "t": "2026-11-09T02:07:35+00:00",
+      "equity": 91.93,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-09T00:03:09+00:00",
+    "at": "2026-11-09T01:19:37+00:00",
     "scanned": 1000,
-    "flagged": 245,
-    "passed_filters": 97,
-    "candidates": 48,
-    "shortlisted": 8,
-    "researched": 8,
+    "flagged": 193,
+    "passed_filters": 91,
+    "candidates": 40,
+    "shortlisted": 4,
+    "researched": 4,
     "flag_examples": [
-      "LoL: Bilibili Gaming vs T1 - Game 1 Winner: price swung +46c in 24h",
-      "Texans vs. Chargers: price swung +30c in 24h",
+      "LoL: Bilibili Gaming vs T1 - Game 3 Winner: price swung +46c in 24h",
+      "LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs: price swung +38c in 24h",
       "Lakers vs. Pistons: price swung +29c in 24h",
-      "Cardinals vs. Seahawks: price swung -18c in 24h",
-      "Packers vs. Patriots: price swung +61c in 24h"
+      "LoL: Bilibili Gaming vs T1 - Game 4 Winner: price swung +38c in 24h",
+      "Game Handicap: BLG (-1.5) vs T1 (+1.5): price swung +51c in 24h"
     ],
     "sources": [
       "bbc",
       "guardian",
       "news"
     ],
-    "predicted_fire": 5,
-    "model": "calibration table (124 past markets)",
+    "predicted_fire": 1,
+    "model": "calibration table (391 past markets)",
     "approved": 1,
     "traded": 1,
     "blocked_examples": []
