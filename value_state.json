@@ -365,7 +365,7 @@
       "stop_price": 0.3315,
       "opened_at": "2026-11-09T02:07:35+00:00",
       "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
-      "last_bid": 0.51,
+      "last_bid": 0.5,
       "tags": [
         "iran",
         "politics",
@@ -3106,32 +3106,15 @@
       "t": "2026-11-09T02:07:35+00:00",
       "equity": 91.93,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-09T03:03:28+00:00",
+      "equity": 91.91,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-09T01:19:37+00:00",
-    "scanned": 1000,
-    "flagged": 193,
-    "passed_filters": 91,
-    "candidates": 40,
-    "shortlisted": 4,
-    "researched": 4,
-    "flag_examples": [
-      "LoL: Bilibili Gaming vs T1 - Game 3 Winner: price swung +46c in 24h",
-      "LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs: price swung +38c in 24h",
-      "Lakers vs. Pistons: price swung +29c in 24h",
-      "LoL: Bilibili Gaming vs T1 - Game 4 Winner: price swung +38c in 24h",
-      "Game Handicap: BLG (-1.5) vs T1 (+1.5): price swung +51c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 1,
-    "model": "calibration table (391 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-09T03:03:28+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
