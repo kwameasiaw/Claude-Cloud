@@ -106,7 +106,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2425,
+      "last_bid": 0.2523,
       "tags": [
         "ai",
         "tech",
@@ -279,7 +279,7 @@
       "stop_price": 0.2217,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/ufc-jos52-cir-2026-11-14",
-      "last_bid": 0.3091,
+      "last_bid": 0.3288,
       "tags": [
         "sports",
         "ufc",
@@ -365,7 +365,7 @@
       "stop_price": 0.3315,
       "opened_at": "2026-11-09T02:07:35+00:00",
       "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
-      "last_bid": 0.5,
+      "last_bid": 0.48,
       "tags": [
         "iran",
         "politics",
@@ -3121,10 +3121,15 @@
       "t": "2026-11-09T05:14:51+00:00",
       "equity": 91.88,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-09T06:20:33+00:00",
+      "equity": 91.94,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-09T05:14:51+00:00",
+    "at": "2026-11-09T06:20:33+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

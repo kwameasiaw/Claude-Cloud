@@ -1755,10 +1755,15 @@
       "t": "2026-11-09T05:14:52+00:00",
       "equity": 97.37,
       "cash": 48.98
+    },
+    {
+      "t": "2026-11-09T06:20:35+00:00",
+      "equity": 97.37,
+      "cash": 48.98
     }
   ],
   "last_run": {
-    "at": "2026-11-09T05:14:51+00:00",
+    "at": "2026-11-09T06:20:33+00:00",
     "scanned": 19,
     "market_open": false,
     "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"

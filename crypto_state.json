@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2131.375,
+      "last_bid": 2119.29,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 74471.5,
+      "last_bid": 74244.91,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 86.96,
+      "last_bid": 86.008,
       "tags": [
         "altcoin"
       ],
@@ -134,7 +134,7 @@
       "stop_price": 7.092462,
       "opened_at": "2026-11-08T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/AVAX-USD",
-      "last_bid": 7.9312,
+      "last_bid": 7.8593,
       "tags": [
         "altcoin"
       ],
@@ -1886,17 +1886,23 @@
       "t": "2026-11-09T05:30:05+00:00",
       "equity": 100.28,
       "cash": 61.16
+    },
+    {
+      "t": "2026-11-09T06:20:36+00:00",
+      "equity": 100.0,
+      "cash": 61.16
     }
   ],
   "last_run": {
-    "at": "2026-11-09T05:14:52+00:00",
+    "at": "2026-11-09T06:20:35+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 2,
+    "signals": 3,
     "traded": 0,
     "blocked_examples": [
+      "UNI/USD: already 2 trades in altcoin",
       "BTC/USD: already holding BTC/USD",
-      "UNI/USD: already 2 trades in altcoin"
+      "LINK/USD: already 2 trades in altcoin"
     ]
   }
 }
