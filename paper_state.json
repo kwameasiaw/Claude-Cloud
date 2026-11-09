@@ -1379,22 +1379,27 @@
       "t": "2026-11-09T15:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-09T16:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T15:03:04+00:00",
+    "at": "2026-11-09T16:03:05+00:00",
     "scanned": 1000,
-    "flagged": 161,
-    "passed_filters": 142,
-    "candidates": 17,
+    "flagged": 144,
+    "passed_filters": 170,
+    "candidates": 25,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Bilibili Gaming win Worlds 2026?: price swung +17c in 24h",
-      "US announces end of Iranian blockade by November 30, 2026?: price swung +10c in 24h",
       "Matsuyama: Billy Harris vs Liam Broady: price swung +36c in 24h",
-      "Will Bitcoin dip to $72,500 in November?: price swung +10c in 24h",
-      "Next US-Iran senior diplomatic meeting by November 30, 2026?: price swung +16c in 24h"
+      "Counter-Strike: Balkan Outlaws vs ex-ENCE (BO3) - European Pro League : price swung +53c in 24h",
+      "Next US-Iran senior diplomatic meeting by November 30, 2026?: price swung +12c in 24h",
+      "Hersonissos 3: Johannus Monday vs Georgii Kravchenko: price swung +50c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
