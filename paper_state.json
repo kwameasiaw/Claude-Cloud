@@ -1384,22 +1384,27 @@
       "t": "2026-11-09T16:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-09T17:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T16:03:05+00:00",
+    "at": "2026-11-09T17:03:04+00:00",
     "scanned": 1000,
-    "flagged": 144,
-    "passed_filters": 170,
+    "flagged": 135,
+    "passed_filters": 163,
     "candidates": 25,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Bilibili Gaming win Worlds 2026?: price swung +17c in 24h",
-      "Matsuyama: Billy Harris vs Liam Broady: price swung +36c in 24h",
-      "Counter-Strike: Balkan Outlaws vs ex-ENCE (BO3) - European Pro League : price swung +53c in 24h",
-      "Next US-Iran senior diplomatic meeting by November 30, 2026?: price swung +12c in 24h",
-      "Hersonissos 3: Johannus Monday vs Georgii Kravchenko: price swung +50c in 24h"
+      "Matsuyama: Billy Harris vs Liam Broady: price swung +35c in 24h",
+      "Nuggets vs. Rockets: price swung -12c in 24h",
+      "Will Elon Musk post 90-114 tweets from November 7 to November 9, 2026?: price swung +89c in 24h",
+      "Will the price of Bitcoin be above $74,000 on November 9?: price swung +14c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
