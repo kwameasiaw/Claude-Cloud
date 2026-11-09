@@ -174,7 +174,7 @@
       "stop_price": 709.59,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 712.63,
+      "last_bid": 741.98,
       "tags": [
         "index"
       ],
@@ -1775,10 +1775,15 @@
       "t": "2026-11-09T12:03:10+00:00",
       "equity": 97.37,
       "cash": 48.98
+    },
+    {
+      "t": "2026-11-09T13:03:09+00:00",
+      "equity": 97.76,
+      "cash": 48.98
     }
   ],
   "last_run": {
-    "at": "2026-11-09T12:03:08+00:00",
+    "at": "2026-11-09T13:03:07+00:00",
     "scanned": 19,
     "market_open": false,
     "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"

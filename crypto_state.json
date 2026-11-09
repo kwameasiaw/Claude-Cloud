@@ -1,5 +1,5 @@
 {
-  "cash": 61.16248027210004,
+  "cash": 71.49557963960004,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2111.21,
+      "last_bid": 2120.667,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 74286.8,
+      "last_bid": 74800.7,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 86.0,
+      "last_bid": 86.55,
       "tags": [
         "altcoin"
       ],
@@ -118,46 +118,6 @@
             "risking 1.5% of pot -> \u00a312.70",
             "cap 10% = \u00a310.12",
             "stake \u00a310.12"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "AVAX/USD",
-      "event_id": "AVAX/USD",
-      "question": "Avalanche (AVAX/USD)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 1.232699,
-      "entry_price": 8.24208,
-      "stake": 10.16,
-      "stop_price": 7.092462,
-      "opened_at": "2026-11-08T00:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/AVAX-USD",
-      "last_bid": 8.0128,
-      "tags": [
-        "altcoin"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "crypto",
-        "category": "altcoin",
-        "tags": [
-          "altcoin"
-        ],
-        "stop_price": 7.092462,
-        "signal": [
-          "+1.2% above its 200-day average (uptrend)",
-          "2-day RSI 0.0 (sharp dip)",
-          "stop 13.9% below"
-        ],
-        "risk": {
-          "stake": 10.16,
-          "reasons": [
-            "stop 13.9% away",
-            "risking 1.5% of pot -> \u00a310.93",
-            "cap 10% = \u00a310.16",
-            "stake \u00a310.16"
           ]
         }
       }
@@ -736,6 +696,42 @@
             "risking 1.5% of pot -> \u00a310.12",
             "cap 10% = \u00a310.12",
             "stake \u00a310.12"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "AVAX/USD",
+      "question": "Avalanche (AVAX/USD)",
+      "outcome": "Long",
+      "entry_price": 8.24208,
+      "exit_price": 8.3825,
+      "shares": 1.232699,
+      "stake": 10.16,
+      "proceeds": 10.3331,
+      "pnl": 0.1731,
+      "reason": "take-profit",
+      "opened_at": "2026-11-08T00:03:11+00:00",
+      "closed_at": "2026-11-09T13:03:10+00:00",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 7.092462,
+        "signal": [
+          "+1.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 13.9% below"
+        ],
+        "risk": {
+          "stake": 10.16,
+          "reasons": [
+            "stop 13.9% away",
+            "risking 1.5% of pot -> \u00a310.93",
+            "cap 10% = \u00a310.16",
+            "stake \u00a310.16"
           ]
         }
       }
@@ -1906,16 +1902,20 @@
       "t": "2026-11-09T12:03:11+00:00",
       "equity": 100.15,
       "cash": 61.16
+    },
+    {
+      "t": "2026-11-09T13:03:10+00:00",
+      "equity": 100.78,
+      "cash": 71.5
     }
   ],
   "last_run": {
-    "at": "2026-11-09T12:03:10+00:00",
+    "at": "2026-11-09T13:03:09+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 2,
+    "signals": 1,
     "traded": 0,
     "blocked_examples": [
-      "UNI/USD: already 2 trades in altcoin",
       "BTC/USD: already holding BTC/USD"
     ]
   }
