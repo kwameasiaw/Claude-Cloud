@@ -1750,10 +1750,17 @@
       "t": "2026-11-09T03:03:30+00:00",
       "equity": 97.37,
       "cash": 48.98
+    },
+    {
+      "t": "2026-11-09T05:14:52+00:00",
+      "equity": 97.37,
+      "cash": 48.98
     }
   ],
   "last_run": {
-    "at": "2026-11-09T04:10:45+00:00",
-    "skipped": "Alpaca unavailable: <urlopen error [Errno 54] Connection reset by peer>"
+    "at": "2026-11-09T05:14:51+00:00",
+    "scanned": 19,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
