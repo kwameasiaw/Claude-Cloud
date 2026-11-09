@@ -14,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 125.31,
+      "last_bid": 118.03,
       "tags": [
         "consumer"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 423.52,
+      "last_bid": 401.28,
       "tags": [
         "finance"
       ],
@@ -1803,16 +1803,17 @@
       "t": "2026-11-09T20:03:10+00:00",
       "equity": 100.49,
       "cash": 80.7
+    },
+    {
+      "t": "2026-11-09T21:03:07+00:00",
+      "equity": 99.4,
+      "cash": 80.7
     }
   ],
   "last_run": {
-    "at": "2026-11-09T20:03:05+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 1,
-    "traded": 0,
-    "blocked_examples": [
-      "WMT: already holding WMT"
-    ]
+    "at": "2026-11-09T21:03:04+00:00",
+    "scanned": 19,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }
