@@ -1334,22 +1334,27 @@
       "t": "2026-11-09T03:03:28+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-09T04:10:45+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T03:03:26+00:00",
+    "at": "2026-11-09T04:10:43+00:00",
     "scanned": 1000,
-    "flagged": 231,
-    "passed_filters": 97,
-    "candidates": 19,
+    "flagged": 221,
+    "passed_filters": 100,
+    "candidates": 16,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Pelicans vs. Clippers: price swung -26c in 24h",
-      "Buccaneers vs. Bears: price swung -18c in 24h",
-      "Spread: Bears (-6.5): price swung +23c in 24h",
-      "Spread: Mavericks (-7.5): price swung +49c in 24h",
-      "Celtics vs. Bucks: price swung +14c in 24h"
+      "Pelicans vs. Clippers: price swung -44c in 24h",
+      "Buccaneers vs. Bears: price swung -21c in 24h",
+      "Spread: Bears (-6.5): price swung +24c in 24h",
+      "Heat vs. Kings: price swung -12c in 24h",
+      "Will Bilibili Gaming win Worlds 2026?: price swung +17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

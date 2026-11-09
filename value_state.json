@@ -279,7 +279,7 @@
       "stop_price": 0.2217,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/ufc-jos52-cir-2026-11-14",
-      "last_bid": 0.3189,
+      "last_bid": 0.3091,
       "tags": [
         "sports",
         "ufc",
@@ -3111,10 +3111,15 @@
       "t": "2026-11-09T03:03:28+00:00",
       "equity": 91.91,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-09T04:10:45+00:00",
+      "equity": 91.88,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-09T03:03:28+00:00",
+    "at": "2026-11-09T04:10:45+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
