@@ -1,5 +1,5 @@
 {
-  "cash": 87.96512125,
+  "cash": 87.19762125,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -106,7 +106,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2523,
+      "last_bid": 0.2425,
       "tags": [
         "ai",
         "tech",
@@ -180,98 +180,6 @@
             "Kelly 5.2% of pot -> quarter-Kelly \u00a31.33",
             "cap 10% = \u00a310.16",
             "stake \u00a31.33"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "6617851",
-      "event_id": "1030155",
-      "question": "Israeli airspace closed by November 30, 2026?",
-      "outcome": "Yes",
-      "token_id": "6433676448992092658631536097711321462999221927468402273896418298625478337992",
-      "shares": 15.25,
-      "entry_price": 0.2,
-      "stake": 3.05,
-      "stop_price": 0.13,
-      "opened_at": "2026-11-08T20:03:13+00:00",
-      "url": "https://polymarket.com/market/israeli-airspace-closed-by-november-30-2026",
-      "last_bid": 0.18,
-      "tags": [
-        "iran",
-        "israel",
-        "politics",
-        "geopolitics",
-        "israel-x-iran",
-        "diplomacy-ceasefire"
-      ],
-      "closes_at": "2026-12-01T04:59:00+00:00",
-      "decision": {
-        "pot": "value",
-        "category": "other",
-        "tags": [
-          "iran",
-          "israel",
-          "politics",
-          "geopolitics",
-          "israel-x-iran",
-          "diplomacy-ceasefire"
-        ],
-        "scan": [
-          "'Yes' at 0.20",
-          "liq $40,450",
-          "vol24h $12,380",
-          "closes in 22.4d"
-        ],
-        "stop_price": 0.13,
-        "research": {
-          "items": 11,
-          "sources_ok": [
-            "news",
-            "bbc",
-            "guardian"
-          ],
-          "sources_failed": [
-            "reddit",
-            "x"
-          ],
-          "llm_probability": null,
-          "stance": null,
-          "summary": "",
-          "headlines": [
-            "[news] Lufthansa Group will not allow crews to stay overnight in Israel until November 30 \u2014 Jerusalem Post - UA.NEWS",
-            "[news] Dubai and Middle East flight disruption: British Airways resumes Dubai route while airlines continue Saudi suspensions - Cond\u00e9 Nast Traveller Middle East",
-            "[news] Polymarket Odds of Iranian General Airspace Closure by 30 November Fall to 18% - Avi-Go",
-            "[news] Tel Aviv flight drops thousands of feet after pilot stabbed in alleged terror attack - ABC News - Breaking News, Latest News and Videos",
-            "[news] US Forces Disable Ship Seeking To Break Iran Blockade - Radio Free Europe/Radio Liberty",
-            "[news] Lufthansa Group crews to avoid overnight stays in Israel amid Iranian threat - The Jerusalem Post",
-            "[news] UAE flights status update: Emirates, Etihad, Air Arabia, flydubai delays, cancellations \u2013 what travellers need to know this weekend - Gulf News",
-            "[news] Israel Requires Airlines to Report Crew Details 48 Hours Before Flights - Avi-Go"
-          ]
-        },
-        "prediction": {
-          "p_market": 0.195,
-          "p_base": 0.3002,
-          "method": "calibration table (124 past markets)",
-          "p_llm": null,
-          "p_final": 0.3002,
-          "cost": 0.2,
-          "edge": 0.1002,
-          "confidence": 0.6,
-          "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.0%",
-            "11 headlines found, not scored (no Claude API key)",
-            "edge +10.0c after fees, confidence 0.60"
-          ]
-        },
-        "risk": {
-          "stake": 3.05,
-          "kelly": 0.1253,
-          "reasons": [
-            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.05",
-            "cap 10% = \u00a39.73",
-            "stake \u00a33.05"
           ]
         }
       }
@@ -441,6 +349,98 @@
             "Kelly 5.0% of pot -> quarter-Kelly \u00a31.20",
             "cap 10% = \u00a39.53",
             "stake \u00a31.20"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "4397025",
+      "event_id": "991810",
+      "question": "Will T1 win Worlds 2026?",
+      "outcome": "Yes",
+      "token_id": "56360910151195441905859355697297471571491885496299657191480344412119595418796",
+      "shares": 13.2212,
+      "entry_price": 0.208,
+      "stake": 2.75,
+      "stop_price": 0.1352,
+      "opened_at": "2026-11-09T00:03:13+00:00",
+      "url": "https://polymarket.com/market/will-t1-win-worlds-2026",
+      "last_bid": 0.1823,
+      "tags": [
+        "lol",
+        "sports",
+        "esports",
+        "league-of-legends",
+        "lol-worlds-2026",
+        "props"
+      ],
+      "closes_at": "2026-11-29T04:59:00+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "sports",
+        "tags": [
+          "lol",
+          "sports",
+          "esports",
+          "league-of-legends",
+          "lol-worlds-2026",
+          "props"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $82,728",
+          "vol24h $284,933",
+          "closes in 20.2d"
+        ],
+        "stop_price": 0.1352,
+        "research": {
+          "items": 16,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] T1 becomes the final Worlds 2026 semifinalist after beating Karmine Corp - Sheep Esports",
+            "[news] Worlds 2026: T1 versus Karmine Corp hits 2.8M viewers - Esports Charts",
+            "[news] T1 defeat Karmine Corp to advance to Worlds 2026 semifinals - GosuGamers",
+            "[news] Karmine Corp vs T1: Why T1 Will Crush KC at Worlds 2026 - The Loadout",
+            "[news] T1 vs Karmine Corp: Worlds 2026 Quarterfinal Preview - November 6, 22:00 UTC - EGamersWorld",
+            "[news] T1 Eliminate Karmine Corp, Face BLG in Worlds 2026 Semifinal - RG.org",
+            "[news] Worlds 2026: T1 vs. Bilibili Gaming \u2014 The LPL Slayer vs. BLG's Quest to Become the LCK Slayer - Sheep Esports",
+            "[news] Chovy Reaches the League of Legends Worlds 2026 final - games.gg"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.208,
+          "edge": 0.0922,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "16 headlines found, not scored (no Claude API key)",
+            "edge +9.2c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.75,
+          "kelly": 0.1164,
+          "reasons": [
+            "Kelly 11.6% of pot -> quarter-Kelly \u00a32.75",
+            "cap 10% = \u00a39.44",
+            "stake \u00a32.75"
           ]
         }
       }
@@ -1706,6 +1706,89 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "6617851",
+      "question": "Israeli airspace closed by November 30, 2026?",
+      "outcome": "Yes",
+      "entry_price": 0.2,
+      "exit_price": 0.13,
+      "shares": 15.25,
+      "stake": 3.05,
+      "proceeds": 1.9825,
+      "pnl": -1.0675,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-08T20:03:13+00:00",
+      "closed_at": "2026-11-09T00:03:08+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "other",
+        "tags": [
+          "iran",
+          "israel",
+          "politics",
+          "geopolitics",
+          "israel-x-iran",
+          "diplomacy-ceasefire"
+        ],
+        "scan": [
+          "'Yes' at 0.20",
+          "liq $40,450",
+          "vol24h $12,380",
+          "closes in 22.4d"
+        ],
+        "stop_price": 0.13,
+        "research": {
+          "items": 11,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] Lufthansa Group will not allow crews to stay overnight in Israel until November 30 \u2014 Jerusalem Post - UA.NEWS",
+            "[news] Dubai and Middle East flight disruption: British Airways resumes Dubai route while airlines continue Saudi suspensions - Cond\u00e9 Nast Traveller Middle East",
+            "[news] Polymarket Odds of Iranian General Airspace Closure by 30 November Fall to 18% - Avi-Go",
+            "[news] Tel Aviv flight drops thousands of feet after pilot stabbed in alleged terror attack - ABC News - Breaking News, Latest News and Videos",
+            "[news] US Forces Disable Ship Seeking To Break Iran Blockade - Radio Free Europe/Radio Liberty",
+            "[news] Lufthansa Group crews to avoid overnight stays in Israel amid Iranian threat - The Jerusalem Post",
+            "[news] UAE flights status update: Emirates, Etihad, Air Arabia, flydubai delays, cancellations \u2013 what travellers need to know this weekend - Gulf News",
+            "[news] Israel Requires Airlines to Report Crew Details 48 Hours Before Flights - Avi-Go"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.195,
+          "p_base": 0.3002,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3002,
+          "cost": 0.2,
+          "edge": 0.1002,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.0%",
+            "11 headlines found, not scored (no Claude API key)",
+            "edge +10.0c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 3.05,
+          "kelly": 0.1253,
+          "reasons": [
+            "Kelly 12.5% of pot -> quarter-Kelly \u00a33.05",
+            "cap 10% = \u00a39.73",
+            "stake \u00a33.05"
+          ]
+        }
+      }
     }
   ],
   "history": [
@@ -2928,32 +3011,37 @@
       "t": "2026-11-08T23:03:08+00:00",
       "equity": 95.24,
       "cash": 87.97
+    },
+    {
+      "t": "2026-11-09T00:03:13+00:00",
+      "equity": 94.09,
+      "cash": 87.2
     }
   ],
   "last_run": {
-    "at": "2026-11-08T23:03:05+00:00",
+    "at": "2026-11-09T00:03:09+00:00",
     "scanned": 1000,
-    "flagged": 236,
-    "passed_filters": 88,
-    "candidates": 47,
+    "flagged": 245,
+    "passed_filters": 97,
+    "candidates": 48,
     "shortlisted": 8,
     "researched": 8,
     "flag_examples": [
       "LoL: Bilibili Gaming vs T1 - Game 1 Winner: price swung +46c in 24h",
-      "LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs: price swung +15c in 24h",
-      "Texans vs. Chargers: price swung +24c in 24h",
-      "Cardinals vs. Seahawks: price swung -13c in 24h",
-      "Raiders vs. 49ers: price swung -15c in 24h"
+      "Texans vs. Chargers: price swung +30c in 24h",
+      "Lakers vs. Pistons: price swung +29c in 24h",
+      "Cardinals vs. Seahawks: price swung -18c in 24h",
+      "Packers vs. Patriots: price swung +61c in 24h"
     ],
     "sources": [
       "bbc",
       "guardian",
       "news"
     ],
-    "predicted_fire": 6,
-    "model": "calibration table (206 past markets)",
-    "approved": 2,
-    "traded": 2,
+    "predicted_fire": 5,
+    "model": "calibration table (124 past markets)",
+    "approved": 1,
+    "traded": 1,
     "blocked_examples": []
   }
 }
