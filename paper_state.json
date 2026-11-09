@@ -1414,22 +1414,27 @@
       "t": "2026-11-09T22:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-09T23:03:15+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T22:03:05+00:00",
+    "at": "2026-11-09T23:03:12+00:00",
     "scanned": 1000,
-    "flagged": 145,
-    "passed_filters": 164,
-    "candidates": 22,
+    "flagged": 146,
+    "passed_filters": 157,
+    "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "WTA Finals, Group B: Aryna Sabalenka vs Karolina Muchova: price swung +29c in 24h",
-      "Lakers vs. Hawks: price swung -10c in 24h",
-      "Will Bilibili Gaming win Worlds 2026?: price swung +17c in 24h",
-      "Matsuyama: Billy Harris vs Liam Broady: price swung +36c in 24h",
-      "CD Tecnico Universitario vs. Manta FC: O/U 2.5: price swung +14c in 24h"
+      "Lakers vs. Hawks: price swung -12c in 24h",
+      "Nuggets vs. Rockets: price swung +13c in 24h",
+      "Grizzlies vs. Raptors: price swung +12c in 24h",
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -12c in 24h",
+      "CD Tecnico Universitario vs. Manta FC: O/U 2.5: price swung +54c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
