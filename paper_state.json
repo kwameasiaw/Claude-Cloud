@@ -1359,22 +1359,27 @@
       "t": "2026-11-09T11:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-09T12:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T11:03:05+00:00",
+    "at": "2026-11-09T12:03:05+00:00",
     "scanned": 1000,
-    "flagged": 162,
-    "passed_filters": 134,
-    "candidates": 25,
+    "flagged": 155,
+    "passed_filters": 136,
+    "candidates": 22,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will Bilibili Gaming win Worlds 2026?: price swung +18c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -10c in 24h",
-      "Matsuyama: Billy Harris vs Liam Broady: price swung +36c in 24h",
-      "Will Bitcoin dip to $72,500 in November?: price swung +16c in 24h",
-      "Will Vitesse Arnhem vs. De Graafschap end in a draw?: price swung +36c in 24h"
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -12c in 24h",
+      "Matsuyama: Billy Harris vs Liam Broady: price swung +38c in 24h",
+      "Will Bitcoin dip to $72,500 in November?: price swung +14c in 24h",
+      "Nuggets vs. Rockets: price swung -11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
