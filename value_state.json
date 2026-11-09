@@ -196,7 +196,7 @@
       "stop_price": 0.2085,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/cs2-lgc-furia-2026-11-10",
-      "last_bid": 0.2895,
+      "last_bid": 0.2797,
       "tags": [
         "esports",
         "counter-strike-2",
@@ -365,7 +365,7 @@
       "stop_price": 0.3315,
       "opened_at": "2026-11-09T02:07:35+00:00",
       "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
-      "last_bid": 0.52,
+      "last_bid": 0.53,
       "tags": [
         "iran",
         "politics",
@@ -3151,10 +3151,15 @@
       "t": "2026-11-09T14:03:08+00:00",
       "equity": 91.99,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-09T15:03:06+00:00",
+      "equity": 91.98,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-09T14:03:08+00:00",
+    "at": "2026-11-09T15:03:06+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }

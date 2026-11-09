@@ -1,47 +1,7 @@
 {
-  "cash": 48.984484959999975,
+  "cash": 80.69611999999998,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "AMD",
-      "event_id": "AMD",
-      "question": "AMD (AMD)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.023759,
-      "entry_price": 417.1,
-      "stake": 9.91,
-      "stop_price": 383.73,
-      "opened_at": "2026-11-05T17:03:13+00:00",
-      "url": "https://www.google.com/finance/quote/AMD",
-      "last_bid": 421.78,
-      "tags": [
-        "tech"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "tech",
-        "tags": [
-          "tech"
-        ],
-        "stop_price": 383.73,
-        "signal": [
-          "+0.4% above its 200-day average (uptrend)",
-          "2-day RSI 6.1 (sharp dip)",
-          "stop 8.0% below"
-        ],
-        "risk": {
-          "stake": 9.91,
-          "reasons": [
-            "stop 8.0% away",
-            "risking 1.5% of pot -> \u00a318.58",
-            "cap 10% = \u00a39.91",
-            "stake \u00a39.91"
-          ]
-        }
-      }
-    },
     {
       "market_id": "WMT",
       "event_id": "WMT",
@@ -54,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 120.04,
+      "last_bid": 119.99,
       "tags": [
         "consumer"
       ],
@@ -83,46 +43,6 @@
       }
     },
     {
-      "market_id": "LLY",
-      "event_id": "LLY",
-      "question": "Eli Lilly (LLY)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.007253,
-      "entry_price": 1367.76,
-      "stake": 9.92,
-      "stop_price": 1258.34,
-      "opened_at": "2026-11-06T15:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/LLY",
-      "last_bid": 1303.76,
-      "tags": [
-        "health"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "health",
-        "tags": [
-          "health"
-        ],
-        "stop_price": 1258.34,
-        "signal": [
-          "+24.7% above its 200-day average (uptrend)",
-          "2-day RSI 7.9 (sharp dip)",
-          "stop 8.0% below"
-        ],
-        "risk": {
-          "stake": 9.92,
-          "reasons": [
-            "stop 8.0% away",
-            "risking 1.5% of pot -> \u00a318.60",
-            "cap 10% = \u00a39.92",
-            "stake \u00a39.92"
-          ]
-        }
-      }
-    },
-    {
       "market_id": "V",
       "event_id": "V",
       "question": "Visa (V)",
@@ -134,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 422.62,
+      "last_bid": 420.71,
       "tags": [
         "finance"
       ],
@@ -156,46 +76,6 @@
           "reasons": [
             "stop 5.6% away",
             "risking 1.5% of pot -> \u00a326.62",
-            "cap 10% = \u00a39.86",
-            "stake \u00a39.86"
-          ]
-        }
-      }
-    },
-    {
-      "market_id": "SPY",
-      "event_id": "SPY",
-      "question": "S&P 500 index fund (SPY)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.013394,
-      "entry_price": 736.13,
-      "stake": 9.86,
-      "stop_price": 709.59,
-      "opened_at": "2026-11-06T18:03:14+00:00",
-      "url": "https://www.google.com/finance/quote/SPY",
-      "last_bid": 741.6,
-      "tags": [
-        "index"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "stock",
-        "category": "index",
-        "tags": [
-          "index"
-        ],
-        "stop_price": 709.59,
-        "signal": [
-          "+0.8% above its 200-day average (uptrend)",
-          "2-day RSI 8.0 (sharp dip)",
-          "stop 3.6% below"
-        ],
-        "risk": {
-          "stake": 9.86,
-          "reasons": [
-            "stop 3.6% away",
-            "risking 1.5% of pot -> \u00a341.02",
             "cap 10% = \u00a39.86",
             "stake \u00a39.86"
           ]
@@ -560,6 +440,114 @@
             "risking 1.5% of pot -> \u00a320.28",
             "cap 10% = \u00a39.92",
             "stake \u00a39.92"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "AMD",
+      "question": "AMD (AMD)",
+      "outcome": "Long",
+      "entry_price": 417.1,
+      "exit_price": 486.99,
+      "shares": 0.023759,
+      "stake": 9.91,
+      "proceeds": 11.5704,
+      "pnl": 1.6604,
+      "reason": "take-profit",
+      "opened_at": "2026-11-05T17:03:13+00:00",
+      "closed_at": "2026-11-09T15:03:11+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "tech",
+        "tags": [
+          "tech"
+        ],
+        "stop_price": 383.73,
+        "signal": [
+          "+0.4% above its 200-day average (uptrend)",
+          "2-day RSI 6.1 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.91,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.58",
+            "cap 10% = \u00a39.91",
+            "stake \u00a39.91"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "LLY",
+      "question": "Eli Lilly (LLY)",
+      "outcome": "Long",
+      "entry_price": 1367.76,
+      "exit_price": 1395.19,
+      "shares": 0.007253,
+      "stake": 9.92,
+      "proceeds": 10.1193,
+      "pnl": 0.1993,
+      "reason": "take-profit",
+      "opened_at": "2026-11-06T15:03:11+00:00",
+      "closed_at": "2026-11-09T15:03:11+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "health",
+        "tags": [
+          "health"
+        ],
+        "stop_price": 1258.34,
+        "signal": [
+          "+24.7% above its 200-day average (uptrend)",
+          "2-day RSI 7.9 (sharp dip)",
+          "stop 8.0% below"
+        ],
+        "risk": {
+          "stake": 9.92,
+          "reasons": [
+            "stop 8.0% away",
+            "risking 1.5% of pot -> \u00a318.60",
+            "cap 10% = \u00a39.92",
+            "stake \u00a39.92"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "SPY",
+      "question": "S&P 500 index fund (SPY)",
+      "outcome": "Long",
+      "entry_price": 736.13,
+      "exit_price": 748.24,
+      "shares": 0.013394,
+      "stake": 9.86,
+      "proceeds": 10.0219,
+      "pnl": 0.1619,
+      "reason": "take-profit",
+      "opened_at": "2026-11-06T18:03:14+00:00",
+      "closed_at": "2026-11-09T15:03:11+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "index",
+        "tags": [
+          "index"
+        ],
+        "stop_price": 709.59,
+        "signal": [
+          "+0.8% above its 200-day average (uptrend)",
+          "2-day RSI 8.0 (sharp dip)",
+          "stop 3.6% below"
+        ],
+        "risk": {
+          "stake": 9.86,
+          "reasons": [
+            "stop 3.6% away",
+            "risking 1.5% of pot -> \u00a341.02",
+            "cap 10% = \u00a39.86",
+            "stake \u00a39.86"
           ]
         }
       }
@@ -1785,12 +1773,19 @@
       "t": "2026-11-09T14:03:11+00:00",
       "equity": 97.75,
       "cash": 48.98
+    },
+    {
+      "t": "2026-11-09T15:03:11+00:00",
+      "equity": 100.01,
+      "cash": 80.7
     }
   ],
   "last_run": {
-    "at": "2026-11-09T14:03:08+00:00",
-    "scanned": 19,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-09T15:03:06+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 0,
+    "traded": 0,
+    "blocked_examples": []
   }
 }
