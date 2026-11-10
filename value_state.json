@@ -369,7 +369,7 @@
       "stop_price": 0.1434,
       "opened_at": "2026-11-10T16:03:19+00:00",
       "url": "https://polymarket.com/market/bitcoin-above-72k-on-november-11-2026",
-      "last_bid": 0.1764,
+      "last_bid": 0.263,
       "tags": [
         "bitcoin",
         "weekly",
@@ -3364,32 +3364,15 @@
       "t": "2026-11-10T16:03:19+00:00",
       "equity": 91.4,
       "cash": 84.69
+    },
+    {
+      "t": "2026-11-10T17:03:10+00:00",
+      "equity": 92.37,
+      "cash": 84.69
     }
   ],
   "last_run": {
-    "at": "2026-11-10T16:03:07+00:00",
-    "scanned": 1000,
-    "flagged": 180,
-    "passed_filters": 168,
-    "candidates": 76,
-    "shortlisted": 19,
-    "researched": 12,
-    "flag_examples": [
-      "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
-      "BNP Paribas Nordic Open: Arthur Rinderknech vs Miomir Kecmanovic: price swung -58c in 24h",
-      "Another Fed rate hike in 2026?: price swung +17c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -17c in 24h",
-      "Will Anthropic IPO by December 31, 2026?: price swung +10c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (124 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-10T17:03:10+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }

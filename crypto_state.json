@@ -1,47 +1,7 @@
 {
-  "cash": 71.49557963960004,
+  "cash": 80.60689478960003,
   "starting_bankroll": 100.0,
   "positions": [
-    {
-      "market_id": "ETH/USD",
-      "event_id": "ETH/USD",
-      "question": "Ether (ETH/USD)",
-      "outcome": "Long",
-      "token_id": "",
-      "shares": 0.004515,
-      "entry_price": 2241.6,
-      "stake": 10.12,
-      "stop_price": 2019.451696,
-      "opened_at": "2026-11-06T00:03:11+00:00",
-      "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2024.1,
-      "tags": [
-        "major"
-      ],
-      "closes_at": "",
-      "decision": {
-        "kind": "crypto",
-        "category": "major",
-        "tags": [
-          "major"
-        ],
-        "stop_price": 2019.451696,
-        "signal": [
-          "+3.9% above its 200-day average (uptrend)",
-          "2-day RSI 2.9 (sharp dip)",
-          "stop 9.9% below"
-        ],
-        "risk": {
-          "stake": 10.12,
-          "reasons": [
-            "stop 9.9% away",
-            "risking 1.5% of pot -> \u00a315.32",
-            "cap 10% = \u00a310.12",
-            "stake \u00a310.12"
-          ]
-        }
-      }
-    },
     {
       "market_id": "BTC/USD",
       "event_id": "BTC/USD",
@@ -54,7 +14,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 73117.01,
+      "last_bid": 72891.3,
       "tags": [
         "major"
       ],
@@ -94,7 +54,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 82.08,
+      "last_bid": 81.9258,
       "tags": [
         "altcoin"
       ],
@@ -732,6 +692,42 @@
             "risking 1.5% of pot -> \u00a310.93",
             "cap 10% = \u00a310.16",
             "stake \u00a310.16"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "ETH/USD",
+      "question": "Ether (ETH/USD)",
+      "outcome": "Long",
+      "entry_price": 2241.6,
+      "exit_price": 2018.01,
+      "shares": 0.004515,
+      "stake": 10.12,
+      "proceeds": 9.1113,
+      "pnl": -1.0087,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-06T00:03:11+00:00",
+      "closed_at": "2026-11-10T17:03:17+00:00",
+      "decision": {
+        "kind": "crypto",
+        "category": "major",
+        "tags": [
+          "major"
+        ],
+        "stop_price": 2019.451696,
+        "signal": [
+          "+3.9% above its 200-day average (uptrend)",
+          "2-day RSI 2.9 (sharp dip)",
+          "stop 9.9% below"
+        ],
+        "risk": {
+          "stake": 10.12,
+          "reasons": [
+            "stop 9.9% away",
+            "risking 1.5% of pot -> \u00a315.32",
+            "cap 10% = \u00a310.12",
+            "stake \u00a310.12"
           ]
         }
       }
@@ -2037,10 +2033,15 @@
       "t": "2026-11-10T16:03:27+00:00",
       "equity": 99.62,
       "cash": 71.5
+    },
+    {
+      "t": "2026-11-10T17:03:17+00:00",
+      "equity": 99.54,
+      "cash": 80.61
     }
   ],
   "last_run": {
-    "at": "2026-11-10T16:03:25+00:00",
+    "at": "2026-11-10T17:03:15+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 0,
