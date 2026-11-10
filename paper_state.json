@@ -1464,22 +1464,27 @@
       "t": "2026-11-10T08:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T09:03:06+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T08:03:04+00:00",
+    "at": "2026-11-10T09:03:05+00:00",
     "scanned": 1000,
-    "flagged": 150,
-    "passed_filters": 166,
+    "flagged": 132,
+    "passed_filters": 174,
     "candidates": 21,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung +11c in 24h",
-      "Will Anthropic IPO by December 31, 2026?: price swung +10c in 24h",
-      "Israel x Iran ceasefire continues through December 31?: price swung +10c in 24h",
-      "Matsuyama: Rio Noguchi vs Daniel Michalski: price swung +48c in 24h",
-      "Portland Pilots vs. Hawaii Rainbow Warriors: price swung +72c in 24h"
+      "Will Anthropic IPO by December 31, 2026?: price swung +11c in 24h",
+      "Brisbane 3: Tristan Schoolkate vs Cruz Hewitt: price swung -15c in 24h",
+      "Portland Pilots vs. Hawaii Rainbow Warriors: price swung +72c in 24h",
+      "Will Kai Cenat finish his GTA marathon by November 11, 7:59 AM ET?: price swung +36c in 24h",
+      "LoL: Saigon Warriors vs Gromp Esports - Game 1 Winner: price swung +17c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
