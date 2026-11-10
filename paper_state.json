@@ -1524,22 +1524,27 @@
       "t": "2026-11-10T20:03:07+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T21:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T20:03:04+00:00",
+    "at": "2026-11-10T21:03:06+00:00",
     "scanned": 1000,
-    "flagged": 181,
-    "passed_filters": 169,
-    "candidates": 21,
+    "flagged": 189,
+    "passed_filters": 170,
+    "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will there be no change in Fed interest rates after the December 2026 : price swung -14c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -11c in 24h",
-      "Sopo: Katrina Scott vs Andrea Lazaro Garcia: price swung -13c in 24h",
-      "US announces end of Iranian blockade by November 30, 2026?: price swung -10c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -17c in 24h"
+      "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -10c in 24h",
+      "WTA Finals, Group A: Marta Kostyuk vs Jessica Pegula: price swung -30c in 24h",
+      "Lima: Marco Cecchinato vs Francisco Comesana: price swung -11c in 24h",
+      "Will Sport Lisboa e Benfica vs. FK Austria Wien end in a draw?: price swung +42c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 423.44,
+      "last_bid": 399.09,
       "tags": [
         "finance"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 150.39,
       "opened_at": "2026-11-10T16:03:25+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 164.62,
+      "last_bid": 153.71,
       "tags": [
         "energy"
       ],
@@ -1958,14 +1958,17 @@
       "t": "2026-11-10T20:03:12+00:00",
       "equity": 100.64,
       "cash": 70.65
+    },
+    {
+      "t": "2026-11-10T21:03:17+00:00",
+      "equity": 99.4,
+      "cash": 70.65
     }
   ],
   "last_run": {
-    "at": "2026-11-10T20:03:08+00:00",
-    "scanned": 28,
-    "market_open": true,
-    "signals": 0,
-    "traded": 0,
-    "blocked_examples": []
+    "at": "2026-11-10T21:03:14+00:00",
+    "scanned": 16,
+    "market_open": false,
+    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
   }
 }

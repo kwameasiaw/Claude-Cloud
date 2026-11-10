@@ -1,5 +1,5 @@
 {
-  "cash": 84.69010405,
+  "cash": 84.44944431,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -106,7 +106,7 @@
       "stop_price": 0.2085,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/cs2-lgc-furia-2026-11-10",
-      "last_bid": 0.2699,
+      "last_bid": 0.2797,
       "tags": [
         "esports",
         "counter-strike-2",
@@ -189,7 +189,7 @@
       "stop_price": 0.2217,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/ufc-jos52-cir-2026-11-14",
-      "last_bid": 0.3288,
+      "last_bid": 0.3386,
       "tags": [
         "sports",
         "ufc",
@@ -358,49 +358,41 @@
       }
     },
     {
-      "market_id": "6683301",
-      "event_id": "1314690",
-      "question": "Will the price of Bitcoin be above $72,000 on November 11?",
-      "outcome": "No",
-      "token_id": "86963574984031639448083140444265278377369666852065463670213211844630882600478",
-      "shares": 11.1981,
-      "entry_price": 0.2206,
-      "stake": 2.47,
-      "stop_price": 0.1434,
-      "opened_at": "2026-11-10T16:03:19+00:00",
-      "url": "https://polymarket.com/market/bitcoin-above-72k-on-november-11-2026",
-      "last_bid": 0.1477,
+      "market_id": "6248157",
+      "event_id": "1258851",
+      "question": "49ers vs. Cowboys",
+      "outcome": "Cowboys",
+      "token_id": "111116445215105452402195447335570138990948116962434354359812521722521696149089",
+      "shares": 3.7493,
+      "entry_price": 0.3467,
+      "stake": 1.3,
+      "stop_price": 0.2254,
+      "opened_at": "2026-11-10T21:03:14+00:00",
+      "url": "https://polymarket.com/market/nfl-sf-dal-2026-11-15",
+      "last_bid": 0.3234,
       "tags": [
-        "bitcoin",
-        "weekly",
-        "multi-strikes",
-        "crypto",
-        "crypto-prices",
-        "recurring",
-        "hide-from-new"
+        "sports",
+        "nfl",
+        "games"
       ],
-      "closes_at": "2026-11-11T17:00:00+00:00",
+      "closes_at": "2026-11-15T21:25:00+00:00",
       "decision": {
         "pot": "value",
-        "category": "crypto",
+        "category": "sports",
         "tags": [
-          "bitcoin",
-          "weekly",
-          "multi-strikes",
-          "crypto",
-          "crypto-prices",
-          "recurring",
-          "hide-from-new"
+          "sports",
+          "nfl",
+          "games"
         ],
         "scan": [
-          "'No' at 0.21",
-          "liq $37,047",
-          "vol24h $27,363",
-          "closes in 1.0d"
+          "'Cowboys' at 0.34",
+          "liq $176,642",
+          "vol24h $14,652",
+          "closes in 5.0d"
         ],
-        "stop_price": 0.1434,
+        "stop_price": 0.2254,
         "research": {
-          "items": 5,
+          "items": 12,
           "sources_ok": [
             "news",
             "bbc",
@@ -414,36 +406,39 @@
           "stance": null,
           "summary": "",
           "headlines": [
-            "[news] US CPI Report Today: Will Bitcoin Price Fall Below $72K or Recover? - TradingView",
-            "[news] We Asked ChatGPT What $430M of Bitcoin ETF Outflows Means by Month End - 24/7 Wall St.",
-            "[news] Bitcoin Price Risks Falling to $60K if This Support Fails, Analyst Says - The Coin Republic",
-            "[news] Bitcoin Price Prediction: $76K Resistance, $72K Downside Risk - Coinpaper",
-            "[guardian] US inflation rose 0.4% in October as price increases cooled and gas costs dipped"
+            "[news] 49ers vs Cowboys Prediction & Tips: Week 10 - Squawka",
+            "[news] 49ers vs Cowboys picks, predictions, odds for NFL Week 10 game Sunday - azcentral.com and The Arizona Republic",
+            "[news] 49ers and Cowboys projected to be the highest-scoring game of the season - Niners Nation",
+            "[news] 49ers vs. Cowboys Prediction, Odds, Spread, Injuries, Trends for NFL Week 10 - Sports Illustrated",
+            "[news] NFL betting lines: 49ers favored in projected shootout vs. Cowboys - Niners Wire",
+            "[news] 49ers vs. Cowboys prediction: Odds, expert picks, QB matchup, injury update, betting trends, and stats - NBC Sports",
+            "[news] Cowboys vs. 49ers odds: Opening lines for Week 10 matchup - Blogging The Boys",
+            "[news] 5 things to know about the San Francisco 49ers ahead of Week 10 matchup with Dallas Cowboys - Dallas News"
           ]
         },
         "prediction": {
-          "p_market": 0.1965,
-          "p_base": 0.3017,
-          "method": "calibration table (124 past markets)",
+          "p_market": 0.335,
+          "p_base": 0.3842,
+          "method": "calibration table (206 past markets)",
           "p_llm": null,
-          "p_final": 0.3017,
-          "cost": 0.2174,
-          "edge": 0.0843,
+          "p_final": 0.3842,
+          "cost": 0.3467,
+          "edge": 0.0374,
           "confidence": 0.6,
           "reasons": [
-            "market says 20%",
-            "calibration table (124 past markets) says 30.2%",
-            "5 headlines found, not scored (no Claude API key)",
-            "edge +8.4c after fees, confidence 0.60"
+            "market says 34%",
+            "calibration table (206 past markets) says 38.4%",
+            "12 headlines found, not scored (no Claude API key)",
+            "edge +3.7c after fees, confidence 0.60"
           ]
         },
         "risk": {
-          "stake": 2.47,
-          "kelly": 0.1077,
+          "stake": 1.3,
+          "kelly": 0.0573,
           "reasons": [
-            "Kelly 10.8% of pot -> quarter-Kelly \u00a32.47",
-            "cap 10% = \u00a39.19",
-            "stake \u00a32.47"
+            "Kelly 5.7% of pot -> quarter-Kelly \u00a31.30",
+            "cap 10% = \u00a39.06",
+            "stake \u00a31.30"
           ]
         }
       }
@@ -1957,6 +1952,87 @@
           ]
         }
       }
+    },
+    {
+      "market_id": "6683301",
+      "question": "Will the price of Bitcoin be above $72,000 on November 11?",
+      "outcome": "No",
+      "entry_price": 0.2206,
+      "exit_price": 0.0946,
+      "shares": 11.1981,
+      "stake": 2.47,
+      "proceeds": 1.0593,
+      "pnl": -1.4107,
+      "reason": "stop-loss",
+      "opened_at": "2026-11-10T16:03:19+00:00",
+      "closed_at": "2026-11-10T21:03:09+00:00",
+      "decision": {
+        "pot": "value",
+        "category": "crypto",
+        "tags": [
+          "bitcoin",
+          "weekly",
+          "multi-strikes",
+          "crypto",
+          "crypto-prices",
+          "recurring",
+          "hide-from-new"
+        ],
+        "scan": [
+          "'No' at 0.21",
+          "liq $37,047",
+          "vol24h $27,363",
+          "closes in 1.0d"
+        ],
+        "stop_price": 0.1434,
+        "research": {
+          "items": 5,
+          "sources_ok": [
+            "news",
+            "bbc",
+            "guardian"
+          ],
+          "sources_failed": [
+            "reddit",
+            "x"
+          ],
+          "llm_probability": null,
+          "stance": null,
+          "summary": "",
+          "headlines": [
+            "[news] US CPI Report Today: Will Bitcoin Price Fall Below $72K or Recover? - TradingView",
+            "[news] We Asked ChatGPT What $430M of Bitcoin ETF Outflows Means by Month End - 24/7 Wall St.",
+            "[news] Bitcoin Price Risks Falling to $60K if This Support Fails, Analyst Says - The Coin Republic",
+            "[news] Bitcoin Price Prediction: $76K Resistance, $72K Downside Risk - Coinpaper",
+            "[guardian] US inflation rose 0.4% in October as price increases cooled and gas costs dipped"
+          ]
+        },
+        "prediction": {
+          "p_market": 0.1965,
+          "p_base": 0.3017,
+          "method": "calibration table (124 past markets)",
+          "p_llm": null,
+          "p_final": 0.3017,
+          "cost": 0.2174,
+          "edge": 0.0843,
+          "confidence": 0.6,
+          "reasons": [
+            "market says 20%",
+            "calibration table (124 past markets) says 30.2%",
+            "5 headlines found, not scored (no Claude API key)",
+            "edge +8.4c after fees, confidence 0.60"
+          ]
+        },
+        "risk": {
+          "stake": 2.47,
+          "kelly": 0.1077,
+          "reasons": [
+            "Kelly 10.8% of pot -> quarter-Kelly \u00a32.47",
+            "cap 10% = \u00a39.19",
+            "stake \u00a32.47"
+          ]
+        }
+      }
     }
   ],
   "history": [
@@ -3384,10 +3460,37 @@
       "t": "2026-11-10T20:03:08+00:00",
       "equity": 91.08,
       "cash": 84.69
+    },
+    {
+      "t": "2026-11-10T21:03:14+00:00",
+      "equity": 90.47,
+      "cash": 84.45
     }
   ],
   "last_run": {
-    "at": "2026-11-10T20:03:08+00:00",
-    "skipped": "all 5 bet slots in use"
+    "at": "2026-11-10T21:03:09+00:00",
+    "scanned": 1000,
+    "flagged": 189,
+    "passed_filters": 170,
+    "candidates": 81,
+    "shortlisted": 20,
+    "researched": 12,
+    "flag_examples": [
+      "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -10c in 24h",
+      "WTA Finals, Group A: Marta Kostyuk vs Jessica Pegula: price swung -30c in 24h",
+      "Lima: Marco Cecchinato vs Francisco Comesana: price swung -11c in 24h",
+      "Will Sport Lisboa e Benfica vs. FK Austria Wien end in a draw?: price swung +42c in 24h"
+    ],
+    "sources": [
+      "bbc",
+      "guardian",
+      "news"
+    ],
+    "predicted_fire": 12,
+    "model": "calibration table (206 past markets)",
+    "approved": 1,
+    "traded": 1,
+    "blocked_examples": []
   }
 }
