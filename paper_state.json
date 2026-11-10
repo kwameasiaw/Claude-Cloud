@@ -1449,22 +1449,27 @@
       "t": "2026-11-10T05:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T06:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T05:03:04+00:00",
+    "at": "2026-11-10T06:03:06+00:00",
     "scanned": 1000,
-    "flagged": 158,
-    "passed_filters": 171,
-    "candidates": 23,
+    "flagged": 134,
+    "passed_filters": 163,
+    "candidates": 22,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Spread: Warriors (-9.5): price swung +51c in 24h",
-      "Spread: Warriors (-11.5): price swung +57c in 24h",
-      "Will Anthropic IPO by December 31, 2026?: price swung +10c in 24h",
-      "Spread: Warriors (-10.5): price swung +55c in 24h",
-      "Flyers vs. Canucks: price swung +35c in 24h"
+      "Matsuyama: Kasidit Samrej vs Yuta Shimizu: price swung +66c in 24h",
+      "Will Anthropic IPO by December 31, 2026?: price swung +11c in 24h",
+      "Will Elon Musk post 260-279 tweets from November 3 to November 10, 202: price swung -27c in 24h",
+      "US x Iran Effective Ceasefire by November 22?: price swung +11c in 24h",
+      "Portland Pilots vs. Hawaii Rainbow Warriors: price swung +12c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

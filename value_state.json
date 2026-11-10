@@ -106,7 +106,7 @@
       "stop_price": 0.2071,
       "opened_at": "2026-11-04T17:03:12+00:00",
       "url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-november-2026",
-      "last_bid": 0.2425,
+      "last_bid": 0.2327,
       "tags": [
         "ai",
         "tech",
@@ -3226,10 +3226,15 @@
       "t": "2026-11-10T05:03:06+00:00",
       "equity": 92.06,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-10T06:03:09+00:00",
+      "equity": 92.01,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-10T05:03:06+00:00",
+    "at": "2026-11-10T06:03:09+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
