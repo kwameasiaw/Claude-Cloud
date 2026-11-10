@@ -1439,22 +1439,27 @@
       "t": "2026-11-10T03:03:05+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T04:03:02+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T03:03:04+00:00",
+    "at": "2026-11-10T04:03:01+00:00",
     "scanned": 1000,
-    "flagged": 194,
-    "passed_filters": 167,
-    "candidates": 25,
+    "flagged": 201,
+    "passed_filters": 165,
+    "candidates": 21,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Grizzlies vs. Raptors: price swung +58c in 24h",
-      "Nuggets vs. Rockets: price swung +12c in 24h",
-      "Spurs vs. Suns: price swung +17c in 24h",
-      "Pacers vs. Mavericks: price swung -15c in 24h",
-      "Spread: Spurs (-9.5): price swung +28c in 24h"
+      "Bills vs. Vikings: price swung +34c in 24h",
+      "Spurs vs. Suns: price swung +22c in 24h",
+      "Spread: Bills (-3.5): price swung +38c in 24h",
+      "Pelicans vs. Warriors: price swung -20c in 24h",
+      "Spread: Bills (-4.5): price swung +39c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
