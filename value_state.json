@@ -3465,32 +3465,15 @@
       "t": "2026-11-10T21:03:14+00:00",
       "equity": 90.47,
       "cash": 84.45
+    },
+    {
+      "t": "2026-11-10T22:03:09+00:00",
+      "equity": 90.47,
+      "cash": 84.45
     }
   ],
   "last_run": {
-    "at": "2026-11-10T21:03:09+00:00",
-    "scanned": 1000,
-    "flagged": 189,
-    "passed_filters": 170,
-    "candidates": 81,
-    "shortlisted": 20,
-    "researched": 12,
-    "flag_examples": [
-      "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -10c in 24h",
-      "WTA Finals, Group A: Marta Kostyuk vs Jessica Pegula: price swung -30c in 24h",
-      "Lima: Marco Cecchinato vs Francisco Comesana: price swung -11c in 24h",
-      "Will Sport Lisboa e Benfica vs. FK Austria Wien end in a draw?: price swung +42c in 24h"
-    ],
-    "sources": [
-      "bbc",
-      "guardian",
-      "news"
-    ],
-    "predicted_fire": 12,
-    "model": "calibration table (206 past markets)",
-    "approved": 1,
-    "traded": 1,
-    "blocked_examples": []
+    "at": "2026-11-10T22:03:09+00:00",
+    "skipped": "all 5 bet slots in use"
   }
 }
