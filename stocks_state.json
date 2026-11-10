@@ -1,5 +1,5 @@
 {
-  "cash": 80.69611999999998,
+  "cash": 70.64611999999998,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 120.5,
+      "last_bid": 125.47,
       "tags": [
         "consumer"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 419.94,
+      "last_bid": 421.24,
       "tags": [
         "finance"
       ],
@@ -78,6 +78,46 @@
             "risking 1.5% of pot -> \u00a326.62",
             "cap 10% = \u00a39.86",
             "stake \u00a39.86"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "XOM",
+      "event_id": "XOM",
+      "question": "ExxonMobil (XOM)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.061645,
+      "entry_price": 163.03,
+      "stake": 10.05,
+      "stop_price": 150.39,
+      "opened_at": "2026-11-10T16:03:25+00:00",
+      "url": "https://www.google.com/finance/quote/XOM",
+      "last_bid": 162.87,
+      "tags": [
+        "energy"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "energy",
+        "tags": [
+          "energy"
+        ],
+        "stop_price": 150.39,
+        "signal": [
+          "+4.5% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.8% below"
+        ],
+        "risk": {
+          "stake": 10.05,
+          "reasons": [
+            "stop 7.8% away",
+            "risking 1.5% of pot -> \u00a319.43",
+            "cap 10% = \u00a310.05",
+            "stake \u00a310.05"
           ]
         }
       }
@@ -1893,14 +1933,19 @@
       "t": "2026-11-10T15:03:10+00:00",
       "equity": 100.03,
       "cash": 80.7
+    },
+    {
+      "t": "2026-11-10T16:03:25+00:00",
+      "equity": 100.44,
+      "cash": 70.65
     }
   ],
   "last_run": {
-    "at": "2026-11-10T15:03:06+00:00",
+    "at": "2026-11-10T16:03:19+00:00",
     "scanned": 28,
     "market_open": true,
-    "signals": 1,
-    "traded": 0,
+    "signals": 2,
+    "traded": 1,
     "blocked_examples": [
       "V: already holding V"
     ]

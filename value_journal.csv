@@ -17,3 +17,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 5087226,US-Iran Hormuz Agreement by November 30?,Yes,0.2,0.12,15.8,3.16,1.896,-1.264,stop-loss,2026-11-05T10:03:10+00:00,2026-11-08T23:03:05+00:00
 6617851,"Israeli airspace closed by November 30, 2026?",Yes,0.2,0.13,15.25,3.05,1.9825,-1.0675,stop-loss,2026-11-08T20:03:13+00:00,2026-11-09T00:03:08+00:00
 4397025,Will T1 win Worlds 2026?,Yes,0.208,0.0162,13.2212,2.75,0.2142,-2.5358,stop-loss,2026-11-09T00:03:13+00:00,2026-11-09T01:19:37+00:00
+4664662,Will Google have the best AI model at the end of November 2026?,No,0.3186,0.1936,4.1751,1.33,0.8083,-0.5217,stop-loss,2026-11-04T17:03:12+00:00,2026-11-10T16:03:06+00:00
