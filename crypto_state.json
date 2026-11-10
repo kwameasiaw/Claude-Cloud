@@ -14,7 +14,7 @@
       "stop_price": 2019.451696,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/ETH-USD",
-      "last_bid": 2093.75,
+      "last_bid": 2087.144,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 74167.3,
+      "last_bid": 74607.8,
       "tags": [
         "major"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 84.7,
+      "last_bid": 84.806,
       "tags": [
         "altcoin"
       ],
@@ -2027,10 +2027,19 @@
       "t": "2026-11-10T13:03:07+00:00",
       "equity": 100.37,
       "cash": 71.5
+    },
+    {
+      "t": "2026-11-10T15:03:12+00:00",
+      "equity": 100.41,
+      "cash": 71.5
     }
   ],
   "last_run": {
-    "at": "2026-11-10T14:14:57+00:00",
-    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    "at": "2026-11-10T15:03:10+00:00",
+    "scanned": 12,
+    "market_open": true,
+    "signals": 0,
+    "traded": 0,
+    "blocked_examples": []
   }
 }

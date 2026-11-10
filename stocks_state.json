@@ -14,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 118.03,
+      "last_bid": 120.5,
       "tags": [
         "consumer"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 401.28,
+      "last_bid": 419.94,
       "tags": [
         "finance"
       ],
@@ -1888,10 +1888,21 @@
       "t": "2026-11-10T13:03:05+00:00",
       "equity": 99.4,
       "cash": 80.7
+    },
+    {
+      "t": "2026-11-10T15:03:10+00:00",
+      "equity": 100.03,
+      "cash": 80.7
     }
   ],
   "last_run": {
-    "at": "2026-11-10T14:14:57+00:00",
-    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    "at": "2026-11-10T15:03:06+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 1,
+    "traded": 0,
+    "blocked_examples": [
+      "V: already holding V"
+    ]
   }
 }
