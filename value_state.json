@@ -279,7 +279,7 @@
       "stop_price": 0.2217,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/ufc-jos52-cir-2026-11-14",
-      "last_bid": 0.3189,
+      "last_bid": 0.3288,
       "tags": [
         "sports",
         "ufc",
@@ -365,7 +365,7 @@
       "stop_price": 0.3315,
       "opened_at": "2026-11-09T02:07:35+00:00",
       "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
-      "last_bid": 0.53,
+      "last_bid": 0.58,
       "tags": [
         "iran",
         "politics",
@@ -3211,10 +3211,15 @@
       "t": "2026-11-10T02:03:08+00:00",
       "equity": 92.02,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-10T03:03:06+00:00",
+      "equity": 92.16,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-10T02:03:08+00:00",
+    "at": "2026-11-10T03:03:06+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
