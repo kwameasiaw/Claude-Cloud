@@ -1891,9 +1891,7 @@
     }
   ],
   "last_run": {
-    "at": "2026-11-10T13:03:03+00:00",
-    "scanned": 19,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-10T14:14:57+00:00",
+    "skipped": "Alpaca unavailable: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
   }
 }
