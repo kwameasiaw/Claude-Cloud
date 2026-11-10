@@ -1484,22 +1484,27 @@
       "t": "2026-11-10T12:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T13:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T12:03:03+00:00",
+    "at": "2026-11-10T13:03:01+00:00",
     "scanned": 1000,
-    "flagged": 135,
-    "passed_filters": 188,
+    "flagged": 136,
+    "passed_filters": 190,
     "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will there be no change in Fed interest rates after the December 2026 : price swung -14c in 24h",
+      "Will there be no change in Fed interest rates after the December 2026 : price swung -16c in 24h",
       "Will the Fed increase interest rates by 25 bps after the December 2026: price swung +10c in 24h",
-      "M15 Antalya: Vladimir Osminkin vs Antoni Fabre: spread 0.04 is unusually wide",
-      "Orleans: Dalibor Svrcina vs Vitaliy Sachko: price swung -22c in 24h",
-      "Another Fed rate hike in 2026?: price swung +16c in 24h"
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -11c in 24h",
+      "Another Fed rate hike in 2026?: price swung +16c in 24h",
+      "Will Anthropic IPO by December 31, 2026?: price swung +11c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
