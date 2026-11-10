@@ -1514,22 +1514,27 @@
       "t": "2026-11-10T18:03:13+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T19:03:10+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T18:03:07+00:00",
+    "at": "2026-11-10T19:03:05+00:00",
     "scanned": 1000,
-    "flagged": 199,
-    "passed_filters": 157,
-    "candidates": 22,
+    "flagged": 189,
+    "passed_filters": 166,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will there be no change in Fed interest rates after the December 2026 : price swung -14c in 24h",
       "Will the Fed increase interest rates by 50+ bps after the December 202: price swung +10c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -18c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -19c in 24h",
-      "Orleans: Sebastian Baez vs Daniil Glinka: price swung +45c in 24h"
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -19c in 24h",
+      "BNP Paribas Nordic Open: Holger Rune vs Zizou Bergs: price swung +40c in 24h",
+      "Sopo: Katrina Scott vs Andrea Lazaro Garcia: price swung +29c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,

@@ -14,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 124.0,
+      "last_bid": 124.99,
       "tags": [
         "consumer"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 423.33,
+      "last_bid": 423.88,
       "tags": [
         "finance"
       ],
@@ -94,7 +94,7 @@
       "stop_price": 150.39,
       "opened_at": "2026-11-10T16:03:25+00:00",
       "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 163.2,
+      "last_bid": 164.35,
       "tags": [
         "energy"
       ],
@@ -1948,10 +1948,15 @@
       "t": "2026-11-10T18:03:18+00:00",
       "equity": 100.4,
       "cash": 70.65
+    },
+    {
+      "t": "2026-11-10T19:03:16+00:00",
+      "equity": 100.56,
+      "cash": 70.65
     }
   ],
   "last_run": {
-    "at": "2026-11-10T18:03:14+00:00",
+    "at": "2026-11-10T19:03:12+00:00",
     "scanned": 28,
     "market_open": true,
     "signals": 0,
