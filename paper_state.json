@@ -1444,22 +1444,27 @@
       "t": "2026-11-10T04:03:02+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T05:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T04:03:01+00:00",
+    "at": "2026-11-10T05:03:04+00:00",
     "scanned": 1000,
-    "flagged": 201,
-    "passed_filters": 165,
-    "candidates": 21,
+    "flagged": 158,
+    "passed_filters": 171,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Bills vs. Vikings: price swung +34c in 24h",
-      "Spurs vs. Suns: price swung +22c in 24h",
-      "Spread: Bills (-3.5): price swung +38c in 24h",
-      "Pelicans vs. Warriors: price swung -20c in 24h",
-      "Spread: Bills (-4.5): price swung +39c in 24h"
+      "Spread: Warriors (-9.5): price swung +51c in 24h",
+      "Spread: Warriors (-11.5): price swung +57c in 24h",
+      "Will Anthropic IPO by December 31, 2026?: price swung +10c in 24h",
+      "Spread: Warriors (-10.5): price swung +55c in 24h",
+      "Flyers vs. Canucks: price swung +35c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
