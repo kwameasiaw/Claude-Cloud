@@ -365,7 +365,7 @@
       "stop_price": 0.3315,
       "opened_at": "2026-11-09T02:07:35+00:00",
       "url": "https://polymarket.com/market/us-x-iran-effective-ceasefire-by-november-22-20261108",
-      "last_bid": 0.52,
+      "last_bid": 0.53,
       "tags": [
         "iran",
         "politics",
@@ -3206,10 +3206,15 @@
       "t": "2026-11-10T01:03:07+00:00",
       "equity": 92.0,
       "cash": 86.35
+    },
+    {
+      "t": "2026-11-10T02:03:08+00:00",
+      "equity": 92.02,
+      "cash": 86.35
     }
   ],
   "last_run": {
-    "at": "2026-11-10T01:03:07+00:00",
+    "at": "2026-11-10T02:03:08+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
