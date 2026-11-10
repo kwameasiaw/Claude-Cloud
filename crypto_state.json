@@ -14,7 +14,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 73765.4,
+      "last_bid": 73543.94,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 83.2,
+      "last_bid": 82.7424,
       "tags": [
         "altcoin"
       ],
@@ -2063,10 +2063,15 @@
       "t": "2026-11-10T22:03:16+00:00",
       "equity": 99.8,
       "cash": 80.61
+    },
+    {
+      "t": "2026-11-10T23:03:12+00:00",
+      "equity": 99.72,
+      "cash": 80.61
     }
   ],
   "last_run": {
-    "at": "2026-11-10T22:03:14+00:00",
+    "at": "2026-11-10T23:03:10+00:00",
     "scanned": 12,
     "market_open": true,
     "signals": 0,

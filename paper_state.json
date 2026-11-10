@@ -1534,22 +1534,27 @@
       "t": "2026-11-10T22:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T23:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T22:03:06+00:00",
+    "at": "2026-11-10T23:03:06+00:00",
     "scanned": 1000,
-    "flagged": 175,
-    "passed_filters": 166,
-    "candidates": 19,
+    "flagged": 177,
+    "passed_filters": 161,
+    "candidates": 18,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
       "Will the Fed increase interest rates by 50+ bps after the December 202: price swung +10c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -10c in 24h",
-      "Another Fed rate hike in 2026?: price swung +14c in 24h",
-      "Will there be no change in Fed interest rates after the January 2027 m: price swung -28c in 24h"
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -12c in 24h",
+      "WTA Finals, Group A: Coco Gauff vs Linda Noskova: price swung -38c in 24h",
+      "Dota 2: CyberHero vs Power Rangers - Game 1 Winner: price swung +39c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
