@@ -1419,21 +1419,26 @@
       "t": "2026-11-09T23:03:15+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T00:03:05+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-09T23:03:12+00:00",
+    "at": "2026-11-10T00:03:03+00:00",
     "scanned": 1000,
-    "flagged": 146,
-    "passed_filters": 157,
-    "candidates": 19,
+    "flagged": 149,
+    "passed_filters": 160,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Lakers vs. Hawks: price swung -12c in 24h",
+      "Grizzlies vs. Raptors: price swung +11c in 24h",
+      "Lakers vs. Hawks: price swung -10c in 24h",
       "Nuggets vs. Rockets: price swung +13c in 24h",
-      "Grizzlies vs. Raptors: price swung +12c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -12c in 24h",
+      "Will Kai Cenat finish his GTA marathon by November 10?: price swung -18c in 24h",
       "CD Tecnico Universitario vs. Manta FC: O/U 2.5: price swung +54c in 24h"
     ],
     "predicted_fire": 0,
