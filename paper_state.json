@@ -1454,22 +1454,27 @@
       "t": "2026-11-10T06:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-10T07:03:03+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-10T06:03:06+00:00",
+    "at": "2026-11-10T07:03:02+00:00",
     "scanned": 1000,
-    "flagged": 134,
-    "passed_filters": 163,
-    "candidates": 22,
+    "flagged": 135,
+    "passed_filters": 167,
+    "candidates": 20,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Matsuyama: Kasidit Samrej vs Yuta Shimizu: price swung +66c in 24h",
       "Will Anthropic IPO by December 31, 2026?: price swung +11c in 24h",
-      "Will Elon Musk post 260-279 tweets from November 3 to November 10, 202: price swung -27c in 24h",
-      "US x Iran Effective Ceasefire by November 22?: price swung +11c in 24h",
-      "Portland Pilots vs. Hawaii Rainbow Warriors: price swung +12c in 24h"
+      "LoL: FENNEL vs Nothin'Here (BO5) - LCP Promotion Playoffs: price swung -70c in 24h",
+      "Portland Pilots vs. Hawaii Rainbow Warriors: price swung +70c in 24h",
+      "Pete Hegseth impeached by December 31, 2026?: price swung +15c in 24h",
+      "Will Elon Musk post 260-279 tweets from November 3 to November 10, 202: price swung -27c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
