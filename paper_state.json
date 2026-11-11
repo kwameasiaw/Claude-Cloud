@@ -1594,22 +1594,27 @@
       "t": "2026-11-11T10:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-11T11:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-11T10:03:05+00:00",
+    "at": "2026-11-11T11:03:06+00:00",
     "scanned": 1000,
-    "flagged": 146,
-    "passed_filters": 199,
-    "candidates": 23,
+    "flagged": 139,
+    "passed_filters": 191,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Map Handicap: MOUZ (-1.5) vs G2 (+1.5): price swung +14c in 24h",
+      "Map Handicap: MOUZ (-1.5) vs G2 (+1.5): price swung +10c in 24h",
       "Pete Hegseth out as Secretary of Defense by December 31?: price swung -21c in 24h",
+      "Counter-Strike: MOUZ vs G2 - Map 2 Winner: price swung -11c in 24h",
       "Pete Hegseth impeached by December 31, 2026?: price swung -75c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the January 2027 : price swung +28c in 24h",
-      "Will there be no change in Fed interest rates after the January 2027 m: price swung -26c in 24h"
+      "Will the Fed increase interest rates by 25 bps after the January 2027 : price swung +25c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
