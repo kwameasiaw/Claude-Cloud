@@ -1584,22 +1584,27 @@
       "t": "2026-11-11T08:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-11T09:03:07+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-11T08:03:04+00:00",
+    "at": "2026-11-11T09:03:06+00:00",
     "scanned": 1000,
-    "flagged": 158,
-    "passed_filters": 204,
-    "candidates": 25,
+    "flagged": 163,
+    "passed_filters": 190,
+    "candidates": 24,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "Will there be no change in Fed interest rates after the December 2026 : price swung -16c in 24h",
-      "Map Handicap: TS (-1.5) vs FUT Esports (+1.5): price swung -13c in 24h",
+      "Counter-Strike: Spirit vs FUT Esports (BO3) - BLAST Rivals Group B: price swung +21c in 24h",
       "Pete Hegseth out as Secretary of Defense by December 31?: price swung -21c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the January 2027 : price swung +28c in 24h",
       "Pete Hegseth impeached by December 31, 2026?: price swung -78c in 24h",
-      "Counter-Strike: Spirit vs FUT Esports - Map 2 Winner: price swung -37c in 24h"
+      "Will there be no change in Fed interest rates after the January 2027 m: price swung -25c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
