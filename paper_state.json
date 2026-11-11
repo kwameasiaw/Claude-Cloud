@@ -1569,22 +1569,27 @@
       "t": "2026-11-11T05:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-11T06:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-11T05:03:06+00:00",
+    "at": "2026-11-11T06:03:06+00:00",
     "scanned": 1000,
-    "flagged": 171,
-    "passed_filters": 182,
-    "candidates": 22,
+    "flagged": 188,
+    "passed_filters": 178,
+    "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
+      "Thunder vs. Trail Blazers: price swung -48c in 24h",
       "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
       "Will the Fed increase interest rates by 50+ bps after the December 202: price swung +10c in 24h",
-      "Spread: Magic (-5.5): price swung +22c in 24h",
-      "Magic vs. Kings: price swung +25c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -21c in 24h"
+      "Counter-Strike: Vitality vs Team Falcons (BO3) - BLAST Rivals Group A: price swung +11c in 24h",
+      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -22c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
