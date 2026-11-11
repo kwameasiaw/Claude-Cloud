@@ -1544,22 +1544,27 @@
       "t": "2026-11-11T00:03:08+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-11T01:03:04+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-11T00:03:06+00:00",
+    "at": "2026-11-11T01:03:03+00:00",
     "scanned": 1000,
-    "flagged": 168,
-    "passed_filters": 169,
+    "flagged": 209,
+    "passed_filters": 173,
     "candidates": 19,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
       "Will there be no change in Fed interest rates after the December 2026 : price swung -15c in 24h",
-      "Pete Hegseth out as Secretary of Defense by December 31?: price swung -22c in 24h",
-      "Pete Hegseth impeached by December 31, 2026?: price swung -80c in 24h",
-      "Another Fed rate hike in 2026?: price swung +14c in 24h",
-      "Will Kai Cenat finish his GTA marathon by November 11, 7:59 AM ET?: price swung +50c in 24h"
+      "Will the Fed increase interest rates by 50+ bps after the December 202: price swung +10c in 24h",
+      "Counter-Strike: Spirit vs FUT Esports (BO3) - BLAST Rivals Group B: price swung +10c in 24h",
+      "Capitals vs. Senators: price swung +23c in 24h",
+      "Map Handicap: TS (-1.5) vs FUT Esports (+1.5): price swung +10c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
