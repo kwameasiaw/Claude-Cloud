@@ -1,5 +1,5 @@
 {
-  "cash": 70.64611999999998,
+  "cash": 60.779189999999986,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 117.24,
       "opened_at": "2026-11-06T15:03:11+00:00",
       "url": "https://www.google.com/finance/quote/WMT",
-      "last_bid": 125.97,
+      "last_bid": 124.0,
       "tags": [
         "consumer"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 399.57,
       "opened_at": "2026-11-06T18:03:14+00:00",
       "url": "https://www.google.com/finance/quote/V",
-      "last_bid": 399.09,
+      "last_bid": 421.54,
       "tags": [
         "finance"
       ],
@@ -83,39 +83,79 @@
       }
     },
     {
-      "market_id": "XOM",
-      "event_id": "XOM",
-      "question": "ExxonMobil (XOM)",
+      "market_id": "MSFT",
+      "event_id": "MSFT",
+      "question": "Microsoft (MSFT)",
       "outcome": "Long",
       "token_id": "",
-      "shares": 0.061645,
-      "entry_price": 163.03,
+      "shares": 0.019067,
+      "entry_price": 527.1,
       "stake": 10.05,
-      "stop_price": 150.39,
-      "opened_at": "2026-11-10T16:03:25+00:00",
-      "url": "https://www.google.com/finance/quote/XOM",
-      "last_bid": 153.71,
+      "stop_price": 485.34,
+      "opened_at": "2026-11-11T15:03:16+00:00",
+      "url": "https://www.google.com/finance/quote/MSFT",
+      "last_bid": 526.74,
       "tags": [
-        "energy"
+        "tech"
       ],
       "closes_at": "",
       "decision": {
         "kind": "stock",
-        "category": "energy",
+        "category": "tech",
         "tags": [
-          "energy"
+          "tech"
         ],
-        "stop_price": 150.39,
+        "stop_price": 485.34,
         "signal": [
-          "+4.5% above its 200-day average (uptrend)",
+          "+19.6% above its 200-day average (uptrend)",
           "2-day RSI 0.0 (sharp dip)",
-          "stop 7.8% below"
+          "stop 7.9% below"
         ],
         "risk": {
           "stake": 10.05,
           "reasons": [
-            "stop 7.8% away",
-            "risking 1.5% of pot -> \u00a319.43",
+            "stop 7.9% away",
+            "risking 1.5% of pot -> \u00a319.03",
+            "cap 10% = \u00a310.05",
+            "stake \u00a310.05"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "HD",
+      "event_id": "HD",
+      "question": "Home Depot (HD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 0.028933,
+      "entry_price": 347.36,
+      "stake": 10.05,
+      "stop_price": 322.98,
+      "opened_at": "2026-11-11T15:03:16+00:00",
+      "url": "https://www.google.com/finance/quote/HD",
+      "last_bid": 346.79,
+      "tags": [
+        "consumer"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "stock",
+        "category": "consumer",
+        "tags": [
+          "consumer"
+        ],
+        "stop_price": 322.98,
+        "signal": [
+          "+4.2% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.0% below"
+        ],
+        "risk": {
+          "stake": 10.05,
+          "reasons": [
+            "stop 7.0% away",
+            "risking 1.5% of pot -> \u00a321.48",
             "cap 10% = \u00a310.05",
             "stake \u00a310.05"
           ]
@@ -588,6 +628,42 @@
             "risking 1.5% of pot -> \u00a341.02",
             "cap 10% = \u00a39.86",
             "stake \u00a39.86"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "XOM",
+      "question": "ExxonMobil (XOM)",
+      "outcome": "Long",
+      "entry_price": 163.03,
+      "exit_price": 166.0,
+      "shares": 0.061645,
+      "stake": 10.05,
+      "proceeds": 10.2331,
+      "pnl": 0.1831,
+      "reason": "take-profit",
+      "opened_at": "2026-11-10T16:03:25+00:00",
+      "closed_at": "2026-11-11T15:03:16+00:00",
+      "decision": {
+        "kind": "stock",
+        "category": "energy",
+        "tags": [
+          "energy"
+        ],
+        "stop_price": 150.39,
+        "signal": [
+          "+4.5% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 7.8% below"
+        ],
+        "risk": {
+          "stake": 10.05,
+          "reasons": [
+            "stop 7.8% away",
+            "risking 1.5% of pot -> \u00a319.43",
+            "cap 10% = \u00a310.05",
+            "stake \u00a310.05"
           ]
         }
       }
@@ -2048,12 +2124,19 @@
       "t": "2026-11-11T14:03:09+00:00",
       "equity": 99.4,
       "cash": 70.65
+    },
+    {
+      "t": "2026-11-11T15:03:16+00:00",
+      "equity": 100.5,
+      "cash": 60.78
     }
   ],
   "last_run": {
-    "at": "2026-11-11T14:03:07+00:00",
-    "scanned": 17,
-    "market_open": false,
-    "skipped": "US market closed (open 14:30-21:00 UK time, weekdays)"
+    "at": "2026-11-11T15:03:09+00:00",
+    "scanned": 28,
+    "market_open": true,
+    "signals": 2,
+    "traded": 2,
+    "blocked_examples": []
   }
 }

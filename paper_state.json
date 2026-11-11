@@ -1614,22 +1614,27 @@
       "t": "2026-11-11T14:03:06+00:00",
       "equity": 100.92,
       "cash": 100.92
+    },
+    {
+      "t": "2026-11-11T15:03:08+00:00",
+      "equity": 100.92,
+      "cash": 100.92
     }
   ],
   "last_run": {
-    "at": "2026-11-11T14:03:05+00:00",
+    "at": "2026-11-11T15:03:06+00:00",
     "scanned": 1000,
-    "flagged": 130,
-    "passed_filters": 196,
-    "candidates": 24,
+    "flagged": 134,
+    "passed_filters": 192,
+    "candidates": 23,
     "shortlisted": 0,
     "researched": 0,
     "flag_examples": [
-      "LoL: Ground Zero Gaming vs Frank Esports (BO5) - LCP Promotion Playoff: spread 0.04 is unusually wide",
+      "Will Sport Lisboa e Benfica vs. FK Austria Wien end in a draw?: price swung -44c in 24h",
+      "LoL: Ground Zero Gaming vs Frank Esports (BO5) - LCP Promotion Playoff: price swung -10c in 24h",
       "Pete Hegseth out as Secretary of Defense by December 31?: price swung -17c in 24h",
-      "Will the Fed increase interest rates by 25 bps after the January 2027 : price swung +15c in 24h",
-      "Pete Hegseth impeached by December 31, 2026?: price swung -75c in 24h",
-      "Will there be no change in Fed interest rates after the January 2027 m: price swung -16c in 24h"
+      "Pete Hegseth impeached by December 31, 2026?: price swung -77c in 24h",
+      "Will the Fed increase interest rates by 25 bps after the January 2027 : price swung +14c in 24h"
     ],
     "predicted_fire": 0,
     "approved": 0,
