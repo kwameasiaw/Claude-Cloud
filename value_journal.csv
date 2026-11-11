@@ -19,3 +19,4 @@ market_id,question,outcome,entry_price,exit_price,shares,stake,proceeds,pnl,reas
 4397025,Will T1 win Worlds 2026?,Yes,0.208,0.0162,13.2212,2.75,0.2142,-2.5358,stop-loss,2026-11-09T00:03:13+00:00,2026-11-09T01:19:37+00:00
 4664662,Will Google have the best AI model at the end of November 2026?,No,0.3186,0.1936,4.1751,1.33,0.8083,-0.5217,stop-loss,2026-11-04T17:03:12+00:00,2026-11-10T16:03:06+00:00
 6683301,"Will the price of Bitcoin be above $72,000 on November 11?",No,0.2206,0.0946,11.1981,2.47,1.0593,-1.4107,stop-loss,2026-11-10T16:03:19+00:00,2026-11-10T21:03:09+00:00
+6329977,Counter-Strike: Legacy vs FURIA (BO3) - BLAST Rivals Group A,Legacy,0.3207,0.1436,3.6795,1.18,0.5284,-0.6516,stop-loss,2026-11-08T23:03:08+00:00,2026-11-11T03:03:07+00:00
