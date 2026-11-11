@@ -106,7 +106,7 @@
       "stop_price": 0.2085,
       "opened_at": "2026-11-08T23:03:08+00:00",
       "url": "https://polymarket.com/market/cs2-lgc-furia-2026-11-10",
-      "last_bid": 0.2699,
+      "last_bid": 0.2601,
       "tags": [
         "esports",
         "counter-strike-2",
@@ -3485,10 +3485,15 @@
       "t": "2026-11-11T01:03:05+00:00",
       "equity": 90.47,
       "cash": 84.45
+    },
+    {
+      "t": "2026-11-11T02:03:08+00:00",
+      "equity": 90.43,
+      "cash": 84.45
     }
   ],
   "last_run": {
-    "at": "2026-11-11T01:03:05+00:00",
+    "at": "2026-11-11T02:03:08+00:00",
     "skipped": "all 5 bet slots in use"
   }
 }
