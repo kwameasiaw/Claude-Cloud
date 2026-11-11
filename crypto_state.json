@@ -1,5 +1,5 @@
 {
-  "cash": 80.60689478960003,
+  "cash": 70.62689478960003,
   "starting_bankroll": 100.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "stop_price": 70463.741997,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/BTC-USD",
-      "last_bid": 73543.94,
+      "last_bid": 73663.8,
       "tags": [
         "major"
       ],
@@ -54,7 +54,7 @@
       "stop_price": 78.976758,
       "opened_at": "2026-11-06T00:03:11+00:00",
       "url": "https://www.google.com/finance/quote/SOL-USD",
-      "last_bid": 82.7424,
+      "last_bid": 83.2885,
       "tags": [
         "altcoin"
       ],
@@ -78,6 +78,46 @@
             "risking 1.5% of pot -> \u00a312.70",
             "cap 10% = \u00a310.12",
             "stake \u00a310.12"
+          ]
+        }
+      }
+    },
+    {
+      "market_id": "UNI/USD",
+      "event_id": "UNI/USD",
+      "question": "Uniswap (UNI/USD)",
+      "outcome": "Long",
+      "token_id": "",
+      "shares": 1.496081,
+      "entry_price": 6.67076,
+      "stake": 9.98,
+      "stop_price": 5.670146,
+      "opened_at": "2026-11-11T00:03:11+00:00",
+      "url": "https://www.google.com/finance/quote/UNI-USD",
+      "last_bid": 6.65689,
+      "tags": [
+        "altcoin"
+      ],
+      "closes_at": "",
+      "decision": {
+        "kind": "crypto",
+        "category": "altcoin",
+        "tags": [
+          "altcoin"
+        ],
+        "stop_price": 5.670146,
+        "signal": [
+          "+35.6% above its 200-day average (uptrend)",
+          "2-day RSI 0.0 (sharp dip)",
+          "stop 15.0% below"
+        ],
+        "risk": {
+          "stake": 9.98,
+          "reasons": [
+            "stop 15.0% away",
+            "risking 1.5% of pot -> \u00a39.98",
+            "cap 10% = \u00a39.98",
+            "stake \u00a39.98"
           ]
         }
       }
@@ -2068,14 +2108,23 @@
       "t": "2026-11-10T23:03:12+00:00",
       "equity": 99.72,
       "cash": 80.61
+    },
+    {
+      "t": "2026-11-11T00:03:11+00:00",
+      "equity": 99.78,
+      "cash": 70.63
     }
   ],
   "last_run": {
-    "at": "2026-11-10T23:03:10+00:00",
+    "at": "2026-11-11T00:03:10+00:00",
     "scanned": 12,
     "market_open": true,
-    "signals": 0,
-    "traded": 0,
-    "blocked_examples": []
+    "signals": 4,
+    "traded": 1,
+    "blocked_examples": [
+      "AAVE/USD: already 2 trades in altcoin",
+      "BTC/USD: already holding BTC/USD",
+      "LINK/USD: already 2 trades in altcoin"
+    ]
   }
 }
